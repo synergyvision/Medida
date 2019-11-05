@@ -1,0 +1,23 @@
+book_filename: Medida
+repo: https://github.com/rstudio/bookdown/
+output_dir: ../docs
+clean: [packages.bib, bookdown.bbl]
+delete_merged_file: false
+language:
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
+    eq: 'Ecuación '
+    thm: 'Teorema '
+    lem: 'Lema '
+    def: 'Definición '
+    cor: 'Corolario '
+    prp: 'Proposición '
+    exm: 'Ejemplo '
+    exr: 'Ejercicio '
+    proof: 'Demostración. '
+    remark: 'Nota. '
+    solution: 'Solución. '
+  ui:
+    edit: Edit
+    chapter_name: 'Capítulo '

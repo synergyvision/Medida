@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Capítulo 7 Determinantes | Medida</title>
+  <meta name="description" content="Capítulo 7 Determinantes | Medida">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Capítulo 7 Determinantes | Medida" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://synergy.vision/Medida/" />
+  <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
+  
+  <meta name="github-repo" content="synergyvision/Medida/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 Determinantes | Medida" />
+  
+  
+  <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
+
+<meta name="author" content="Synergy Vision">
+
+
+<meta name="date" content="2019-11-05">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="matrices-1.html">
+<link rel="next" href="autovalores-y-autovectores.html">
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="images/logovision-black.png" width="160"></img></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-que-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#informacion-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#practicas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
+<li class="chapter" data-level="1" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html"><i class="fa fa-check"></i><b>2</b> Estructuras algebraicas</a><ul>
+<li class="chapter" data-level="2.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#conjuntos"><i class="fa fa-check"></i><b>2.1</b> Conjuntos</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#definiciones-iniciales"><i class="fa fa-check"></i><b>2.1.1</b> Definiciones Iniciales</a></li>
+<li class="chapter" data-level="2.1.2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#operaciones-entre-conjuntos"><i class="fa fa-check"></i><b>2.1.2</b> Operaciones entre conjuntos</a></li>
+<li class="chapter" data-level="2.1.3" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#producto-cartesiano"><i class="fa fa-check"></i><b>2.1.3</b> Producto cartesiano</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#relaciones-de-equivalencia"><i class="fa fa-check"></i><b>2.2</b> Relaciones de Equivalencia</a></li>
+<li class="chapter" data-level="2.3" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#funciones"><i class="fa fa-check"></i><b>2.3</b> Funciones</a></li>
+<li class="chapter" data-level="2.4" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#cardinales"><i class="fa fa-check"></i><b>2.4</b> Cardinales</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios"><i class="fa fa-check"></i><b>2.4.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#teoria-de-grupos"><i class="fa fa-check"></i><b>2.5</b> Teoría de Grupos</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios-1"><i class="fa fa-check"></i><b>2.5.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#anillos"><i class="fa fa-check"></i><b>2.6</b> Anillos</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios-2"><i class="fa fa-check"></i><b>2.6.1</b> Ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>3</b> Vectores</a><ul>
+<li class="chapter" data-level="3.1" data-path="vectores.html"><a href="vectores.html#representacion-geometrica"><i class="fa fa-check"></i><b>3.1</b> Representación geométrica</a></li>
+<li class="chapter" data-level="3.2" data-path="vectores.html"><a href="vectores.html#operaciones-entre-vectores"><i class="fa fa-check"></i><b>3.2</b> Operaciones entre vectores</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="vectores.html"><a href="vectores.html#producto-escalar-y-producto-vectorial"><i class="fa fa-check"></i><b>3.2.1</b> Producto escalar y producto vectorial</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="vectores.html"><a href="vectores.html#rectas-y-planos"><i class="fa fa-check"></i><b>3.3</b> Rectas y Planos</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="vectores.html"><a href="vectores.html#rectas-en-el-espacio"><i class="fa fa-check"></i><b>3.3.1</b> Rectas en el espacio</a></li>
+<li class="chapter" data-level="3.3.2" data-path="vectores.html"><a href="vectores.html#rectas-en-el-plano"><i class="fa fa-check"></i><b>3.3.2</b> Rectas en el plano</a></li>
+<li class="chapter" data-level="3.3.3" data-path="vectores.html"><a href="vectores.html#planos"><i class="fa fa-check"></i><b>3.3.3</b> Planos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html"><i class="fa fa-check"></i><b>4</b> Espacios vectoriales</a><ul>
+<li class="chapter" data-level="4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales"><i class="fa fa-check"></i><b>4.1</b> Ecuaciones lineales</a></li>
+<li class="chapter" data-level="4.2" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#matrices"><i class="fa fa-check"></i><b>4.2</b> Matrices</a></li>
+<li class="chapter" data-level="4.3" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales-y-matrices"><i class="fa fa-check"></i><b>4.3</b> Ecuaciones lineales y matrices</a></li>
+<li class="chapter" data-level="4.4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#teoria-de-espacios-vectoriales"><i class="fa fa-check"></i><b>4.4</b> Teoría de espacios vectoriales</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#espacio-cociente"><i class="fa fa-check"></i><b>4.4.1</b> Espacio cociente</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ejercicios-3"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="polinomios.html"><a href="polinomios.html"><i class="fa fa-check"></i><b>5</b> Polinomios</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="polinomios.html"><a href="polinomios.html#factorizacion-prima-de-un-polinomio"><i class="fa fa-check"></i><b>5.0.1</b> Factorizacion prima de un polinomio</a></li>
+<li class="chapter" data-level="5.1" data-path="polinomios.html"><a href="polinomios.html#ejercicios-4"><i class="fa fa-check"></i><b>5.1</b> ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="matrices-1.html"><a href="matrices-1.html"><i class="fa fa-check"></i><b>6</b> Matrices</a></li>
+<li class="chapter" data-level="7" data-path="determinantes.html"><a href="determinantes.html"><i class="fa fa-check"></i><b>7</b> Determinantes</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="determinantes.html"><a href="determinantes.html#ejercicios-5"><i class="fa fa-check"></i><b>7.0.1</b> {Ejercicios}</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="autovalores-y-autovectores.html"><a href="autovalores-y-autovectores.html"><i class="fa fa-check"></i><b>8</b> Autovalores y autovectores</a></li>
+<li class="chapter" data-level="9" data-path="calculo-en-vectores-y-matrices.html"><a href="calculo-en-vectores-y-matrices.html"><i class="fa fa-check"></i><b>9</b> Cálculo en vectores y matrices</a></li>
+<li class="chapter" data-level="10" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html"><i class="fa fa-check"></i><b>10</b> Transformaciones lineales</a><ul>
+<li class="chapter" data-level="10.1" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#bases-ordenadas"><i class="fa fa-check"></i><b>10.1</b> Bases ordenadas</a></li>
+<li class="chapter" data-level="10.2" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#matriz-de-una-transformacion"><i class="fa fa-check"></i><b>10.2</b> Matriz de una transformación</a></li>
+<li class="chapter" data-level="10.3" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#transformaciones-invertibles"><i class="fa fa-check"></i><b>10.3</b> Transformaciones invertibles</a></li>
+<li class="chapter" data-level="10.4" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#funcionales-lineales"><i class="fa fa-check"></i><b>10.4</b> Funcionales lineales</a></li>
+<li class="chapter" data-level="10.5" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#el-doble-dual"><i class="fa fa-check"></i><b>10.5</b> El doble dual</a></li>
+<li class="chapter" data-level="10.6" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#ejercicios-6"><i class="fa fa-check"></i><b>10.6</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="producto-escalar.html"><a href="producto-escalar.html"><i class="fa fa-check"></i><b>11</b> Producto escalar</a><ul>
+<li class="chapter" data-level="11.0.1" data-path="producto-escalar.html"><a href="producto-escalar.html#ejercicios-7"><i class="fa fa-check"></i><b>11.0.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apéndice</b></span></li>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A.1" data-path="software-tools.html"><a href="software-tools.html#r-and-r-packages"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
+<li class="chapter" data-level="A.2" data-path="software-tools.html"><a href="software-tools.html#pandoc"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
+<li class="chapter" data-level="A.3" data-path="software-tools.html"><a href="software-tools.html#latex"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Medida</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="determinantes" class="section level1">
+<h1><span class="header-section-number">Capítulo 7</span> Determinantes</h1>
+<p>Volveremos sobre el tema de las matrices no solo sobre un cuerpo, sino que lo haremos para matrices cuyos elementos son parte de un anillo comunitativo por unidad.</p>
+<p>Recordemos que un anillo comutativo con unidad es un conjunto <span class="math inline">\(K\)</span> con dos operaciones que cumple con los axiomas de grupo para la suma, y con el producto cumple los axiomas de grupo salvo la condición de existencia de un inverso. Un ejemplo natural de anillo conmutativo es el conjunto de los números enteros. Otro ejemplo sería los polinomios sobre un cuerpo. Todo esto ya fué estudiado en el capítulo 1.</p>
+<p>Dado un anillo conmutativo con unidad <span class="math inline">\(K\)</span>, consideremos la matriz <span class="math inline">\(m\times n\)</span> sobre <span class="math inline">\(K\)</span>, esto es una función <span class="math inline">\(A\)</span> de <span class="math inline">\(\{1,2,\cdots, m \} \times \{1,2,\cdots, n \}\)</span> en <span class="math inline">\(K\)</span>, que a cada par <span class="math inline">\((i,j)\)</span> le asigna un elemento <span class="math inline">\(k_{ij}\)</span> de <span class="math inline">\(K\)</span>, es decir <span class="math inline">\(A(i,j)=k_{ij}\)</span> tambien denotado por <span class="math inline">\([K]_{ij}\)</span>. La suma y el producto de matrices las definimos como es usual (igual que en las matrices sobre un cuerpo), dadas las matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> sobre el anillo <span class="math inline">\(K\)</span>, la matriz suma <span class="math inline">\(A+B\)</span> es la matriz <span class="math display">\[(A+B)_{ij}=A_{ij}+B_{ij}\]</span> y el producto <span class="math inline">\(AB\)</span> es la matriz <span class="math display">\[(AB)_{ij}=\sum_{k} A_{ik}B_{kj}\]</span></p>
+<p>El resto de las propiedades y resultados vistos antes para matrices con coeficientes en un cuerpo, funcionan igual cuando los coeficientes de la matriz pertenecen a un anillo, salvo los resultados que involucren inversos multiplicativos (dividir). De este modo, las propiedades algebraicas funcionan igual, por ejemplo, la propiedad distributiva del producto respecto a la suma, <span class="math inline">\(A(B+C)=AB+AC\)</span>, etc.</p>
+<p>Para definir la función determinante podemos seguir dos rutas, la primera y m?s com?n es dando la fórmula explícita del calculo del determinante de una matriz. Un ejemplo de esto es definir el determinante de una matriz cuadrada <span class="math inline">\(A\)</span> de orden <span class="math inline">\(2\)</span> como: <span class="math display">\[ A_{11}A_{22}-A_{12}A_{21}.\]</span> Para una matriz <span class="math inline">\(3\times 3\)</span>, la fórmula se complica un poco mas; suponga que <span class="math inline">\(B\)</span> es una matriz cuadrada de orden <span class="math inline">\(3\)</span>, entonces su determinante es: <span class="math display">\[B_{11}B_{22}B_{33}+B_{12}B_{23}B_{31}+B_{21}B_{32}B_{13}-B_{13}B_{22}B_{31}-B_{23}B_{32}B_{11}-B_{12}B_{21}B_{33}.\]</span> Y si se quiere definir el determinante de una matriz <span class="math inline">\(4\times 4\)</span>, la fórmula es aún mas complicada. El otro camino para definir el determinante de una matriz es definiendo en abstracto una función que se comporte como queremos y luego demostrar que esta función es única (y que coincide con el determinante conocido, es decir, con la fórmula). Este último es el camino que seguiremos.</p>
+<p>En la primera parte del capítulo nos dedicaremos a definir la “función determinante” y mostrar que tal función existe. Luego nos dedicaremos a estudiar dicha función.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-371" class="definition"><strong>Definición 7.1  </strong></span>Sea <span class="math inline">\(K\)</span> un anillo conmutativo con unidad, <span class="math inline">\(n\)</span> un entero positivo. Sea <span class="math inline">\(D\)</span> una función que a cada matriz <span class="math inline">\(A\)</span> sobre <span class="math inline">\(K\)</span>, de orden <span class="math inline">\(n\)</span> le asigna un escalar <span class="math inline">\(D(A)\)</span> en <span class="math inline">\(K\)</span>. Decimos que <span class="math inline">\(D\)</span> es <em><span class="math inline">\(n\)</span>-lineal</em> si para cada <span class="math inline">\(i\)</span>, <span class="math inline">\(1\leq i\leq n\)</span>, <span class="math inline">\(D\)</span> es una función lineal para la fila <span class="math inline">\(i\)</span>-ésima cuando las otras <span class="math inline">\(n-1\)</span> filas se dejan fijas.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> En la definición anterior, decir que la función <span class="math inline">\(D\)</span> es lineal en la fila <span class="math inline">\(i\)</span> es equivalente a decir que si <span class="math inline">\(v_{1}, v_{2},\cdots , v_{n}\)</span> son las <span class="math inline">\(n\)</span> filas de la matriz <span class="math inline">\(A\)</span>, y se considera la funci?n <span class="math inline">\(D\)</span> solo respecto de la fila <span class="math inline">\(i\)</span>, se tiene que <span class="math display">\[D(v_{1}, v_{2},\cdots \lambda v_{i}+u_{i},\cdots, v_{n})=\lambda D(v_{1}, v_{2},\cdots v_{i},\cdots, v_{n})+D(v_{1}, v_{2},\cdots u_{i},\cdots, v_{n}).\]</span> Otra forma de verlo es pensar en la linealidad de la función <span class="math inline">\(D\)</span> cuando se considera una matriz <span class="math inline">\(B\)</span> donde <span class="math inline">\(B_{rj}=0\)</span> si <span class="math inline">\(r\neq i\)</span>, donde se cumple que <span class="math inline">\(D(\lambda A+B)=\lambda D(A)+D(B)\)</span>.</p>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-373" class="example"><strong>Ejemplo 7.1  </strong></span>Sea <span class="math inline">\(D\)</span> la función que a cada matriz <span class="math inline">\(A\)</span> sobre <span class="math inline">\(K\)</span> de orden <span class="math inline">\(n\)</span>, le asigna el valor <span class="math inline">\(D(A)=\prod_{r=1}^{n}A_{rr}=A_{11}A_{22}\cdots A_{nn}\)</span>. <span class="math inline">\(D\)</span> es una función <span class="math inline">\(n\)</span>-lineal. En efecto, para cada <span class="math inline">\(i\)</span>, <span class="math inline">\(1\leq i\leq n\)</span>, si consideramos otra matriz <span class="math inline">\(B\)</span> sobre <span class="math inline">\(K\)</span>, de oreden <span class="math inline">\(n\)</span>, y consideramos a <span class="math inline">\(D\)</span> como una función de la <span class="math inline">\(i\)</span>-ésima fila, se tiene que <span class="math inline">\(\begin{array}{rl} D(\lambda A+B)=&amp;(A_{11})(A_{22})\cdots (\lambda A_{ii}+B_{ii}) \cdots (A_{nn})\\ =&amp;(A_{11})(A_{22})\cdots (A_{nn})) (\lambda A_{ii}+B_{ii})\\ =&amp;\lambda ((A_{11})(A_{22})\cdots (A_{nn}))A_{ii}+ ((A_{11})(A_{22})\cdots (A_{nn}))B_{ii})\\ \lambda D(A) + D(B) \end{array}\)</span>
+</div>
+
+
+<div class="lemma">
+<span id="lem:unnamed-chunk-374" class="lemma"><strong>Lema 7.1  </strong></span>Una combinación lineal de funciones <span class="math inline">\(n\)</span>-lineales, es una función <span class="math inline">\(n\)</span>-lineal.
+</div>
+ 
+<div class="proof">
+ <span class="proof"><em>Demostración. </em></span> Basta considerar la combinación lineal de dos funciones <span class="math inline">\(n\)</span>-lineales. Sean <span class="math inline">\(D\)</span> y <span class="math inline">\(E\)</span> dos funciones <span class="math inline">\(n\)</span>-lineales y <span class="math inline">\(a\in K\)</span>. Como <span class="math inline">\((aD+E)(A)=aD(A)+E(A)\)</span> para toda matriz <span class="math inline">\(A\)</span>, entonces al fijar la fila <span class="math inline">\(i\)</span> de las matrices <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, considerando un escalar <span class="math inline">\(c\in K\)</span> y <span class="math inline">\(D\)</span> y <span class="math inline">\(E\)</span> son <span class="math inline">\(n\)</span>-lineales, se tiene que <span class="math display">\[\begin{array}{rl}
+(aD+E)(cA_{\ast i}+B_{\ast i})=&amp;aD(cA_{\ast i}+B_{\ast i})+E(cA_{\ast i}+B_{\ast i})\\
+=&amp;acD(A_{\ast i})+aD(B_{\ast i})+cE(A_{\ast i})+E(B_{\ast i})\\
+=&amp;c(aD(A_{\ast i})+E(A_{\ast i}))+(aD(B_{\ast i})+E(B_{\ast i}))\\
+=&amp;c(aD+E)(A_{\ast i})+(aD+E)(B_{\ast i})
+\end{array}.\]</span>
+</div>
+
+<p>El lema anterior nos permite asegurar que el conjunto de funciones <span class="math inline">\(n\)</span>-lineales es un subespacio del espacio de las funciones de <span class="math inline">\(\mathcal{M}_{n}\)</span>, el espacio de las matrices <span class="math inline">\(n\times n\)</span>, en el cuerpo <span class="math inline">\(K\)</span>.</p>
+
+<div class="example">
+<span id="exm:ejm65" class="example"><strong>Ejemplo 7.2  </strong></span>La función <span class="math inline">\(D\)</span> definida en el espacio de las matrices cuadradas de orden <span class="math inline">\(2\)</span>, como <span class="math inline">\(D(A)=A_{11}A_{22}-A_{12}A_{21}\)</span> es una función bilineal que es combinación lineal de las funciones bilineales <span class="math inline">\(D_{1}(A)=A_{11}A_{22}\)</span> y <span class="math inline">\(D_{2}(A)=A_{12}A_{21}\)</span>. En efecto <span class="math inline">\(D=D_{1}-D_{2}\)</span>. Es claro que la función <span class="math inline">\(D\)</span> es exactamente el determinante de matrices <span class="math inline">\(2\times 2\)</span>. Pero la función <span class="math inline">\(D\)</span> tiene mas propiedades que ser la combinación lineal de funciones bilineales: (1) <span class="math inline">\(D(I)=1\)</span>. (2) <span class="math inline">\(D(A)=0\)</span>, si las filas de <span class="math inline">\(A\)</span> son iguales. (3) <span class="math inline">\(D(B)=-D(A)\)</span> si <span class="math inline">\(B\)</span> se obtiene de intercambiar las filas de <span class="math inline">\(A\)</span>. En efecto, si <span class="math inline">\(B=e_{12}A\)</span> (<span class="math inline">\(B\)</span> se obtiene de intercambiar las filas <span class="math inline">\(1\)</span> y <span class="math inline">\(2\)</span> de <span class="math inline">\(A\)</span>), entoces <span class="math inline">\(B_{\ast 1}=A_{\ast 2}\)</span> y <span class="math inline">\(B_{\ast 2}=A_{\ast 1}\)</span>. As? <span class="math display">\[\begin{array}{rl}
+D(B)=&amp;B_{11}B_{22}-B_{12}B_{21}\\
+=&amp;A_{21}A_{21}-A_{22}A_{11}\\
+=&amp;-(A_{22}A_{11}-A_{21}A_{21})\\
+=&amp;-D(A)
+\end{array}\]</span>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-376" class="definition"><strong>Definición 7.2  </strong></span>Sea <span class="math inline">\(D\)</span> una función n-lineal. Se dice que <span class="math inline">\(D\)</span> es <em>alternada</em> si se tiene que: (i) <span class="math inline">\(D(A)=0\)</span> cuando <span class="math inline">\(A\)</span> tiene dos filas iguales. (ii) <span class="math inline">\(D(B)=-D(A)\)</span> cuando <span class="math inline">\(B\)</span> se obtiene al aplicar una y solo una operaci?n de cambio de filas a <span class="math inline">\(A\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-377" class="definition"><strong>Definición 7.3  </strong></span>Sea <span class="math inline">\(K\)</span> un anillo conmutativo con unidad y sea <span class="math inline">\(n\in\mathbb{N}\)</span>. Sea <span class="math inline">\(D\)</span> una función de <span class="math inline">\(\mathcal{M}_{n}\)</span> en <span class="math inline">\(K\)</span>. Decimos que <span class="math inline">\(D\)</span> es una <em>función determinante</em> si (i) es <span class="math inline">\(n\)</span>-lineal, (ii) es alternada y (iii) <span class="math inline">\(D(I)=0\)</span>.</p>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-378" class="example"><strong>Ejemplo 7.3  </strong></span>La función definida en el ejemplo <a href="#exp:ejem65"><strong>??</strong></a> es una función determinante. Ya se vió que es <span class="math inline">\(2\)</span>-lineal. Es fácil ver que <span class="math inline">\(D(I)=1\)</span> para la matriz identidad <span class="math inline">\(2\times 2\)</span>. En efecto, <span class="math display">\[D\left(\begin{array}{cc}
+1&amp;0\\
+0&amp;1
+\end{array} \right) =1+0=1\]</span> Y es alternada, ya que <span class="math display">\[\begin{array}{rl}
+D\left(\begin{array}{cc}
+a&amp;b\\
+c&amp;d
+\end{array} \right)=&amp;ad-bc\\
+=&amp;-(cb-da)\\
+=&amp;-D\left(\begin{array}{cc}
+c&amp;d\\
+a&amp;b
+\end{array} \right)\\
+\end{array}
+\]</span>
+</div>
+
+
+<div class="lemma">
+<span id="lem:unnamed-chunk-379" class="lemma"><strong>Lema 7.2  </strong></span>Sea <span class="math inline">\(D\)</span> una función <span class="math inline">\(2\)</span>-lineal con la propiedad: si <span class="math inline">\(A\)</span> es una matriz <span class="math inline">\(2\times 2\)</span> con dos filas iguales, <span class="math inline">\(D(A)=0\)</span>. Entonces <span class="math inline">\(D\)</span> es alternada.
+</div>
+ 
+<div class="proof">
+ <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(B\)</span> una matriz que se obtiene de <span class="math inline">\(A\)</span> intercambiando filas. Sean <span class="math inline">\(A_{1\ast}\)</span> y <span class="math inline">\(A_{2\ast}\)</span> la primera y segunda fila de <span class="math inline">\(A\)</span> y <span class="math inline">\(B_{1\ast}\)</span> y <span class="math inline">\(B_{2\ast}\)</span> las respectivas filas de <span class="math inline">\(B\)</span>; note que <span class="math inline">\(B_{1\ast}=A_{2\ast}\)</span> y <span class="math inline">\(B_{2\ast}=A_{1\ast}\)</span>. Además <span class="math display">\[\begin{array}{rl}
+D(A+B)=&amp;D(A_{1\ast}+B_{1\ast},A_{2\ast}+B_{2\ast})\\
+=&amp;D(A_{1\ast}+A_{2\ast},A_{2\ast}+A_{1\ast})\\
+\end{array}.\]</span> Como <span class="math inline">\(D\)</span> es <span class="math inline">\(2\)</span>-lineal, se tiene que: <span class="math display">\[\begin{array}{rl}
+D(A+B)=&amp;D(A_{1\ast}+A_{2\ast},A_{2\ast}+A_{1\ast})\\
+=&amp;D(A_{1\ast},A_{2\ast}+A_{1\ast})+D(A_{2\ast},A_{2\ast}+A_{1\ast})\\
+=&amp;D(A_{1\ast},A_{1\ast})+D(A_{1\ast},A_{2\ast})+D(A_{2\ast},A_{1\ast})+D(A_{2\ast},A_{2\ast})\\
+=&amp;D(A_{1\ast},A_{2\ast})+D(A_{2\ast},A_{1\ast})
+\end{array}.\]</span> Por hipótesis, <span class="math inline">\(D(A+B)=0\)</span> y <span class="math inline">\(D(A_{1\ast},A_{1\ast})=D(A_{2\ast},A_{2\ast}=0)\)</span>, entonces <span class="math display">\[0=D(A_{1\ast},A_{2\ast})+D(A_{2\ast},A_{1\ast})\]</span> por lo tanto, <span class="math display">\[D(A_{1\ast},A_{2\ast})=-D(A_{2\ast},A_{1\ast}).\]</span>
+</div>
+
+
+<div class="lemma">
+<span id="lem:unnamed-chunk-381" class="lemma"><strong>Lema 7.3  </strong></span>Sea <span class="math inline">\(D\)</span> una función <span class="math inline">\(n\)</span>-lineal de las matrices <span class="math inline">\(n\times n\)</span> sobre <span class="math inline">\(K\)</span>. Supóngase que <span class="math inline">\(D\)</span> tiene la propiedad: si <span class="math inline">\(A\)</span> es una matriz <span class="math inline">\(n\times n\)</span> con dos filas adyacentes iguales, <span class="math inline">\(D(A)=0\)</span>. Entonces <span class="math inline">\(D\)</span> es alternada.
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(B\)</span> una matriz que se obtiene de <span class="math inline">\(A\)</span> al intercambiar dos filas adyacentes. Por un razonamiento análogo al anterior se sigue que <span class="math inline">\(D\)</span> es alternada. Ahora, si <span class="math inline">\(B\)</span> es el resultado de alternar dos filas cuales quiera de <span class="math inline">\(A\)</span>, dig?áos <span class="math inline">\(1\leq i&lt;j\leq n\)</span>, podemos obetener <span class="math inline">\(B\)</span> por una sucesión de intercambio de filas adyacentes. Cambiaríamos la fila <span class="math inline">\(i\)</span> con la fila <span class="math inline">\(i+1\)</span>, luego la fila <span class="math inline">\(i+1\)</span> (donde yace la fila <span class="math inline">\(i\)</span> de <span class="math inline">\(A\)</span>) con la <span class="math inline">\(i+1\)</span> y así sucesivamente hasta alcanzar la posición <span class="math inline">\(j\)</span>-ésima; estas son <span class="math inline">\(j-i\)</span> operaciones. De igual forma <subimos> la fila <span class="math inline">\(j\)</span> de <span class="math inline">\(A\)</span> (que ahora yace en la fila <span class="math inline">\(j-1\)</span>) aplicando intercambio de filas adyacentes, estas son <span class="math inline">\(j-i-1\)</span> operaciones elementales. De este modo, la operación <span class="math inline">\(e_{ij}(A)\)</span> es igual a aplicar <span class="math inline">\((j-i)+(j-i+1)=2(j-i)+1\)</span> operaciones de intercambio de filas adyacentes, para las cuales se tiene la propiedad de <span class="math inline">\(D(\hat{A})=-D(A)\)</span>. Así <span class="math inline">\(D(B)=(-1)^{2k-1}D(A)=-D(A)\)</span>. Ahora, supongamos que <span class="math inline">\(A\)</span> es una matriz con dos filas iguales, digamos <span class="math inline">\(1\leq i&lt;j\leq n\)</span>. Si son adyacentes, es decir, <span class="math inline">\(j=i+1\)</span>, por hipótesis, <span class="math inline">\(D(A)=0\)</span>, si <span class="math inline">\(j&gt;i+1\)</span>, intercambiando la fila <span class="math inline">\(A_{j\ast}\)</span> con la fila <span class="math inline">\(A_{i+1\ast}\)</span> obtenmos una matriz <span class="math inline">\(B\)</span> tal que <span class="math inline">\(D(B)=0\)</span>, entonces <span class="math inline">\(D(A)=-D(B)=0\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-383" class="definition"><strong>Definición 7.4  </strong></span>Sea <span class="math inline">\(A\)</span> una matriz <span class="math inline">\(n\times n\)</span> (<span class="math inline">\(n&gt;1\)</span>) sobre <span class="math inline">\(\mathbb{K}\)</span>. Denotaremos por <span class="math inline">\(A(i|j)\)</span> a la matriz <span class="math inline">\((n-1)\times (n-1)\)</span> que se obtiene eliminando la <span class="math inline">\(i\)</span>-ésima fila y la <span class="math inline">\(j\)</span>-ésima columna de <span class="math inline">\(A\)</span>. Si <span class="math inline">\(D\)</span> es una función <span class="math inline">\((n-1)\)</span>-lineal, definimos <em><span class="math inline">\(D_{ij}=D(A(i|j))\)</span></em>.</p>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:teo612" class="theorem"><strong>Teorema 7.1  </strong></span>Sea <span class="math inline">\(D\)</span> una función <span class="math inline">\((n-1)\)</span>-lineal alternada de las matrices <span class="math inline">\(n-1\times n-1\)</span> sobre <span class="math inline">\(\mathbb{K}\)</span>. Para todo <span class="math inline">\(1\leq j\leq n\)</span>, la función <span class="math display">\[E_{j}(A)=\sum_{i=1}^{n} (-1)^{i+j}A_{ij}D_{ij}(A)\]</span> es una función <span class="math inline">\(n\)</span>-lineal de las matrices <span class="math inline">\(n\times n\)</span>. Si <span class="math inline">\(D\)</span> es una función determinante, también lo es <span class="math inline">\(E_{j}\)</span>.</p>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Por definición <span class="math inline">\(D_{ij}\)</span> es independiente de la fila <span class="math inline">\(i\)</span>. Ahora, como <span class="math inline">\(D\)</span> es <span class="math inline">\((n-1)\)</span>-lineal, <span class="math inline">\(D_{ij}\)</span> es lineal para cada fila salvo la fila <span class="math inline">\(i\)</span>, por lo tanto <span class="math inline">\(A_{ij}D_{ij}(A)\)</span> es <span class="math inline">\(n\)</span>-lineal, y así, la combinación lineal de <span class="math inline">\(E_{j}\)</span>, es <span class="math inline">\(n\)</span>-lineal. Veamos que <span class="math inline">\(E_{j}\)</span> es alternada; supongamos que <span class="math inline">\(A_{k\ast}=A_{k+1\ast}\)</span>, sea <span class="math inline">\(1\leq i\leq n\)</span> tal que <span class="math inline">\(k\neq i\)</span> y <span class="math inline">\(k+1\neq i\)</span>, la matriz <span class="math inline">\(A(i|j)\)</span> tiene dos filas iguales, <span class="math inline">\(D_{ij}(A)=D[A(i|j)]=0\)</span> y así <span class="math inline">\(E_{j}(A)=0\)</span>. Por último veamos que <span class="math inline">\(E_{j}(I_{n})=1\)</span>; para esto note que <span class="math inline">\(D_{ij}=1\)</span> y que <span class="math inline">\(I_{ij}=\delta_{ij}\)</span>, por lo tanto <span class="math inline">\(E_{j}(I_{n})=1\)</span>.</p>
+</div>
+
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-385" class="corollary"><strong>Corolario 7.1  </strong></span>Sea <span class="math inline">\(\mathbb{K}\)</span> un anillo conmutativo con unidad y sea <span class="math inline">\(n\)</span> un entero positivo. Existe al menos una función determinante sobre <span class="math inline">\(\mathcal{M}_{n\times n}(\mathbb{K})\)</span>.</p>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Para <span class="math inline">\(n=1\)</span>, las matrices no son mas que números, la función identidad es una función determinante. Para <span class="math inline">\(n=2\)</span>, la función definida al inicio por la fórmula <span class="math inline">\(D(A)=a_{11}a_{22}-a_{12}a_{21}\)</span> es una función determinante. Supomgamos que la función <span class="math inline">\(D\)</span>, es una función determinate de las matrices de orden <span class="math inline">\((n-1)\times(n-1)\)</span>. Entonces, del teorema anterior tenemos que la función <span class="math inline">\(E_{j}(A)=\sum_{i=1}^{n} (-1)^{i+j}A_{ij}D_{ij}(A)\)</span>, para cualquier <span class="math inline">\(j\leq n\)</span>, es una función determinante.</p>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-387" class="example"><strong>Ejemplo 7.4  </strong></span>Sea <span class="math inline">\(B\)</span> una matriz <span class="math inline">\(2\times 2\)</span> sobre <span class="math inline">\(\mathbb{K}\)</span>. Ya hemos visto que la función determinante de las matrices <span class="math inline">\(2\times 2\)</span> es única. Denotemos <span class="math inline">\(|B|=D(B)=b_{11}b_{22}-b_{12}b_{21}\)</span>. Sea <span class="math display">\[A=\left[ \begin{array}{ccc}
+a_{11}&amp; a_{12}&amp; a_{13}\\
+a_{21}&amp; a_{22}&amp; a_{23}\\
+a_{31}&amp; a_{32}&amp; a_{33}
+\end{array}\right] \]</span> una matriz <span class="math inline">\(3\times 3\)</span>. Definimos <span class="math inline">\(E_{1}, E_{2}, E_{3}\)</span> como en el teorema anterior, entonces \begin{equation, label=ec61} E_{1}(A)=a_{11}|
+<span class="math display">\[\begin{array}{cc}
+a_{22}&amp;a_{23}\\
+a_{32}&amp;a_{33}
+\end{array}\]</span>
+| - a_{21}|
+<span class="math display">\[\begin{array}{cc}
+a_{12}&amp;a_{13}\\
+a_{32}&amp;a_{33}
+\end{array}\]</span>
+| + a_{31}|
+<span class="math display">\[\begin{array}{cc}
+a_{12}&amp;a_{13}\\
+a_{22}&amp;a_{23}
+\end{array}\]</span>
+| \end{equation} \begin{equation, label=ec62} E_{2}(A)=-a_{12}|
+<span class="math display">\[\begin{array}{cc}
+a_{21}&amp;a_{23}\\
+a_{31}&amp;a_{33}
+\end{array}\]</span>
+| + a_{22}|
+<span class="math display">\[\begin{array}{cc}
+a_{11}&amp;a_{13}\\
+a_{31}&amp;a_{33}
+\end{array}\]</span>
+| - a_{32}|
+<span class="math display">\[\begin{array}{cc}
+a_{11}&amp;a_{13}\\
+a_{21}&amp;a_{23}
+\end{array}\]</span>
+| \end{equation} \begin{equation, label=ec63} E_{3}(A)=a_{13}|
+<span class="math display">\[\begin{array}{cc}
+a_{21}&amp;a_{22}\\
+a_{31}&amp;a_{32}
+\end{array}\]</span>
+| - a_{23}|
+<span class="math display">\[\begin{array}{cc}
+a_{11}&amp;a_{12}\\
+a_{31}&amp;a_{32}
+\end{array}\]</span>
+| + a_{33}|
+<span class="math display">\[\begin{array}{cc}
+a_{11}&amp;a_{12}\\
+a_{21}&amp;a_{22}
+\end{array}\]</span>
+<p>| \end{equation} son funciones determinantes. Se puede demostrar que <span class="math inline">\(E_{1}=E_{2}=E_{3}\)</span>.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-388" class="example"><strong>Ejemplo 7.5  </strong></span>Dada la matriz <span class="math inline">\(3\times 3\)</span> sobre <span class="math inline">\(\mathbb{R}\)</span>, <span class="math display">\[A=\left[ \begin{array}{ccc}
+0&amp;0&amp;1\\
+1&amp;0&amp;0\\
+0&amp;1&amp;0
+\end{array}\right]\]</span> Entonces, <span class="math display">\[E_{1}(A)=-\left| \begin{array}{cc}
+0&amp;0\\
+1&amp;0
+\end{array}\right| = 1\]</span></p>
+<p><span class="math display">\[E_{2}(A)=-\left| \begin{array}{cc}
+0&amp;1\\
+1&amp;0
+\end{array}\right| = 1\]</span></p>
+<p><span class="math display">\[E_{3}(A)=\left| \begin{array}{cc}
+1&amp;0\\
+0&amp;1
+\end{array}\right| = 1\]</span></p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-389" class="definition"><strong>Definición 7.5  </strong></span>Una <em>permutacióon de grado <span class="math inline">\(n\)</span></em>, siendo <span class="math inline">\(n\)</span> un número natural cualquiera, es una función biyectiva de un conjunto de <span class="math inline">\(n\)</span> elementos <span class="math inline">\(\{x_{1},x_{2},\cdots, x_{n}\}\)</span> en si mismo.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Dado un entero positivo <span class="math inline">\(n\)</span> y una función <span class="math inline">\(f:n\longrightarrow n\)</span>, <span class="math inline">\(f\)</span> es inyectiva si y solo si <span class="math inline">\(f\)</span> es sobreyectiva. De este modo, en la definición de permutación bastaría pedir que la función sea inyectiva.</p>
+</div>
+
+<p>Una forma de representar una permutación de grado <span class="math inline">\(n\)</span> es escribiendo explícitamente la función, por ejemplo <span class="math inline">\(x_{1}\mapsto x_{2}\)</span>, <span class="math inline">\(x_{2}\mapsto x_{4}\)</span>, <span class="math inline">\(x_{4}\mapsto x_{3}\)</span> y <span class="math inline">\(x_{3}\mapsto x_{1}\)</span>; o por un arreglo de la siguiente forma: <span class="math display">\[\left(\begin{array}{cccc}
+x_{1}&amp;x_{2}&amp;x_{3}&amp;x_{4}\\
+x_{2}&amp;x_{4}&amp;x_{1}&amp;x_{3}
+\end{array} \right) \]</span> En general, una permutación de orden <span class="math inline">\(n\)</span> se representaría por <span class="math display">\[\left(\begin{array}{cccc}
+x_{1}&amp;x_{2}&amp;\cdots&amp;x_{n}\\
+x_{i_{1}}&amp;x_{i_{2}}&amp;\cdots&amp;x_{i_{n}}
+\end{array} \right)\]</span></p>
+<p>Es evidente que no importan los elementos en si mismo, mas si sus índices, por lo que podemos considerar a la permutación como una función del conjunto <span class="math inline">\(\{1,2,\cdots, n\}\)</span> en si mismo. Entonces una permutación de grado <span class="math inline">\(n\)</span> no es más que una forma de ordenar los primeros <span class="math inline">\(n\)</span> números naturales. Suele denotarse con la letra <span class="math inline">\(\sigma\)</span>. Así, una permutación <span class="math inline">\(\sigma:\{1,2,\cdots, n\}\longrightarrow\{1,2,\cdots, n\}\)</span> es un arreglo de <span class="math inline">\(n\)</span> entradas <span class="math inline">\((\sigma_{1},\sigma_{2},\cdots, \sigma_{n})\)</span> (donde cada <span class="math inline">\(\sigma_{i}\)</span> es la imagen de <span class="math inline">\(i\)</span> por la función <span class="math inline">\(\sigma\)</span>). De este modo, representaríamos la permutación de grado <span class="math inline">\(4\)</span> anterior por <span class="math display">\[\left(\begin{array}{cccc}
+ 1&amp;2&amp;3&amp;4\\
+ 2&amp;4&amp;1&amp;3
+ \end{array} \right) \]</span> En general <span class="math display">\[\left(\begin{array}{cccc}
+ 1&amp;2&amp;\cdots&amp;n\\
+ i_{1}&amp;i_{2}&amp;\cdots&amp;i_{n}
+ \end{array} \right) \]</span></p>
+<p>La composición de permutaciones no es mas que la composición de dos funciones y también la podemos representar como el producto de dos areglos. Veamos esto con un ejemplo, supongamos que <span class="math inline">\(\sigma\)</span> es la permutación <span class="math display">\[\left(\begin{array}{cccc}
+1&amp;2&amp;3&amp;4\\
+4&amp;2&amp;1&amp;3
+\end{array} \right)\]</span> y que <span class="math inline">\(\phi\)</span> es la permutación <span class="math display">\[\left(\begin{array}{cccc}
+1&amp;2&amp;3&amp;4\\
+2&amp;4&amp;1&amp;3
+\end{array} \right)\]</span> Entonces <span class="math inline">\(\sigma\phi\)</span> es el producto <span class="math display">\[\left(\begin{array}{cccc}
+1&amp;2&amp;3&amp;4\\
+4&amp;2&amp;1&amp;3
+\end{array} \right)\left(\begin{array}{cccc}
+1&amp;2&amp;3&amp;4\\
+2&amp;4&amp;1&amp;3
+\end{array} \right)=\left(\begin{array}{cccc}
+1&amp;2&amp;3&amp;4\\
+3&amp;4&amp;2&amp;1
+\end{array} \right)\]</span></p>
+<p>De este modo, si <span class="math inline">\(D\)</span> es una función alternada <span class="math inline">\(n\)</span>-lineal y <span class="math inline">\(A\)</span> es una matriz <span class="math inline">\(n\times n\)</span> sobre el cuerpo <span class="math inline">\(\mathbb{K}\)</span>, con <span class="math inline">\(A_{1\ast}, A_{2\ast},\cdots, A_{n\ast}\)</span> las filas de <span class="math inline">\(A\)</span> y <span class="math inline">\(\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n}\)</span> las filas de la matriz identidad de orden <span class="math inline">\(n\times n\)</span>. Entonces: <span class="math display">\[A_{i\ast}=\sum_{k_{i}=1}^{n} a_{ik_{i}}e_{k_{i}}\mbox{,  } 1\leq i\leq n\]</span> Luego <span class="math display">\[\begin{array}{rl}
+D(A)=&amp;D\left( \sum_{k_{1}} a_{1k_{1}}\epsilon_{k_{1}},A_{2\ast},\cdots,A_{n\ast}\right)\\
+=&amp;\sum_{k_{1}} a_{1k_{1}}D(\epsilon_{k_{1}},A_{2\ast},\cdots,A_{n\ast})
+\end{array}.\]</span> Reemplazando ahora <span class="math inline">\(A_{2\ast}\)</span> por <span class="math inline">\(\sum_{k_{2}=1}^{n} a_{2k_{2}}\epsilon_{k_{2}}\)</span>, se tiene que <span class="math display">\[D(\epsilon_{k_{1}},A_{2\ast},\cdots,A_{n\ast})=\sum_{k_{2}} a_{2,k_{2}}D(\epsilon_{k_{1}},\epsilon_{k_{2}},A_{3\ast},\cdots,A_{n\ast})\]</span> luego, <span class="math display">\[D(A)=\sum_{k_{1},k_{2}} a_{1k_{1}}a_{2k_{2}}D(\epsilon_{k_{1}},\epsilon_{k_{2}},A_{3\ast},\cdots,A_{n\ast}).\]</span> Si continuamos este proceso de sustutici'on con las filas restantes, obtenemos que: <span class="math display">\[D(A)=\sum_{k_{1},k_{2},\cdots,k_{n}} a_{1,k_{1}}a_{2k_{2}}\cdots a_{nk_{n}}D(\epsilon_{k_{1}},\epsilon_{k_{2}},\cdots,\epsilon_{k_{n}}).\]</span> Como <span class="math inline">\(D\)</span> es alternada, si algún par de índices <span class="math inline">\(k_{i}\)</span> son iguales, <span class="math inline">\(D(\epsilon_{k_{1}},\epsilon_{k_{2}},\cdots,\epsilon_{k_{n}})=0\)</span> luego la suma se indexará sobre las permutaciones de orden <span class="math inline">\(n\)</span> quedando entonces: <span class="math display">\[D(A)=\sum_{\sigma} a_{1,\sigma_{1}}a_{2\sigma_{2}}\cdots a_{n\sigma_{n}}D(\epsilon_{\sigma_{1}},\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}}).\]</span> Por otro lado, como <span class="math inline">\(D\)</span> es alternada, se tiene que <span class="math inline">\(D(\epsilon_{\sigma_{1}},\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}})=\pm D(\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n})\)</span> donde el signo dependerá de cuantas veces se intercambiaron las filas al hacer la permutación; note que la matriz <span class="math inline">\((\epsilon_{\sigma_{1}},\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}})\)</span> puede obtenerse de la matriz identidad <span class="math inline">\((\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n})\)</span> haciendo una cantidad finita de intercambio de filas, si se intercambia las filas <span class="math inline">\(m\)</span> veces, entonces <span class="math inline">\(D(\epsilon_{\sigma_{1}},\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}})=(-1)^{m} D(\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n})\)</span>. Como el signo depende solo de la permutación, introduciremos algunas definiciones sobre permutaciones para reescribir este resultado en estos términos.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-391" class="definition"><strong>Definición 7.6  </strong></span>Llamaremos <em>órbita</em> de un elemento <span class="math inline">\(s\in\{1,2,\cdots,n\}\)</span> al conjunto <span class="math inline">\(\{\sigma^{i}(s):i \mbox{ es un entero no negativo }\}\)</span>, donde <span class="math inline">\(\sigma^{i}\)</span> representa la composición de <span class="math inline">\(\sigma\)</span> con sigo misma <span class="math inline">\(i\)</span> veces.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> La definición de órbita es aplicable a una función sobre un conjunto infinito. Para el caso que nos compete, la órbita es el conjunto de imagenes posibles para cualquier número finito de iteraciones de <span class="math inline">\(\sigma\)</span>, como en conjunto de posibles imágenes es finito, eventualmente <span class="math inline">\(\sigma^{j}(s)=s\)</span> para algún entero no negativo <span class="math inline">\(j\)</span>, en este caso la órbita de <span class="math inline">\(s\)</span> es el conjunto <span class="math inline">\(\{s,\sigma(s),\cdots, \sigma^{j-1}(s) \}\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-393" class="definition"><strong>Definición 7.7  </strong></span>Dada una permutación de orden <span class="math inline">\(n\)</span> y un elemento <span class="math inline">\(s\)</span> de órbita <span class="math inline">\(\{s,\sigma(s),\cdots, \sigma^{j-1}(s) \}\)</span>. Diremos que el conjunto ordenado (o sucesión) <span class="math inline">\((s,\sigma(s),\cdots, \sigma^{j-1}(s))\)</span> es un <em>ciclo</em> de <span class="math inline">\(\sigma\)</span>. Y llamaremos <em>orden del ciclo</em> a la cantidad de elementos que este contiene, en este caso <span class="math inline">\(j\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-394" class="definition"><strong>Definición 7.8  </strong></span>Llamaremos <em>transposición</em> a los ciclos de orden dos.</p>
+</div>
+
+<p>Las permutaciones están determinadas por sus ciclos.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-395" class="example"><strong>Ejemplo 7.6  </strong></span>Sea <span class="math inline">\(\sigma\)</span> la permutación <span class="math display">\[\left(\begin{array}{cccccc}
+1&amp;2&amp;3&amp;4&amp;5&amp;6\\
+2&amp;3&amp;1&amp;4&amp;6&amp;5
+\end{array} \right).\]</span> La órbita de <span class="math inline">\(1\)</span> es <span class="math inline">\(\{1,\sigma(1)=2,\sigma^{2}(1)=3\}\)</span>; la órbita de <span class="math inline">\(2\)</span> es el mismo conjunto órbita de <span class="math inline">\(1\)</span>, al igual que la órbita de <span class="math inline">\(3\)</span>. La órbita de <span class="math inline">\(4\)</span> es el conjunto <span class="math inline">\(\{4\}\)</span>. Por último la órbita de <span class="math inline">\(5\)</span> es <span class="math inline">\(\{5,6\}\)</span> que coincide con la órbita de <span class="math inline">\(6\)</span>. Así, los ciclos de <span class="math inline">\(\sigma\)</span> son <span class="math inline">\((1\:2\:3)\)</span>,<span class="math inline">\((4)\)</span> y <span class="math inline">\((5\:6)\)</span>. El ciclo <span class="math inline">\((1\:2\:3)\)</span> representa la permutación que a <span class="math inline">\(1\)</span> lo envía en <span class="math inline">\(2\)</span>, a <span class="math inline">\(2\)</span> en <span class="math inline">\(3\)</span> y a <span class="math inline">\(3\)</span> en <span class="math inline">\(1\)</span>, es decir <span class="math display">\[\left(\begin{array}{cccccc}
+1&amp;2&amp;3&amp;4&amp;5&amp;6\\
+2&amp;3&amp;1&amp;4&amp;5&amp;
+\end{array} \right)\]</span> Mientras que el ciclo <span class="math inline">\((4)\)</span> no es mas que la identidad. Por otro lado, el ciclo <span class="math inline">\((5\:6)\)</span> representa la permutación <span class="math display">\[\left(\begin{array}{cccccc}
+1&amp;2&amp;3&amp;4&amp;5&amp;6\\
+1&amp;2&amp;3&amp;4&amp;6&amp;5
+\end{array} \right).\]</span> Si multiplicamos estos ciclos, obtenemos: <span class="math display">\[(1\:2\:3)(4)(5\:6)=\left(\begin{array}{cccccc}
+1&amp;2&amp;3&amp;4&amp;5&amp;6\\
+2&amp;3&amp;1&amp;4&amp;5&amp;6
+\end{array} \right)\left(\begin{array}{cccccc}
+1&amp;2&amp;3&amp;4&amp;5&amp;6\\
+1&amp;2&amp;3&amp;4&amp;5&amp;6
+\end{array} \right)=\left(\begin{array}{cccccc}
+1&amp;2&amp;3&amp;4&amp;5&amp;6\\
+2&amp;3&amp;1&amp;4&amp;6&amp;5
+\end{array} \right)\]</span>
+</div>
+ Veamos otro ejemplo: 
+<div class="example">
+<p><span id="exm:unnamed-chunk-396" class="example"><strong>Ejemplo 7.7  </strong></span>Consideremos los ciclos <span class="math inline">\((1\:2\:3)\)</span> y <span class="math inline">\((5\:6\:4\:8)\)</span> sobre el conjunto <span class="math inline">\(\{1,2,\cdots,9\}\)</span>. Entonces el producto de estos ciclos será la permutación: <span class="math display">\[\left(\begin{array}{ccccccccc}
+1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8&amp;9\\
+2&amp;3&amp;1&amp;4&amp;5&amp;6&amp;7&amp;8&amp;9
+\end{array} \right)\left(\begin{array}{ccccccccc}
+1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8&amp;9\\
+1&amp;2&amp;3&amp;8&amp;6&amp;4&amp;7&amp;5&amp;9
+\end{array} \right)=\left(\begin{array}{ccccccccc}
+1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8&amp;9\\
+2&amp;3&amp;1&amp;8&amp;6&amp;4&amp;7&amp;5&amp;9
+\end{array} \right).\]</span></p>
+</div>
+
+<p>También podemos multiplicar ciclos que no sean disjuntos entre sí:</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-397" class="example"><strong>Ejemplo 7.8  </strong></span>Sean los ciclos <span class="math inline">\((1\:3\:4)\)</span> y <span class="math inline">\((2\:4\:5)\)</span> de un conjunto de <span class="math inline">\(5\)</span> elementos. Entonces la permutación resultante del producto de estos ciclos es: <span class="math display">\[\left(\begin{array}{ccccc}
+1&amp;2&amp;3&amp;4&amp;5\\
+3&amp;2&amp;4&amp;1&amp;5
+\end{array} \right)\left(\begin{array}{ccccc}
+1&amp;2&amp;3&amp;4&amp;5\\
+1&amp;4&amp;3&amp;5&amp;2
+\end{array} \right)=\left(\begin{array}{ccccc}
+1&amp;2&amp;3&amp;4&amp;5\\
+3&amp;4&amp;5&amp;1&amp;2
+\end{array} \right)\]</span></p>
+</div>
+
+
+<div class="lemma">
+<p><span id="lem:unnamed-chunk-398" class="lemma"><strong>Lema 7.4  </strong></span>Toda permutación es el producto de sus ciclos.</p>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Como los ciclos de una permutación son disjuntos entre sí, se sigue fácilmente que el producto de sus ciclos es igual a la permutación.</p>
+</div>
+
+<p>Más aún, todo ciclo es el producto de transposiciones, en el ejemplo, el ciclo <span class="math inline">\((1\:2\:3)\)</span> puede representarse como el producto de las transposiciones <span class="math inline">\((1\:2)\)</span> y <span class="math inline">\((1\:3)\)</span>. En general, el ciclo de orden <span class="math inline">\(m\)</span> <span class="math inline">\((1\:2\cdots m)\)</span> puede obtenerse como el producto de ciclos de orden dos (no disjuntos), a saber <span class="math inline">\((1\:2\cdots m)=(1\:2)(1\:3)\cdots(1\:m)\)</span>. De este modo podemos afirmar que:</p>
+
+<div class="lemma">
+<p><span id="lem:unnamed-chunk-400" class="lemma"><strong>Lema 7.5  </strong></span>Toda permutación es el producto de transposiciones.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-401" class="definition"><strong>Definición 7.9  </strong></span>Decimos que una permutación <span class="math inline">\(\sigma\)</span> es  si es el producto de un número par de transposiciones. En caso contrario diremos que la permutación es <em>impar</em>. El signo de una permutación será el número <span class="math display">\[sgn \sigma=\left\lbrace\begin{array}{ll}
+1&amp;\mbox{ si }\sigma\mbox{ es par}\\
+-1&amp;\mbox{ si }\sigma\mbox{ es impar}
+\end{array} \right. \]</span></p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> La definición anterior da por sentado que el número de transposiciones con las que se representa una permutación es único, esto puede demostrarse, queda de parte del lector interesado hacerlo.</p>
+</div>
+
+<p>Con la definición de signo de una permutación podemos escribir <span class="math display">\[D(\epsilon_{\sigma_{1}}),\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}}=(sgn\sigma)D(\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n})\]</span> y así <span class="math display">\[D(A)=\left[ \sum_{\sigma}(sgn\sigma)a_{1\sigma_{1}}a_{2\sigma_{2}}\cdots a_{n\sigma_{n}}\right] D(I)\]</span> De donde se puede concluír la unicidad de la función determinante, esto es: <span class="math display">\[det(A)=\sum_{\sigma}(sgn\sigma)a_{1\sigma_{1}}a_{2\sigma_{2}}\cdots a_{n\sigma_{n}}.\]</span></p>
+<p>Este resultado se puede escribir formalmente como sigue:</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-403" class="theorem"><strong>Teorema 7.2  </strong></span>Sea <span class="math inline">\(\mathbb{K}\)</span> un anillo conmutativo con unidad y <span class="math inline">\(n\)</span> un entero positivo. Existe exactamente una función determinante sobre el conjunto de las matrices <span class="math inline">\(n\times n\)</span> sobre <span class="math inline">\(\mathbb{K}\)</span>, esta es <span class="math display">\[det(A)=\sum_{\sigma}(sgn\sigma)a_{1\sigma_{1}}a_{2\sigma_{2}}\cdots a_{n\sigma_{n}}.\]</span> Además, si <span class="math inline">\(D\)</span> es una función alternada <span class="math inline">\(n\)</span>-lineal alternada sobre las matrices <span class="math inline">\(n\times n\)</span> sobre <span class="math inline">\(\mathbb{K}\)</span>, entonces <span class="math display">\[D(A)=(det(A))D(I).\]</span></p>
+</div>
+
+<p>Por otro lado, ya vimos que el producto de dos permutaciones es la composición de estas (como funciones biyectivas). Veamos que el signo de la composición está determinado por el producto de los signos de las permutaciones: <span class="math display">\[sgn(\sigma\phi)=(sgn\sigma)(sgn\phi)\]</span></p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-404" class="theorem"><strong>Teorema 7.3  </strong></span>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> matrices <span class="math inline">\(n\times n\)</span> sobre un anillo conmutativo con unidad <span class="math inline">\(\mathbb{K}\)</span>. Entonces <span class="math inline">\(det(AB)=det(A)det(B)\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Dada la matriz <span class="math inline">\(B\)</span>, para cada <span class="math inline">\(A\)</span> definamos <span class="math inline">\(D(A)=det(AB)\)</span>. Entonces: <span class="math display">\[D(A_{1\ast},A_{2\ast},\cdots,A_{n\ast})=det(A_{1\ast}B,A_{2\ast}B,\cdots,A_{n\ast}B).\]</span> Como la función <span class="math inline">\(det\)</span> es <span class="math inline">\(n\)</span>-lineal y se cumple que <span class="math inline">\((cA_{i\ast}+A_{s\ast})B=cA_{i\ast}B+A_{s\ast}B\)</span>, se sigue que <span class="math inline">\(D\)</span> es <span class="math inline">\(n\)</span>-lineal. De igual forma, como <span class="math inline">\(det\)</span> es alternada y si <span class="math inline">\(A_{i\ast}=A_{j\ast}\)</span>, entonces <span class="math inline">\(A_{i\ast}B=A_{j\ast}B\)</span>, se tiene que <span class="math inline">\(D\)</span> es alternada. Por el teorema anterior <span class="math inline">\(D(A)=(det A)D(I)\)</span>. Por lo tanto <span class="math inline">\(D(I)=det(IB)=det(B)\)</span>, de donde se sigue que <span class="math inline">\(det(AB)=D(A)=det(A)det(B)\)</span>.</p>
+</div>
+
+<p>Con el teorema anterior aplicándolo a matrices que se obtienen de intercambiar filas de la matriz identidad, digamos <span class="math inline">\(B=(\epsilon_{\sigma_{1}},\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}})\)</span> y <span class="math inline">\(A=(\epsilon_{\phi_{1}},\epsilon_{\phi_{2}},\cdots,\epsilon_{\phi_{n}})\)</span>, obtenemos que <span class="math inline">\(det(A)=sgn(\phi)\)</span> y <span class="math inline">\(det(B)=sgn(\sigma)\)</span>. Note que las filas de ambas matrices tienen un único elemento no nulo, de hecho un <span class="math inline">\(1\)</span>, la matriz <span class="math inline">\(A\)</span> tiene en la fila <span class="math inline">\(i\)</span>-'esima un uno en la columna <span class="math inline">\(\phi_{i}\)</span> y en las otras columnas ceros. Por lo tanto la <span class="math inline">\(i\)</span>-ésima fila del producto <span class="math inline">\(AB\)</span> es <span class="math inline">\(\epsilon_{\sigma\phi(i)}\)</span>, luego <span class="math inline">\(det(AB)=sgn(\sigma\phi)\)</span>. Con el resultado anterior se sigue que <span class="math inline">\(sgn(\sigma\phi)=sgn(\sigma)sgn(\phi)\)</span>.</p>
+<p>Ahora veamos otras propiedades de los determinantes:</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-406" class="proposition"><strong>Proposición 7.1  </strong></span>Sea <span class="math inline">\(A\)</span> una matriz <span class="math inline">\(n\times n\)</span> sobre un anillo conmutativo con unidad <span class="math inline">\(\mathbb{K}\)</span>. Se tiene que <span class="math inline">\(det(A)=det(A^{t})\)</span>.</p>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(\sigma\)</span> una permutación de grando <span class="math inline">\(n\)</span>, <span class="math inline">\(A^{t}(i,\sigma_{i})=A(\sigma_{i},i)\)</span>. Si <span class="math inline">\(i=\sigma^{-1}(j)\)</span>, <span class="math inline">\(A(\sigma_{i},i)=A(j,\sigma^{-1}(j))\)</span>. Por los resultados anteriores, <span class="math display">\[det(A^{t})=\sum_{\sigma}(sgn\:\sigma)A(\sigma(1),1)\cdots A(\sigma(n),n)=\sum_{\sigma}(sgn\:\sigma)A(1,\sigma^{-1}(1))\cdots A(n,\sigma^{-1}(n))\]</span> Pero <span class="math inline">\(\sigma\sigma^{-1}\)</span> es la permutación identidad que tiene signo <span class="math inline">\(1\)</span>, luego <span class="math inline">\(sgn\:\sigma=sgn\:\sigma^{-1}\)</span> por lo tanto <span class="math display">\[\begin{array}{rl}
+det(A^{t})=&amp;\sum_{\sigma}(sgn\:\sigma^{-1})A(1,\sigma^{-1}(1))\cdots A(n,\sigma^{-1}(n))\\
+=&amp;det(A)
+\end{array}\]</span></p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-408" class="proposition"><strong>Proposición 7.2  </strong></span>Sea <span class="math inline">\(A\)</span> una matriz <span class="math inline">\(n\times n\)</span> sobre un anillo conmutativo con unidad <span class="math inline">\(\mathbb{K}\)</span>. Si <span class="math inline">\(B\)</span> es una matriz que se obtiene de <span class="math inline">\(A\)</span> al sumar un múltiplo escalar de una fila con otra fila de <span class="math inline">\(A\)</span> (es decir al aplicar una operación elemental del tipo <span class="math inline">\(ke_{ij}\)</span>, con <span class="math inline">\(k\in\mathbb{K}\)</span> y <span class="math inline">\(i,j\leq n\)</span>). Entonces <span class="math inline">\(det(B)=det(A)\)</span>.</p>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Supongamos que <span class="math inline">\(B=ke_{ij}\)</span>, es decir, la <span class="math inline">\(i\)</span>-ésima fila de <span class="math inline">\(B\)</span> es la suma de la fila <span class="math inline">\(i\)</span> de <span class="math inline">\(A\)</span> más <span class="math inline">\(k\)</span> veces la fila <span class="math inline">\(j\)</span> de <span class="math inline">\(A\)</span>; y supongamos que <span class="math inline">\(i&lt;j\)</span>. Ahora, como la función determinante es <span class="math inline">\(n\)</span>-lineal, es lineal como función de la <span class="math inline">\(i\)</span>-ésima fila, entonces <span class="math display">\[det(B)=det(A)+kdet(A_{1\ast},\cdots,A_{(i-1)\ast},A_{j\ast},\cdots,A_{(j-1)\ast},A_{j\ast},\cdots,A_{n\ast})\]</span> Finalmente, como la función determinante es alternada, es cero para la matriz del segundo sumando, ya que tiene dos filas iguales, a saber, la fila <span class="math inline">\(i\)</span> y la fila <span class="math inline">\(j\)</span>. De donde se concluye el resultado.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-410" class="proposition"><strong>Proposición 7.3  </strong></span>Sea <span class="math inline">\(A\)</span> un matriz <span class="math inline">\(r\times r\)</span>, <span class="math inline">\(C\)</span> una matriz <span class="math inline">\(s\times s\)</span> y <span class="math inline">\(B\)</span> una matriz <span class="math inline">\(r\times s\)</span> matricez sobre un anillo cunmutativo con unidad. Denotemos por <span class="math inline">\(0\)</span> a la matriz nula de orden <span class="math inline">\(s\times r\)</span>. Suponga que se construye la matriz por bloques con las matrices anteriores de esta forma: <span class="math display">\[\left[\begin{array}{cc}
+A&amp;B\\
+0&amp;C
+\end{array} \right]\]</span> Entonces <span class="math display">\[det \left[\begin{array}{cc}
+A&amp;B\\
+0&amp;C
+\end{array} \right]=det(A)det(C).\]</span> \end{proposition} \begin{proof} Sea <span class="math inline">\(D(A,B,C)=det \left[\begin{array}{cc} A&amp;B\\ 0&amp;C \end{array} \right]\)</span> una función. Si fijamos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, <span class="math inline">\(D\)</span> es alternada y <span class="math inline">\(s\)</span>-lineal como función de las filas de <span class="math inline">\(C\)</span>. Por lo tanto <span class="math inline">\(D(A,B,C)=det(C)D(A,B,I)\)</span> donde <span class="math inline">\(I\)</span> es la matriz identidad <span class="math inline">\(s\times s\)</span>. Note que podemos aplicar operaciones elementales de fila a la matriz <span class="math display">\[\left[\begin{array}{cc}
+A&amp;B\\
+0&amp;I
+\end{array} \right]\]</span> y obtener la matriz <span class="math display">\[\left[\begin{array}{cc}
+A&amp;0\\
+0&amp;I
+\end{array} \right]\]</span> y aplicar el resultado anterior, por lo que <span class="math inline">\(D(A,B,I)=D(A,0,I)\)</span>. Claramente <span class="math inline">\(D(A,0,I)\)</span> es alternada y <span class="math inline">\(r\)</span>-lineal, como función de las filas de <span class="math inline">\(A\)</span>. Por lo que <span class="math inline">\(D(A,0,I)=det(A)D(I,0,I)\)</span>. Por otro lado, es fácil ver que <span class="math inline">\(D(I,0,I)=1\)</span>, con lo que se concluye que <span class="math display">\[\begin{array}{rl}
+D(A,B,C)=&amp;(det\:C)D(A,B,I)\\
+=&amp;(det\:C)D(A,0,I)\\
+=&amp;(det\:C)det(\:A)D(I,0,I)\\
+=&amp;(det\:C)det(\:A)
+\end{array}.\]</span></p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> La proposición anterior también puede escriberse para matrices del tipo <span class="math display">\[\left[\begin{array}{cc}
+A&amp;0\\
+B&amp;C
+\end{array} \right]\]</span></p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-412" class="example"><strong>Ejemplo 7.9  </strong></span>Para calcular el determinante de <span class="math display">\[A=\left[\begin{array}{cccc}
+5&amp;-1&amp;0&amp;-1\\
+4&amp;-1&amp;-1&amp;1\\
+5&amp;-1&amp;3&amp;1\\
+9&amp;-2&amp;3&amp;2
+\end{array} \right]\]</span> procedemos a aplicar operaciones elementales del tipo <span class="math inline">\(ke_{ij}\)</span> hasta obtener: <span class="math display">\[B=\left[\begin{array}{cccc}
+5&amp;-1&amp;0&amp;-1\\
+0&amp;-\frac{1}{5}&amp;-1&amp;-\frac{9}{5}\\
+0&amp;0&amp;3&amp;2\\
+0&amp;0&amp;4&amp;2
+\end{array} \right]\]</span> con lo que procedemos a calcular <span class="math display">\[det(B)=\left|\begin{array}{cc}
+5&amp;-1\\
+0&amp;-\frac{1}{5}
+\end{array} \right| \left|\begin{array}{cc}
+3&amp;2\\
+4&amp;2
+\end{array} \right|=(-1)(-2)=2\]</span> como <span class="math inline">\(det(B)=det(A)\)</span>, entonces <span class="math inline">\(det(A)=2\)</span>. Y nos ahorramos el copioso trabajo de calcular el determinante de la matriz <span class="math inline">\(A\)</span> por medio de la fórmula dada en el teorema @ref{thm:teorema612}, que nos dota explícitamente de la función determinante de una matriz <span class="math inline">\(n\times n\)</span>, dada la función determinate de una matriz de orden <span class="math inline">\((n-1)\times (n-1)\)</span>. Recordemos: <span class="math display">\[det\:A=\sum_{i=1}^{n}(-1)^{i+j}a_{ij}det\:A(i|j)\]</span> para una columna fija <span class="math inline">\(j\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-413" class="definition"><strong>Definición 7.10  </strong></span>Dada una matriz de orden <span class="math inline">\(n\times n\)</span>, para enteros <span class="math inline">\(i,j\leq n\)</span>, llamaremos <em>cofactor</em> <span class="math inline">\(i,j\)</span> (o <em>cofactor del elemento </em><span class="math inline">\(ij\)</span>) al número <span class="math inline">\((-1)^{i+j}det\:A(i|j)\)</span> y suele denotarse por <span class="math inline">\(C_{ij}\)</span>.</p>
+</div>
+
+<p>Note que en terminos de cofactores, la función determinante se puede escribir como: <span class="math display">\[det\:A=\sum_{i=1}^{n}a_{ij}C_{ij}\]</span></p>
+donde el cofactor <span class="math inline">\(C_{ij}\)</span> es <span class="math inline">\((-1)^{i+j}\)</span> es determinante de la matriz que resulta de suprimir la fila <span class="math inline">\(i\)</span> y la columna <span class="math inline">\(j\)</span> de la matriz <span class="math inline">\(A\)</span>. Por otro lado, note que si <span class="math inline">\(k\neq j\)</span>, entonces <span class="math inline">\(\sum_{i=1}^{n}a_{ik}C_{ij}=0\)</span> ya que si consideramos la matriz <span class="math inline">\(B\)</span> que resulta de sustituír la fila <span class="math inline">\(k\)</span> de <span class="math inline">\(A\)</span> por su fila <span class="math inline">\(j\)</span>, entonces <span class="math inline">\(det(B)=0\)</span>, pero <span class="math inline">\(B(i|j)=A(i|j)\)</span>, luego <span class="math display">\[0=det(B)=\sum_{i=1}^{n}(-1)^{i+j}b_{ij}det\:B(i|j)=\sum_{i=1}^{n}(-1)^{i+j}a_{ik}det\:A(i|j)=\sum_{i=1}^{n}a_{ij}C_{ij}\]</span> Por lo que
+<span class="math display">\[\begin{equation}\label{ecuacion64}
+\sum_{i=1}^{n}a_{ij}C_{ij}=\delta_{ij}det(A)
+\end{equation}\]</span>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-414" class="definition"><strong>Definición 7.11  </strong></span>Dada una matriz <span class="math inline">\(A\)</span> de orden <span class="math inline">\(n\times n\)</span>, llamaremos <em>matriz adjunta</em> de <span class="math inline">\(A\)</span> y la denotaremos por <span class="math inline">\(adj\:A\)</span> a la matriz transpuesta de cofactores de la matriz <span class="math inline">\(A\)</span>, es decir, <span class="math inline">\([adj\:A]_{ij}=C_{ji}=(-1)^{i+j}det\:A(i|j)\)</span>.</p>
+</div>
+
+Con la definición anterior y la ecuación , se tiene que
+<span class="math display">\[\begin{equation}\label{ecuacion65}
+(adj\:A)A=(det\:A)I
+\end{equation}\]</span>
+<p>Además también se tiene que <span class="math inline">\(A(adj\:A)=(det\:A)I\)</span>. En efecto, como <span class="math inline">\(A^{t}(i|j)=(A(i|j))^{t}\)</span>, entonces <span class="math inline">\((-1)^{i+j}det\:A^{t}(i|j)=(-1)^{i+j}det\:A(j|i)\)</span>, es decir, el cofactor <span class="math inline">\(i,j\)</span> de <span class="math inline">\(A^{t}\)</span> es el cofactor <span class="math inline">\(j,i\)</span> de <span class="math inline">\(A\)</span>. Por lo tanto <span class="math display">\[adj(A^{t})=(adj\:A)^{t}.\]</span> De la ecuación @ref{ecuacion65} aplicada a <span class="math inline">\(A^{t}\)</span>, se obtiene que <span class="math inline">\((adj\:A^{t})A^{t}=(det\:A^{t})I=(det\:A)I\)</span>. Finalmente, transponiendo se obtiene el resultado, <span class="math inline">\(A(adj\:A)=A((adj\:A)^{t})^{t}=A(adj\:A^{t})^{t}=(det\:A^{t})I=(det\:A)I\)</span></p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-415" class="theorem"><strong>Teorema 7.4  </strong></span>Sea <span class="math inline">\(A\)</span> una matriz <span class="math inline">\(n\times n\)</span> sobre <span class="math inline">\(\mathbb{K}\)</span>. Se tiene que <span class="math inline">\(A\)</span> es invertible si y solo si <span class="math inline">\(det\:A\)</span> tiene inverso en <span class="math inline">\(\mathbb{K}\)</span>. Cuando <span class="math inline">\(A\)</span> es invertible la inversa (única) de <span class="math inline">\(A\)</span> es la matriz <span class="math display">\[A^{-1}=(det\: A)adj\:A.\]</span> En particular, una matriz <span class="math inline">\(n\times n\)</span> sobre un cuerpo es invertible si y solo si su determinate es distinto de cero.</p>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Supongamos que <span class="math inline">\(A\)</span> es una matriz invertible; sea <span class="math inline">\(A^{-1}\)</span> su inversa. Entonces <span class="math inline">\(1=det\:I=det\:(AA^{-1})=(det\:A)(det\:A^{-1})\)</span> y <span class="math inline">\(1=det\:I=det\:(A^{-1}A)=(det\:A^{-1})(det\:A)\)</span> por lo tanto <span class="math inline">\(det\:A\)</span> tiene inverso multiplicativo en <span class="math inline">\(\mathbb{K}\)</span>. Además, como <span class="math inline">\((adj\:A)A=det(A)I\)</span> entonces <span class="math inline">\(adj\:A=(det\:A)A^{-1}\)</span> si y solo si <span class="math inline">\((det\:A)^{-1}adj\:A=A^{-1}\)</span>. Inversamente, supongamos que <span class="math inline">\(det\:A\)</span> tiene un inverso multiplicativo, entonces <span class="math inline">\((adj\:A)A=(det\:A)I\)</span> si y solo si <span class="math inline">\((det\:A)^{-1}(adj\:A)A=I\)</span>, análogamente <span class="math inline">\(A[(det\:A)^{-1}(adj\:A)]=I\)</span>, luego <span class="math inline">\(A\)</span> tiene inversa, a saber, <span class="math inline">\((det\:A)^{-1}(adj\:A)\)</span>.</p>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-417" class="example"><strong>Ejemplo 7.10  </strong></span>Sea <span class="math inline">\(\mathbb{K}=\mathbb{R}[x]\)</span> el anillo de los polinomios sobre el cuerpo de los números reales. Sean <span class="math display">\[A=\left( \begin{array}{cc}
+x^{2}+x&amp; x+1\\
+x-1&amp;1
+\end{array}\right)\:, B=\left(\begin{array}{cc}
+x^{2}-1&amp;x+2\\
+x^{2}-2x+3&amp;x
+\end{array} \right) \]</span> Se tiene que <span class="math inline">\(det\: A=x+1\)</span> y <span class="math inline">\(det\:B=-6\)</span>. Como en el anillo <span class="math inline">\(\mathbb{R}[x]\)</span> los únicos elementos invertibles son los polinomios escalares (de grado cero) no nulos, se tiene que la matriz <span class="math inline">\(B\)</span> es invertible, no así la matriz <span class="math inline">\(A\)</span>. Por otro lado, <span class="math display">\[adj\:A=\left( \begin{array}{cc}
+1&amp;-x-1\\
+-x+1&amp;x^{2}+x
+\end{array}\right)\mbox{  y  } adj\:B=\left(\begin{array}{cc}
+x&amp;-x-2\\
+-x^{2}+2x-3&amp;x^{2}-1
+\end{array} \right)\]</span> y así, <span class="math inline">\((adj\:A)A=(x+1)I\)</span> y <span class="math inline">\((adj\:B)B=6I\)</span>. De donde se sigue que <span class="math display">\[B^{-1}=-\dfrac{1}{6}\left(\begin{array}{cc}
+x&amp;-x-2\\
+-x^{2}+2x-3&amp;x^{2}-1
+\end{array}\right).\]</span>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-418" class="example"><strong>Ejemplo 7.11  </strong></span>Sea <span class="math inline">\(K=\mathbb{Z}\)</span> el anillo de los enteros y sea <span class="math display">\[A=\left(\begin{array}{cc}
+5&amp;6\\
+7&amp;8
+\end{array} \right)\]</span> Entonces <span class="math inline">\(det(A)=-2\)</span>, como <span class="math inline">\(-2\)</span> no es invertible, la matriz no es invertible. Aunque podemos calcular su adjunta <span class="math display">\[adj\:A=\left(\begin{array}{cc}
+8&amp;-6\\
+-7&amp;5
+\end{array} \right)\]</span> Sin embargo, si consideramos la matriz <span class="math inline">\(A\)</span> sobre el anillo de los numeros racionales <span class="math inline">\(\mathbb{Q}\)</span> resulta ser una matriz invertible y su inversa es <span class="math display">\[A^{-1}=-\dfrac{1}{2}\left(\begin{array}{cc}
+8&amp;-6\\
+-7&amp;5
+\end{array} \right)=\left(\begin{array}{cc}
+-4&amp;3\\
+\frac{7}{2}&amp;-\frac{5}{2}
+\end{array} \right).\]</span></p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-419" class="proposition"><strong>Proposición 7.4  </strong></span>Las matrices semejantes tienen igual determinante.</p>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> matrices semejantes, entonces existe una matriz invertible <span class="math inline">\(P\)</span> tal que <span class="math inline">\(B=P^{-1}AP\)</span>. Así, <span class="math inline">\(det\:B=(det\:P^{-1})(det\:A)(det\:P)=det\:A\)</span>.</p>
+</div>
+
+<p>Recordemos que dado un operador lineal <span class="math inline">\(T\)</span>, podemos hallar una matriz del operador en una base dada. Además, dadas dos matrices del operador lineal, <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> (en dos bases posiblemente distintas) estas son semejantes. En vista del resultado anterior, el determinante de cualquier matriz del operador lineal tiene el mismo determinante, lo que nos permite definir el determinate del operador lineal.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-421" class="definition"><strong>Definición 7.12  </strong></span>Dado un operador lineal <span class="math inline">\(T:V\longrightarrow V\)</span>, llamamos <em>determinante de </em> <span class="math inline">\(T\)</span> al determinante de la matriz <span class="math inline">\([T]_{\mathcal{B}}\)</span> en una base <span class="math inline">\(\mathcal{B}\)</span> del espacio vectorial <span class="math inline">\(V\)</span>.</p>
+</div>
+
+<div id="ejercicios-5" class="section level3">
+<h3><span class="header-section-number">7.0.1</span> {Ejercicios}</h3>
+<p>[1.] Verifique que las funciones <span class="math inline">\(E_{1}, E_{2}, E_{3}\)</span>, definidas en @ref{ec61}, @ref{ec62} y @ref{ec63}, son iguales. Respuesta: <span class="math display">\[E_{1}=a_{11}(a_{22}a_{33}-a_{23}a_{32})-a_{21}(a_{12}a_{33}-a_{13}a_{32})+a_{31}(a_{12}a_{23}-a_{13}a_{22})\]</span> <span class="math display">\[E_{2}=-a_{12}(a_{21}a_{33}-a_{23}a_{31})+a_{22}(a_{11}a_{33}-a_{13}a_{31})-a_{32}(a_{11}a_{23}-a_{13}a_{21})\]</span> <span class="math display">\[E_{3}=a_{13}(a_{21}a_{32}-a_{22}a_{31})-a_{23}(a_{11}a_{32}-a_{12}a_{31})+a_{33}(a_{11}a_{22}-a_{12}a_{21})\]</span> al desarrollar estas expresiones, son claramente idénticas.</p>
+<p>[2.] Dado un anillo conmutativo con unidad, <span class="math inline">\(\mathbb{K}\)</span>. Sea <span class="math inline">\(A\)</span> una matriz <span class="math inline">\(2\times 2\)</span> sobre <span class="math inline">\(\mathbb{K}\)</span>. Definimos la <em>matriz adjunta</em> de <span class="math inline">\(A\)</span> como la matriz <span class="math inline">\(2\times 2\)</span> sobre <span class="math inline">\(\mathbb{K}\)</span> como <span class="math display">\[adj(A)=\left[\begin{array}{cc}
+a_{22}&amp;-a_{12}\\
+-a_{21}&amp;a_{11}
+\end{array} \right]\]</span> si <span class="math inline">\(det\)</span> representa la función determinate (única) de las matrices <span class="math inline">\(2\times 2\)</span>, demuestre que:</p>
+<p>[a] <span class="math inline">\((adj(A))A=A(adj(A))=(det(A))I\)</span>, [b] <span class="math inline">\(det(adj(A))=det(A)\)</span>, [c] <span class="math inline">\(adj(A^{t})=(adj(A))^{t}\)</span>;</p>
+<p>Donde <span class="math inline">\(A^{t}\)</span> denota la traspuesta de <span class="math inline">\(A\)</span>. Respuesta: Sabemos que <span class="math inline">\(det(A)=a_{11}a_{22}-a_{12}a_{21}\)</span>, luego <span class="math display">\[(det A)I=\left( \begin{array}{cc}
+a_{11}a_{22}-a_{12}a_{21}&amp; 0\\
+0&amp;a_{11}a_{22}-a_{12}a_{21}
+\end{array}\right) \]</span> Por otro lado <span class="math display">\[(adj A)A=\left( \begin{array}{cc}
+a_{22}&amp; -a_{12}\\
+-a_{21}&amp; a_{11}
+\end{array}\right) \left( \begin{array}{cc}
+a_{11}&amp; a_{12}\\
+a_{21}&amp; a_{22}
+\end{array}\right)=\left( \begin{array}{cc}
+a_{11}a_{22}-a_{12}a_{21}&amp; a_{22}a_{12}-a_{12}a_{22}\\
+-a_{21}a_{11}+a_{11}a_{21}&amp;a_{11}a_{22}-a_{12}a_{21}
+\end{array}\right)\]</span> Análogamente se muestra que <span class="math inline">\(A(adj(A))=(det(A))I\)</span>. Ahora, <span class="math display">\[det(adj A)=\left|\begin{array}{cc}
+a_{22}&amp;-a_{12}\\
+-a_{21}&amp;a_{11}
+\end{array} \right|=a_{11}a_{22}-a_{12}a_{21} =det(A)\]</span> Como <span class="math display">\[A^{t}=\left(\begin{array}{cc}
+a_{11}&amp;a_{21}\\
+a_{12}&amp;a_{22}
+\end{array} \right) \]</span> entonces <span class="math display">\[adj(A^{t})=\left(\begin{array}{cc}
+a_{22}&amp;-a_{21}\\
+-a_{12}&amp;a_{11}
+\end{array} \right) =(adj A)^{t}.\]</span></p>
+<p>[3.] Sea <span class="math inline">\(A\)</span> una matriz <span class="math inline">\(2\times 2\)</span> sobre <span class="math inline">\(\mathbb{K}\)</span>. Demuestre que <span class="math inline">\(A\)</span> es invertible si y solo si <span class="math inline">\(det A\neq 0\)</span>. En el caso de una matriz invertible, dé una expresión para la matriz inversa <span class="math inline">\(A^{-1}\)</span>. Respuesta: <span class="math inline">\(A\)</span> es invertible si y solo si existe una matriz <span class="math inline">\(B\)</span> <span class="math inline">\(2\times 2\)</span> tal que <span class="math inline">\(AB=BA=I\)</span>. Como <span class="math inline">\(det(AB)=(det A)(det B)\)</span>, se tiene que <span class="math inline">\(A\)</span> es invertible si y solo si <span class="math inline">\((det A)(det B)=det I=1\)</span>, de donde se concluye que <span class="math inline">\(A\)</span> es invertible si y solo si <span class="math inline">\(det A\neq 0\)</span>. Sea <span class="math inline">\(A\)</span> una matriz invertible, por lo anterior <span class="math inline">\(det A\neq 0\)</span>. Por el ejercicio anterior, <span class="math inline">\((adj A) A=(det A)I\)</span>, multiplicando por <span class="math inline">\(A^{-1}\)</span> tenemos que <span class="math inline">\(adj A=(det A)A^{-1}\)</span>, de donde se tiene que <span class="math inline">\(A^{-1}=(\dfrac{1}{det A})adj(A)\)</span></p>
+
+</div>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-78759535-1', 'auto');
+ga('send', 'pageview');  
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="matrices-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="autovalores-y-autovectores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/synergyvision/Medida/edit/master/bookdown/051-determinantes.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Medida.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

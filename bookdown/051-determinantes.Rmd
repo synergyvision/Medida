@@ -1,0 +1,703 @@
+#Determinantes
+
+Volveremos sobre el tema de las matrices no solo sobre un cuerpo, sino que lo haremos para matrices cuyos elementos son parte de un anillo comunitativo por unidad.
+
+Recordemos que un anillo comutativo con unidad es un conjunto $K$ con dos operaciones que cumple con los axiomas de grupo para la suma, y con el producto cumple los axiomas de grupo salvo la condición de existencia de un inverso. Un ejemplo natural de anillo conmutativo es el conjunto de los números enteros. Otro ejemplo sería los polinomios sobre un cuerpo. Todo esto ya fué estudiado en el capítulo 1.
+
+Dado un anillo conmutativo con unidad $K$, consideremos la matriz $m\times n$ sobre $K$, esto es una función $A$ de $\{1,2,\cdots, m \} \times \{1,2,\cdots, n \}$ en $K$, que a cada par $(i,j)$ le asigna un elemento $k_{ij}$ de $K$, es decir $A(i,j)=k_{ij}$ tambien denotado por $[K]_{ij}$. La suma y el producto de matrices las definimos como es usual (igual que en las matrices sobre un cuerpo), dadas las matrices $A$ y $B$ sobre el anillo $K$, la matriz suma $A+B$ es la matriz $$(A+B)_{ij}=A_{ij}+B_{ij}$$
+y el producto $AB$ es la matriz $$(AB)_{ij}=\sum_{k} A_{ik}B_{kj}$$ 
+
+El resto de las propiedades y resultados vistos antes para matrices con coeficientes en un cuerpo, funcionan igual cuando los coeficientes de la matriz pertenecen a un anillo, salvo los resultados que involucren inversos multiplicativos (dividir). De este modo, las propiedades algebraicas funcionan igual, por ejemplo, la propiedad distributiva del producto respecto a la suma, $A(B+C)=AB+AC$, etc.
+
+Para definir la función determinante podemos seguir dos rutas, la primera y m?s com?n es dando la fórmula explícita del calculo del determinante de una matriz. Un ejemplo de esto es definir el determinante de una matriz cuadrada $A$ de orden $2$ como:
+$$ A_{11}A_{22}-A_{12}A_{21}.$$
+Para una matriz $3\times 3$, la fórmula se complica un poco mas; suponga que $B$ es una matriz cuadrada de orden $3$, entonces su determinante es:
+$$B_{11}B_{22}B_{33}+B_{12}B_{23}B_{31}+B_{21}B_{32}B_{13}-B_{13}B_{22}B_{31}-B_{23}B_{32}B_{11}-B_{12}B_{21}B_{33}.$$
+Y si se quiere definir el determinante de una matriz $4\times 4$, la fórmula es aún mas complicada.
+El otro camino para definir el determinante de una matriz es definiendo en abstracto una función que se comporte como queremos y luego demostrar que esta función es única (y que coincide con el determinante conocido, es decir, con la fórmula). Este último es el camino que seguiremos.
+
+En la primera parte del capítulo nos dedicaremos a definir la "función determinante" y mostrar que tal función existe. Luego nos dedicaremos a estudiar dicha función.
+
+```{definition}
+Sea $K$ un anillo conmutativo con unidad, $n$ un entero positivo. Sea $D$ una función que a cada matriz $A$ sobre $K$, de orden $n$ le asigna un escalar $D(A)$ en $K$. Decimos que $D$ es *$n$-lineal* si para cada $i$, $1\leq i\leq n$, $D$ es una función lineal para la fila $i$-ésima cuando las otras $n-1$ filas se dejan fijas.
+
+```
+
+```{remark}
+En la definición anterior, decir que la función $D$ es lineal en la fila $i$ es equivalente a decir que si $v_{1}, v_{2},\cdots , v_{n}$ son las $n$ filas de la matriz $A$, y se considera la funci?n $D$ solo respecto de la fila $i$, se tiene que $$D(v_{1}, v_{2},\cdots \lambda v_{i}+u_{i},\cdots, v_{n})=\lambda D(v_{1}, v_{2},\cdots v_{i},\cdots, v_{n})+D(v_{1}, v_{2},\cdots u_{i},\cdots, v_{n}).$$ Otra forma de verlo es pensar en la linealidad de la función $D$ cuando se considera una matriz $B$ donde $B_{rj}=0$ si $r\neq i$, donde se cumple que $D(\lambda A+B)=\lambda D(A)+D(B)$.
+
+```
+
+```{example}
+Sea $D$ la función que a cada matriz $A$ sobre $K$ de orden $n$, le asigna el valor $D(A)=\prod_{r=1}^{n}A_{rr}=A_{11}A_{22}\cdots A_{nn}$. $D$ es una función $n$-lineal. En efecto, para cada $i$, $1\leq i\leq n$, si consideramos otra matriz $B$ sobre $K$, de oreden $n$, y consideramos a $D$ como una función de la $i$-ésima fila, se tiene que 
+$\begin{array}{rl}
+D(\lambda A+B)=&(A_{11})(A_{22})\cdots (\lambda A_{ii}+B_{ii}) \cdots (A_{nn})\\
+=&(A_{11})(A_{22})\cdots (A_{nn})) (\lambda A_{ii}+B_{ii})\\
+=&\lambda ((A_{11})(A_{22})\cdots (A_{nn}))A_{ii}+ ((A_{11})(A_{22})\cdots (A_{nn}))B_{ii})\\
+\lambda D(A) + D(B)
+\end{array}$
+  
+```
+
+```{lemma}
+Una combinación lineal de funciones $n$-lineales, es una función $n$-lineal.
+```
+```{proof}
+Basta considerar la combinación lineal de dos funciones $n$-lineales. Sean $D$ y $E$ dos funciones $n$-lineales y $a\in K$.
+Como $(aD+E)(A)=aD(A)+E(A)$ para toda matriz $A$, entonces al fijar la fila $i$ de las matrices $A$ y $B$, considerando un escalar $c\in K$ y $D$ y $E$ son $n$-lineales, se tiene que 
+$$\begin{array}{rl}
+(aD+E)(cA_{\ast i}+B_{\ast i})=&aD(cA_{\ast i}+B_{\ast i})+E(cA_{\ast i}+B_{\ast i})\\
+=&acD(A_{\ast i})+aD(B_{\ast i})+cE(A_{\ast i})+E(B_{\ast i})\\
+=&c(aD(A_{\ast i})+E(A_{\ast i}))+(aD(B_{\ast i})+E(B_{\ast i}))\\
+=&c(aD+E)(A_{\ast i})+(aD+E)(B_{\ast i})
+\end{array}.$$
+  
+```
+
+El lema anterior nos permite asegurar que el conjunto de funciones $n$-lineales es un subespacio del espacio de las funciones de $\mathcal{M}_{n}$, el espacio de las matrices $n\times n$, en el cuerpo $K$.
+
+```{example, label=ejm65}
+La función $D$ definida en el espacio de las matrices cuadradas de orden $2$, como $D(A)=A_{11}A_{22}-A_{12}A_{21}$ es una función bilineal que es combinación lineal de las funciones bilineales $D_{1}(A)=A_{11}A_{22}$ y $D_{2}(A)=A_{12}A_{21}$. En efecto $D=D_{1}-D_{2}$. Es claro que la función $D$ es exactamente el determinante de matrices $2\times 2$. Pero la función $D$ tiene mas propiedades que ser la combinación lineal de funciones bilineales:
+(1) $D(I)=1$.
+(2) $D(A)=0$, si las filas de $A$ son iguales.
+(3) $D(B)=-D(A)$ si $B$ se obtiene de intercambiar las filas de $A$. En efecto, si $B=e_{12}A$ ($B$ se obtiene de intercambiar las filas $1$ y $2$ de $A$), entoces $B_{\ast 1}=A_{\ast 2}$ y $B_{\ast 2}=A_{\ast 1}$. As? 
+$$\begin{array}{rl}
+D(B)=&B_{11}B_{22}-B_{12}B_{21}\\
+=&A_{21}A_{21}-A_{22}A_{11}\\
+=&-(A_{22}A_{11}-A_{21}A_{21})\\
+=&-D(A)
+\end{array}$$
+  
+```
+
+```{definition}
+Sea $D$ una función n-lineal. Se dice que $D$ es *alternada* si se tiene que:
+(i) $D(A)=0$ cuando $A$ tiene dos filas iguales.
+(ii) $D(B)=-D(A)$ cuando $B$ se obtiene al aplicar una y solo una operaci?n de cambio de filas a $A$. 
+
+```
+
+```{definition}
+Sea $K$ un anillo conmutativo con unidad y sea $n\in\mathbb{N}$. Sea $D$ una función de $\mathcal{M}_{n}$ en $K$. Decimos que $D$ es una *función determinante* si
+(i) es $n$-lineal,
+(ii) es alternada y
+(iii) $D(I)=0$.
+
+```
+
+```{example}
+La función definida en el ejemplo \@ref(exp:ejem65) es una función determinante. Ya se vió que es $2$-lineal. Es fácil ver que $D(I)=1$ para la matriz identidad $2\times 2$. En efecto, 
+$$D\left(\begin{array}{cc}
+1&0\\
+0&1
+\end{array} \right) =1+0=1$$
+Y es alternada, ya que
+$$\begin{array}{rl}
+D\left(\begin{array}{cc}
+a&b\\
+c&d
+\end{array} \right)=&ad-bc\\
+=&-(cb-da)\\
+=&-D\left(\begin{array}{cc}
+c&d\\
+a&b
+\end{array} \right)\\
+\end{array}
+$$
+  
+```
+
+```{lemma}
+Sea $D$ una función $2$-lineal con la propiedad: si $A$ es una matriz $2\times 2$ con dos filas iguales, $D(A)=0$. Entonces $D$ es alternada.
+```
+```{proof}
+Sea $B$ una matriz que se obtiene de $A$ intercambiando filas. Sean $A_{1\ast}$ y $A_{2\ast}$ la primera y segunda fila de $A$ y $B_{1\ast}$ y $B_{2\ast}$ las respectivas filas de $B$; note que $B_{1\ast}=A_{2\ast}$ y $B_{2\ast}=A_{1\ast}$. Además 
+$$\begin{array}{rl}
+D(A+B)=&D(A_{1\ast}+B_{1\ast},A_{2\ast}+B_{2\ast})\\
+=&D(A_{1\ast}+A_{2\ast},A_{2\ast}+A_{1\ast})\\
+\end{array}.$$
+Como $D$ es $2$-lineal, se tiene que:
+$$\begin{array}{rl}
+D(A+B)=&D(A_{1\ast}+A_{2\ast},A_{2\ast}+A_{1\ast})\\
+=&D(A_{1\ast},A_{2\ast}+A_{1\ast})+D(A_{2\ast},A_{2\ast}+A_{1\ast})\\
+=&D(A_{1\ast},A_{1\ast})+D(A_{1\ast},A_{2\ast})+D(A_{2\ast},A_{1\ast})+D(A_{2\ast},A_{2\ast})\\
+=&D(A_{1\ast},A_{2\ast})+D(A_{2\ast},A_{1\ast})
+\end{array}.$$
+Por hipótesis, $D(A+B)=0$ y $D(A_{1\ast},A_{1\ast})=D(A_{2\ast},A_{2\ast}=0)$, entonces
+$$0=D(A_{1\ast},A_{2\ast})+D(A_{2\ast},A_{1\ast})$$
+por lo tanto,
+$$D(A_{1\ast},A_{2\ast})=-D(A_{2\ast},A_{1\ast}).$$
+  
+```
+
+```{lemma}
+Sea $D$ una función $n$-lineal de las matrices $n\times n$ sobre $K$. Supóngase que $D$ tiene la propiedad: si $A$ es una matriz $n\times n$ con dos filas adyacentes iguales, $D(A)=0$. Entonces $D$ es alternada.
+```
+```{proof}
+Sea $B$ una matriz que se obtiene de $A$ al intercambiar dos filas adyacentes. Por un razonamiento análogo al anterior se sigue que $D$ es alternada. Ahora, si $B$ es el resultado de alternar dos filas cuales quiera de $A$, dig?áos $1\leq i<j\leq n$, podemos obetener $B$ por una sucesión de intercambio de filas adyacentes. Cambiaríamos la fila $i$ con la fila $i+1$, luego la fila $i+1$ (donde yace la fila $i$ de $A$) con la $i+1$ y así sucesivamente hasta alcanzar la posición $j$-ésima; estas son $j-i$ operaciones. De igual forma <subimos> la fila $j$ de $A$ (que ahora yace en la fila $j-1$) aplicando intercambio de filas adyacentes, estas son $j-i-1$ operaciones elementales. De este modo, la operación $e_{ij}(A)$ es igual a aplicar $(j-i)+(j-i+1)=2(j-i)+1$ operaciones de intercambio de filas adyacentes, para las cuales se tiene la propiedad de $D(\hat{A})=-D(A)$. Así $D(B)=(-1)^{2k-1}D(A)=-D(A)$. Ahora, supongamos que $A$ es una matriz con dos filas iguales, digamos $1\leq i<j\leq n$. Si son adyacentes, es decir, $j=i+1$, por hipótesis, $D(A)=0$, si $j>i+1$, intercambiando la fila $A_{j\ast}$ con la fila $A_{i+1\ast}$ obtenmos una matriz $B$ tal que $D(B)=0$, entonces $D(A)=-D(B)=0$.
+
+```
+
+```{definition}
+Sea $A$ una matriz $n\times n$ ($n>1$) sobre $\mathbb{K}$. Denotaremos por $A(i|j)$ a la matriz $(n-1)\times (n-1)$ que se obtiene eliminando la $i$-ésima fila y la $j$-ésima columna de $A$. Si $D$ es una función $(n-1)$-lineal, definimos *$D_{ij}=D(A(i|j))$*.
+
+```
+
+```{theorem, label=teo612}
+Sea $D$ una función $(n-1)$-lineal alternada de las matrices $n-1\times n-1$ sobre $\mathbb{K}$. Para todo $1\leq j\leq n$, la función $$E_{j}(A)=\sum_{i=1}^{n} (-1)^{i+j}A_{ij}D_{ij}(A)$$ es una función $n$-lineal de las matrices $n\times n$. Si $D$ es una función determinante, también lo es $E_{j}$.
+
+```
+
+```{proof}
+Por definición $D_{ij}$ es independiente de la fila $i$. Ahora, como $D$ es $(n-1)$-lineal, $D_{ij}$ es lineal para cada fila salvo la fila $i$, por lo tanto $A_{ij}D_{ij}(A)$ es $n$-lineal, y así, la combinación lineal de $E_{j}$, es $n$-lineal. Veamos que $E_{j}$ es alternada; supongamos que $A_{k\ast}=A_{k+1\ast}$, sea $1\leq i\leq n$ tal que $k\neq i$ y $k+1\neq i$, la matriz $A(i|j)$ tiene dos filas iguales, $D_{ij}(A)=D[A(i|j)]=0$ y así $E_{j}(A)=0$. Por último veamos que $E_{j}(I_{n})=1$; para esto note que $D_{ij}=1$ y que $I_{ij}=\delta_{ij}$, por lo tanto $E_{j}(I_{n})=1$.
+
+```
+
+```{corollary}
+Sea $\mathbb{K}$ un anillo conmutativo con unidad y sea $n$ un entero positivo. Existe al menos una función determinante sobre $\mathcal{M}_{n\times n}(\mathbb{K})$.
+
+```
+
+```{proof}
+Para $n=1$, las matrices no son mas que números, la función identidad es una función determinante. Para $n=2$, la función definida al inicio por la fórmula $D(A)=a_{11}a_{22}-a_{12}a_{21}$ es una función determinante. Supomgamos que la función $D$, es una función determinate de las matrices de orden $(n-1)\times(n-1)$. Entonces, del teorema anterior tenemos que la función $E_{j}(A)=\sum_{i=1}^{n} (-1)^{i+j}A_{ij}D_{ij}(A)$, para cualquier $j\leq n$, es una función determinante.
+
+```
+
+```{example}
+Sea $B$ una matriz $2\times 2$ sobre $\mathbb{K}$. Ya hemos visto que la función determinante de las matrices $2\times 2$ es única. Denotemos $|B|=D(B)=b_{11}b_{22}-b_{12}b_{21}$.
+Sea 
+$$A=\left[ \begin{array}{ccc}
+a_{11}& a_{12}& a_{13}\\
+a_{21}& a_{22}& a_{23}\\
+a_{31}& a_{32}& a_{33}
+\end{array}\right] $$
+una matriz $3\times 3$. Definimos $E_{1}, E_{2}, E_{3}$ como en el teorema anterior, entonces
+\begin{equation, label=ec61}
+E_{1}(A)=a_{11}\left| \begin{array}{cc}
+a_{22}&a_{23}\\
+a_{32}&a_{33}
+\end{array}\right| 
+- a_{21}\left| \begin{array}{cc}
+a_{12}&a_{13}\\
+a_{32}&a_{33}
+\end{array}\right| 
++ a_{31}\left| \begin{array}{cc}
+a_{12}&a_{13}\\
+a_{22}&a_{23}
+\end{array}\right| 
+\end{equation}
+\begin{equation, label=ec62}
+E_{2}(A)=-a_{12}\left| \begin{array}{cc}
+a_{21}&a_{23}\\
+a_{31}&a_{33}
+\end{array}\right| 
++ a_{22}\left| \begin{array}{cc}
+a_{11}&a_{13}\\
+a_{31}&a_{33}
+\end{array}\right| 
+- a_{32}\left| \begin{array}{cc}
+a_{11}&a_{13}\\
+a_{21}&a_{23}
+\end{array}\right| 
+\end{equation}
+\begin{equation, label=ec63}
+E_{3}(A)=a_{13}\left| \begin{array}{cc}
+a_{21}&a_{22}\\
+a_{31}&a_{32}
+\end{array}\right| 
+- a_{23}\left| \begin{array}{cc}
+a_{11}&a_{12}\\
+a_{31}&a_{32}
+\end{array}\right| 
++ a_{33}\left| \begin{array}{cc}
+a_{11}&a_{12}\\
+a_{21}&a_{22}
+\end{array}\right| 
+\end{equation}
+son funciones determinantes. Se puede demostrar que $E_{1}=E_{2}=E_{3}$.
+
+```
+
+```{example}
+Dada la matriz $3\times 3$ sobre $\mathbb{R}$, 
+$$A=\left[ \begin{array}{ccc}
+0&0&1\\
+1&0&0\\
+0&1&0
+\end{array}\right]$$
+Entonces,
+$$E_{1}(A)=-\left| \begin{array}{cc}
+0&0\\
+1&0
+\end{array}\right| = 1$$
+	
+$$E_{2}(A)=-\left| \begin{array}{cc}
+0&1\\
+1&0
+\end{array}\right| = 1$$
+	
+$$E_{3}(A)=\left| \begin{array}{cc}
+1&0\\
+0&1
+\end{array}\right| = 1$$
+
+```
+
+```{definition}
+Una *permutacióon de grado $n$*, siendo $n$ un número natural cualquiera, es una función biyectiva de un conjunto de $n$ elementos $\{x_{1},x_{2},\cdots, x_{n}\}$ en si mismo.
+
+```
+
+```{remark}
+Dado un entero positivo $n$ y una función $f:n\longrightarrow n$, $f$ es inyectiva si y solo si $f$ es sobreyectiva. De este modo, en la definición de permutación bastaría pedir que la función sea inyectiva.
+
+```
+
+Una forma de representar una permutación de grado $n$ es escribiendo explícitamente la función, por ejemplo $x_{1}\mapsto x_{2}$, $x_{2}\mapsto x_{4}$, $x_{4}\mapsto x_{3}$ y $x_{3}\mapsto x_{1}$; o por un arreglo de la siguiente forma: 
+$$\left(\begin{array}{cccc}
+x_{1}&x_{2}&x_{3}&x_{4}\\
+x_{2}&x_{4}&x_{1}&x_{3}
+\end{array} \right) $$
+En general, una permutación de orden $n$ se representaría por 
+$$\left(\begin{array}{cccc}
+x_{1}&x_{2}&\cdots&x_{n}\\
+x_{i_{1}}&x_{i_{2}}&\cdots&x_{i_{n}}
+\end{array} \right)$$
+
+ Es evidente que no importan los elementos en si mismo, mas si sus índices, por lo que podemos considerar a la permutación como una función del conjunto $\{1,2,\cdots, n\}$ en si mismo. Entonces una permutación de grado $n$ no es más que una forma de ordenar los primeros $n$  números naturales. Suele denotarse con la letra $\sigma$. Así, una permutación $\sigma:\{1,2,\cdots, n\}\longrightarrow\{1,2,\cdots, n\}$ es un arreglo de $n$ entradas $(\sigma_{1},\sigma_{2},\cdots, \sigma_{n})$ (donde cada $\sigma_{i}$ es la imagen de $i$ por la función $\sigma$). De este modo, representaríamos la permutación de grado $4$ anterior por 
+ $$\left(\begin{array}{cccc}
+ 1&2&3&4\\
+ 2&4&1&3
+ \end{array} \right) $$
+ En general
+ $$\left(\begin{array}{cccc}
+ 1&2&\cdots&n\\
+ i_{1}&i_{2}&\cdots&i_{n}
+ \end{array} \right) $$
+
+La composición de permutaciones no es mas que la composición de dos funciones y también la podemos representar como el producto de dos areglos. Veamos esto con un ejemplo, supongamos que $\sigma$ es la permutación 
+$$\left(\begin{array}{cccc}
+1&2&3&4\\
+4&2&1&3
+\end{array} \right)$$  y que $\phi$ es la permutación
+$$\left(\begin{array}{cccc}
+1&2&3&4\\
+2&4&1&3
+\end{array} \right)$$
+Entonces $\sigma\phi$ es el producto 
+$$\left(\begin{array}{cccc}
+1&2&3&4\\
+4&2&1&3
+\end{array} \right)\left(\begin{array}{cccc}
+1&2&3&4\\
+2&4&1&3
+\end{array} \right)=\left(\begin{array}{cccc}
+1&2&3&4\\
+3&4&2&1
+\end{array} \right)$$
+
+De este modo, si $D$ es una función alternada $n$-lineal y $A$ es una matriz $n\times n$ sobre el cuerpo $\mathbb{K}$, con $A_{1\ast}, A_{2\ast},\cdots, A_{n\ast}$ las filas de $A$ y $\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n}$ las filas de la matriz identidad de orden $n\times n$. Entonces:
+$$A_{i\ast}=\sum_{k_{i}=1}^{n} a_{ik_{i}}e_{k_{i}}\mbox{,  } 1\leq i\leq n$$
+Luego
+$$\begin{array}{rl}
+D(A)=&D\left( \sum_{k_{1}} a_{1k_{1}}\epsilon_{k_{1}},A_{2\ast},\cdots,A_{n\ast}\right)\\
+=&\sum_{k_{1}} a_{1k_{1}}D(\epsilon_{k_{1}},A_{2\ast},\cdots,A_{n\ast})
+\end{array}.$$
+Reemplazando ahora $A_{2\ast}$ por $\sum_{k_{2}=1}^{n} a_{2k_{2}}\epsilon_{k_{2}}$, se tiene que 
+$$D(\epsilon_{k_{1}},A_{2\ast},\cdots,A_{n\ast})=\sum_{k_{2}} a_{2,k_{2}}D(\epsilon_{k_{1}},\epsilon_{k_{2}},A_{3\ast},\cdots,A_{n\ast})$$
+luego,
+$$D(A)=\sum_{k_{1},k_{2}} a_{1k_{1}}a_{2k_{2}}D(\epsilon_{k_{1}},\epsilon_{k_{2}},A_{3\ast},\cdots,A_{n\ast}).$$
+Si continuamos este proceso de sustutici\'on con las filas restantes, obtenemos que:
+$$D(A)=\sum_{k_{1},k_{2},\cdots,k_{n}} a_{1,k_{1}}a_{2k_{2}}\cdots a_{nk_{n}}D(\epsilon_{k_{1}},\epsilon_{k_{2}},\cdots,\epsilon_{k_{n}}).$$
+Como $D$ es alternada, si algún par de índices $k_{i}$ son iguales, $D(\epsilon_{k_{1}},\epsilon_{k_{2}},\cdots,\epsilon_{k_{n}})=0$ luego la suma se indexará sobre las permutaciones de orden $n$ quedando entonces:
+$$D(A)=\sum_{\sigma} a_{1,\sigma_{1}}a_{2\sigma_{2}}\cdots a_{n\sigma_{n}}D(\epsilon_{\sigma_{1}},\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}}).$$
+Por otro lado, como $D$ es alternada, se tiene que $D(\epsilon_{\sigma_{1}},\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}})=\pm D(\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n})$ donde el signo dependerá de cuantas veces se intercambiaron las filas al hacer la permutación; note que la matriz $(\epsilon_{\sigma_{1}},\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}})$ puede obtenerse de la matriz identidad $(\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n})$ haciendo una cantidad finita de intercambio de filas, si se intercambia las filas $m$ veces, entonces $D(\epsilon_{\sigma_{1}},\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}})=(-1)^{m} D(\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n})$. Como el signo depende solo de la permutación, introduciremos algunas definiciones sobre permutaciones para reescribir este resultado en estos términos.
+
+```{definition}
+Llamaremos *órbita* de un elemento $s\in\{1,2,\cdots,n\}$ al conjunto $\{\sigma^{i}(s):i \mbox{ es un entero no negativo }\}$, donde $\sigma^{i}$ representa la composición de $\sigma$ con sigo misma $i$ veces.
+
+```
+
+```{remark}
+La definición de órbita es aplicable a una función sobre un conjunto infinito. Para el caso que nos compete, la órbita es el conjunto de imagenes posibles para cualquier número finito de iteraciones de $\sigma$, como en conjunto de posibles imágenes es finito, eventualmente $\sigma^{j}(s)=s$ para algún entero no negativo $j$, en este caso la órbita de $s$ es el conjunto $\{s,\sigma(s),\cdots, \sigma^{j-1}(s) \}$. 
+
+```
+
+```{definition}
+Dada una permutación de orden $n$ y un elemento $s$ de órbita $\{s,\sigma(s),\cdots, \sigma^{j-1}(s) \}$. Diremos que el conjunto ordenado (o sucesión) $(s,\sigma(s),\cdots, \sigma^{j-1}(s))$ es un *ciclo* de $\sigma$. Y llamaremos *orden del ciclo* a la cantidad de elementos que este contiene, en este caso $j$.
+
+```
+
+```{definition}
+Llamaremos *transposición* a los ciclos de orden dos.
+
+```
+
+Las permutaciones están determinadas por sus ciclos. 
+
+```{example}
+Sea $\sigma$ la permutación 
+$$\left(\begin{array}{cccccc}
+1&2&3&4&5&6\\
+2&3&1&4&6&5
+\end{array} \right).$$
+La órbita de $1$ es $\{1,\sigma(1)=2,\sigma^{2}(1)=3\}$; la órbita de $2$ es el mismo conjunto órbita de $1$, al igual que la órbita de $3$. La órbita de $4$ es el conjunto $\{4\}$. Por último la órbita de $5$ es $\{5,6\}$ que coincide con la órbita de $6$. Así, los ciclos de $\sigma$ son $(1\:2\:3)$,$(4)$ y $(5\:6)$. El ciclo $(1\:2\:3)$ representa la permutación que a $1$ lo envía en $2$, a $2$ en $3$ y a $3$ en $1$, es decir
+$$\left(\begin{array}{cccccc}
+1&2&3&4&5&6\\
+2&3&1&4&5&
+\end{array} \right)$$
+Mientras que el ciclo $(4)$ no es mas que la identidad. Por otro lado, el ciclo $(5\:6)$ representa la permutación 
+$$\left(\begin{array}{cccccc}
+1&2&3&4&5&6\\
+1&2&3&4&6&5
+\end{array} \right).$$
+Si multiplicamos estos ciclos, obtenemos:
+$$(1\:2\:3)(4)(5\:6)=\left(\begin{array}{cccccc}
+1&2&3&4&5&6\\
+2&3&1&4&5&6
+\end{array} \right)\left(\begin{array}{cccccc}
+1&2&3&4&5&6\\
+1&2&3&4&5&6
+\end{array} \right)=\left(\begin{array}{cccccc}
+1&2&3&4&5&6\\
+2&3&1&4&6&5
+\end{array} \right)$$
+  
+```
+Veamos otro ejemplo:
+```{example}
+Consideremos los ciclos $(1\:2\:3)$ y $(5\:6\:4\:8)$ sobre el conjunto $\{1,2,\cdots,9\}$. Entonces el producto de estos ciclos será la permutación:
+$$\left(\begin{array}{ccccccccc}
+1&2&3&4&5&6&7&8&9\\
+2&3&1&4&5&6&7&8&9
+\end{array} \right)\left(\begin{array}{ccccccccc}
+1&2&3&4&5&6&7&8&9\\
+1&2&3&8&6&4&7&5&9
+\end{array} \right)=\left(\begin{array}{ccccccccc}
+1&2&3&4&5&6&7&8&9\\
+2&3&1&8&6&4&7&5&9
+\end{array} \right).$$
+
+```
+
+También podemos multiplicar ciclos que no sean disjuntos entre sí:
+
+```{example}
+Sean los ciclos $(1\:3\:4)$ y $(2\:4\:5)$ de un conjunto de $5$ elementos. Entonces la permutación resultante del producto de estos ciclos es:
+$$\left(\begin{array}{ccccc}
+1&2&3&4&5\\
+3&2&4&1&5
+\end{array} \right)\left(\begin{array}{ccccc}
+1&2&3&4&5\\
+1&4&3&5&2
+\end{array} \right)=\left(\begin{array}{ccccc}
+1&2&3&4&5\\
+3&4&5&1&2
+\end{array} \right)$$
+
+```
+ 
+```{lemma}
+Toda permutación es el producto de sus ciclos.
+
+```
+
+```{proof}
+Como los ciclos de una permutación son disjuntos entre sí, se sigue fácilmente que el producto de sus ciclos es igual a la permutación.
+
+```
+
+Más aún, todo ciclo es el producto de transposiciones, en el ejemplo, el ciclo $(1\:2\:3)$ puede representarse como el producto de las transposiciones $(1\:2)$ y $(1\:3)$. En general, el ciclo de orden $m$ $(1\:2\cdots m)$ puede obtenerse como el producto de ciclos de orden dos (no disjuntos), a saber $(1\:2\cdots m)=(1\:2)(1\:3)\cdots(1\:m)$. De este modo podemos afirmar que:
+
+```{lemma}
+Toda permutación es el producto de transposiciones.
+
+```
+
+```{definition}
+Decimos que una permutación $\sigma$ es \textit{par} si es el producto de un número par de transposiciones. En caso contrario diremos que la permutación es *impar*. El signo de una permutación será el número $$sgn \sigma=\left\lbrace\begin{array}{ll}
+1&\mbox{ si }\sigma\mbox{ es par}\\
+-1&\mbox{ si }\sigma\mbox{ es impar}
+\end{array} \right. $$
+
+```
+
+```{remark}
+La definición anterior da por sentado que el número de transposiciones con las que se representa una permutación es único, esto puede demostrarse, queda de parte del lector interesado hacerlo.
+
+```
+
+Con la definición de signo de una permutación podemos escribir $$D(\epsilon_{\sigma_{1}}),\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}}=(sgn\sigma)D(\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n})$$
+y así $$D(A)=\left[ \sum_{\sigma}(sgn\sigma)a_{1\sigma_{1}}a_{2\sigma_{2}}\cdots a_{n\sigma_{n}}\right] D(I)$$
+De donde se puede concluír la unicidad de la función determinante, esto es:
+$$det(A)=\sum_{\sigma}(sgn\sigma)a_{1\sigma_{1}}a_{2\sigma_{2}}\cdots a_{n\sigma_{n}}.$$
+
+Este resultado se puede escribir formalmente como sigue:
+
+```{theorem}
+Sea $\mathbb{K}$ un anillo conmutativo con unidad y $n$ un entero positivo. Existe exactamente una función determinante sobre el conjunto de las matrices $n\times n$ sobre $\mathbb{K}$, esta es $$det(A)=\sum_{\sigma}(sgn\sigma)a_{1\sigma_{1}}a_{2\sigma_{2}}\cdots a_{n\sigma_{n}}.$$ Además, si $D$ es una función alternada $n$-lineal alternada sobre las matrices $n\times n$ sobre $\mathbb{K}$, entonces $$D(A)=(det(A))D(I).$$
+
+```
+
+Por otro lado, ya vimos que el producto de dos permutaciones es la composición de estas (como funciones biyectivas). Veamos que el signo de la composición está determinado por el producto de los signos de las permutaciones:
+$$sgn(\sigma\phi)=(sgn\sigma)(sgn\phi)$$
+
+```{theorem}
+Sean $A$ y $B$ matrices $n\times n$ sobre un anillo conmutativo con unidad $\mathbb{K}$. Entonces $det(AB)=det(A)det(B)$.
+
+```
+```{proof}
+Dada la matriz $B$, para cada $A$ definamos $D(A)=det(AB)$. Entonces:
+$$D(A_{1\ast},A_{2\ast},\cdots,A_{n\ast})=det(A_{1\ast}B,A_{2\ast}B,\cdots,A_{n\ast}B).$$
+Como la función $det$ es $n$-lineal y se cumple que $(cA_{i\ast}+A_{s\ast})B=cA_{i\ast}B+A_{s\ast}B$, se sigue que $D$ es $n$-lineal. De igual forma, como $det$ es alternada y si $A_{i\ast}=A_{j\ast}$, entonces $A_{i\ast}B=A_{j\ast}B$, se tiene que $D$ es alternada. Por el teorema anterior $D(A)=(det A)D(I)$. Por lo tanto $D(I)=det(IB)=det(B)$, de donde se sigue que $det(AB)=D(A)=det(A)det(B)$.
+
+```
+
+Con el teorema anterior aplicándolo a matrices que se obtienen de intercambiar filas de la matriz identidad, digamos $B=(\epsilon_{\sigma_{1}},\epsilon_{\sigma_{2}},\cdots,\epsilon_{\sigma_{n}})$ y $A=(\epsilon_{\phi_{1}},\epsilon_{\phi_{2}},\cdots,\epsilon_{\phi_{n}})$, obtenemos que $det(A)=sgn(\phi)$ y $det(B)=sgn(\sigma)$. Note que las filas de ambas matrices tienen un único elemento no nulo, de hecho un $1$, la matriz $A$ tiene en la fila $i$-\'esima un uno en la columna $\phi_{i}$ y en las otras columnas ceros. Por lo tanto la $i$-ésima fila del producto $AB$ es $\epsilon_{\sigma\phi(i)}$, luego $det(AB)=sgn(\sigma\phi)$. Con el resultado anterior se sigue que $sgn(\sigma\phi)=sgn(\sigma)sgn(\phi)$.
+
+Ahora veamos otras propiedades de los determinantes:
+
+```{proposition}
+Sea $A$ una matriz $n\times n$ sobre un anillo conmutativo con unidad $\mathbb{K}$. Se tiene que $det(A)=det(A^{t})$.
+
+```
+
+```{proof}
+Sea $\sigma$ una permutación de grando $n$, $A^{t}(i,\sigma_{i})=A(\sigma_{i},i)$. Si $i=\sigma^{-1}(j)$, $A(\sigma_{i},i)=A(j,\sigma^{-1}(j))$. Por los resultados anteriores, $$det(A^{t})=\sum_{\sigma}(sgn\:\sigma)A(\sigma(1),1)\cdots A(\sigma(n),n)=\sum_{\sigma}(sgn\:\sigma)A(1,\sigma^{-1}(1))\cdots A(n,\sigma^{-1}(n))$$
+Pero $\sigma\sigma^{-1}$ es la permutación identidad que tiene signo $1$, luego $sgn\:\sigma=sgn\:\sigma^{-1}$ por lo tanto 
+$$\begin{array}{rl}
+det(A^{t})=&\sum_{\sigma}(sgn\:\sigma^{-1})A(1,\sigma^{-1}(1))\cdots A(n,\sigma^{-1}(n))\\
+=&det(A)
+\end{array}$$
+
+```
+
+```{proposition}
+Sea $A$ una matriz $n\times n$ sobre un anillo conmutativo con unidad $\mathbb{K}$. Si $B$ es una matriz que se obtiene de $A$ al sumar un múltiplo escalar de una fila con otra fila de $A$ (es decir al aplicar una operación elemental del tipo $ke_{ij}$, con $k\in\mathbb{K}$ y $i,j\leq n$). Entonces $det(B)=det(A)$.
+
+```
+
+```{proof}
+Supongamos que $B=ke_{ij}$, es decir, la $i$-ésima fila de $B$ es la suma de la fila $i$ de $A$ más $k$ veces la fila $j$ de $A$; y supongamos que $i<j$. Ahora, como la función determinante es $n$-lineal, es lineal como función de la $i$-ésima fila, entonces $$det(B)=det(A)+kdet(A_{1\ast},\cdots,A_{(i-1)\ast},A_{j\ast},\cdots,A_{(j-1)\ast},A_{j\ast},\cdots,A_{n\ast})$$
+	Finalmente, como la función determinante es alternada, es cero para la matriz del segundo sumando, ya que tiene dos filas iguales, a saber, la fila $i$ y la fila $j$. De donde se concluye el resultado.
+
+```
+
+```{proposition}
+Sea $A$ un matriz $r\times r$, $C$ una matriz $s\times s$ y $B$ una matriz $r\times s$ matricez sobre un anillo cunmutativo con unidad. Denotemos por $0$ a la matriz nula de orden $s\times r$. Suponga que se construye la matriz por bloques con las matrices anteriores de esta forma:
+$$\left[\begin{array}{cc}
+A&B\\
+0&C
+\end{array} \right]$$
+Entonces $$det \left[\begin{array}{cc}
+A&B\\
+0&C
+\end{array} \right]=det(A)det(C).$$
+\end{proposition}
+\begin{proof}
+Sea $D(A,B,C)=det \left[\begin{array}{cc}
+A&B\\
+0&C
+\end{array} \right]$ una función. Si fijamos $A$ y $B$, $D$ es alternada y $s$-lineal como función de las filas de $C$. Por lo tanto $D(A,B,C)=det(C)D(A,B,I)$ donde $I$ es la matriz identidad $s\times s$. Note que podemos aplicar operaciones elementales de fila a la matriz $$\left[\begin{array}{cc}
+A&B\\
+0&I
+\end{array} \right]$$ y obtener la matriz $$\left[\begin{array}{cc}
+A&0\\
+0&I
+\end{array} \right]$$ y aplicar el resultado anterior, por lo que $D(A,B,I)=D(A,0,I)$. Claramente $D(A,0,I)$ es alternada y $r$-lineal, como función de las filas de $A$. Por lo que $D(A,0,I)=det(A)D(I,0,I)$. Por otro lado, es fácil ver que $D(I,0,I)=1$, con lo que se concluye que 
+$$\begin{array}{rl}
+D(A,B,C)=&(det\:C)D(A,B,I)\\
+=&(det\:C)D(A,0,I)\\
+=&(det\:C)det(\:A)D(I,0,I)\\
+=&(det\:C)det(\:A)
+\end{array}.$$
+
+```
+
+```{remark}
+La proposición anterior también puede escriberse para matrices del tipo $$\left[\begin{array}{cc}
+A&0\\
+B&C
+\end{array} \right]$$
+
+```
+
+```{example}
+Para calcular el determinante de $$A=\left[\begin{array}{cccc}
+5&-1&0&-1\\
+4&-1&-1&1\\
+5&-1&3&1\\
+9&-2&3&2
+\end{array} \right]$$ procedemos a aplicar operaciones elementales del tipo $ke_{ij}$ hasta obtener:
+$$B=\left[\begin{array}{cccc}
+5&-1&0&-1\\
+0&-\frac{1}{5}&-1&-\frac{9}{5}\\
+0&0&3&2\\
+0&0&4&2
+\end{array} \right]$$ con lo que procedemos a calcular $$det(B)=\left|\begin{array}{cc}
+5&-1\\
+0&-\frac{1}{5}
+\end{array} \right| \left|\begin{array}{cc}
+3&2\\
+4&2
+\end{array} \right|=(-1)(-2)=2$$
+como $det(B)=det(A)$, entonces $det(A)=2$. Y nos ahorramos el copioso trabajo de calcular el determinante de la matriz $A$ por medio de la fórmula dada en el teorema \@ref{thm:teorema612}, que nos dota explícitamente de la función determinante de una matriz $n\times n$, dada la función determinate de una matriz de orden $(n-1)\times (n-1)$. Recordemos:
+$$det\:A=\sum_{i=1}^{n}(-1)^{i+j}a_{ij}det\:A(i|j)$$ para una columna fija $j$. 
+
+```
+
+```{definition}
+Dada una matriz de orden $n\times n$, para enteros $i,j\leq n$, llamaremos *cofactor* $i,j$ (o *cofactor del elemento *$ij$) al número $(-1)^{i+j}det\:A(i|j)$ y suele denotarse por $C_{ij}$.
+
+```
+
+Note que en terminos de cofactores, la función determinante se puede escribir como:
+$$det\:A=\sum_{i=1}^{n}a_{ij}C_{ij}$$
+
+donde el cofactor $C_{ij}$ es $(-1)^{i+j}$ es determinante de la matriz que resulta de suprimir la fila $i$ y la columna $j$ de la matriz $A$.
+Por otro lado, note que si $k\neq j$, entonces $\sum_{i=1}^{n}a_{ik}C_{ij}=0$ ya que si consideramos la matriz $B$ que resulta de sustituír la fila $k$ de $A$ por su fila $j$, entonces $det(B)=0$, pero $B(i|j)=A(i|j)$, luego $$0=det(B)=\sum_{i=1}^{n}(-1)^{i+j}b_{ij}det\:B(i|j)=\sum_{i=1}^{n}(-1)^{i+j}a_{ik}det\:A(i|j)=\sum_{i=1}^{n}a_{ij}C_{ij}$$
+Por lo que 
+\begin{equation}\label{ecuacion64}
+\sum_{i=1}^{n}a_{ij}C_{ij}=\delta_{ij}det(A)
+\end{equation}
+
+```{definition}
+Dada una matriz $A$ de orden $n\times n$, llamaremos *matriz adjunta* de $A$ y la denotaremos por $adj\:A$ a la matriz transpuesta de cofactores de la matriz $A$, es decir, $[adj\:A]_{ij}=C_{ji}=(-1)^{i+j}det\:A(i|j)$.
+
+```
+
+Con la definición anterior y la ecuación \ref{ecuacion64}, se tiene que 
+\begin{equation}\label{ecuacion65}
+(adj\:A)A=(det\:A)I
+\end{equation}
+
+Además también se tiene que $A(adj\:A)=(det\:A)I$. En efecto, como $A^{t}(i|j)=(A(i|j))^{t}$, entonces $(-1)^{i+j}det\:A^{t}(i|j)=(-1)^{i+j}det\:A(j|i)$, es decir, el cofactor $i,j$ de $A^{t}$ es el cofactor $j,i$ de $A$. Por lo tanto $$adj(A^{t})=(adj\:A)^{t}.$$
+De la ecuación \@ref{ecuacion65} aplicada a $A^{t}$, se obtiene que $(adj\:A^{t})A^{t}=(det\:A^{t})I=(det\:A)I$. Finalmente, transponiendo se obtiene el resultado, $A(adj\:A)=A((adj\:A)^{t})^{t}=A(adj\:A^{t})^{t}=(det\:A^{t})I=(det\:A)I$
+
+```{theorem}
+Sea $A$ una matriz $n\times n$ sobre $\mathbb{K}$. Se tiene que $A$ es invertible si y solo si $det\:A$ tiene inverso en $\mathbb{K}$. Cuando $A$ es invertible la inversa (única) de $A$ es la matriz $$A^{-1}=(det\: A)adj\:A.$$ En particular, una matriz $n\times n$ sobre un cuerpo es invertible si y solo si su determinate es distinto de cero.
+
+```
+
+```{proof}
+Supongamos que $A$ es una matriz invertible; sea $A^{-1}$ su inversa. Entonces $1=det\:I=det\:(AA^{-1})=(det\:A)(det\:A^{-1})$ y $1=det\:I=det\:(A^{-1}A)=(det\:A^{-1})(det\:A)$ por lo tanto $det\:A$ tiene inverso multiplicativo en $\mathbb{K}$. Además, como $(adj\:A)A=det(A)I$ entonces $adj\:A=(det\:A)A^{-1}$ si y solo si $(det\:A)^{-1}adj\:A=A^{-1}$. Inversamente, supongamos que $det\:A$ tiene un inverso multiplicativo, entonces $(adj\:A)A=(det\:A)I$ si y solo si $(det\:A)^{-1}(adj\:A)A=I$, análogamente $A[(det\:A)^{-1}(adj\:A)]=I$, luego $A$ tiene inversa, a saber, $(det\:A)^{-1}(adj\:A)$.
+
+```
+
+```{example}
+Sea $\mathbb{K}=\mathbb{R}[x]$ el anillo de los polinomios sobre el cuerpo de los números reales. Sean
+$$A=\left( \begin{array}{cc}
+x^{2}+x& x+1\\
+x-1&1
+\end{array}\right)\:, B=\left(\begin{array}{cc}
+x^{2}-1&x+2\\
+x^{2}-2x+3&x
+\end{array} \right) $$
+Se tiene que $det\: A=x+1$ y $det\:B=-6$. Como en el anillo $\mathbb{R}[x]$ los únicos elementos invertibles son los polinomios escalares (de grado cero) no nulos, se tiene que la matriz $B$ es invertible, no así la matriz $A$. Por otro lado,
+$$adj\:A=\left( \begin{array}{cc}
+1&-x-1\\
+-x+1&x^{2}+x
+\end{array}\right)\mbox{  y  } adj\:B=\left(\begin{array}{cc}
+x&-x-2\\
+-x^{2}+2x-3&x^{2}-1
+\end{array} \right)$$
+y así, $(adj\:A)A=(x+1)I$ y $(adj\:B)B=6I$. De donde se sigue que $$B^{-1}=-\dfrac{1}{6}\left(\begin{array}{cc}
+x&-x-2\\
+-x^{2}+2x-3&x^{2}-1
+\end{array}\right).$$
+  
+```
+
+```{example}
+Sea $K=\mathbb{Z}$ el anillo de los enteros y sea $$A=\left(\begin{array}{cc}
+5&6\\
+7&8
+\end{array} \right)$$
+Entonces $det(A)=-2$, como $-2$ no es invertible, la matriz no es invertible. Aunque podemos calcular su adjunta
+$$adj\:A=\left(\begin{array}{cc}
+8&-6\\
+-7&5
+\end{array} \right)$$
+Sin embargo, si consideramos la matriz $A$ sobre el anillo de los numeros racionales $\mathbb{Q}$ resulta ser una matriz invertible y su inversa es 
+$$A^{-1}=-\dfrac{1}{2}\left(\begin{array}{cc}
+8&-6\\
+-7&5
+\end{array} \right)=\left(\begin{array}{cc}
+-4&3\\
+\frac{7}{2}&-\frac{5}{2}
+\end{array} \right).$$
+
+```
+
+```{proposition}
+Las matrices semejantes tienen igual determinante.
+
+```
+
+```{proof}
+Sean $A$ y $B$ matrices semejantes, entonces existe una matriz invertible $P$ tal que $B=P^{-1}AP$. Así, $det\:B=(det\:P^{-1})(det\:A)(det\:P)=det\:A$.
+
+```
+
+Recordemos que dado un operador lineal $T$, podemos hallar una matriz del operador en una base dada. Además, dadas dos matrices del operador lineal, $A$ y $B$ (en dos bases posiblemente distintas) estas son semejantes. En vista del resultado anterior, el determinante de cualquier matriz del operador lineal tiene el mismo determinante, lo que nos permite definir el determinate del operador lineal.
+
+```{definition}
+Dado un operador lineal $T:V\longrightarrow V$, llamamos *determinante de * $T$ al determinante de la matriz $[T]_{\mathcal{B}}$ en una base $\mathcal{B}$ del espacio vectorial $V$.
+
+```
+
+###{Ejercicios}
+
+
+[1.] Verifique que las funciones $E_{1}, E_{2}, E_{3}$, definidas en \@ref{ec61}, \@ref{ec62} y \@ref{ec63}, son iguales.
+Respuesta: $$E_{1}=a_{11}(a_{22}a_{33}-a_{23}a_{32})-a_{21}(a_{12}a_{33}-a_{13}a_{32})+a_{31}(a_{12}a_{23}-a_{13}a_{22})$$
+	$$E_{2}=-a_{12}(a_{21}a_{33}-a_{23}a_{31})+a_{22}(a_{11}a_{33}-a_{13}a_{31})-a_{32}(a_{11}a_{23}-a_{13}a_{21})$$
+	$$E_{3}=a_{13}(a_{21}a_{32}-a_{22}a_{31})-a_{23}(a_{11}a_{32}-a_{12}a_{31})+a_{33}(a_{11}a_{22}-a_{12}a_{21})$$
+	al desarrollar estas expresiones, son claramente idénticas.
+	
+[2.] Dado un anillo conmutativo con unidad, $\mathbb{K}$. Sea $A$ una matriz $2\times 2$ sobre $\mathbb{K}$. Definimos la *matriz adjunta* de $A$ como la matriz $2\times 2$ sobre $\mathbb{K}$ como
+$$adj(A)=\left[\begin{array}{cc}
+a_{22}&-a_{12}\\
+-a_{21}&a_{11}
+\end{array} \right]$$
+si $det$ representa la función determinate (única) de las matrices $2\times 2$, demuestre que:
+
+[a] $(adj(A))A=A(adj(A))=(det(A))I$,
+[b] $det(adj(A))=det(A)$,
+[c] $adj(A^{t})=(adj(A))^{t}$;
+
+Donde $A^{t}$ denota la traspuesta de $A$.
+Respuesta:
+Sabemos que $det(A)=a_{11}a_{22}-a_{12}a_{21}$, luego 
+$$(det A)I=\left( \begin{array}{cc}
+a_{11}a_{22}-a_{12}a_{21}& 0\\
+0&a_{11}a_{22}-a_{12}a_{21}
+\end{array}\right) $$
+Por otro lado
+$$(adj A)A=\left( \begin{array}{cc}
+a_{22}& -a_{12}\\
+-a_{21}& a_{11}
+\end{array}\right) \left( \begin{array}{cc}
+a_{11}& a_{12}\\
+a_{21}& a_{22}
+\end{array}\right)=\left( \begin{array}{cc}
+a_{11}a_{22}-a_{12}a_{21}& a_{22}a_{12}-a_{12}a_{22}\\
+-a_{21}a_{11}+a_{11}a_{21}&a_{11}a_{22}-a_{12}a_{21}
+\end{array}\right)$$
+Análogamente se muestra que $A(adj(A))=(det(A))I$.
+Ahora, $$det(adj A)=\left|\begin{array}{cc}
+a_{22}&-a_{12}\\
+-a_{21}&a_{11}
+\end{array} \right|=a_{11}a_{22}-a_{12}a_{21} =det(A)$$
+Como $$A^{t}=\left(\begin{array}{cc}
+a_{11}&a_{21}\\
+a_{12}&a_{22}
+\end{array} \right) $$
+entonces $$adj(A^{t})=\left(\begin{array}{cc}
+a_{22}&-a_{21}\\
+-a_{12}&a_{11}
+\end{array} \right) =(adj A)^{t}.$$
+	
+[3.] Sea $A$ una matriz $2\times 2$ sobre $\mathbb{K}$. Demuestre que $A$ es invertible si y solo si $det A\neq 0$. En el caso de una matriz invertible, dé una expresión para la matriz inversa $A^{-1}$.
+Respuesta: $A$ es invertible si y solo si existe una matriz $B$ $2\times 2$ tal que $AB=BA=I$. Como $det(AB)=(det A)(det B)$, se tiene que $A$ es invertible si y solo si $(det A)(det B)=det I=1$, de donde se concluye que $A$ es invertible si y solo si $det A\neq 0$.
+Sea $A$ una matriz invertible, por lo anterior $det A\neq 0$. Por el ejercicio anterior, $(adj A) A=(det A)I$, multiplicando por $A^{-1}$ tenemos que $adj A=(det A)A^{-1}$, de donde se tiene que $A^{-1}=(\dfrac{1}{det A})adj(A)$

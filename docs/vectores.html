@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Capítulo 3 Vectores | Medida</title>
+  <meta name="description" content="Capítulo 3 Vectores | Medida">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Capítulo 3 Vectores | Medida" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://synergy.vision/Medida/" />
+  <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
+  
+  <meta name="github-repo" content="synergyvision/Medida/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Vectores | Medida" />
+  
+  
+  <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
+
+<meta name="author" content="Synergy Vision">
+
+
+<meta name="date" content="2019-11-05">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="estructuras-algebraicas.html">
+<link rel="next" href="espacios-vectoriales.html">
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="images/logovision-black.png" width="160"></img></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-que-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#informacion-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#practicas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
+<li class="chapter" data-level="1" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html"><i class="fa fa-check"></i><b>2</b> Estructuras algebraicas</a><ul>
+<li class="chapter" data-level="2.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#conjuntos"><i class="fa fa-check"></i><b>2.1</b> Conjuntos</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#definiciones-iniciales"><i class="fa fa-check"></i><b>2.1.1</b> Definiciones Iniciales</a></li>
+<li class="chapter" data-level="2.1.2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#operaciones-entre-conjuntos"><i class="fa fa-check"></i><b>2.1.2</b> Operaciones entre conjuntos</a></li>
+<li class="chapter" data-level="2.1.3" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#producto-cartesiano"><i class="fa fa-check"></i><b>2.1.3</b> Producto cartesiano</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#relaciones-de-equivalencia"><i class="fa fa-check"></i><b>2.2</b> Relaciones de Equivalencia</a></li>
+<li class="chapter" data-level="2.3" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#funciones"><i class="fa fa-check"></i><b>2.3</b> Funciones</a></li>
+<li class="chapter" data-level="2.4" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#cardinales"><i class="fa fa-check"></i><b>2.4</b> Cardinales</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios"><i class="fa fa-check"></i><b>2.4.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#teoria-de-grupos"><i class="fa fa-check"></i><b>2.5</b> Teoría de Grupos</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios-1"><i class="fa fa-check"></i><b>2.5.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#anillos"><i class="fa fa-check"></i><b>2.6</b> Anillos</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios-2"><i class="fa fa-check"></i><b>2.6.1</b> Ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>3</b> Vectores</a><ul>
+<li class="chapter" data-level="3.1" data-path="vectores.html"><a href="vectores.html#representacion-geometrica"><i class="fa fa-check"></i><b>3.1</b> Representación geométrica</a></li>
+<li class="chapter" data-level="3.2" data-path="vectores.html"><a href="vectores.html#operaciones-entre-vectores"><i class="fa fa-check"></i><b>3.2</b> Operaciones entre vectores</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="vectores.html"><a href="vectores.html#producto-escalar-y-producto-vectorial"><i class="fa fa-check"></i><b>3.2.1</b> Producto escalar y producto vectorial</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="vectores.html"><a href="vectores.html#rectas-y-planos"><i class="fa fa-check"></i><b>3.3</b> Rectas y Planos</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="vectores.html"><a href="vectores.html#rectas-en-el-espacio"><i class="fa fa-check"></i><b>3.3.1</b> Rectas en el espacio</a></li>
+<li class="chapter" data-level="3.3.2" data-path="vectores.html"><a href="vectores.html#rectas-en-el-plano"><i class="fa fa-check"></i><b>3.3.2</b> Rectas en el plano</a></li>
+<li class="chapter" data-level="3.3.3" data-path="vectores.html"><a href="vectores.html#planos"><i class="fa fa-check"></i><b>3.3.3</b> Planos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html"><i class="fa fa-check"></i><b>4</b> Espacios vectoriales</a><ul>
+<li class="chapter" data-level="4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales"><i class="fa fa-check"></i><b>4.1</b> Ecuaciones lineales</a></li>
+<li class="chapter" data-level="4.2" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#matrices"><i class="fa fa-check"></i><b>4.2</b> Matrices</a></li>
+<li class="chapter" data-level="4.3" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales-y-matrices"><i class="fa fa-check"></i><b>4.3</b> Ecuaciones lineales y matrices</a></li>
+<li class="chapter" data-level="4.4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#teoria-de-espacios-vectoriales"><i class="fa fa-check"></i><b>4.4</b> Teoría de espacios vectoriales</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#espacio-cociente"><i class="fa fa-check"></i><b>4.4.1</b> Espacio cociente</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ejercicios-3"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="polinomios.html"><a href="polinomios.html"><i class="fa fa-check"></i><b>5</b> Polinomios</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="polinomios.html"><a href="polinomios.html#factorizacion-prima-de-un-polinomio"><i class="fa fa-check"></i><b>5.0.1</b> Factorizacion prima de un polinomio</a></li>
+<li class="chapter" data-level="5.1" data-path="polinomios.html"><a href="polinomios.html#ejercicios-4"><i class="fa fa-check"></i><b>5.1</b> ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="matrices-1.html"><a href="matrices-1.html"><i class="fa fa-check"></i><b>6</b> Matrices</a></li>
+<li class="chapter" data-level="7" data-path="determinantes.html"><a href="determinantes.html"><i class="fa fa-check"></i><b>7</b> Determinantes</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="determinantes.html"><a href="determinantes.html#ejercicios-5"><i class="fa fa-check"></i><b>7.0.1</b> {Ejercicios}</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="autovalores-y-autovectores.html"><a href="autovalores-y-autovectores.html"><i class="fa fa-check"></i><b>8</b> Autovalores y autovectores</a></li>
+<li class="chapter" data-level="9" data-path="calculo-en-vectores-y-matrices.html"><a href="calculo-en-vectores-y-matrices.html"><i class="fa fa-check"></i><b>9</b> Cálculo en vectores y matrices</a></li>
+<li class="chapter" data-level="10" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html"><i class="fa fa-check"></i><b>10</b> Transformaciones lineales</a><ul>
+<li class="chapter" data-level="10.1" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#bases-ordenadas"><i class="fa fa-check"></i><b>10.1</b> Bases ordenadas</a></li>
+<li class="chapter" data-level="10.2" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#matriz-de-una-transformacion"><i class="fa fa-check"></i><b>10.2</b> Matriz de una transformación</a></li>
+<li class="chapter" data-level="10.3" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#transformaciones-invertibles"><i class="fa fa-check"></i><b>10.3</b> Transformaciones invertibles</a></li>
+<li class="chapter" data-level="10.4" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#funcionales-lineales"><i class="fa fa-check"></i><b>10.4</b> Funcionales lineales</a></li>
+<li class="chapter" data-level="10.5" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#el-doble-dual"><i class="fa fa-check"></i><b>10.5</b> El doble dual</a></li>
+<li class="chapter" data-level="10.6" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#ejercicios-6"><i class="fa fa-check"></i><b>10.6</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="producto-escalar.html"><a href="producto-escalar.html"><i class="fa fa-check"></i><b>11</b> Producto escalar</a><ul>
+<li class="chapter" data-level="11.0.1" data-path="producto-escalar.html"><a href="producto-escalar.html#ejercicios-7"><i class="fa fa-check"></i><b>11.0.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apéndice</b></span></li>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A.1" data-path="software-tools.html"><a href="software-tools.html#r-and-r-packages"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
+<li class="chapter" data-level="A.2" data-path="software-tools.html"><a href="software-tools.html#pandoc"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
+<li class="chapter" data-level="A.3" data-path="software-tools.html"><a href="software-tools.html#latex"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Medida</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="vectores" class="section level1">
+<h1><span class="header-section-number">Capítulo 3</span> Vectores</h1>
+<p>En este capítulo estudiaremos los vectores, objetos muy usados en la física para representar distintas nociones en las que se deben representar magnitudes, direcciones y orientación, como lo son el desplazamiento, la velocidad, la fuerza, etc. Sin embargo, se puden definir los vectores desde una perspectiva más abstracta, como los elementos de un espacio vectorial. En este capítulo nos centraremos en la noción más natural (como en la física) para desrrollar y mostrar las propiedades y operaciones de los vectores, estudiando los vectores en espacios euclideanos.</p>
+<div id="representacion-geometrica" class="section level2">
+<h2><span class="header-section-number">3.1</span> Representación geométrica</h2>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-174" class="definition"><strong>Definición 3.1  </strong></span>Un <em>vector</em> <span class="math inline">\(v\)</span> en <span class="math inline">\(\mathbb{R}^{n}\)</span> de dimensión <span class="math inline">\(n\)</span> es una n-tupla de <span class="math inline">\(n\)</span> números reales, de la forma <span class="math inline">\(v=(a_{1}, a_{2},\cdots, a_{n})\)</span>. Llamaremos componente <span class="math inline">\(i-\)</span>ésima al número <span class="math inline">\(a_{i}\)</span> (<span class="math inline">\(1\leq i\leq n\)</span>).</p>
+</div>
+
+
+<div class="remark">
+ <span class="remark"><em>Nota. </em></span> Nos centraremos en estuiar vectores en <span class="math inline">\(\mathbb{R}^{2}\)</span> o en <span class="math inline">\(\mathbb{R}^{3}\)</span>. Los vectores en <span class="math inline">\(\mathbb{R}^{2}\)</span> o en <span class="math inline">\(\mathbb{R}^{3}\)</span> pueden representarse como un segmento de recta dirigido (una flecha) determinado por dos puntos en el espacio, <span class="math inline">\(A\)</span> de coordenadas <span class="math inline">\((x_{A},y_{A})\)</span> y <span class="math inline">\(B\)</span> de coordenadas <span class="math inline">\((x_{B},y_{B})\)</span>, en los que uno es el origen del vector y el otro el extremo, en este caso se denota <span class="math inline">\(\vec{AB}\)</span> y sus coordenadas en el plano serían <span class="math inline">\(\vec{AB}=(x_{B}-x_{A}, y_{B}-y_{A})\)</span>. también se puede denotar el vector con una letra minúscula <span class="math inline">\(v=\vec{AB}\)</span>. La recta por la que pasa el vector es la <strong>dirección</strong> del vector.
+</div>
+
+<p>La longitud del segmento de recta que define el vector (es decir, la flecha) es la <em>magnitud</em> del vector y se denota por <span class="math inline">\(|\vec{AB}|\)</span> (o <span class="math inline">\(|v|\)</span>). La <em>dirección</em> del vector corresponde a la inclinación de la recta sobre la cual está el vector, esto es el ángulo que forma el vector con la horizontal. La <em>orientación</em> o <em>sentido</em> del vector representa el sentido en que se recorre el segmento de recta (determina hacia donde apunta la flecha).</p>
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Los vectores <span class="math inline">\(\vec{AB}\)</span> y <span class="math inline">\(\vec{BA}\)</span> tienen la misma magnitud, la misma dirección pero sentidos contrarios, por lo que <span class="math inline">\(\vec{BA}=-\vec{AB}\)</span>.</p>
+Las coordenadas de un vector describen un rectángulo en el plano <span class="math inline">\(\mathbb{R}^{2}\)</span> en el que el vector es una de las diagonales.
+</div>
+
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-177" class="definition"><strong>Definición 3.2  </strong></span>Dado el vector <span class="math inline">\(v\)</span> de coordenadas <span class="math inline">\((x,y)\)</span>, <em>la magnitud</em> puede calcularse usando el teorema de pitágoras, con <span class="math inline">\(|v|=\sqrt{x^{2}+y^{2}}\)</span>, la dirección es el <em>ángulo</em> <span class="math inline">\(\theta\)</span> que forma con el eje de las abscisas y se calcula con <span class="math inline">\(\theta=\arctan(\frac{y}{x})\)</span>. El sentido es una noción referencial y se representan sentidos contrarios con los signos positivos (<span class="math inline">\(+\)</span>) y negativos (<span class="math inline">\(-\)</span>) (el signo <span class="math inline">\(+\)</span> suele omitirse)</p>
+</div>
+
+
+<div class="remark">
+ <span class="remark"><em>Nota. </em></span> En general, la <em>magnitud</em> de un vector <span class="math inline">\(v\)</span> en <span class="math inline">\(\mathbb{R}^{n}\)</span> es <span class="math inline">\(|v|=\sqrt{\sum_{k=1}^{n}a_{k}^{2}}\)</span>.
+</div>
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-179" class="definition"><strong>Definición 3.3  </strong></span>Dos <em>vectores</em> son <em>paralelos</em> si forman iguales ángulos con el eje de las abscisas. Es decir, <span class="math inline">\(v_{1}=(x_{1},y_{1})\)</span> y <span class="math inline">\(v_{2}=(x_{2},y_{2})\)</span> son paralelos si <span class="math inline">\(\theta_{1}=\arctan(\frac{y_{1}}{x_{2}})=\theta_{2}=\arctan(\frac{y_{2}}{x_{2}})\)</span>.
+</div>
+
+</div>
+<div id="operaciones-entre-vectores" class="section level2">
+<h2><span class="header-section-number">3.2</span> Operaciones entre vectores</h2>
+<p>Ya vimos que los vectores pueden representar conceptos físicos como lo son la distancia, la velocidad o la fuerza. Entonces es conveniente poder sumar estos objetos, para representar suma de distancias o suma de fuerzas, por ejemplo. También podemos pensar en multiplicar un vector por un escalar, como sería multiplicar la magnitud de una fuerza. En esta sección veremos que podemos definir varias operaciones entre vectores, sumar, restar y multiplicar vectores como lo hacemos con los números reales. Pero también definiremos operaciones propias de estos objetos, como lo son el producto punto y el producto cruz de vectores.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-180" class="definition"><strong>Definición 3.4  </strong></span>Dados los vectores <span class="math inline">\(v_{1}=(x_{1},y_{1})\)</span> y <span class="math inline">\(v_{2}=(x_{2},y_{2})\)</span>, <em>la suma</em> de <span class="math inline">\(v_{1}\)</span> y <span class="math inline">\(v_{2}\)</span> está dada por la suma de las componentes correspondientes, es decir, <span class="math inline">\(v_{1}+v_{2}=(x_{1}+x_{2},y_{1}+y_{2})\)</span>. En general, la suma de dos vectores <span class="math inline">\(v=(a_{1}, a_{2},\cdots, a_{n})\)</span> y <span class="math inline">\(u=(b_{1}, b_{2},\cdots, b_{n})\)</span> en <span class="math inline">\(\mathbb{R}^{n}\)</span> se define como <span class="math inline">\(v+u=(a_{1}, a_{2},\cdots, a_{n})+(b_{1}, b_{2},\cdots, b_{n})=(a_{1}+b_{1},a_{2}+b_{2},\cdots a_{n}+b_{n})\)</span>.</p>
+</div>
+
+<p>La suma de vectores tiene las siguientes propiedades:</p>
+<ol style="list-style-type: decimal">
+<li><p>Es commutativa, es decir, <span class="math inline">\(v_{1}+v_{2}=v_{2}+v_{1}\)</span>, para cuales quiera vectores <span class="math inline">\(v_{1}, v_{2}\)</span>.</p></li>
+<li><p>Es asociativa, esto es, <span class="math inline">\((v_{1}+v_{2})+v_{3}=v_{1}+(v_{2}+v_{3})\)</span>, para todo <span class="math inline">\(v_{1}, v_{2}\)</span> y <span class="math inline">\(v_{3}\)</span>.</p></li>
+<li><p>Existencia del elemento neutro o vector cero, <span class="math inline">\(v+\vec{0}=v\)</span>, para todo vector <span class="math inline">\(v\)</span>.</p></li>
+<li><p>Para todo vector <span class="math inline">\(v\)</span>, existe un vector <span class="math inline">\(v´\)</span> tal que <span class="math inline">\(v+(v´)=\vec{0}\)</span>.</p></li>
+</ol>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-181" class="definition"><strong>Definición 3.5  </strong></span>Dado el vector <span class="math inline">\(v=(x,y)\)</span> y un escalar <span class="math inline">\(\lambda\in\mathbb{R}\)</span>, <em>el producto</em> de <span class="math inline">\(v\)</span> <em>por un escalar</em> <span class="math inline">\(\lambda\)</span> está dada por la multiplicaión de cada una de las componentes por el escalar, es decir, <span class="math inline">\(\lambda v=(\lambda x,\lambda y)\)</span>. En general, si <span class="math inline">\(v=(a_{1},a_{2},\cdots, a_{n})\)</span>, entonces <span class="math inline">\(\lambda v=(\lambda a_{1},\lambda a_{2},\cdots, \lambda a_{n})\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-182" class="definition"><strong>Definición 3.6  </strong></span>Dado el vector <span class="math inline">\(v=(x,y)\)</span> , el <em>vector opuesto</em> a <span class="math inline">\(v\)</span> es el vector <span class="math inline">\(-v\)</span> dado por el producto de <span class="math inline">\(v\)</span> por el escalar <span class="math inline">\(-1\)</span>, es decir, <span class="math inline">\(-v=-1 v=(-x,-y)\)</span>. En general, si <span class="math inline">\(v=(a_{1},a_{2},\cdots, a_{n})\)</span>, entonces <span class="math inline">\(-v=(-a_{1},-a_{2},\cdots, -a_{n})\)</span>.
+</div>
+
+<p>El producto de vectores por un escalar tiene las siguientes propiedades:</p>
+<ol style="list-style-type: decimal">
+<li><p>Es commutativa, es decir, <span class="math inline">\(\lambda v=v\lambda\)</span>, para cualquier vector <span class="math inline">\(v\)</span> y cualquier escalar <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p>Es distributiva, esto es, <span class="math inline">\(\lambda(v_{1}+v_{2})=\lambda v_{1}+\lambda v_{2}\)</span>, para todo <span class="math inline">\(v_{1}, v_{2}\)</span> y todo <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p>Existencia del elemento neutro, <span class="math inline">\(1v=v\)</span>, para todo vector <span class="math inline">\(v\)</span>.</p></li>
+</ol>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-183" class="definition"><strong>Definición 3.7  </strong></span>Dados los vectores <span class="math inline">\(v_{1}=(x_{1},y_{1})\)</span> y <span class="math inline">\(v_{2}=(x_{2},y_{2})\)</span>, <em>la resta</em> de <span class="math inline">\(v_{1}\)</span> y <span class="math inline">\(v_{2}\)</span> está dada por la suma de <span class="math inline">\(v_{1}\)</span> con el opuesto de <span class="math inline">\(v_{2}\)</span>, es decir, <span class="math inline">\(v_{1}-v_{2}=(x_{1},y_{1})-(x_{2},y_{2})=(x_{1}-x_{2},y_{1}-y_{2})\)</span>. En general, <span class="math inline">\(v-u=(a_{1}, a_{2},\cdots, a_{n})-(b_{1}, b_{2},\cdots, b_{n})=(a_{1}-b_{1},a_{2}-b_{2},\cdots a_{n}-b_{n})\)</span>, cuando <span class="math inline">\(v=(a_{1}, a_{2},\cdots, a_{n})\)</span> y <span class="math inline">\(u=(b_{1}, b_{2},\cdots, b_{n})\)</span> son vectores de <span class="math inline">\(\mathbb{R}^{n}\)</span>.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-184" class="example"><strong>Ejemplo 3.1  </strong></span>Dados los vectores <span class="math inline">\(v_{1}=(10,2)\)</span>, <span class="math inline">\(v_{2}=(-5,4)\)</span> y <span class="math inline">\(v_{3}=(-1,-2)\)</span>, entonces</p>
+<span class="math inline">\(v_{1}+v_{2}=(10,2)+(-5,4)=(10-5,2+4)=(5,6),\)</span> <span class="math inline">\(v_{1}-v_{2}=(10,2)-(-5,4)=(10-(-5),2-4)=(15,-2) \mbox{ y}\)</span> <span class="math inline">\(v_{3}+v_{2}-v_{1}=(-1,-2)+(-5,4)-(10,2)=(-1-5-10,-2+4-2)=(-16,0).\)</span> También<br />
+<span class="math inline">\(-2v_{1}=-2(10,2)=(-20,-4)\mbox{ y }\)</span> <span class="math inline">\(-2v_{1}+3v_{2}-v_{3}=-2(10,2)+3(-5,4)-1(-1,-2)=(-20-15+1,-4+12+2)=(-34,10).\)</span>
+</div>
+
+<div id="producto-escalar-y-producto-vectorial" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Producto escalar y producto vectorial</h3>
+<p>Las operaciones que definiremos en esta parte son propias de los vectores. En la mayor parte de los conceptos nos remitiremos a los espacios <span class="math inline">\(\mathbb{R}^{2}\)</span> y <span class="math inline">\(\mathbb{R}^{3}\)</span>.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-185" class="definition"><strong>Definición 3.8  </strong></span>Sean <span class="math inline">\(v_{1}\)</span> y <span class="math inline">\(v_{2}\)</span> vectores, el <em>producto escalar</em> de <span class="math inline">\(v_{1}\)</span> y <span class="math inline">\(v_{2}\)</span> es el producto de los módulos <span class="math inline">\(|v_{1}|\)</span> y <span class="math inline">\(|v_{2}|\)</span> y el coseno del ángulo que forman los vectores y se denota <span class="math inline">\(v_{1}\cdot v_{2}\)</span>. Es decir, <span class="math inline">\(v_{1}\cdot v_{2}=|v_{1}||v_{2}|\cos \theta\)</span>, donde <span class="math inline">\(\theta\)</span> es el ángulo entre <span class="math inline">\(v_{1}\)</span> y <span class="math inline">\(v_{2}\)</span>.
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> La proyección de <span class="math inline">\(v_{1}\)</span> sobre <span class="math inline">\(v_{2}\)</span> es <span class="math inline">\(proy_{v_{2}} v_{1}=|v_{1}|\cos\theta\)</span> donde <span class="math inline">\(\theta\)</span> es el ángulo que forman ambos vectores. Por lo tanto, <span class="math inline">\(v_{1}\cdot v_{2}=|v_{2}| proy_{v_{2}} v_{1}\)</span>.</p>
+También podemos calcular el producto escalar del siguiente modo: Sean <span class="math inline">\(v_{1}=(x_{1}, y_{1})\)</span> y <span class="math inline">\(v_{2}=(x_{2}, y_{2})\)</span> vectores, <span class="math inline">\(v_{1}\cdot v_{2}=x_{1}x_{2}+y_{1}y_{2}\)</span>. En general, si <span class="math inline">\(v_{1}\)</span> y <span class="math inline">\(v_{2}\)</span> son vectores en <span class="math inline">\(\mathbb{R}^{n}\)</span> tales que <span class="math inline">\(v_{1}=(x_{1},x_{2},\cdots, x_{n})\)</span> y <span class="math inline">\(v_{2}=(y_{1},y_{2},\cdots, y_{n})\)</span>, <span class="math inline">\(v_{1}\cdot v_{2}=\sum_{i=1}^{n} x_{i}y_{i}\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-187" class="example"><strong>Ejemplo 3.2  </strong></span>Dados los vectores <span class="math inline">\(v=(\sqrt{3},1)\)</span> y <span class="math inline">\(u=(\frac{3}{2},\frac{3\sqrt{3}}{2})\)</span>, y sabiendo que el ángulo que ellos forman es 30, entonces el producto escalar entre ellos <span class="math display">\[v\cdot u=|v||u|\cos 30^{o}=2\cdot 3\cdot\frac{\sqrt{3}}{2}=3\sqrt{3}\]</span> ya que <span class="math inline">\(|v|=\sqrt{\sqrt{3}^{2}+1^{2}}=\sqrt{4}=2\)</span> y <span class="math inline">\(|u|=\sqrt{(\frac{3}{2}^{2})+(\frac{3\sqrt{3}}{2})^{2}}=\sqrt{\frac{36}{4}}=3\)</span>. Note que si usamos la fórmula analítica podemos calcular el producto escalar <span class="math inline">\(v\cdot u=(\sqrt{3}\cdot \frac{3}{2}) + (1\cdot \frac{3\sqrt{3}}{2})=3\sqrt{3}\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-188" class="example"><strong>Ejemplo 3.3  </strong></span>Dados los vectores <span class="math inline">\(v=(1,2)\)</span> y <span class="math inline">\(u=(-3,4)\)</span>, el producto escalar es <span class="math inline">\(v\cdot u=1\cdot (-3)+(2\cdot 4)\)</span>. Si queremos calcular el ángulo <span class="math inline">\(\alpha\)</span> entre los vectores, usamos la fórmula <span class="math inline">\(v\cdot u=|v||u|\cos\alpha\)</span>, como <span class="math inline">\(|v|=\sqrt{1^{2}+2^{2}}=\sqrt{5}\)</span> y <span class="math inline">\(|v|=\sqrt{(-3)^{2}+4^{2}}=5\)</span>, entonces <span class="math inline">\(\cos\alpha=\frac{5}{\sqrt{5}\cdot 5}\)</span>, por lo tanto <span class="math inline">\(\alpha=\arccos\frac{1}{\sqrt{5}}\)</span>.
+</div>
+
+
+<div class="remark">
+ <span class="remark"><em>Nota. </em></span> Dos <em>vectores</em> <span class="math inline">\(v_{1}, v_{2}\)</span> son <em>perpendiculares</em> si y solo si forman un ángulo de <span class="math inline">\(90^{o}\)</span> entre ellos, esto lo denotamos con <span class="math inline">\(v_{1}\perp v_{2}\)</span>. Como <span class="math inline">\(\cos 90^{o}=0\)</span> se puede ver que dos vectores no nulos son perpendiculares si y solo si el producto escalar entre ellos es cero. Es decir <span class="math inline">\(v_{1}\perp v_{2}\)</span> si y solo si <span class="math inline">\(v_{1}\cdot v_{2}=0\)</span>, siempre que <span class="math inline">\(u\neq 0\)</span> o <span class="math inline">\(v\neq 0\)</span>.
+</div>
+
+<p>El producto escalar tiene las siguientes propiedades:</p>
+<ol style="list-style-type: decimal">
+<li><p>Conmutativa: Para todo par de vectores <span class="math inline">\(v\)</span> y <span class="math inline">\(u\)</span>, se tiene <span class="math inline">\(v\cdot u= u\cdot v\)</span>.</p></li>
+<li><p>Distributiva respecto a la suma: Para cualesquiera vectores <span class="math inline">\(u\)</span>, <span class="math inline">\(v\)</span> y <span class="math inline">\(w\)</span>, se tiene que <span class="math inline">\(u\cdot(v+w)=u\cdot v + u\cdot w\)</span>.</p></li>
+<li><p>Asociatividad respecto al producto por un escalar: Para todo par de vectores <span class="math inline">\(v\)</span> y <span class="math inline">\(u\)</span> y todo escalar <span class="math inline">\(\lambda\)</span>, se tiene que: <span class="math inline">\(\lambda(u\cdot v)=(\lambda u)\cdot v=u\cdot (\lambda v)\)</span>.</p></li>
+</ol>
+
+<div class="definition">
+<span id="def:unnamed-chunk-190" class="definition"><strong>Definición 3.9  </strong></span>Dados dos vectores, <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>, el producto vectorial de <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> está definido como <span class="math inline">\(u\times v=(|u||v| sen \theta) n\)</span>, donde <span class="math inline">\(n\)</span> es un vector de módulo uno (1) y perpendicular a los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>, cuya dirección está dada por la regla de la mano derecha y <span class="math inline">\(\theta\)</span> es el ángulo entre los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>.
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> La regla de la mano derecha consiste en dar el mismo sentido al producto vectorial de <span class="math inline">\(u\times v\)</span> que el avance de un sacacorchos al girar desde el vector <span class="math inline">\(u\)</span> al vector <span class="math inline">\(v\)</span>. (insertar imagen)</p>
+Desde el punto de vista geométrico, el módulo del producto vectorial corresponde al área del paralelogramo que forman los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> y las rectas paralelas a estos. (insertar imagen)
+</div>
+
+<p>Otra forma de calcular el producto vectorial entre dos vectores <span class="math inline">\(u=(a_{1},a_{2}, a_{3})\)</span> y <span class="math inline">\(v=(b_{1}, b_{2}, b_{3})\)</span> es esta <span class="math inline">\(u\times v=(a_{2}b_{3}-a_{3}b_{2}, a_{3}b_{1}-a_{1}b_{3}, a_{1}b_{2}-a_{2}b_{1})\)</span>, la cual resulta muy práctica en el caso de conocer las componetes de los vectores.</p>
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Si definimos el determinante de una matriz <span class="math inline">\(2x2\)</span> como sigue:</p>
+<p><span class="math display">\[\left|  \begin{array}{ll} 
+    a &amp; b\\ 
+    c &amp; d
+    \end{array} \right| = ad-bc\]</span>,</p>
+<p>entonces el producto vectorial se pude calcular como sigue:</p>
+<p><span class="math inline">\(u\times v=(x,y,z)\)</span> donde <span class="math inline">\(x=\left| \begin{array}{ll}  a_{2} &amp; a_{3}\\  b_{2} &amp; b_{3}  \end{array} \right|\)</span>, <span class="math inline">\(x=\left| \begin{array}{ll}  a_{1} &amp; a_{3}\\  b_{1} &amp; b_{3}  \end{array} \right|\)</span>, <span class="math inline">\(x=\left| \begin{array}{ll}  a_{1} &amp; a_{2}\\  b_{1} &amp; b_{2}  \end{array} \right|\)</span>.</p>
+En el capítulo de matrices veremos mas formalmente el concepto de determinante de una matriz.
+</div>
+
+<p>Note que <span class="math inline">\(u\cdot (u\times v)=a_{1}(a_{2}b_{3}-a_{3}b_{2})+ a_{2}(a_{3}b_{1}-a_{1}b_{3})+ a_{3}(a_{1}b_{2}-a_{2}b_{1})=0\)</span> lo que implica que <span class="math inline">\(u\perp u\times v\)</span>. De forma análoga se muestra que <span class="math inline">\(v\perp u\times v\)</span>.</p>
+<p>El producto vectorial tiene las siguientes propiedades:</p>
+<p>Sean <span class="math inline">\(u,v, w\in \mathbb{R}^{3}\)</span> vectores en el espacio y <span class="math inline">\(\lambda\in \mathbb{R}\)</span> un escalar, se tiene que:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(u\times \vec{0}=\vec{0}\)</span>,</p></li>
+<li><p><span class="math inline">\(u\times u=\vec{0}\)</span>,</p></li>
+<li><p><span class="math inline">\(u\times v= -(v\times u)\)</span>,</p></li>
+<li><p><span class="math inline">\(\lambda (u\times v)= (\lambda u)\times v=u\times (\lambda v)\)</span>,</p></li>
+<li><p><span class="math inline">\(u\times (v+w)=(u\times v) + (u\times w)\)</span>,</p></li>
+<li><p><span class="math inline">\(u\times (v\times w)=(u\cdot w)v-(u\cdot v)w\)</span>,</p></li>
+<li><p><span class="math inline">\(u\cdot (v\times w)=(u\times v)\cdot w\)</span>.</p></li>
+</ol>
+<p>Por último definiremos el <em>producto mixto</em> o <em>triple producto escalar</em>:</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-193" class="definition"><strong>Definición 3.10  </strong></span>Dados los vectores <span class="math inline">\(u,v, w\in \mathbb{R}^{3}\)</span>, el <strong>producto mixto</strong> es la operación que denotaremos <span class="math inline">\([u,v,w]=u\cdot(v\times w)\)</span>.
+</div>
+
+<p>El producto mixto tiene las siguientes propiedades: Sean <span class="math inline">\(u,v, w,\in \mathbb{R}^{3}\)</span> vectores en el espacio, se tiene que:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\([u,v,w]=[v,w,u]=[w,u,v]\)</span>,</p></li>
+<li><p><span class="math inline">\([u,v,w]=u\cdot(v\times w)=v\cdot(w\times u)=w\cdot(u\times v)\)</span>,</p></li>
+<li><p><span class="math inline">\([u,v,w]=0\)</span> si y solo si <span class="math inline">\(u\)</span>, <span class="math inline">\(v\)</span> y <span class="math inline">\(w\)</span> son coplanares,</p></li>
+<li><p>es trilineal, es decir:</p></li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li><p><span class="math inline">\([(\lambda u+ \delta u&#39;),v,w]=[\lambda u,v,w]+[\delta u&#39;,v,w]\)</span>, para cualquier vector <span class="math inline">\(u&#39;\)</span> y cualesquiera escalares <span class="math inline">\(\lambda\)</span> y <span class="math inline">\(\delta\)</span>.</p></li>
+<li><p><span class="math inline">\([u,(\lambda v+ \delta v&#39;),w]=[u,\lambda v,w]+[u,\delta v&#39;,w]\)</span>, para cualquier vector <span class="math inline">\(v&#39;\)</span> y cualesquiera escalares <span class="math inline">\(\lambda\)</span> y <span class="math inline">\(\delta\)</span>.</p></li>
+<li><p><span class="math inline">\([u,v,(\lambda w+ \delta w&#39;)]=[u,v,\lambda w]+[u,v,\delta w&#39;]\)</span>, para cualquier vector <span class="math inline">\(w&#39;\)</span> y cualesquiera escalares <span class="math inline">\(\lambda\)</span> y <span class="math inline">\(\delta\)</span>.</p></li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li>es antisimétrica: <span class="math inline">\([u,v,w]=-[v,u,w]=-[u,w,v]=[w,v,u]\)</span>.</li>
+</ol>
+
+<div class="remark">
+ <span class="remark"><em>Nota. </em></span> Interpretación geométrica del producto mixto: así como el módulo del producto vectorial <span class="math inline">\(u\times v\)</span> corresponde al área del paralelogramo que forman los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(u\)</span>; el producto mixto <span class="math inline">\([u,v,w]\)</span> es igual al volumen del paralelepípedo que ellos forman. Esto es fácil de demostrar pues el volumen <span class="math inline">\(V\)</span> es igual a la base del paralelogramo, que es igual al módulo del producto vectorial, por la altura <span class="math inline">\(h\)</span> que es igual a <span class="math inline">\(|w|\cos\theta\)</span>, por lo tanto <span class="math inline">\(V=A h=|(u\times v)||w|\cos\theta=|(u\times v)\cdot w|=|[u,v,w]|\)</span>. (INSERTAR IMAGEN)
+</div>
+
+</div>
+</div>
+<div id="rectas-y-planos" class="section level2">
+<h2><span class="header-section-number">3.3</span> Rectas y Planos</h2>
+<div id="rectas-en-el-espacio" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Rectas en el espacio</h3>
+<p>En esta sección estudiaremos las rectas como objetos en el espacio <span class="math inline">\(\mathbb{R}^{3}\)</span>. Una recta es un conjunto infinito de puntos que siguen una determinada dirección y que pasa por un punto conocido en el espacio. Más formalmente:</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-195" class="definition"><strong>Definición 3.11  </strong></span>Dado un punto <span class="math inline">\(P(x_{0},y_{0},z_{0})\)</span> y un vector <span class="math inline">\(u=(a,b,c)\)</span>, la recta que pasa por <span class="math inline">\(P\)</span> y está en la misma dirección que el vector <span class="math inline">\(u\)</span>, es el conjunto de puntos <span class="math inline">\(X(x,y,z)\)</span> que cumplen que <span class="math inline">\(\vec{PX}=\lambda u\)</span>, para algún número real <span class="math inline">\(\lambda\)</span>, es decir, el vector <span class="math inline">\(\vec{PX}\)</span> es un múltiplo escalar del vector <span class="math inline">\(u\)</span>. En este caso el vector <span class="math inline">\(u\)</span> se llamará <strong>vector director</strong> de la recta.
+</div>
+
+<p>Note que la ecuación <span class="math inline">\(\vec{PX}=\lambda u\)</span> es equivalente a <span class="math inline">\(X=P+\lambda u\)</span>, es decir</p>
+<span class="math display" id="eq:ecvecesp">\[\begin{equation}
+(x,y,z)=(x_{0},y_{0},z_{0})+\lambda(a,b,c)
+\tag{3.1}
+\end{equation}\]</span>
+<p>a la que llamaremos <strong>ecuación vectorial</strong> de la recta.</p>
+<p>De la ecuación vectorial, podemos deducir que un punto <span class="math inline">\(X(x,y,z)\)</span> pertenece a la recta si y solo si cumple simultaneamente las ecuaciones para cada una de sus componentes del vector:</p>
+<span class="math display" id="eq:ecparesp">\[\begin{equation}  
+\left\{ \begin{array}{ll}
+x=&amp;x_{0}+\lambda a\\
+y=&amp;y_{0}\lambda b\\
+z=&amp;z_{0}\lambda c  
+\end{array}
+\right.
+\tag{3.2}
+\end{equation}\]</span>
+<p>Estas se llaman <strong>ecuaciones paramétricas</strong> de la recta.</p>
+<p>Note que el escalar <span class="math inline">\(\lambda\)</span> es el mismo para todas las ecuaciones anteriores, para cada punto <span class="math inline">\(X(x,y,z)\)</span> sobre la recta. Si despejamos <span class="math inline">\(\lambda\)</span> de las ecuaciones paramétricas e igualamos obtenemos la <strong>ecuación continua</strong> de la recta:</p>
+<span class="math display" id="eq:ecconesp">\[\begin{equation}
+\frac{x-x_{0}}{a}=\frac{y-y_{0}}{b}=\frac{z-z_{0}}{c}
+\tag{3.3}
+\end{equation}\]</span>
+<p>Otra manera de escribir esta cadena de desigualdades es como este sistema de ecuaciones:</p>
+<p><span class="math display">\[\left\{ \begin{array}{ll}
+\frac{x-x_{0}}{a}=&amp;\frac{y-y_{0}}{b}\\
+\frac{x-x_{0}}{a}=&amp;\frac{z-z_{0}}{c}  
+\end{array}
+\right.\]</span></p>
+<p>O equivalentemente, agrupando términos y renombrando los coeficientes, podemos escribirlo como:</p>
+<span class="math display" id="eq:eccaresp">\[\begin{equation}
+\left\{ \begin{array}{ll}
+Ax+By+Cz+D=&amp;0\\
+A&#39;x+B&#39;y+C&#39;z+D&#39;=&amp;0  
+\end{array}
+\right.
+\tag{3.4}
+\end{equation}\]</span>
+<p>Estas últimas son las <strong>ecuaciones implícitas</strong> de la recta o <strong>ecuaciones cartesianas</strong>, las cuales representan la intersección de dos planos (veremos este tema más adelante).</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-196" class="example"><strong>Ejemplo 3.4  </strong></span>La recta que pasa por el punto <span class="math inline">\(P(1,0,1)\)</span> y tiene la dirección del vector <span class="math inline">\(u=(4,5,-1)\)</span> tiene la siguiente ecuación vectorial: <span class="math inline">\((x,y,z)=(1,0,1)+\lambda(4,5,-1)\)</span>.</p>
+<p>La ecuaciones paramétricas son:</p>
+<p><span class="math display">\[\left\{ \begin{array}{ll}
+    x=&amp;1+4\lambda\\
+    y=&amp;5\lambda\\
+    z=&amp;1-\lambda
+    \end{array}
+    \right.\]</span></p>
+<p>De dónde se tiene que la ecuación continua es <span class="math inline">\(\frac{x-1}{4}=\frac{y}{5}=\frac{z-1}{-1}\)</span> y de acá se sigue que</p>
+<p><span class="math display">\[\left\{ \begin{array}{ll}
+        \frac{x-1}{4}=&amp;\frac{y}{5}\\
+        \frac{x-1}{4}=&amp;\frac{z-1}{-1}
+        \end{array}
+        \right. \Leftrightarrow
+        \left\{ \begin{array}{ll}
+        5x-4y-5=&amp;0\\
+        x-4z-5=&amp;0
+        \end{array}
+        \right.\]</span></p>
+corresponde a la ecuación cartesiana de la recta.
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-197" class="example"><strong>Ejemplo 3.5  </strong></span>La recta que pasa por los puntos <span class="math inline">\(A(1,0,1)\)</span> y <span class="math inline">\(B(0,1,1)\)</span> viene dada por la ecuación vectorial <span class="math inline">\((x,y,z)=(1,0,1)+\lambda(-1,1,0)\)</span>, ya que un vector director es <span class="math inline">\(\vec{AB}\)</span>.</p>
+<p>La ecuaciones paramétricas son:</p>
+<p><span class="math display">\[\left\{ \begin{array}{ll}
+    x=&amp;1-\lambda\\
+    y=&amp;\lambda\\
+    z=&amp;1
+    \end{array}
+    \right.\]</span></p>
+<p>Por lo tanto la ecuación cartesiana es</p>
+<p><span class="math display">\[\left\{ \begin{array}{ll}
+    1-x=&amp;y\\
+    z=&amp;1
+    \end{array}
+    \right. \Leftrightarrow
+    \left\{ \begin{array}{ll}
+    x+y-1=&amp;0\\
+    z-1=&amp;0
+    \end{array}
+    \right.\]</span></p>
+Note que la ecuación <span class="math inline">\(z=1\)</span> es el plano paralelo al plano <span class="math inline">\(XY\)</span> con altura en uno (1).
+</div>
+
+<p><strong>Posición relativa de dos rectas en el espacio.</strong></p>
+<p>Dos rectas en el espacio pueden intersectarse o no. En el caso que se intersecten, estas forman un ángulo entre ellas pues estarían en el mismo plano, este ángulo pudiese ser un ángulo recto, lo que las haría perpendiculares entre sí. En el caso que no se intersecten, puede que sean paralelas entre sí o simplemente cruzarse sin tocarse (también se les dice alabeadas). Veamos esto en detalle:</p>
+<p>Dadas dos rectas <span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span> de ecuacines <span class="math inline">\(P+\lambda u\)</span> y <span class="math inline">\(Q+\delta v\)</span>, con <span class="math inline">\(\lambda, \delta\in\mathbb{R}\)</span>, se tiene que:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span> son paralelas si y solo si sus vectores directores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> son paralelos. Lo denotamos por <span class="math inline">\(\mathit{l}_{1}\parallel \mathit{l}_{2}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span> son perpendiculares (u ortogonales) si y solo si sus vectores directores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> lo son. Esto lo denotamos por <span class="math inline">\(\mathit{l}_{1}\perp\mathit{l}_{2}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span> se intersectan si y solo si <span class="math inline">\([u,v,\vec{PQ}]=(u\times v)\cdot \vec{PQ}=0\)</span>, ya que el vector <span class="math inline">\(u\times v\)</span> es perpendicular al plano que forman las rectas y como el vector <span class="math inline">\(\vec{PQ}\)</span> pertenece a este plano, es también perpendicular a <span class="math inline">\(u\times v\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span> se cruzan sin intersectarse si y solo si <span class="math inline">\([u,v,\vec{PQ}]=(u\times v)\cdot \vec{PQ}\neq0\)</span>. No son paralelas y no pertenecen al mismo plano.</p></li>
+</ol>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-198" class="example"><strong>Ejemplo 3.6  </strong></span>Dadas las rectas <span class="math inline">\(\mathit{l}_{1}: (0,1,2)+\lambda(1,1,1)\)</span>, <span class="math inline">\(\lambda\in \mathbb{R}\)</span> y</p>
+<p><span class="math inline">\(\mathit{l}_{2}:\left\lbrace \begin{array}{ll}  x=&amp; \delta\\  y=&amp; \delta\\  z=&amp; 0  \end{array}  \right.\)</span>, con <span class="math inline">\(\delta\in\mathbb{R}.\)</span></p>
+<p>Se tiene que el vector director de <span class="math inline">\(\mathit{l}_{1}\)</span> es <span class="math inline">\((1,1,1)\)</span> y el vector director de <span class="math inline">\(\mathit{l}_{2}\)</span> es <span class="math inline">\((1,1,0)\)</span> no son paralelos, por lo tanto las rectas no son paralelas. Tampoco son perpendiculares ya que <span class="math inline">\(u\cdot v=|u||v|\cos\theta\)</span>, donde <span class="math inline">\(\theta\)</span> es el ángulo que forman los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>. Por lo tanto <span class="math inline">\(\cos\theta=\frac{u\cdot v}{|u||v|}=\frac{\sqrt{6}}{3}\)</span>, por lo tanto <span class="math inline">\(\theta\neq0\)</span>. las rectas pueden ser rectas que se intersecten o que solo se crucen, para ver esto calculemos <span class="math inline">\([u,v,\vec{PQ}]={(1,1,1)\times(1,1,0)}\cdot (0,-1,-2)=(-1,1,0)\cdot(0,-1,-2)=0-1+0=-1\neq0\)</span> por lo tanto las rectas se cruzan (no se intersectan).</p>
+</div>
+
+<p><strong>Distancia de un punto a una recta</strong></p>
+<p>Dada la recta <span class="math inline">\(\mathit{l}: P_{0}+\lambda u\)</span>, con <span class="math inline">\(\lambda\in \mathbb{R}\)</span> y un punto en el espacio <span class="math inline">\(Q\in \mathbb{R}^{3}\)</span>, el área <span class="math inline">\(A\)</span> del paralelogramo que forman los puntos <span class="math inline">\(P_{0}\)</span>, <span class="math inline">\(Q\)</span> y el vector <span class="math inline">\(u\)</span> viene dada por el valor absoluto del producto vectorial entre <span class="math inline">\(\vec{P_{0}Q}\)</span> y <span class="math inline">\(u\)</span>, es decir, <span class="math inline">\(A=|\vec{P_{0}Q}\times u|\)</span>. Si tomamos el vector <span class="math inline">\(u\)</span> como base y llamamos <span class="math inline">\(h\)</span> a la altura del paralelogramo (y la distancia de la recta al punto <span class="math inline">\(Q\)</span>), entonces <span class="math inline">\(A=|u|h\)</span>, como lo muestra la figura (INSERTAR FIGURA). Pero <span class="math inline">\(h=|\vec{P_{0}Q}|\sin\theta\)</span>, donde <span class="math inline">\(\theta\)</span> es el ángulo que forman los vectores <span class="math inline">\(\vec{P_{0}Q}\)</span> y <span class="math inline">\(u\)</span>. Por lo tanto <span class="math inline">\(A=|\vec{P_{0}Q}\times u|=|u||\vec{P_{0}Q}|\sin\theta=|u|h\)</span>, despejando <span class="math inline">\(h\)</span>, se tiene que <span class="math inline">\(h=\frac{|\vec{P_{0}Q}\times u|}{|u|}\)</span>, es decir,</p>
+<span class="math display" id="eq:dpuntorecta">\[\begin{equation}
+    d(\mathit{l},Q)=\frac{|\vec{P_{0}Q}\times u|}{|u|}
+    \tag{3.5}
+\end{equation}\]</span>
+<p><strong>Distancia entre dos rectas</strong></p>
+<p>La distacia entre dos rectas es la menor distancia entre los puntos entre ellas, es decir, dadas las rectas <span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span>, la distancia entre ellas vienen dada por la menor distancia entre los puntos de ambas, es decir <span class="math inline">\(d(\mathit{l}_{1},\mathit{l}_{2})\)</span> es la menor distancia <span class="math inline">\(d(P,Q)\)</span>, donde <span class="math inline">\(P\in\mathit{l}_{1}\)</span> y <span class="math inline">\(Q\in\mathit{l}_{2}\)</span>. Es claro que la distancia entre dos rectas es cero si estas se intersectan. Pero si son paralelas o se cruzan, podemos calcular la distancia entre ellas haciendo uso de la ecuación anterior <a href="vectores.html#eq:dpuntorecta">(3.5)</a>, considerando una de las rectas y escogiendo un punto en la otra recta. La elección del punto debe hacerse de forma tal que la distancia del punto a la recta sea mínima. Cuando las rectas son paralelas, cualquier punto sobre la otra recta servirá y por lo tanto se usará la misma ecuación <a href="vectores.html#eq:dpuntorecta">(3.5)</a>.</p>
+Pero en el caso de que sean rectas que se cruzan, el punto debe ser elegido sobre la recta perpendicular a ambas rectas. Mas específicamente, dadas las rectas <span class="math inline">\(\mathit{l}_{1}:P_{0}+\lambda u\)</span> y <span class="math inline">\(\mathit{l}_{2}:Q_{0}+\delta v\)</span>. Sea <span class="math inline">\(\mathit{l}\)</span> una recta perpendicular a <span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span> y que las intersectan. Sean <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> los puntos de intersección de la recta <span class="math inline">\(\mathit{l}\)</span> con las rectas <span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span> respectivamente. El volumen <span class="math inline">\(V\)</span> del paralelepípedo que se forma con las rectas es igual a módulo de producto mixto, esto es, <span class="math inline">\(V=|[\vec{PQ},u,v]|\)</span>. Por otro lado, el volumen es igual al producto de <span class="math inline">\(|u\times v|\)</span> por la distancia entre las rectas, es decir, <span class="math inline">\(V=|u\times v|d(\mathit{l}_{1},\mathit{l}_{2})\)</span> (INSERTAR IMAGEN). Por lo tanto, <span class="math inline">\(V=|[\vec{PQ},u,v]|=|u\times v|d(\mathit{l}_{1},\mathit{l}_{2})\)</span>, despejando <span class="math inline">\(d(\mathit{l}_{1},\mathit{l}_{2})\)</span>, se sigue que
+<span class="math display" id="eq:drectas">\[\begin{equation}
+    d(\mathit{l}_{1},\mathit{l}_{2})=\frac{|[\vec{PQ},u,v]|}{|u\times v|}
+    \tag{3.6}
+\end{equation}\]</span>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-199" class="example"><strong>Ejemplo 3.7  </strong></span>La distancia entre las rectas <span class="math inline">\(\mathit{l}_{1}:x-1=7(z-3), y=6\)</span> y <span class="math inline">\(\mathit{l}_{2}:(4,2,7)+\lambda (-7,0,-1)\)</span> se puede calcular tomando un punto de <span class="math inline">\(\mathit{l}_{2}\)</span>, digamos <span class="math inline">\(Q_{0}=(4,2,7)\)</span> y calculando <span class="math inline">\(d(\mathit{l}_{1}, Q_{0})\)</span>. Hallemos la ecuación vectorial de la recta <span class="math inline">\(\mathit{l}_{1}\)</span>, de la ecuación continua de la recta, deducimos que <span class="math inline">\(\mathit{l}_{1}:(1,6,3)+\lambda(7,0,1)\)</span>. Note que las rectas son paralelas (los vectores directores son paralelos). Luego la distancia entre las rectas <span class="math inline">\(d(\mathit{l}_{1},\mathit{l}_{2})\)</span> es igual a <span class="math inline">\(d(\mathit{l}_{1},Q_{0})\)</span>, es decir <span class="math display">\[d(\mathit{l}_{1},\mathit{l}_{2})=d(\mathit{l}_{1},Q_{0})=d(\mathit{l}_{1},(4,2,7))=\frac{|\vec{P_{0}Q_{0}\times (7,0,1)|}}{|(7,0,1)|}\]</span> sabemos que <span class="math inline">\(\vec{P_{0}Q_{0}}=(4-1,2-6,7-3)=(3,-4,4)\)</span>, por lo tanto</p>
+<p><span class="math display">\[d(\mathit{l}_{1},Q_{0})=\frac{|(3,-4,4)\times(7,0,1)|}{|(7,0,1)|=\frac{|(-4,25,28)|}{\sqrt{50}}}=\frac{\sqrt{1425}}{5\sqrt{2}}=\frac{\sqrt{114}}{2}\]</span>.</p>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-200" class="example"><strong>Ejemplo 3.8  </strong></span>Para calcular la distancia entre las rectas <span class="math inline">\(\mathit{l}_{1}:x-2=\frac{y+3}{2}=z\)</span> y <span class="math inline">\(\mathit{l}_{2}:x=y=z\)</span> usaremos la ecuación <a href="vectores.html#eq:drectas">(3.6)</a>. Comenzamos por calcular <span class="math inline">\(\vec{PQ}\)</span>, donde <span class="math inline">\(P\)</span> es un punto sobre <span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(Q\)</span> un punto sobre <span class="math inline">\(\mathit{l}_{2}\)</span>, <span class="math inline">\(\vec{PQ}= (-2,3,0)\)</span>, ya que <span class="math inline">\(\mathit{l}_{1}: (2,-3,0)+\lambda(1,2,1)\)</span> y <span class="math inline">\(\mathit{l}_{2}:(0,0,0)=\delta(1,1,1)\)</span>. Note que efectivamente las rectas son alabeadas ya que <span class="math inline">\([\vec{PQ},u,v]=(u\times v)\cdot\vec{PQ}=(1,0,-1)\cdot(-2,3,0)=-2\neq 0\)</span>. Ahora, <span class="math inline">\(d(\mathit{l}_{1},\mathit{l}_{2})=\frac{|[\vec{PQ},u,v]|}{|u\times v|}=\frac{|-2|}{|\sqrt{2}|}=\sqrt{2}\)</span>.
+</div>
+
+</div>
+<div id="rectas-en-el-plano" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Rectas en el plano</h3>
+<p>En esta parte describiremos como son las rectas en el plano cartesiano <span class="math inline">\(\mathbb{R}^{2}\)</span>. Veremos como son las ecuaciones de las rectas en plano. Las características de rectas paralelas y perpendiculares así como el punto de intersección de dos rectas.</p>
+<p>De la sección anterior tenemos que una recta en <span class="math inline">\(\mathbb{R}^{2}\)</span> está inequivocamente determinada por un punto en el plano <span class="math inline">\(P(x_{0},y_{0})\)</span> y un vector director <span class="math inline">\(u=(a,b)\)</span>. La <strong>ecuación vectorial</strong> de la recta es <span class="math inline">\(\vec{PX}=\lambda u\)</span>, esto es <span class="math inline">\((x-x_{0},y-y_{0})=\lambda(a,b)\)</span>, es decir</p>
+<span class="math display" id="eq:ecvecpla">\[\begin{equation}
+(x,y)=(x_{0},y_{0})+\lambda(a,b)
+\tag{3.7}
+\end{equation}\]</span>
+<p>de donde se obtiene <span class="math inline">\((x,y)=(x_{0},y_{0})+\lambda(a,b)\)</span>, por lo tanto</p>
+<p><span class="math display">\[\left\lbrace \begin{array}{ll} 
+x=&amp;x_{0}+a\lambda\\ 
+y=&amp;y_{0}+b\lambda
+\end{array} \right.\]</span></p>
+<p>De donde podemos obtener <span class="math inline">\(\frac{x-x_{0}}{a}=\frac{y-y_{0}}{b}\Leftrightarrow b(x-x_{0})=a(y-y_{0})\)</span>. Si <span class="math inline">\(a\neq 0\)</span> se tiene que <span class="math inline">\(y=\frac{b}{a}x+(y_{0}-\frac{b}{a}x_{0})\)</span>.</p>
+<p>Renombrando los coeficientes de la última ecuación, obtenemos la conocida <strong>ecuación explícita</strong> de la recta en el plano</p>
+<span class="math display" id="eq:ecexppla">\[\begin{equation}
+y=mx+n
+\tag{3.8}
+\end{equation}\]</span>
+<p>donde el coeficiente <span class="math inline">\(m\)</span> corresponde a la <strong>pendiente de la recta</strong> (la inclinación) y es igual a la tangente del ángulo que forma la recta con el eje horizontal (abscisas o eje <span class="math inline">\(x\)</span>). Note que si el vector director no es paralelo al eje vertical (las ordenadas o eje <span class="math inline">\(Y\)</span>), entonces <span class="math inline">\(a\neq 0\)</span> en <a href="vectores.html#eq:ecvecpla">(3.7)</a> y por lo tanto podemos dividir por <span class="math inline">\(a\)</span>. Además, si <span class="math inline">\(x=0\)</span>, se tiene que <span class="math inline">\(y=m(0)+n\)</span>, es decir <span class="math inline">\(y=n\)</span>, de donde se sigue que el <strong>punto de corte de la recta con el eje de las abscisas</strong> (o eje <span class="math inline">\(Y\)</span>) es el coeficiente <span class="math inline">\(n\)</span> de la ecuación explícita <a href="vectores.html#eq:ecexppla">(3.8)</a>. Por otro lado el <strong>punto de corte de la recta con el eje de las ordenadas</strong> (eje <span class="math inline">\(X\)</span>) es un punto cuya segunda coordenada es cero, esto es <span class="math inline">\((x,0)\)</span>, por lo tanto <span class="math inline">\(0=mx+n\)</span>, entonces <span class="math inline">\(x=\frac{n}{m}\)</span>. También podemos escribir la <strong>ecuación implícita o cartesiana</strong> de la recta renombrando los coeficientes y reordenando los términos de la ecuación <a href="vectores.html#eq:ecvecpla">(3.7)</a> para obtener</p>
+<span class="math display" id="eq:ecimppla">\[\begin{equation}
+Ax+By+C=0
+\tag{3.9}
+\end{equation}\]</span>
+<p>Si sabemos que una recta <span class="math inline">\(y=mx+n\)</span> pasa por dos puntos conocidos del plano <span class="math inline">\(A(x_{1},y_{1})\)</span> y <span class="math inline">\(B(x_{2},y_{2})\)</span>, podemos calcular la pendiente de la recta calculando la tangente del ángulo que forma el segmento de recta que une los puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> como lo muestra la figura (INSERTAR FIGURA). De este modo</p>
+<span class="math display" id="eq:pendiente">\[\begin{equation}
+m=tang(\alpha)=\frac{y_{2}-y_{1}}{x_{1}-x_{2}}
+\tag{3.10}
+\end{equation}\]</span>
+<p>La ecuación antes descrita es cierta para todo par de puntos sobre la recta, por lo tanto, si <span class="math inline">\(A(x_{0},y_{0})\)</span> es un punto conocido y <span class="math inline">\(X(x,y)\)</span> es un punto arbitrario sobre la recta, se tiene que <span class="math inline">\(m=\frac{y-y_{0}}{x-x_{0}}\)</span>. Si conocemos la pendiente de la recta, podemos despejar <span class="math inline">\(y\)</span> en término de la pendiente y las coordenadas del punto conocido, obteniendo así la <strong>ecuación punto-pendiente</strong> de la recta:</p>
+<span class="math display" id="eq:puntopend">\[\begin{equation}
+y=m(x-x_{0})+y_{0}
+\tag{3.11}
+\end{equation}\]</span>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-201" class="example"><strong>Ejemplo 3.9  </strong></span>Para hallar la ecuación de la recta que pasa por el punto <span class="math inline">\(A(3,1)\)</span> y tiene pendiente <span class="math inline">\(m=\frac{1}{2}\)</span> usamos la ecuación punto pediente <a href="vectores.html#eq:puntopend">(3.11)</a>, <span class="math inline">\(y=\frac{1}{2}(x-3)+1\)</span> por lo tanto <span class="math inline">\(y=\frac{1}{2}x-\frac{1}{2}\)</span>. Reagrupando términos y multiplicando por <span class="math inline">\(2\)</span>, obtenemos la ecuación implícita <a href="vectores.html#eq:ecimppla">(3.9)</a>: <span class="math inline">\(x-2y-1=0\)</span>.</p>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-202" class="example"><strong>Ejemplo 3.10  </strong></span>Dada la ecuación cartesiana de la recta <span class="math inline">\(5x-3y+1=0\)</span>, podemos hallar la pendiente de la recta despejando <span class="math inline">\(y\)</span> de la ecuación cartesiana, de la siguiente forma: <span class="math inline">\(y=\frac{5}{3}x+\frac{1}{3}\)</span>. De donde se sigue que la pendiente es <span class="math inline">\(m=\frac{5}{3}\)</span>. Además, directamente de la ecuación explícita, podemos decir que el punto de corte con el eje <span class="math inline">\(Y\)</span> es <span class="math inline">\(n=\frac{1}{3}\)</span>. Para hallar el punto de corte con el eje <span class="math inline">\(X\)</span>, despejamos <span class="math inline">\(x\)</span> de <span class="math inline">\(0=\frac{5}{3}x+\frac{1}{3}\)</span>, así <span class="math inline">\(x=\frac{-1}{5}\)</span>.
+</div>
+
+<p>Dos rectas en plano pueden ser <strong>rectas paralelas</strong>, en ese caso tienen la misma pendiente (forman el mismo ángulo con el eje <span class="math inline">\(X\)</span>), es decir, si la recta <span class="math inline">\(\mathit{l}_{1}\)</span> tiene ecuación <span class="math inline">\(y=mx+n\)</span> y la recta <span class="math inline">\(\mathit{l}_{2}\)</span> tiene ecuación <span class="math inline">\(y=px+q\)</span>, entonces <span class="math inline">\(\mathit{l}_{1}\)</span> es paralela a <span class="math inline">\(\mathit{l}_{2}\)</span> si y solo si <span class="math inline">\(m=p\)</span>, esto se denota <span class="math inline">\(\mathit{l}_{1} \parallel \mathit{l}_{2}\)</span>.</p>
+<p>Si dos rectas <span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span> de ecuaciones <span class="math inline">\(y=mx+n\)</span> y <span class="math inline">\(y=px+q\)</span> respectivamente, forman un ángulo de <span class="math inline">\(90^{o}\)</span> entre ellas se dice que son <strong>perpendiculares</strong> y se denota <span class="math inline">\(\mathit{l}_{1} \perp \mathit{l}_{2}\)</span>, en este caso se puede ver que las pendientes guardan la siguiente relación: <span class="math inline">\(mp=-1\)</span>.</p>
+
+<div class="remark">
+ <span class="remark"><em>Nota. </em></span> Note que si una recta es horizontal, su pendiente es igual a cero, esto es <span class="math inline">\(y=0x+n\)</span> y cualquier recta perpendicular a ella es paralela al eje <span class="math inline">\(Y\)</span> y por lo tanto no es función.
+</div>
+
+<p>Dos rectas no paralelas <span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span> de ecuaciones <span class="math inline">\(y=mx+n\)</span> y <span class="math inline">\(y=px+q\)</span> respectivamente, se intersectan en un punto del plano <span class="math inline">\((x_{0},y_{0})\)</span>, por lo tanto satisface ambas ecuaciones simultaneamente, es decir, <span class="math inline">\(y_{0}=mx_{0}+n\)</span> y <span class="math inline">\(y_{0}=px_{0}+q\)</span>. Luego <span class="math inline">\(mx_{0}+n=y_{0}=px_{0}+q\)</span> por lo tanto <span class="math inline">\(mx_{0}-px_{0}=q-n\Leftrightarrow x_{0}=\frac{q-n}{m-p}\)</span> y así, <span class="math inline">\(y_{0}=m(\frac{q-n}{m-p})+n\)</span>. En este caso el punto de intersección entre las rectas es <span class="math display">\[\left( \frac{q-n}{m-p},m(\frac{q-n}{m-p})+n\right) .\]</span></p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-204" class="example"><strong>Ejemplo 3.11  </strong></span>Las rectas <span class="math inline">\(\mathit{l}_{1}:y=2x+3\)</span> y <span class="math inline">\(\mathit{l}_{2}:y=2x-1\)</span> son rectas paralelas. Y son perpendiculares a <span class="math inline">\(\mathit{l}_{3}: y=-\frac{1}{2}x+1\)</span>. Además, el punto de intersección entre <span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span> es <span class="math inline">\(x_{0}=\frac{1-3}{2+\frac{1}{2}}=\frac{-4}{5}\)</span> y <span class="math inline">\(y_{0}=2(\frac{-4}{5})+3=\frac{7}{5}\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-205" class="example"><strong>Ejemplo 3.12  </strong></span>La recta perpendicular a <span class="math inline">\(\mathit{l}_{1}:\frac{-2}{3}x+3\)</span> que pasa por el punto <span class="math inline">\(A(-2,1)\)</span> tiene por ecuación <span class="math inline">\(y=\frac{3}{2}(x-(-2))+1\)</span> es decir <span class="math inline">\(y=\frac{-3}{2}x+4\)</span>.
+</div>
+
+</div>
+<div id="planos" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Planos</h3>
+<p>En este capítulo volvemos al ámbito del espacio <span class="math inline">\(\mathbb{R}^{3}\)</span>. Estudiaremos todo lo relativo a los planos en el espacio, las distintas ecuaciones para un plano, como determinar un plano a partir de dos rectas dadas, la posición relativa de dos planos, de una recta y un plano, así como la distancia entre dos planos y entre un plano y un puntos.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-206" class="definition"><strong>Definición 3.12  </strong></span>Un plano <span class="math inline">\(\pi\)</span> está determinado por dos vectores no paralelos, <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> y un punto <span class="math inline">\(P_{0}\)</span> por donde pasa el plano (es decir un punto contenido en el plano, <span class="math inline">\(P_{0}\in\pi\)</span>). Mas formalmente:</p>
+<span class="math display" id="eq:ecplanovec">\[\begin{equation}
+    \pi=\{P_{0}\in\mathbb{R}^{3}| P=P_{0}+\lambda u + \delta v,\mbox{ con } \lambda,\delta\in\mathbb{R} \}.
+  \tag{3.12}
+\end{equation}\]</span>
+La anterior es la <strong>ecuación vectorial del plano</strong> <span class="math inline">\(\pi\)</span>, generado por los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span> que pasa por el punto <span class="math inline">\(P_{0}\)</span>.
+</div>
+
+<p>Suponiendo que <span class="math inline">\(P_{0}=(x_{0},y_{0},z_{0})\)</span>, <span class="math inline">\(u=(a_{0},b_{0},c_{0})\)</span> y <span class="math inline">\(v=(a_{1},b_{1},c_{1})\)</span>. Dado un punto genérico <span class="math inline">\(P=(x,y,z)\)</span>, <span class="math inline">\(P\)</span> pertenece al plano <span class="math inline">\(\pi\)</span> si y solo si <span class="math inline">\(P=P_{0}+\lambda u+\delta v\Leftrightarrow (x,y,z)=(x_{0},y_{0},z_{0})+\lambda(a_{0},b_{0},c_{0})+\delta(a_{1},b_{1},c_{1})\)</span>, de donde se tiene que:</p>
+<span class="math display" id="eq:ecplanopara">\[\begin{equation}
+    \left\{ 
+     \begin{array}{ll}
+        x=&amp; x_{0}+\lambda a_{0}+ \delta a_{1}\\
+        y=&amp; y_{0}+\lambda b_{0}+ \delta b_{1}\\
+        z=&amp; z_{0}+\lambda c_{0}+ \delta c_{1}
+    \end{array}
+    \right. 
+    \tag{3.13}
+\end{equation}\]</span>
+<p>Un vector no nulo <span class="math inline">\(w\)</span> es un <strong>vector ortogonal al plano</strong> siempre que sea ortogonal a los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>, es decir <span class="math inline">\(w\perp \pi\)</span> si y solo si <span class="math inline">\(w=\gamma u\times v\)</span>, en particular <span class="math inline">\(u\times v\)</span> es un vector ortogonal al plano <span class="math inline">\(\pi\)</span>. De este modo, para un punto cualquiera <span class="math inline">\(P\)</span>, del plano, se tiene que <span class="math inline">\(\vec{P_{0}P}\perp w\)</span>, por lo tanto</p>
+<span class="math display" id="eq:ecplanonormal">\[\begin{equation}
+(\vec{P_{0}P})\cdot w=0 \mbox{ para todo } P\in\pi.
+\tag{3.14}
+\end{equation}\]</span>
+<p>Esto es, <span class="math inline">\((x-x_{0},y-y_{0},z-z_{0})\cdot (a,b,c)=0\)</span>, donde <span class="math inline">\(w=(a,b,c)\)</span>. Así</p>
+<span class="math display" id="eq:ecplanogeneral">\[\begin{equation}
+    ax+bc+cz+d=0, \mbox{ donde } d=-ax_{0}-by_{0}-cz_{0}.
+    \tag{3.15}
+\end{equation}\]</span>
+<p>La cual es la <em>ecuación general del plano</em>.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-207" class="example"><strong>Ejemplo 3.13  </strong></span>Dadas las rectas <span class="math inline">\(\mathit{l}_{1}:\frac{x-1}{3}=\frac{y-2}{-1}=\frac{z-3}{2}\)</span> y <span class="math inline">\(\mathit{l}_{2}:\frac{x-1}{2}=\frac{y+2}{5}=\frac{z+3}{-3}\)</span> y el punto <span class="math inline">\(P_{0}=(1,2,3)\)</span>, el plano <span class="math inline">\(\pi\)</span>, paralelo a las rectas <span class="math inline">\(\mathit{l}_{1}\)</span> y <span class="math inline">\(\mathit{l}_{2}\)</span> y que pasa por el punto <span class="math inline">\(P\)</span> viene dado por la ecuación:</p>
+<p><span class="math inline">\(\pi: (1,2,3)+\lambda(3,-1,2)+\delta(2,5,-3)\)</span>, con <span class="math inline">\(\lambda, \delta\in \mathbb{R}\)</span> (ecuación vectorial). De donde podemos deducir su ecuación paramétrica:</p>
+<span class="math display">\[\begin{equation}
+        \left\{ 
+        \begin{array}{ll}
+        x=&amp; 1+3\lambda+ 2\delta\\
+        y=&amp; 2+\lambda b_{0}+ \delta b_{1}\\
+        z=&amp; 3+\lambda c_{0}+ \delta c_{1}
+        \end{array}
+        \right. , \lambda,\delta\in\mathbb{R}
+\end{equation}\]</span>
+<p>La ecuación normal del plano es: <span class="math inline">\((\vec{P_{0}P})\cdot w=0\)</span>, donde <span class="math inline">\(\vec{P_{0}P}=(x-1,y-2,z-3)\)</span> y <span class="math inline">\(w=(3,-1,2)\times(2,5,-3)=(-7,13,17)\)</span>, es decir,</p>
+<span class="math display">\[(x-1,y-2,z-3)\cdot (-7,13,17)=0\Leftrightarrow 7x-13y-17z+70=0.\]</span>
+</div>
+
+<p><em>Posición relativa entre dos planos</em></p>
+<p>Dos planos del espacio <span class="math inline">\(\pi_{1}:(\vec{P_{0}P})\cdot w_{1}\)</span> y <span class="math inline">\(\pi_{2}:(\vec{Q_{0}P})\cdot w_{2}\)</span> son planos paralelos si y solo si sus vectores normales son paralelos. Y son perpendiculares si y solo si sus vectores normales también lo son. Esto es:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\pi_{1}\parallel\pi_{2}\)</span> si y solo si <span class="math inline">\(w_{1}\parallel w_{2}\)</span>.</p></li>
+<li><p><span class="math inline">\(\pi_{1}\perp\pi_{2}\)</span> si y solo si <span class="math inline">\(w_{1}\perp w_{2}\)</span>.</p></li>
+</ol>
+<p>Dos planos distintos y paralelos no tienen puntos en común (no se intesctan). Pero si no son paralelos, entonces se intersectan en mas de un punto, de hecho la intersección es una recta, además forman un ángulo (distinto de cero). Dados los planos <span class="math inline">\(\pi_{1}:(\vec{P_{0}P})\cdot w_{1}=0\)</span> y <span class="math inline">\(\pi_{2}:(\vec{Q_{0}P})\cdot w_{2}=0\)</span> no paralelos, el ángulo entre ellos es igual al ángulo que forman <span class="math inline">\(w_{1}\)</span> y <span class="math inline">\(w_{2}\)</span>, es decir <span class="math inline">\(\cos(\theta)=\frac{w_{1}\cdot w_{2}}{|w_{1}||w_{2}|}\)</span>.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-208" class="example"><strong>Ejemplo 3.14  </strong></span>La intersección de los planos <span class="math inline">\(\pi_{1}:3x+3y-4z+7=0\)</span> y el plano <span class="math inline">\(\pi_{2}:x+6y+2z-6=0\)</span> es una recta, note que los planos no son paralelos (y por lo tanto no son coincidentes). Hallemos dicha recta, para ellos debemos hallar los puntos del espacio que pertenecen a ambos planos simultaneamente, es decir, los puntos <span class="math inline">\(P(x,y,z)\)</span> que se satisfacen ambas ecuaciones,</p>
+<span class="math display">\[\begin{equation*}
+        \left\{
+        \begin{array}{ll}
+            3x+3y-4z+7=&amp;0\\
+            x+6y+2z-6=&amp;0
+        \end{array}
+        \right.
+\end{equation*}\]</span>
+<p>resolviendo el sistema de ecuaciones se obtiene que el conjunto solución es</p>
+<span class="math display">\[\begin{equation*}
+        \left\{
+        \begin{array}{ll}
+        x=&amp;5-3\lambda\\
+        y=&amp;\lambda\\
+        z=&amp;\frac{1}{2}+\frac{-3}{2}\lambda
+        \end{array}
+        \right.
+\end{equation*}\]</span>
+</div>
+
+<p><em>Distancia de un punto a un plano.</em></p>
+Dado un plano <span class="math inline">\(\pi\)</span> de vector normal <span class="math inline">\(w=u\times v\)</span>, que pasa por el punto <span class="math inline">\(P_{0}\)</span>, es decir <span class="math inline">\(\pi: (\vec{P_{0}P})\cdot w\)</span>, y sea <span class="math inline">\(Q\)</span> exterior al plano, la distancia de <span class="math inline">\(Q\)</span> al plano <span class="math inline">\(\pi\)</span> es la proyecci'on del vector <span class="math inline">\(\vec{P_{0}Q}\)</span> sobre <span class="math inline">\(u\times v\)</span> tal como lo muestra la imagen (INSERTAR IMAGEN). Así
+<span class="math display" id="eq:distplanopunto">\[\begin{equation}
+d(Q,\pi)=|Proy_{w}\vec{P_{0}Q}|=\frac{|(\vec{P_{0}}Q)\cdot w|}{|w|}=\frac{|(\vec{P_{0}}Q)\cdot(u\times v)|}{|u\times v|}.
+\tag{3.16}
+\end{equation}\]</span>
+Suponiendo que <span class="math inline">\(P_{0}\)</span> y <span class="math inline">\(Q\)</span> son los puntos <span class="math inline">\((x_{0},y_{0},z_{0})\)</span>, <span class="math inline">\((x_{1},y_{1},z_{1})\)</span> respectivamente y que <span class="math inline">\(w=(a,b,c)\)</span>, entonces
+<span class="math display">\[\begin{equation*}
+    \begin{split}
+        (\vec{P_{0}Q})\cdot w&amp; = (x_{1}-x_{0},y_{1}-y_{0},z_{1}-z_{0})\cdot (a,b,c)\\
+        &amp; = ax_{1}+by_{1}+cz_{1}+d
+    \end{split}, 
+    \mbox{  con } d=-ax_{0}-by_{0}-cz_{0}
+\end{equation*}\]</span>
+<p>y de este modo la ecuación de la distancia de un punto a un plano <a href="vectores.html#eq:distplanopunto">(3.16)</a> podría reescribirse como sigue:</p>
+<span class="math display" id="eq:distplanopunto2">\[\begin{equation}
+    d(Q,\pi)=\frac{|ax_{1}+by_{1}+cz_{1}+d|}{\sqrt{a^{2}+b^{2},c^{2}}}
+    \tag{3.17}
+\end{equation}\]</span>
+
+<div class="example">
+<span id="exm:unnamed-chunk-209" class="example"><strong>Ejemplo 3.15  </strong></span>La distancia desde <span class="math inline">\(Q(-2,1,2)\)</span> al plano <span class="math inline">\(\pi\)</span> de ecuación <span class="math inline">\(3x-y+2z-5=0\)</span> es <span class="math inline">\(d(Q,\pi)=\frac{|(3)(-2)+(-1)(1)+(2)(2)-5|}{\sqrt{3^{2}+1^{2}+2^{2}}}=\frac{8}{\sqrt{14}}=\frac{4\sqrt{14}}{7}\)</span>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-210" class="example"><strong>Ejemplo 3.16  </strong></span>Dado el plano <span class="math inline">\(\pi:(1,2,3)+\lambda(3,-1,2)+\delta(2,5,-3)\)</span> y el punto <span class="math inline">\(Q(1,1,1)\)</span>, para calcular la distancia del punto <span class="math inline">\(Q\)</span> al plano <span class="math inline">\(\pi\)</span> hallaremos el vector normal al plano <span class="math inline">\(w=(3,-1,2)\times (2,5,-3)=(-7,13,17)\)</span>, para así finalmente calcular</p>
+<span class="math display">\[\begin{equation*}
+    \begin{split}
+        d(Q,\pi)&amp;=|Proy_{(3,-1,2)\times(2,5,-3)}(0,-1,-2)\\
+        &amp;=\frac{|(0,-1,-2)\cdot(-7,13,17)|}{|(-7,13,17)|}\\
+        &amp;=\frac{|0-13-34|}{\sqrt{49+169+289}}\\
+        &amp;=\frac{47\sqrt{507}}{507}.
+    \end{split}
+\end{equation*}\]</span>
+</div>
+
+<p><em>Posición relativa de una recta respecto de un plano</em></p>
+<p>Dada la recta <span class="math inline">\(\mathit{l}:Q_{0}+\lambda u\)</span> y el plano <span class="math inline">\(\pi:(\vec{P_{0}P})\cdot w=0\)</span>, es fácil ver que la recta <span class="math inline">\(\mathit{l}\)</span> es paralela al plano <span class="math inline">\(\pi\)</span>, lo que se denota <span class="math inline">\(\mathit{l}\parallel \pi\)</span> si y solo si <span class="math inline">\(u\perp w\)</span>. Y que la recta <span class="math inline">\(\mathit{l}\)</span> es perpendicular al plano <span class="math inline">\(\pi\)</span>, lo que se denota <span class="math inline">\(\mathit{l}\perp \pi\)</span> si y solo si <span class="math inline">\(u\parallel w\)</span>. Si la resta <span class="math inline">\(\mathit{l}\)</span> no es paralela al plano <span class="math inline">\(\pi\)</span> (<span class="math inline">\(\mathit{l}\nparallel\pi\)</span>), entoncen se intersectan en un punto <span class="math inline">\(A\)</span> como se ilustra en la figura (INSERTAR IMAGEN).</p>
+<p>Note que <span class="math inline">\(\vec{Q_{0}P_{0}}+\vec{P_{0}A}=\vec{Q_{0}A}\)</span>. Como <span class="math inline">\(\vec{Q_{0}A}=\lambda u\)</span>, se tiene que <span class="math inline">\(\vec{Q_{0}P_{0}}+\vec{P_{0}A}=\lambda u\)</span>. Si multiplicamos por <span class="math inline">\(w\)</span>, se tiene que <span class="math inline">\(\vec{Q_{0}P_{0}}\cdot w+\vec{P_{0}A}\cdot w=\lambda u\cdot w\)</span>. Pero <span class="math inline">\(\vec{P_{0}A}\perp w\)</span> por lo que <span class="math inline">\(\vec{P_{0}A}=0\)</span> y así <span class="math inline">\(\vec{Q_{0}P_{0}}\cdot w=\lambda u\cdot w\)</span>, de donde se sigue que <span class="math inline">\(\lambda=\frac{\vec{Q_{0}P_{0}}\cdot w}{u\cdot w}\)</span> y así <span class="math inline">\(\vec{Q_{0}A}=(\frac{\vec{Q_{0}P_{0}}\cdot w}{u\cdot w})u\)</span>. De donde se deduce que el vector <span class="math inline">\(\vec{Q_{0}A}\)</span> es un múltiplo escalar del vector <span class="math inline">\(u\)</span>, por lo tanto</p>
+<span class="math display" id="eq:ptointersecplanorecta">\[\begin{equation}
+    A=Q_{0}+(\frac{\vec{Q_{0}P_{0}}\cdot w}{u\cdot w})u
+    \tag{3.18}
+\end{equation}\]</span>
+<p>Con la ecuación anterior podemos calcular la distancia entre dos planos que no se intersectan. Dados los planos <span class="math inline">\(\pi_{1}\)</span> y <span class="math inline">\(\pi_{2}\)</span>, si se intersectan, la distancia entre ellos es cero, es decir <span class="math inline">\(d(\pi_{1}),\pi_{2})=0\)</span>. Si los planos <span class="math inline">\(\pi_{1}\)</span> y <span class="math inline">\(\pi_{2}\)</span> no se intersectan, entonces estos son paralelos, es decir <span class="math inline">\(\pi_{1}\parallel\pi_{2}\)</span> y la distancia entre ellos es <span class="math inline">\(d(\pi_{1}),\pi_{2})=d(\pi_{1},P)\)</span> donde <span class="math inline">\(P\)</span> es un punto del plano <span class="math inline">\(\pi_{2}\)</span>.</p>
+
+</div>
+</div>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-78759535-1', 'auto');
+ga('send', 'pageview');  
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estructuras-algebraicas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="espacios-vectoriales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/synergyvision/Medida/edit/master/bookdown/030-vectores.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Medida.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

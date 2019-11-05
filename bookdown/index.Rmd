@@ -1,0 +1,116 @@
+--- 
+title: "Medida"
+subtitle: "Ciencia de los Datos Financieros"
+author: "Synergy Vision"
+date: "`r Sys.Date()`"
+knit: "bookdown::render_book"
+documentclass: krantz
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+colorlinks: yes
+lot: yes
+lof: yes
+fontsize: 12pt
+monofontoptions: "Scale=0.8"
+keep_md: yes
+site: bookdown::bookdown_site
+description: ""
+url: 'http\://synergy.vision/Medida/'
+github-repo: synergyvision/Medida/
+cover-image: images/cover.png
+---
+
+```{r setup, include=FALSE}
+options(
+  htmltools.dir.version = FALSE, formatR.indent = 2,
+  width = 55, digits = 4, warnPartialMatchAttr = FALSE, warnPartialMatchDollar = FALSE
+)
+
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(latex2exp)
+library(e1071)
+library(moments)
+library(modeest)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+```
+
+```{r include=FALSE}
+tutorial::go_interactive(greedy=FALSE)
+```
+
+# Prefacio {-}
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), fig.link='https://synergy.vision/LibrosInteractivos/'}
+knitr::include_graphics('images/cover.png', dpi = NA)
+```
+
+
+![Creative Commons License](images/by-nc-sa.png)  
+La versión en línea de este libro se comparte bajo la licencia [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+## ¿Por qué  leer este libro? {-}
+
+Este libro es el resultado de enfocarnos en proveer la mayor cantidad de material sobre Probabilidad y Estadística Matemática con un desarrollo teórico lo más explícito posible, con el valor agregado de incorporar ejemplos de las finanzas y la programación en `R`. Finalmente tenemos un libro interactivo que ofrece una experiencia de aprendizaje distinta e innovadora.
+
+Es mucha la literatura, pero son pocas las opciones donde se pueda navegar el libro de forma amigable y además contar con ejemplos en `R` y ejercicios interactivos, además del contenido multimedia. Esperamos que ésta sea un contribución sobre nuevas prácticas para publicar el contenido y darle vida, crear una experiencia distinta, una experiencia interactiva y visual. El reto es darle vida al contenido asistidos con las herramientas de Internet.
+
+Finalmente este es un intento de ofrecer otra visión sobre la enseñanza y la generación de material más accesible. Estamos en un mundo multidisciplinado, es por ello que ahora hay que generar contenido que conjugue en un mismo lugar las matemáticas, estadística, finanzas y la computación.
+
+Lo dejamos público ya que las herramientas que usamos para ensamblarlo son abiertas y públicas.
+
+## Estructura del libro {-}
+
+## Información sobre los programas y convenciones {-}
+
+Este libro es posible gracias a una gran cantidad de desarrolladores que contribuyen en la construcción de herramientas para generar documentos enriquecidos e interactivos. En particular al autor de los paquetes Yihui Xie xie2015.
+
+## Prácticas interactivas con R {-}
+
+Vamos a utilizar el paquete [Datacamp Tutorial](https://github.com/datacamp/tutorial) que utiliza la librería en JavaScript [Datacamp Light](https://github.com/datacamp/datacamp-light) para crear ejercicios y prácticas con `R`. De esta forma el libro es completamente interactivo y con prácticas incluidas. De esta forma estamos creando una experiencia única de aprendizaje en línea.
+
+```{r tut=TRUE,ex="create_a", type="pre-exercise-code"}
+b <- 5
+```
+
+```{r tut=TRUE,ex="create_a", type="sample-code"}
+# Crea una variable a, igual a 5
+
+
+# Muestra el valor de a
+
+
+```
+
+```{r tut=TRUE,ex="create_a", type="solution"}
+# Crea una variable a, igual a 5
+a <- 5
+
+# Muestra el valor de a
+a
+```
+
+```{r tut=TRUE,ex="create_a", type="sct"}
+test_object("a")
+test_output_contains("a", incorrect_msg = "Aseg&uacute;rate de mostrar el valor de `a`.")
+success_msg("Excelente!")
+```
+
+## Agradecimientos {-}
+
+A todo el equipo de Synergy Vision que no deja de soñar. Hay que hacer lo que pocos hacen, insistir, insistir hasta alcanzar. Lo más importante es concretar las ideas. La idea es sólo el inicio y solo vale cuando se concreta.
+
+
+```{block2, type='flushright', html.tag='p'}
+Synergy Vision, Caracas, Venezuela
+```
+
+
+
+
+
+
+
