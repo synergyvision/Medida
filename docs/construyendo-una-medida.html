@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Capítulo 2 CONSTRUYENDO UNA MEDIDA | Medida</title>
+  <meta name="description" content="Capítulo 2 CONSTRUYENDO UNA MEDIDA | Medida">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Capítulo 2 CONSTRUYENDO UNA MEDIDA | Medida" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://synergy.vision/Medida/" />
+  <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
+  
+  <meta name="github-repo" content="synergyvision/Medida/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 CONSTRUYENDO UNA MEDIDA | Medida" />
+  
+  
+  <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
+
+<meta name="author" content="Synergy Vision">
+
+
+<meta name="date" content="2019-12-09">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="introduccion.html">
+<link rel="next" href="vectores.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="images/logovision-black.png" width="160"></img></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-que-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#informacion-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#practicas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
+<li class="chapter" data-level="1" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a><ul>
+<li class="chapter" data-level="2.1" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a></li>
+<li class="chapter" data-level="2.2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#colecciones-de-conjuntos"><i class="fa fa-check"></i><b>2.2</b> Colecciones de Conjuntos</a></li>
+<li class="chapter" data-level="2.3" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#medida"><i class="fa fa-check"></i><b>2.3</b> Medida</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>3</b> Vectores</a><ul>
+<li class="chapter" data-level="3.1" data-path="vectores.html"><a href="vectores.html#representacion-geometrica"><i class="fa fa-check"></i><b>3.1</b> Representación geométrica</a></li>
+<li class="chapter" data-level="3.2" data-path="vectores.html"><a href="vectores.html#operaciones-entre-vectores"><i class="fa fa-check"></i><b>3.2</b> Operaciones entre vectores</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="vectores.html"><a href="vectores.html#producto-escalar-y-producto-vectorial"><i class="fa fa-check"></i><b>3.2.1</b> Producto escalar y producto vectorial</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="vectores.html"><a href="vectores.html#rectas-y-planos"><i class="fa fa-check"></i><b>3.3</b> Rectas y Planos</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="vectores.html"><a href="vectores.html#rectas-en-el-espacio"><i class="fa fa-check"></i><b>3.3.1</b> Rectas en el espacio</a></li>
+<li class="chapter" data-level="3.3.2" data-path="vectores.html"><a href="vectores.html#rectas-en-el-plano"><i class="fa fa-check"></i><b>3.3.2</b> Rectas en el plano</a></li>
+<li class="chapter" data-level="3.3.3" data-path="vectores.html"><a href="vectores.html#planos"><i class="fa fa-check"></i><b>3.3.3</b> Planos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html"><i class="fa fa-check"></i><b>4</b> Espacios vectoriales</a><ul>
+<li class="chapter" data-level="4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales"><i class="fa fa-check"></i><b>4.1</b> Ecuaciones lineales</a></li>
+<li class="chapter" data-level="4.2" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#matrices"><i class="fa fa-check"></i><b>4.2</b> Matrices</a></li>
+<li class="chapter" data-level="4.3" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales-y-matrices"><i class="fa fa-check"></i><b>4.3</b> Ecuaciones lineales y matrices</a></li>
+<li class="chapter" data-level="4.4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#teoria-de-espacios-vectoriales"><i class="fa fa-check"></i><b>4.4</b> Teoría de espacios vectoriales</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#espacio-cociente"><i class="fa fa-check"></i><b>4.4.1</b> Espacio cociente</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ejercicios"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="polinomios.html"><a href="polinomios.html"><i class="fa fa-check"></i><b>5</b> Polinomios</a></li>
+<li class="chapter" data-level="6" data-path="matrices-1.html"><a href="matrices-1.html"><i class="fa fa-check"></i><b>6</b> Matrices</a></li>
+<li class="chapter" data-level="7" data-path="autovalores-y-autovectores.html"><a href="autovalores-y-autovectores.html"><i class="fa fa-check"></i><b>7</b> Autovalores y autovectores</a></li>
+<li class="chapter" data-level="8" data-path="calculo-en-vectores-y-matrices.html"><a href="calculo-en-vectores-y-matrices.html"><i class="fa fa-check"></i><b>8</b> Cálculo en vectores y matrices</a></li>
+<li class="chapter" data-level="9" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html"><i class="fa fa-check"></i><b>9</b> Transformaciones lineales</a><ul>
+<li class="chapter" data-level="9.1" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#bases-ordenadas"><i class="fa fa-check"></i><b>9.1</b> Bases ordenadas</a></li>
+<li class="chapter" data-level="9.2" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#matriz-de-una-transformacion"><i class="fa fa-check"></i><b>9.2</b> Matriz de una transformación</a></li>
+<li class="chapter" data-level="9.3" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#transformaciones-invertibles"><i class="fa fa-check"></i><b>9.3</b> Transformaciones invertibles</a></li>
+<li class="chapter" data-level="9.4" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#funcionales-lineales"><i class="fa fa-check"></i><b>9.4</b> Funcionales lineales</a></li>
+<li class="chapter" data-level="9.5" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#el-doble-dual"><i class="fa fa-check"></i><b>9.5</b> El doble dual</a></li>
+<li class="chapter" data-level="9.6" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#ejercicios-1"><i class="fa fa-check"></i><b>9.6</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="producto-escalar.html"><a href="producto-escalar.html"><i class="fa fa-check"></i><b>10</b> Producto escalar</a></li>
+<li class="appendix"><span><b>Apéndice</b></span></li>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A.1" data-path="software-tools.html"><a href="software-tools.html#r-and-r-packages"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
+<li class="chapter" data-level="A.2" data-path="software-tools.html"><a href="software-tools.html#pandoc"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
+<li class="chapter" data-level="A.3" data-path="software-tools.html"><a href="software-tools.html#latex"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Medida</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="construyendo-una-medida" class="section level1">
+<h1><span class="header-section-number">Capítulo 2</span> CONSTRUYENDO UNA MEDIDA</h1>
+<p>En este capÍtulo abordaremos algunas nociones básicas necesarias para abordar los temas propios de la materia. En una primera parte haremos un somero repaso de sucesiones de números reales y sucesiones de conjuntos. Estudiaremos los conceptos de límites superior e inferior de una sucesión (de conjuntos o de números reales) y sus propiedades. Mostraremos algunos resultados útiles sobre este tema. En la segunda parte definiremos algunas familias de conjuntos importantes para construír medidas, en especial la medida de Lebesgue.</p>
+<div id="preliminares" class="section level2">
+<h2><span class="header-section-number">2.1</span> Preliminares</h2>
+
+<div class="definition">
+<span id="def:unnamed-chunk-1" class="definition"><strong>Definición 2.1  </strong></span>Sea <span class="math inline">\((x_{n})_{n\geq 1}\)</span> una sucesiÓn de nÚmeros reales. El <em>límite superior</em> de <span class="math inline">\((x_{n})_{n\geq 1}\)</span> es <span class="math display">\[\limsup_{n\to\infty} x_{n}=\inf_{n\geq 1}\sup_{k\geq n} x_{k}\]</span> y el <em>límite inferior</em> de <span class="math inline">\((x_{n})_{n\geq 1}\)</span> es <span class="math display">\[\liminf_{n\to\infty} x_{n}=\sup_{n\geq 1}\inf_{k\geq n} x_{k}.\]</span>
+</div>
+
+<p>También se pueden denotar <span class="math inline">\(\overline{\lim_{n} x_{n}}\)</span> al límite superior y <span class="math inline">\(\underline{\lim_{n} x_{n}}\)</span> al límite inferior.</p>
+<p>Note que <span class="math inline">\(\sup_{k\geq n} x_{k}\)</span> y <span class="math inline">\(\inf_{k\geq n}\)</span> son sucesiones monótonas, luego toda sucesión de números reales tiene límite superior e inferior aunque pueden no ser finitos, es decir, valer <span class="math inline">\(\pm\infty\)</span>.</p>
+
+<div class="remark">
+ <span class="remark"><em>Nota. </em></span> Recuerde que: (a) Sea <span class="math inline">\(l\neq\mp\infty\)</span>, entonces <span class="math inline">\(l=\limsup_{n\to\infty} x_{n}\)</span> si y solo si: i. para todo <span class="math inline">\(\epsilon&gt;0\)</span>, existe <span class="math inline">\(N\in\mathbb{N}\)</span> tal que si <span class="math inline">\(n&gt;N\)</span> entonces <span class="math inline">\(x_{n}&lt;l+\epsilon\)</span>. ii. para todo <span class="math inline">\(\epsilon&gt;0\)</span> y para todo <span class="math inline">\(m\in\mathbb{N}\)</span>, existe <span class="math inline">\(n&gt;m\)</span> tal que <span class="math inline">\(x_{n}&gt;l+\epsilon\)</span>. (b) Sea <span class="math inline">\(l=+\infty\)</span>, entonces <span class="math inline">\(l=\limsup_{n\to\infty} x_{n}\)</span> si y solo si para todo <span class="math inline">\(\lambda\in\mathbb{R}^{+}\)</span> y para todo <span class="math inline">\(N\in\mathbb{N}\)</span>, existe <span class="math inline">\(n\in\mathbb{N}\)</span> tal que <span class="math inline">\(x_{n}&gt;\lambda\)</span>. (c) Sea <span class="math inline">\(l=-\infty\)</span>, entonces <span class="math inline">\(l=\limsup_{n\to\infty} x_{n}\)</span> si y solo si <span class="math inline">\(\lim_{n\to\infty}x_{n}=-\infty\)</span>. De forma análoga, para límite inferior. Además, recordemos que: (a) <span class="math inline">\(\liminf_{n\to\infty} x_{n}\leq \limsup_{n\to\infty} x_{n}\)</span>. (b) La sucesión <span class="math inline">\((x_{n})_{n}\)</span> converge a <span class="math inline">\(l\neq\mp\infty\)</span> si y solo si <span class="math inline">\(\liminf_{n\to\infty} x_{n}= \limsup_{n\to\infty} x_{n}=\lim_{n\to\infty} x_{n}\)</span>. (c) La sucesión converge a <span class="math inline">\(\mp\infty\)</span> si y solo si <span class="math inline">\(\liminf_{n\to\infty} x_{n}= \limsup_{n\to\infty} x_{n}=\mp\infty\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-3" class="example"><strong>Ejemplo 2.1  </strong></span>La sucesión <span class="math inline">\(x_{n}=(-1)^{n}\)</span>, no tiene límite. Note que <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=1\)</span>, por lo tanto <span class="math inline">\(\limsup_{n\to\infty} x_{n}=\inf_{n\geq 1} a_{n}=1\)</span>; y <span class="math inline">\(b_{n}=\inf_{k\geq n} x_{k}=-1\)</span>, por lo tanto <span class="math inline">\(\liminf_{n\to\infty} x_{n}=\inf_{n\geq 1} b_{n}=-1\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-4" class="example"><strong>Ejemplo 2.2  </strong></span>Definamos <span class="math inline">\(x_{n}=n\)</span> si <span class="math inline">\(n\)</span> es par y <span class="math inline">\(x_{n}=0\)</span> si <span class="math inline">\(n\)</span> es impar. Luego <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=\infty\)</span> y <span class="math inline">\(b_{n}=\inf_{k\geq n}x_{k}=0\)</span>. Por lo tanto, <span class="math inline">\(\limsup_{n\to\infty} x_{n}=\infty\)</span> y <span class="math inline">\(\liminf_{n\to\infty} x_{n}=0\)</span>. De donde concluímos que el límite de <span class="math inline">\((x_{n})_{n}\)</span> no existe.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-5" class="example"><strong>Ejemplo 2.3  </strong></span>Sea <span class="math inline">\((x_{n})_{n}\)</span> definida por <span class="math inline">\(x_{n}=\tan^{2}(n(\pi/4))\)</span>. Sean <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=\infty\)</span> y <span class="math inline">\(b_{n}=\inf_{k\geq n} x_{k}=0\)</span>. Entonces, <span class="math inline">\(\limsup_{n\to\infty} x_{n}=\infty\)</span> y <span class="math inline">\(\liminf_{n\to\infty} x_{n}=0\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-6" class="example"><strong>Ejemplo 2.4  </strong></span>Sea <span class="math inline">\(x_{n}=\sec(n(\pi/2))\)</span>. Sean <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=\infty\)</span> y <span class="math inline">\(b_{n}=\inf_{k\geq n} x_{k}=-\infty\)</span>, de donde <span class="math inline">\(\overline{\lim_{n} x_{n}}=\infty\)</span> y <span class="math inline">\(\underline{\lim_{n} x_{n}}=-\infty\)</span>.
+</div>
+
+<p>También podemos definir suseciones de conjuntos y considerar sus límites, como veremos a continación. Recordemaos que dado un conjunto cualquiera <span class="math inline">\(\omega\)</span>, el <em>conjunto de partes</em> de <span class="math inline">\(\Omega\)</span>, es el conjunto formado por todos los subconjuntos de <span class="math inline">\(\Omega\)</span> y se denota por <span class="math inline">\(\wp(\Omega)\)</span>. Esto es <span class="math inline">\(\wp(\Omega)=\{A| A\subseteq \Omega\}\)</span>. Diremos que un subconjunto <span class="math inline">\(\mathcal{C}\)</span> de <span class="math inline">\(\wp(\omega)\)</span>, es una <em>familia de subconjuntos</em> de <span class="math inline">\(\Omega\)</span>, es decir, <span class="math inline">\(\mathcal{C}\subseteq\wp(\Omega)\)</span>. En esta parte, supondremos que <span class="math inline">\(\mathcal{C}\neq\emptyset\)</span>, salvo se indique lo contrario. Denotaremos por <span class="math inline">\(\bigcap\mathcal{C}\)</span> al conjunto de la intersección de todos los elementos de <span class="math inline">\(\mathcal{C}\)</span>, es decir, <span class="math inline">\(\bigcap\mathcal{C}=\bigcap_{A\in\mathcal{C}} A\)</span>. Análogamente, <span class="math inline">\(\bigcup\mathcal{C}\)</span> al conjunto de la unión de todos los elementos de <span class="math inline">\(\mathcal{C}\)</span>, es decir, <span class="math inline">\(\bigcap\mathcal{C}=\bigcap_{A\in\mathcal{C}} A\)</span>. Usaremos la notación <span class="math inline">\((A_{n})_{n\in\mathbb{N}}\)</span> (o <span class="math inline">\((A_{n})_{n=1}^{\infty}\)</span> o <span class="math inline">\((A_{n})_{n\geq 1}\)</span> o simplemente <span class="math inline">\((A_{n})\)</span>) para denotar la <em>sucesión de conjuntos</em> <span class="math inline">\(A_{1}, A_{2},\cdots\)</span> También se podrá usar la notación <span class="math inline">\((A_{n})_{n\geq 1}\subseteq\wp(\Omega)\)</span> para expresar que la sucesión está formada por subconjuntos de <span class="math inline">\(\Omega\)</span>.</p>
+
+<div class="example">
+<span id="exm:ejemplo17" class="example"><strong>Ejemplo 2.5  </strong></span>Consideremos los intervalos <span class="math inline">\(A_{n}=[-n,n]\)</span> para cada <span class="math inline">\(n\in\mathbb{N}\)</span>. Estos definen la sucesión <span class="math inline">\(\{[-1,1], [-2,2],\cdots, [-n,n],\cdots\}\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:ejemplo18" class="example"><strong>Ejemplo 2.6  </strong></span>Definimos los siguientes subconjuntos de números reales: $A_{n}=( -1,1/n) $ para todo <span class="math inline">\(n\in\mathbb{N}\)</span>. Esta es la sucesión <span class="math inline">\(\{(-1,1), ( -1,1/2) ,\cdots, ( -1,1/n) ,\cdots\}\)</span>.
+</div>
+ 
+<div class="example">
+<span id="exm:ejemplo19" class="example"><strong>Ejemplo 2.7  </strong></span>Sea <span class="math inline">\(A_{n}=\{r\in\mathbb{Z}:r \mbox{ es múltiplo de } n\}\)</span> para cada <span class="math inline">\(n\geq 1\)</span>. Estos subconjuntos forman la sucesión de conjuntos <span class="math display">\[\begin{array}{rl}
+A_{1}&amp;=\{\cdots, -2,-1,0,1,2,\cdots\}\\
+A_{2}&amp;=\{\cdots,-4,-2,0,2,4,\cdots\}\\
+\vdots&amp;\\
+A_{n}&amp;=\{\cdots,-3n,-2n,-n,0,n,2n,3n,\cdots\}\\
+\vdots&amp;
+\end{array}\]</span>
+</div>
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-7" class="definition"><strong>Definición 2.2  </strong></span>Una sucesión <span class="math inline">\((A_{n})_{n\geq 1}\)</span> es una sucesión <em>monótona creciente (</em>monótona decreciente<em>) si para todo <span class="math inline">\(n\geq 1\)</span>, se tiene que <span class="math inline">\(A_{n}\subseteq A_{n+1}\)</span> (<span class="math inline">\(A_{n}\supseteq A_{n+1}\)</span>) y se denota <span class="math inline">\(A_{n}\downarrow\)</span>. Diremos que una sucesión es </em>monótona* si es monótona creciente o monótona decreciente.
+</div>
+
+
+<div class="remark">
+ <span class="remark"><em>Nota. </em></span> Sea <span class="math inline">\((A_{n})\)</span> una sucesión monótona. (i.) Si <span class="math inline">\(A_{n}\uparrow\)</span>, entonces <span class="math inline">\(A=\bigcup_{n\geq 1} A_{n}\)</span> es el límite de <span class="math inline">\((A_{n})\)</span> y se denota <span class="math inline">\(\lim_{n} A_{n}=A\)</span> o por <span class="math inline">\(A_{n}\uparrow A\)</span>, esto último también se lee <span class="math inline">\(A_{n}\)</span> crece a <span class="math inline">\(A\)</span>. (ii.) Si <span class="math inline">\(A_{n}\downarrow\)</span>, entonces <span class="math inline">\(A=\bigcap_{n\geq 1} A_{n}\)</span> es el límite de <span class="math inline">\((A_{n})\)</span> y se denota <span class="math inline">\(\lim_{n} A_{n}=A\)</span> o por <span class="math inline">\(A_{n}\downarrow A\)</span>, esto último tambin se lee <span class="math inline">\(A_{n}\)</span> decrece a <span class="math inline">\(A\)</span>. Para una sucesión cualquiera <span class="math inline">\((A_{n})\)</span>, las sucesiones <span class="math inline">\(B_{n}=\bigcap_{k\geq n} A_{k}\)</span> y <span class="math inline">\(C_{n}=\bigcup_{k\geq n} A_{k}\)</span>, son sucesiones monótonas, creciente y decreciente respectivamente. Por lo que los límites de estas sucesiones existen. Y son <span class="math inline">\(\lim_{n} B_{n}=\bigcup_{n\geq 1} B_{n}\)</span> ya que <span class="math inline">\(B_{n}\uparrow\)</span> y <span class="math inline">\(\lim_{n} C_{n}=\bigcap_{n\geq 1} C_{n}\)</span> ya que <span class="math inline">\(B_{n}\downarrow\)</span>.
+</div>
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-9" class="definition"><strong>Definición 2.3  </strong></span>Sea <span class="math inline">\((A_{n})_{n\geq 1}\)</span> una sucesión. Decimos que el <em>límite inferior</em> de <span class="math inline">\((A_{n})_{n}\)</span> es el límite de la sucesión <span class="math inline">\(B_{n}=\bigcap_{k\geq n} A_{k}\)</span>, es decir <span class="math inline">\(\liminf_{n\geq 1} A_{n}:=\lim_{n\geq 1} B_{n}=\bigcup_{n\geq 1} B_{n}=\bigcup_{n\geq 1} \bigcap_{k\geq n} A_{n}\)</span>. De forma análoga, decimos que el <em>límite superior</em> de <span class="math inline">\((A_{n})_{n}\)</span> es el límite de la sucesión <span class="math inline">\(C_{n}=\bigcup_{k\geq n} A_{k}\)</span>, es decir <span class="math inline">\(\limsup_{n\geq 1} A_{n}:=\lim_{n\geq 1} C_{n}=\bigcap_{n\geq 1} C_{n}=\bigcap_{n\geq 1} \bigcup_{k\geq n} A_{n}\)</span>. Si <span class="math inline">\(\liminf_{n\geq 1} A_{n}=\limsup_{n\geq 1} A_{n}\)</span>. Decimos que <span class="math inline">\((A_{n})\)</span> <em>tiene límite</em> y escribimos <span class="math inline">\(\lim_{n\geq 1}A_{n}=\liminf_{n\geq 1} A_{n}=\limsup_{n\geq 1} A_{n}\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-10" class="example"><strong>Ejemplo 2.8  </strong></span>La sucesión del ejemplo <a href="construyendo-una-medida.html#exm:ejemplo17">2.5</a> es una sucesión creciente y su límite es <span class="math inline">\(\lim A_{n}=\mathbb{R}\)</span>. La sucesión del ejemplo <a href="construyendo-una-medida.html#exm:ejemplo18">2.6</a> es una sucesión decreciente y su límite es <span class="math inline">\(\lim_{n\geq 1} A_{n}=(-1,0]\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-11" class="example"><strong>Ejemplo 2.9  </strong></span>La sucesión del ejemplo <a href="construyendo-una-medida.html#exm:ejemplo19">2.7</a> no es creciente ni decreciente. Entonces <span class="math inline">\(\liminf_{n\geq 1} A_{n}=\bigcup_{n\geq 1}\bigcap_{k\geq n} A_{n}=\{0\}\)</span> y <span class="math inline">\(\limsup_{n\geq 1} A_{n}=\bigcap_{n\geq 1}\bigcup_{k\geq n} A_{n}=\{0\}\)</span>. Luego la sucesión tiene límite y es <span class="math inline">\(\lim_{n\geq 1} A_{n}=\{0\}\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-12" class="example"><strong>Ejemplo 2.10  </strong></span>Sea $A_{n}=[0-(1/n),n] $, para cada <span class="math inline">\(n\geq 1\)</span>. Sea <span class="math inline">\(B_{n}=\bigcap_{k\geq n} [0-1/k,k]=(0,n]\)</span> y <span class="math inline">\(C_{n}=\bigcup_{k\geq n} [0-1/n,n]=[-1/k,\infty)\)</span>. Con lo que se tiene que <span class="math inline">\(\liminf_{n\geq 1} A_{n}=\bigcup_{n\geq 1} B_{n}=(0,\infty)\)</span> y <span class="math inline">\(\limsup_{n\geq 1} A_{n}=\bigcap_{n\geq 1} C_{n}=(0,\infty)\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-13" class="example"><strong>Ejemplo 2.11  </strong></span>Sea <span class="math inline">\(A_{n}=(r+ 1/n, s+ 1/r)\)</span> para cada <span class="math inline">\(n\geq 1\)</span> y <span class="math inline">\(r\)</span> y <span class="math inline">\(s\)</span> números reales cualesquiera. Entonces <span class="math display">\[\liminf_{n\geq 1} A_{n}=\bigcup_{n\geq 1}\bigcap_{k\geq n} A_{n}=\bigcup_{n\geq 1} (r+ 1/n, s]=(r,s]\]</span> y <span class="math display">\[\limsup_{n\geq 1} A_{n}=\bigcap_{n\geq 1}\bigcup_{k\geq n} A_{n}=\bigcap_{n\geq 1} (r, s+ 1/n)=(r,s].\]</span>
+</div>
+
+</div>
+<div id="colecciones-de-conjuntos" class="section level2">
+<h2><span class="header-section-number">2.2</span> Colecciones de Conjuntos</h2>
+</div>
+<div id="medida" class="section level2">
+<h2><span class="header-section-number">2.3</span> Medida</h2>
+
+</div>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-78759535-1', 'auto');
+ga('send', 'pageview');  
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduccion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vectores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/synergyvision/Medida/edit/master/bookdown/020-preliminares.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Medida.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
