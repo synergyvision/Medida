@@ -165,4 +165,359 @@ Si consideramos las operaciones de suma y multiplicación en $\mathbb{Z}_{2}$ (e
 
 ##Colecciones de Conjuntos
 
+```{definition}
+Dado un espacio topológico $(X,\tau)$, decimos que $A\subseteq X$ es un conjunto $G_{\delta}$ si $A$ es intersección numerable de abiertos, esto es, $A=\bigcap_{n\in\mathbb{N}} G_{n}$ con $G_{n}\in\tau$. Decimos que $A$ es un conjunto  $F_{\sigma}$ si es unión numerable de conjuntos cerrados, esto es, $A=\bigcup_{n\in\mathbb{N}} F_{n}$ con $F_{n}^{c}\in\tau$.
+
+```
+
+Se pueden definir de forma análoga conjuntos $F_{\sigma\delta}$, $G_{\delta\sigma}$, $F_{\sigma\delta\sigma}$, etc.
+Por ejemplo, $A$ es un conjunto $F_{\sigma\delta}$ si es intersecci\'on numerable de conjuntos $F_{\sigma}$.
+
+```{example}
+El conjunto de los puntos de continuidad de una función cualquiera, es un conjunto $G_{\delta}$.
+	Y el conjunto de puntos de discontinuidad es una función dada, es un conjunto $F_{\sigma}$.
+
+```
+
+Para las siguientes definiciones, sea $\Omega$ un conjunto no vacío. Sea $\mathcal{C}$ una familia de subconjuntos de $\Omega$. Entonces:
+```{definition}
+$\mathcal{C}$ es un *semianillo* si
+
+(i.)  $\emptyset\in\mathcal{C}$.
+
+(ii.) $\mathcal{C}$ es cerrado bajo intersecciones, es decir, $\forall A,B\in\mathcal{C}$, $A\cap B\in\mathcal{C}$.
+
+(iii.) $\forall B,C\in\mathcal{C}$ $\exists (A_{k})_{1}^{n}\subseteq \mathcal{C}$ disjuntos dos a dos tales que $B-C=\bigcup_{k=1}^{n} A_{k}$.
+
+```
+
+```{definition}
+$\mathcal{C}$ es un *semiálgebra* si
+
+(i.)  $\emptyset\in\mathcal{C}$.
+
+(ii.) $\mathcal{C}$ es cerrado bajo intersecciones, es decir, $\forall A,B\in\mathcal{C}$, $A\cap B\in\mathcal{C}$.
+
+(iii.) $\forall B\in\mathcal{C}$ $\exists (A_{k})_{1}^{n}\subseteq \mathcal{C}$ disjuntos dos a dos tales que $B^{c}=\bigcup_{k=1}^{n} A_{k}$.
+
+```
+
+```{definition}
+$\mathcal{C}$ es un *anillo* si
+
+(i.)  $\emptyset\in\mathcal{C}$.
+
+(ii.) $\mathcal{C}$ es cerrado bajo intersecciones, es decir, $\forall A,B\in\mathcal{C}$, $A\cap B\in\mathcal{C}$.
+
+(iii.) $\mathcal{C}$ es cerrado bajo uniones, es decir, $\forall A,B\in\mathcal{C}$, $A\cup B\in\mathcal{C}$.
+
+(iv.) $\mathcal{C}$ es cerrado bajo diferencia de conjuntos, es decir, $\forall A,B\in\mathcal{C}$, $A-B\in\mathcal{C}$.
+
+```
+
+```{definition}
+$\mathcal{C}$ es un *$\sigma$-anillo* si
+
+(i.)  $\mathcal{C}$ es un anillo.
+
+(ii.) $\mathcal{C}$ es cerrado bajo uniones numerables, es decir, $\forall (A_{k})_{k=1}^{n}\subseteq\mathcal{C}$, $\bigcup_{k=1\geq n}A_{k}\in\mathcal{C}$.
+
+(iii.) $\mathcal{C}$ es cerrado bajo intersecciones numerables, es decir, $\forall (A_{k})_{k=1}^{n}\subseteq\mathcal{C}$, $\bigcap_{k=1\geq n}A_{k}\in\mathcal{C}$.
+
+```
+
+```{definition}
+$\mathcal{C}$ es un *álgebra* si
+
+(i.)  $\mathcal{C}$ es un anillo.
+
+(ii.) $\mathcal{C}$ es cerrado bajo complementación, $\forall A\in\mathcal{C}$, $A^{c}\in\mathcal{C}$.
+
+```
+
+```{definition}
+$\mathcal{C}$ es una *$\sigma$-álgebra* si
+
+(i.)  $\mathcal{C}$ es un álgera.
+(ii.) $\mathcal{C}$ es cerrado bajo uniones numerebles y bajo interseccines numerables.
+
+```
+
+```{definition}
+$\mathcal{C}$ es una *clase monótona* si es cerrado bajo límites monótonos, es decir
+
+(i.) toda sucesión creciente $(A_{n})_{n\in\mathbb{N}}\subseteq \mathcal{C}$, se tiene que $\bigcup_{n\geq 1}A_{n}\in\mathcal{C}$ y
+
+(ii.) toda sucesión decreciente $(A_{n})_{n\in\mathbb{N}}\subseteq \mathcal{C}$, se tiene que $\bigcap_{n\geq 1}A_{n}\in\mathcal{C}$.
+
+```
+
+```{definition}
+	$\mathcal{C}$ es un *sistema $\pi$* si es cerrado bajo intersecciones.
+
+```
+
+```{definition}
+$\mathcal{C}$ es un *sistema $\lambda$* (*clase-$\sigma$ aditiva* o *sistema de Dynkin*) si
+
+(i.)  $\emptyset\in\mathcal{C}$.
+
+(ii.)  para todo $A,B\in\mathcal{C}$, si $A\subseteq B$, entonces $B\backslash A\in\mathcal{C}$.
+
+(iii.) $\mathcal{C}$ es cerrado bajo límites crecientes, es decir, para toda sucesión creciente $(A_{n})_{n\in\mathbb{N}}\subseteq \mathcal{C}$, se tiene que $\bigcup_{n\geq 1}A_{n}\in\mathcal{C}$.
+
+```
+
+```{example}
+Sea $\Omega\neq \emptyset$, $\mathcal{C}=\{A\subseteq\Omega: A \mbox{ es finito o }A^{c} \mbox{ es finito} \}$ es un álgebra. Si $\Omega$ es finito, $\mathcal{C}$ es una $\sigma$-álgebra.
+
+```
+
+```{example}
+Sea $\Omega\neq \emptyset$. Sea $\mathcal{C}=\{A\subseteq :A \mbox{ es numerable o } A^{c} \mbox{ numerable } \}$ es una $\sigma$-álgebra.
+
+```
+
+```{example}
+Sea $\mathcal{I}=\{(a,b]\subseteq\mathbb{R}: a\geq b \}$. Sea $\mathcal{C}=\left\lbrace \bigcup_{i\geq n} I_{i}:I_{i}\in \mathcal{I} \mbox{ y } n\in\mathbb{N} \right\rbrace$ es un anillo pero no es un álgebra.
+	Ahora, dado $\tilde{\mathcal{I}}=\{(a,\infty):a\in\mathbb{R}\}$; la colección $\tilde{\mathcal{C}}=\left\lbrace \bigcup_{i\geq n} I_{i}:I_{i}\in \mathcal{I}\cup\tilde{\mathcal{I}} \mbox{ y } n\in\mathbb{N}\right\rbrace $ es un álgebra pero no es una $\sigma$-álgebra.
+
+```
+
+```{remark}
+Dada una colección arbitraria de conjunto $\mathcal{F}$, la intersección de los conjuntos de $\mathcal{F}$, se denota $\bigcap\mathcal{F}$.
+
+```
+
+```{proposition}
+La intersección arbitraria de anillos, es un anillo.
+
+```
+```{proof}
+Sea $I$ un conjunto arbitrario de índices, sea $\mathcal{F}=\{\mathcal{C}_{\alpha}: \alpha\in I\}$ una familia de anillos. Como $\emptyset\in\mathcal{C}_{\alpha}$ para todo $\alpha\in I$, entonces $\emptyset\in\bigcap_{\alpha\in I} \mathcal{C}_{\alpha}$. Sean $A, B\in \bigcup\mathcal{F}$, entonces $A, B\in\mathcal{C}_{\alpha}$ para todo $\alpha\in I$. Como cada $\mathcal{C}_{\alpha}$ es un anillo se sigue el resultado.
+
+```
+
+```{remark}
+La proposición anterior es cierta para intersecció arbitraria de álgebras, de $\sigma$-anillos, $\sigma$-álgebras, clases monótonas y sistemas $\pi$.
+
+```
+
+```{definition}
+Dada una familia $\mathcal{D}$ de subconjuntos de $\Omega$. La colección $\mathcal{R}(\mathcal{D})=\bigcap\{R\subseteq\wp(\Omega): R\mbox{ es un anillo y }\mathcal{D}\subseteq R\}$ es un anillo y diremos que es el \textit{anillo generado por $\mathcal{D}$}. 
+
+```
+
+De forma análoga se define el $\sigma$-anillo generado, el álgebra generada, el $\sigma$-anillo generado y la clase monótona generada por una familia cualquiera $\mathcal{D}\subseteq\wp(\Omega)$.
+
+```{example}
+Sea $(\Omega,\tau)$ un espacio topológico. $\sigma(\tau)$ es la sigma álgebra generada por la colección de conjuntos abiertos $\tau$, llamada *$\sigma$-álgebra de Borel*. Suele denotarse por $\mathcal{B}(\Omega)$. A los conjuntos que la conforman, se les llama *conjuntos Borelianos* del espacio $\Omega$.
+
+```
+
+```{remark}
+Note que los conjuntos $F_{\sigma}$, $G_{\delta}$, $F_{\sigma\delta}$, etc. son conjuntos Borelianos.
+	Podemos considerar el espacio topológico $\overline{\mathbb{R}}=\mathbb{R}\cup\{-\infty,\infty\}$ y en este espacio definir la $\sigma$-álgebra de Borel.
+
+```
+
+```{proposition}
+Sea $(\Omega, \tau)$ un espacio toplológico. Sea $\mathcal{C}$ la colección de cerrados de $\Omega$. Entonces $\sigma(\mathcal{C})=\mathcal{B}(\Omega)$.
+
+```
+```{proof}
+Veamos que $\tau\subseteq\sigma(\mathcal{C})$. Cada conjunto abierto $A=(A^{c})^{c}\in\sigma(\mathcal{C})$, ya que $A^{c}$ es un cerrado. Por lo tanto $\mathcal{B}(\Omega)\subseteq \sigma(\mathcal{C})$. Análogamente, se demuestra que $\sigma(\mathcal{C})\subseteq\mathcal{B}(\Omega)$.
+
+```
+
+
+	Recuerdemos que un espacio topológico es segundo numerable si tiene una base numerable.
+
+
+```{proposition}
+Sea $(\Omega, \tau)$ un espacio toplológico segundo numerable. Sea $\mathcal{G}$ una base numerable de $\tau$. Entonces $\sigma(\mathcal{G})=\mathcal{B}(\Omega)$.
+
+```
+```{proof}
+Claramente $G\subseteq\tau$, por lo tanto $\sigma(\mathcal{G})\subseteq\mathcal{B}(\Omega)$. Sea $A\in\tau$, entonces $A=\bigcup_{i\in\mathbb{N}}G_{i}$, con $G_{i}\in\mathcal{G}$. Luego, $A\in\sigma(\mathcal{G})$, entonces $\tau\subseteq\sigma(\mathcal{G})$. Por lo tanto, $\sigma(\tau)\subseteq\sigma(\mathcal{G})$.
+
+```
+
 ##Medida
+
+Podemos definir funciones de una clase en cualquier conjunto $X$, de la siguiente forma: $f:\mathcal{C}\longrightarrow X:D\mapsto x_{D}$ donde $\mathcal{C}$ es una clase cualquiera (es decir, $\mathcal{C}\subseteq\wp(C)$ donde $C$ es un conjunto cualquiera) $D\in\mathcal{C}$ y $x_{D}\in X$. Es otras palabras, *$f$ es una regla que a cada conjunto de la clase $\mathcal{C}$, le asigna un elemento del conjunto $X$*.
+
+```{definition}
+Sea $\mathcal{C}\subseteq\wp(\Omega)$, una función $\mu:\mathcal{C}\longrightarrow \overline{\mathbb{R}}$ es *finitamente aditiva* si:
+
+(i.) $\mu(\emptyset)=0$,
+(ii.) Para todo $A,B\in\mathcal{C}$, tales que $A$ y $B$ son disjuntos, $A\cup B\in\mathcal{C}$ y $\mu(A)$ y $\mu(B)$ están definidos. Se tiene que $\mu(A\cup B)=\mu(A)+\mu(B)$.
+
+es *$\sigma$-aditiva* si:
+
+(i.) $\mu(\emptyset)=0$,
+
+(ii.) Para todo $(A_{i})_{i\in\mathbb{N}}\in\mathcal{C}$ colección disjunta, tal que $\bigcup_{i\in\mathbb{N}}A_{i}$ se tiene que $\mu\left( \bigcup_{i\in\mathbb{N}}A_{i}\right) =\sum_{i\in\mathbb{N}}\mu(A_{i})$.
+
+```
+
+
+Es natural definir funciones en colecciones con al menos estructura de anillo, para que la función tenga la propiedad de aditividad.
+
+
+```{definition}
+	Sea $\mathcal{A}\in\wp(\Omega)$ una $\sigma$-álgebra. Al par ($\Omega$,$\mathcal{A}$) se le llama *espacio medible*. Además, una función $\mu:\mathcal{A}\longrightarrow \overline{\mathbb{R}^{+}}$ es una *medida sobre* ($\Omega$,$\mathcal{A}$) si y solo si:
+
+(i.) Para todo $A\in\mathcal{A}$, $\mu(A)\geq 0$.
+
+(ii.) $\mu(\emptyset)=0$,
+
+(iii.) $\mu$ es $\sigma$-aditiva.
+
+El trío $(\Omega,\mathcal{A},\mu)$ se llama *espacios de medida* y a $\mu(A)$ *medida de $A$*.
+
+```
+
+Las medidas suelen definirse en clases que tienen estructura de $\sigma$-álgebras o al menos de $\sigma$-anillo. Note que como una medida está definida en $\overline{\mathbb{R}}$, la suma $\sum_{i\in\mathbb{N}}\mu(A_{i})$ siempre está definida.
+
+Decimos que una medida tiene la propiedad de monotonía cuando para todo $A, B\in \mathcal{A}$ se tiene que si $A\subseteq B$, entonces $\mu(A)\leq\mu(B)$.
+ 
+```{proposition}
+Toda medida $\mu$ tiene la propiedad de monotonía.
+
+```
+```{proof}
+Sea $\mathcal{A}$ una $\sigma$-álgebra y sea $\mu$ una medida en $(\Omega,\mathcal{A})$. Sean $A,B\in\mathcal{A}$ tales $A\subseteq B$. Podemos escribir $B=A\cup B$ como una unión disjunta, esto es, $B=A\cup (B\backslash A)$, por $\sigma$-aditividad ( basta aditividad finita) se tiene que $$\mu(B)=\mu(A\cup B)=\mu(A\cup (B\backslash A))=\mu(A)+\mu(B\backslash A)$$ como $\mu$ es una función no negativa, se tiene el resultado.
+
+```
+
+Del resultado anterior y bajo las mismas hipótesis, se sigue que si $\mu(B)<\infty$, entonces $\mu(B-A)=\mu(B)-\mu(A)$.
+
+```{definition}
+Una medida $\mu$ sobre $(\Omega,\mathcal{A})$ se dice *finita* si $\mu(\Omega)<\infty$. Si $\mu(\Omega)=1$ se dice que $\mu$ es una *medida de probabilidad*; la medida suele denotarse $P$ en lugar de $\mu$ . En este caso, decimos que $(\Omega,\mathcal{A},P)$ es un *espacio de probabilidad* y $P(A)$ es *la probabilidad de $A$*, para cualquier $A\in\mathcal{A}$.
+
+```
+ 
+Note que una medida es finita si y solo si es acotada. Si $\mu(\Omega)<\infty$, por monotonía se tiene que $\forall A\subseteq\Omega$, $\mu(A)\leq\mu(\Omega)$. Recíprocamente, si $\forall A\subseteq\Omega$ $\mu(A)\leq C\leq\infty$ para alg\'un $C\in\mathbb{R}$, en particular $\mu(\Omega)\leq C\leq \infty$. 
+ 
+```{definition}
+Una medida $\mu$ sobre $(\Omega,\mathcal{A})$, es $\sigma$-finita si existe una colección disjunta numerable $(A_{n})_{n\in\mathbb{N}}\subseteq\mathcal{A}$, tal que $\Omega=\bigcup_{n\in\mathbb{N}} A_{n}$ y $\mu(A_{n})\leq \infty$ para todo $n\in\mathbb{N}$.
+
+```
+
+```{example}
+*La medida de contar*. La función $\mu:\wp(\Omega)\longrightarrow \overline{\mathbb{R}^{+}}$, definida por $$\mu(A)=\left\lbrace \begin{array}{cc}
+	|A|& \mbox{ si } A \mbox{ es un conjunto finito}\\
+	\infty& \mbox{ en otro caso}
+	\end{array}\right.$$
+	$\mu$ es una medida sobre $(\Omega,\wp(\Omega))$. Si $\Omega$ es un conjunto finito, $\mu$ es una medida finita. Si $\Omega$ es numerable, $\mu$ es $\sigma$-finita.
+
+```
+
+```{example}
+Sea $P=\{(a,b]: a\leq b\in\mathbb{R}\}$. La función *longitud* es la dada por $l:P\longrightarrow \mathbb{R}$ donde $l((a,b])=b-a$. Esta función es una medida finita. Si extendemos $l$ al anillo generado $\mathcal{R}(P)$, de forma natural, obtenemos una función finitamente aditiva.
+
+```
+
+```{example}
+Sea $\Omega$ un conjunto infinito y $E=\{x_{1},x_{2},\cdots\}\subseteq\Omega$ un subconjunto numerable de $\Omega$. Sea $(\lambda_{i})_{i\mathbb{N}}$ una sucesión numerable de números reales positivos. Sea $\mu:\wp(\Omega)$$\longrightarrow\mathbb{R}$ definida por $\mu(A)=\sum_{x_{i}\in A}\lambda_{i}$, $\mu$ es una medida, es finita si la serie $\sum_{i\geq 1}\lambda_{i}$ converge. Este tipo de medidas se les llama medidas discretas.
+
+```
+
+```{proposition}
+Sea $(\Omega,\mathcal{A})$ es un espacio medible y $\mu:\mathcal{A}\longrightarrow\mathbb{R}^{+}$. Supongamos que $\mu$ es finitamente aditiva. Entonces $\mu$ es $\sigma$-aditiva si y solo si para todo $(E_{n})_{n}\subseteq\wp(\mathcal{A})$ creciente, se tiene que $\mu\left( \bigcup_{n\geq 1} E_{n}\right) =\lim_{n}\uparrow \mu(E_{n})$. La notación $\lim_{n}\uparrow \mu(E_{n})$ denota límite creciente, es decir, el límite de una sucesión creciente.
+
+```
+```{proof}
+Supongamos que $\mu$ es $\sigma$-aditiva. Sea $(E_{n})_{n\in\mathbb{N}}$ una sucesión creciente. Note que si existe $n$ para el cual $\mu(E_{n})=\infty$, se tiene el resultado. Entonces supongamos que $\mu(E_{n})<\infty$ para todo $n\in\mathbb{N}$. Definamos la siguiente sucesión $A_{1}=E_{1}$ y para cada $n\geq 2$, $A_{n}=E_{n}\backslash E_{n-1}$. Tenemos que la sucesión $(A_{n})_{n\geq 1}$ es disjunta, además $\bigcup_{i\geq n} A_{i}=\bigcup_{i\geq n} E_{i}$. Luego, $$\mu\left( \bigcup_{i\geq n}E_{i}\right) =\mu\left( \bigcup_{i\geq n} A_{i}\right) =\mu\left( \bigcup_{i\geq n} E_{i}-E_{i-1}\right) $$ por $\sigma$-aditividad, se tiene que $$\mu\left( \bigcup_{i\geq n}E_{i}\right) =\mu\left( \bigcup_{i\geq n} E_{i}-E_{i-1}\right) =\sum_{i\geq 1} \mu(E_{i}-E_{i-1})$$ si suponemos que $E_{0}=\emptyset$, tenemos que 
+	$$\begin{array}{rl}
+	\mu\left( \bigcup_{i\geq n}E_{i}\right) =&\sum_{i\geq 1} \mu(E_{i}-E_{i-1})\\
+	=&\lim_{n}\sum_{i=1}^{n} \mu(E_{i})-\mu(E_{i-1})\\
+	=&\lim_{n} \mu(E_{n})-\mu(E_{0})\\
+	=&\lim_{n} \mu(E_{n})
+	\end{array}$$
+	Recíprocamente, sea $(A_{n})_{n\geq 1}$ una sucesión de conjuntos disjuntos. Definimos $E_{n}=\bigcup_{i=1}^{n} A_{i}$; entonces $(E_{})_{n\geq 1}$ es una sucesión creciente, además $\bigcup_{i\geq n} A_{i}=\bigcup_{i\geq n} E_{i}$. De donde se sigue que $$\begin{array}{rl}
+	\mu\left( \bigcup_{i\geq n} A_{i}\right) =&\mu\left( \bigcup_{i\geq n} E_{i}\right) \\
+	=&\lim_{n}\uparrow \mu(E_{n})\\
+	=&\lim_{n\to\infty}\mu\left( \bigcup_{i=1}^{n} A_{i}\right) \\
+	=&\lim_{n\to\infty}\sum_{i=1}^{n}\mu(A_{i})\\
+	=&\sum_{n\geq 1}\mu(A_{n})
+	\end{array}$$
+
+```
+
+Puede caracterizarse la $\sigma$-aditividad de $\mu$ en términos de sucesiones decrecientes, de forma análoga a la proposición anterior.
+
+```{proposition}
+Sea $(\Omega,\mathcal{A})$ es un espacio medible y $\mu:\mathcal{A}\longrightarrow\mathbb{R}^{+}$ una medida finita, finitamente aditiva. Entonces $\mu$ es $\sigma$-aditiva si y solo si para todo $(E_{n})_{n}\subseteq\wp(\mathcal{A})$ decreciente, se tiene que $\mu\left( \bigcap_{n\geq 1} F_{n}\right) =\lim_{n}\downarrow \mu(F_{n})$. La notación $\lim_{n}\downarrow \mu(F_{n})$ denota límite decreciente, es decir, el límite de una sucesión decreciente.
+
+```
+
+La demostración de esta proposición es análoga a la anterior.
+
+```{remark}
+En la proposición para sucesiones decrecientes, se pueden remplazar las hipótesis por *si toda sucesión decreciente $(F_{n})_{n\geq 1}$ tal que $\bigcap_{n\geq 1} F_{n}=\emptyset$, entonces $\lim_{n} \mu(F_{n})=0$*.
+Si $\mu$ no es una medida finita, la proposición no es cierta. Aunque si se pide que $\mu\left( \bigcap_{n\geq 1}F_{n}\right) =\lim_{n} \mu(F_{n})$ para toda sucesión $(F_{n})$ decreciente tal que $\mu(F_{n})<\infty$ para algún $n$.
+
+```
+
+A continuación veremos algunos *teoremas de clases monótonas*, que aunque son varios, llevan el mismo nombre porque son similares. Pero antes presentamos un lema útil para la demostración de estos teoremas.
+
+```{lemma}
+Si una clase de conjuntos $\mathcal{A}$ es a la vez un anillo y una clase monótona entonces $\mathcal{C}$ es un $\sigma$-anillo.
+
+```
+
+```{proof}
+Como $\mathcal{C}$ es un anillo, basta ver que es cerrado bajo uniones e intersecciones numerables. Sea $(A_{n})_{n\geq 1} \subseteq \mathcal{C}$. Definamos la siguiente clase monótona creciente a partir de la sucesión $(A_{n})_{n\geq 1}$: $C_{n}=\bigcup_{i=1}^{n} A_{i}$ para todo $n\in\mathbb{N}$. Como $\mathcal{C}$ es un anillo, cada $C_{n}\in\mathcal{C}$. Por construcción, $(C-{n})_{n\geq 1}$ es una sucesión creciente, y como $\mathcal{C}$ es una clase monótona, $\bigcup_{n\geq 1} A_{n}=\bigcup_{n\geq 1} C_{n}\in\mathcal{C}$. De forma análoga se demuestra que $\mathcal{C}$ es cerrado bajo intersecciones numerables.
+
+```
+
+```{theorem}
+Sea $\mathcal{R}$ un anillo. Entonces el $\sigma$-anillo generado por $\mathcal{R}$ coincide con la clase monótona generada por $\mathcal{R}$. Es decir, $\sigma_{\mathcal{R}}(\mathcal{R})=\mathcal{M}(\mathcal{R})$.
+
+```
+```{proof}
+(i.) Es obvio que $\mathcal{M}(\mathcal{R})\subseteq\sigma_{\mathcal{R}}(\mathcal{R})$.
+
+ (ii.) Ahora veamos que $\sigma_{\mathcal{R}}(\mathcal{R})=\mathcal{M}(\mathcal{R})$. Primero probemos que $\mathcal{M}(\mathcal{R})$ es un anillo y del lema anterior obtendremos el resultado. Sea $F\in\mathcal{R}$ y definamos $L(F)=\{E\in\mathcal{M}(\mathcal{R}): E\backslash F, F\backslash E, E\cup F, E\cap F\in\mathcal{M}(\mathcal{R}) \}$. $L(F)$ es una clase monótona. En efecto, sea $(E_{n})_{n\geq 1}\subseteq L(F)$ una sucesión creciente. Como $(E_{n}-F)_{n\geq 1}$ es una sucesión creciente en $\mathcal{M}(\mathcal{R})$ y  $\left( \bigcup_{n\geq 1} E_{n} \right) -F= \bigcup_{n\geq 1}(E_{n}-F)$, entonces $\left( \bigcup_{n\geq 1} E_{n}\right)-F\in\mathcal{M}(\mathcal{R})$. Demostrar que $F\backslash (E_{n})_{n\geq 1}, (E_{n})_{n\geq 1}\cup F, (E_{n})_{n\geq 1}\cap F$ pertenecen a $\mathcal{M}(\mathcal{R})$, es análogo. Para sucesiones decrecientes, es análogo. Con lo que se demuestra que $\mathcal{M}(\mathcal{R})$ es una clase monótona. Además, $\mathcal{R}\subseteq L(F)$.
+Sea $L=\{F\in\mathcal{M}(\mathcal{R}): E\backslash F, F\backslash E, E\cup F, E\cap F\in\mathcal{M}(\mathcal{R})\}$. Es claro que $L(F)\subseteq L$, por lo tanto, $\mathcal{R}\subseteq L$. Es claro que $L$ es una clase monótona; por el lema anterior, se tiene que $L=\mathcal{M}(\mathcal{R})=\sigma_{\mathcal{R}}(\mathcal{R})$.
+
+```
+
+```{theorem}
+	Sea $\mathcal{A}$ un álgebra y $\mathcal{M}$ una clase monótona tal que $\mathcal{A}\subseteq\mathcal{M}$, entonces $\sigma(\mathcal{A})\subseteq\mathcal{M}$.
+
+```
+```{proof}
+ 	Veamos que $\sigma(\mathcal{A})=\mathcal{M}(\mathcal{A})\subseteq\mathcal{M}$. Es claro que $\sigma(\mathcal{A})$ es una clase monótona, por lo tanto, $\sigma(\mathcal{A})\subseteq\mathcal{M}(\mathcal{A})$. Ahora, dado $A\in\mathcal{M}(\mathcal{A})$, entonces $A\in\mathcal{A}$ o es límite de una sucesión monótona de $\mathcal{A}$. Por lo tanto $A\in\sigma(\mathcal{A})$.
+
+```
+
+Otro teorema de este tipo es el siguiente:
+
+```{theorem}
+Sea $\mathcal{P}$ un sistema $\pi$. El sistema $\lambda$ generado por $\mathcal{P}$ coincide con la $\sigma$-álgebra generada por $\mathcal{P}$.
+
+```
+
+Los siguientes resultados son aplicaciones de las distintas versiones del teorema de clase monótona.
+
+```{theorem, label="teorema158"}
+	Si $\mu$ y $\nu$ son medidas finitas en $(\mathbb{R},\mathcal{B}(\mathcal{B}))$ que coinciden en los intervalos del tipo $(a,b]$, entonces $\mu$ y $\nu$ coinciden en todo $\mathcal{B}(\mathcal{B})$.
+
+```
+```{proof}
+Considerando la clase $\mathcal{H}=\{B\in\mathcal{B}(\mathbb{R}): \mu(B)=\nu(B)\}$. Es claro que los intervalos del tipo $(a,b]$ pertenecen a la clase $\mathcal{H}$. Basta ver que el sistema $\lambda$ generado por los intervalos coincide con el sitema $\lambda$ generado por $\mathcal{H}$. Luego, por el teorema de clases monótonas, se tiene el resultado.
+
+```
+
+```{theorem, label="teorema159"}
+	Si $\mu$ y $\nu$ son dos medidas en $(\mathbb{R},\mathcal{B}(\mathcal{B}))$ que coinciden y son finitas en los intervalos del tipo $(a,b]$, entonces $\mu$ y $\nu$ coinciden en todo $\mathcal{B}(\mathcal{B})$.
+
+```
+ 
+```{remark}
+ Pueden usarse $\sigma$-álgebras generadas por anillos, así como generadas por álgebras o sistemas $\pi$.
+
+```
