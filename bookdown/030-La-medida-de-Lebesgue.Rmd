@@ -2,6 +2,240 @@
 
 ## Construyendo la Medida de Lebesgue
 
+En esta parte construiremos la medida de Lebesgue usando el método de Carathéodory.
+
+Partiremos de la familia de conjuntos $\mathcal{I}=\{<a,b>: a\leq a\in\mathbb{R}\}$ la cual tiene estructura de semianillo. Definamos la función longitud en esta clase de conjuntos:
+$$l:\mathcal{I}\longrightarrow\mathbb{R}: <a,b>\mapsto b-a$$
+Para esta función se tiene lo siguiente:
+
+```{proposition}
+La función $l$ es finitamente aditiva en $\mathcal{I}$. Es decir, para $I\in\mathcal{I}$, si $I=\bigcup_{k=1}^{n} I_{k}$ con cada $I_{k}\in\mathcal{I}$ y $I_{k}\cap I_{m}=\emptyset$ si $k\neq m$, entonces $l(I)=\sum_{k=1}^{n} l(I_{k})$.
+
+```
+
+Consideremos el anillo generado por $\mathcal{I}$, es decir $\mathcal{R}(\mathcal{I})$. Se puede probar que $\mathcal{R}(\mathcal{I})$ está formado por las uniones finitas y disjuntas de elementos de $\mathcal{I}$. Definamos la extensi\'on natural de $l$ al anillo $\mathcal{R}(\mathcal{I})$, de la siguinte manera:
+$$\overline{l}:\mathcal{R}(\mathcal{I})\longrightarrow\mathbb{R}^{+}:I\mapsto \sum_{k=1}^{n} I_{k}, \mbox{ donde } I=\bigcup_{k=1}^{n} I_{k}$$
+
+Veamos a continuación algunas de las propiedades de la extensión de $l$. 
+
+```{proposition}
+La extensión $\overline{l}$, está bien definida en $\mathcal{R}(\mathcal{I})$.
+
+```
+```{proof}
+Supongamos que $I\in\mathbb{R}(\mathcal{I})$ se escribe como $I=\bigcup_{r=1}^{n} I_{r}$ y $I=\bigcup_{s=1}^{m} J_{s}$, con $(I_{r})_{r=1}^{n}$ y $(I_{r})_{r=1}^{n}$ familias disjuntas de $\mathcal{I}$. Queremos ver que $\sum_{r=1}^{n} l(I_{r})=\sum_{s=1}^{m} l(J_{s})$. Sea $H_{rs}=I_{r}\cup J_{s}$ para todo $r\leq n$ y $s\leq m$. Note que la colección $(H_{rs})$ es disjunta. Por otro lado, se tiene que 
+	$$I_{r}=I_{r}\cap A=I_{r}\cap\left( \bigcup_{s=1}^{m} J_{s}\right) =\bigcup_{s=1}^{m} H_{rs}$$
+	y 
+	$$J_{s}=J_{s}\cap A=J_{s}\cap\left( \bigcup_{r=1}^{n} I_{r}\right) =\bigcup_{r=1}^{n} H_{rs}$$
+	por lo tanto,
+	$$\sum_{r=1}^{n} l(I_{r})=\sum_{r=1}^{n} \sum_{s=1}^{m} l(H_{rs})=\sum_{s=1}^{m} \sum_{r=1}^{n} l(H_{rs})=\sum_{s=1}^{m} l(J_{s})$$.
+
+```
+
+```{proposition}
+	$\overline{l}$ es finitamente aditiva.
+
+```
+```{proof}
+Note que $\emptyset=(a,a]$, por lo tanto, $\overline{l}(\emptyset)=a-a=0$. Sean $A$ y $B$ subconjuntos en $\mathcal{R}(\mathcal{I})$ disjuntos. Entonces, $A$ y $B$ se escriben como uniones disjuntas de intervalos de $\mathcal{I}$, es decir, $A=\bigcup_{r=1}^{n} I_{r}$ con $I_{1},\cdots, I_{n}\in\mathcal{I}$ y $B=\bigcup_{s=1}^{m} J_{s}$ con $J_{1},\cdots, J_{m}\in\mathcal{I}$. Como $A\cap B=\emptyset$, la colección $\{I_{1},\cdots,I_{n},J_{1},\cdots,J_{m}\}$ es disjunta. Además se tiene que $A\cup B=\left( \bigcup_{r=1}^{n} I_{r}\right) \cup\left( \bigcup_{s=1}^{m} J_{s}\right) $. De donde se tiene que $\overline{l}(A\cup B)=\sum_{r=1}^{n} l(I_{r})+\sum_{s=1}^{m} l(J_{s})$.
+
+```
+
+Es importante notar que $\overline{l}$ es la única extensión finitamente aditiva de $l$ en $\mathcal{R}(\mathcal{I})$. Además, sean $A, B\in\mathcal{R}(\mathcal{I})$ tales que $A\subseteq B$. Como $B=(B\backslash A)\cup A$, $\overline{l}(B)=\overline{l}(B\backslash A)+\overline{l}(A)$ y $\overline{l}$ es una función no negativa, se tiene que $\overline{l}(A)\leq \overline{l}(B)$. Esto es el siguiente resultado:
+
+```{corollary}
+$\overline{l}$ es una función monótona en $\mathcal{R}(\mathcal{I})$.
+
+``` 
+
+De igual forma se tiene que 
+
+```{corollary}
+$\overline{l}\left( \bigcup_{k=1}^{n}\right) \leq \sum_{k=1}^{n}l(J_{k})$, donde $(J_{k})_{k=1}^{n}$ es un subconjunto finito de intervalos cualesquiera de $\mathcal{I}$. 
+
+```
+
+Para ver que $\overline{l}$ es $\sigma$-aditiva, usaremos el teorema de Heine-Borel.
+
+```{proposition}
+$\overline{l}$ es $\sigma$-aditiva.
+
+```
+
+```{proof}
+Veamos la demostración para dos casos, primero para unión numerables disjuntas de conjuntos en $\mathcal{I}$ y luego para unión numerables disjuntas de conjuntos cualesquiera en $\mathcal{R}(\mathcal{I})$.
+Sea $I=\bigcup_{n\in\mathbb{N}} I_{n}$ con $I_{n}\in\mathbb{N}$ disjuntos $I_{i}\cap I_{j}=\emptyset$ siempre que $i\neq j$. Para cada $N\in\mathbb{N}$, $\bigcup_{n=1}^{N} I_{n}\subseteq I$, por lo tanto, para todo $N\in\mathbb{N}$ $\overline{l}\left( \bigcup_{n=1}^{N} I_{n}\right) \leq \overline{l}(I)$; como $\overline{l}$ es finitamente aditiva, se tiene que $\sum_{n=1}^{N} \overline{l}(I_{n})\leq \overline{l}(I)$. Si $N$ tiende a infinito, se tiene que:
+	$$\sum_{n=1}^{\infty} \overline{l}(I_{n})=\lim_{N\to\infty} \sum_{n=1}^{N} \overline{l}(I_{n})\leq \overline{l}(I).$$ Supongamos que $I$ es un intervalo de extremos $a$ y $b$, esto es $I=<a,b>$. Sea $\epsilon>0$ y consideremos $I_{\epsilon}=[a+\epsilon, b-\epsilon]\subseteq I$. Construyamos un cubrimiento por abiertos para el intervalo $I_{\epsilon}$ como sigue\\
+Llamemos $<a_{n}^{\epsilon}, b_{n}^{\epsilon}>$ al intervalo que resulta de la interseccón $I_{n}\cap I_{\epsilon}$ para cada $n\in\mathbb{N}$ y sea $$J_{n}^{\epsilon}=\left( a_{n}^{\epsilon}-\frac{\epsilon}{2^{n}}, b_{n}^{\epsilon}+\frac{\epsilon}{2^{n}}\right)$$ entonces, $$I_{\epsilon}=I_{\epsilon}\cap\left( \bigcup_{n=1}^{\infty} I_{n}\right) =\bigcup_{n=1}^{\infty} I_{\epsilon}\cap I_{\epsilon}\subseteq\bigcup_{n=1}^{\infty} J_{n}^{\epsilon}.$$ Como $I_{\epsilon}$ es compacto (por ser cerrado y acotado) y $(J_{n}^{\epsilon})$ es un cubrimiento por abiertos de $I_{\epsilon}$, existe un subcubrimiento finito de $I_{\epsilon}$, esto es, existe $N\in\mathbb{N}$ tal que $I_{\epsilon}\subseteq \bigcup_{n=1}^{N} J_{n}^{\epsilon}$. Por lo tanto $I_{\epsilon}\subseteq \bigcup_{n=1}^{k} J_{n}^{\epsilon}$ para todo $k\geq N$. Por monotonía y aditividad finita, se tiene que $$\overline{l}(I_{\epsilon})\leq \overline{l}\left(\bigcup_{n=1}^{k} J_{n}^{k} \right)\leq \sum_{n=1}^{k} \overline{l}(J_{n}^{\epsilon})\mbox{ para todo } k\geq N$$
+	Ahora, como $\overline{l}(J_{n}^{\epsilon})=l(<a_{n}^{\epsilon},b_{n}^{\epsilon}>)+\frac{\epsilon}{2^{n}}$, se tiene que 
+$$\overline{l}(I_{\epsilon})\leq \sum_{n=1}^{k}l(<a_{n}^{\epsilon},b_{n}^{\epsilon}>)+\frac{\epsilon}{2^{n-1}}=\sum_{n=1}^{k} l(I_{n}\cap I_{\epsilon})+\frac{\epsilon}{2^{n-1}}$$
+	Como $I_{n}\cap I_{\epsilon}\subseteq I_{n}$, $l(I_{n}\cap I_{\epsilon})\leq l(I_{n})$, entonces:
+	$$\overline{l}(I_{\epsilon})\leq \sum_{n=1}^{k} l(I_{n})\frac{\epsilon}{2^{n-1}}.$$
+	Cuando $k \to \infty$, $$l(I_{\epsilon})\leq \sum_{n=1}^{\infty}l(I_{n})+\sum_{n=1}^{\infty} \frac{\epsilon}{2^{n-1}}=\sum_{n=1}^{\infty}l(I_{n})+ 2\epsilon.$$
+	Ahora bien, como $l(I_{\epsilon})=l(I)-2\epsilon$, entonces 
+	$$l(I)\leq \sum_{n=1}^{\infty}l(I_{n})+ 4\epsilon$$
+	por lo tanto, $$\overline{l}(I)\leq \sum_{n=1}^{\infty}\overline{l}(I_{n}).$$
+	Con lo que se concluye que $$\overline{l}(I)=\sum_{n=1}^{\infty}\overline{l}(I_{n}).$$
+  
+```
+
+Ahora, consideremos un conjunto cualquiera $E\in\mathcal{R}(\mathcal{I})$ tal que $E=\bigcup_{k=1}^{\infty} E_{k}$ donde cada $(E_{k})_{k\in\mathbb{N}}\in\mathcal{R}(\mathcal{I})$ una colección disjunta. Supongamos que cada $E_{k}=\bigcup_{j=1}^{n_{k}} J_{j}^{k}$ con $J_{j}^{k}\in\mathcal{I}$ disjuntos.
+Por otro lado, como $E\in\mathcal{R}(\mathcal{I})$, se tiene que es unión finita de intervalos, es decir, $E=\bigcup_{i=1}^{n}I_{n}$, para $I_{n}\in\mathcal{I}$	
+De este modo, tenemos que $\overline{l}(E)=\sum_{i=1}^{n} l(I-{i})=$. Por otro lado $\sum_{k=1}^{\infty} \overline{l}(E_{k})=\sum_{k=1}^{\infty}\sum_{j=1}^{n_{k}} l(J_{j}^{k})$.
+Como $(I_{i})_{i=1}^{n}$ y $(E_{k})_{k\in\mathbb{N}}$ son particiones del mismo conjunto, se tiene que $$I_{i}=\bigcup_{k\geq 1} I_{i}\cap E_{k}=\bigcup_{k\geq 1}\bigcup_{j=1}^{n_{k}} I_{i}\cap J_{j}^{k}\mbox{ para todo }i=1,\cdots, n.$$
+	
+Llamemos, $L_{ijk}=I_{i}\cap J_{j}^{k}\in\mathcal{I}$. Luego $(L_{ijk})_{j\leq n_{k}, k\geq 1}$ es una colección disjuntas de intervalos de $\mathcal{I}$. Como $\overline{l}$ es $\sigma$-aditiva en $\mathcal{I}$, se tiene que $$\overline{l}(I_{i})=\sum_{k\geq 1}\sum_{j=1}^{n_{k}} \overline{l}(L_{ijk})$$
+Finalmente, 
+$$\overline{l}(E)=\sum_{i=1}^{n} l(I_{i})=\sum_{i=1}^{n}\sum_{k\geq 1}\sum_{j=1}^{n_{k}}l(L_{ijk})=\sum_{k\geq 1}\sum_{j=1}^{n_{k}}l(J_{jk})=\sum_{k\geq 1}\overline{l}(E_{k}).$$
+
+```
+
+```{corollary}
+Sea $E\subseteq\bigcap_{k\geq 1} E_{n}$, con $E_{n}\in\mathcal{R}(\mathcal{I})$ para todo $n\in\mathbb{N}$. Entonces $\overline{l}(E)\leq \sum_{n\geq 1}\overline{l}(E_{n})$
+
+```
+```{proof}
+Construyamos una unión disjunta: $F_{1}=E_{1}$ y $F_{n}=E_{n}\backslash \bigcup_{k=1}^{n-1} E_{k}$ para todo $n>1$. Se tiene que $\bigcup_{n\geq 1} E_{n}=\bigcup_{n\geq 1} F_{n}$. Entonces $E\subseteq \bigcup_{n\geq 1} F_{n}$. Además, por construcción, $F_{n}\subseteq E_{n}$. Por monotonía y $\sigma$-aditividad de $\overline{l}$, se sigue que $$\overline{l}(E)\leq \overline{l}\left( \bigcup_{k\geq 1} E_{n}\right) =\overline{l}\left( \bigcup_{k\geq 1} F_{n}\right) =\sum_{k\geq 1}\overline{l}(F_{n})\leq\sum_{k\geq 1}\overline{l}(E_{n}).$$
+
+```
+
+Ahora, extenderemos la función $\overline{l}$ a la $\sigma$-álgebra de Borel usando el método de Carathéodory. A partir de $\overline{l}$, definiremos la función medida exterior, $m^{\ast}$.
+Primero definamos para cada $A\in\wp(\mathbb{R})$, el conjunto  $$\iota(A)=\left\lbrace (I_{n})_{n\geq 1}:\mbox{ cada } I_{n}\mbox{ es un intervalo finito y } A\subseteq \bigcup_{n\geq 1} I_{n}\right\rbrace ;$$ note que $\iota(A)\neq\emptyset$ para cualquier $A\in\wp$, ya que $A\subseteq\mathbb{R}=\bigcup_{n\geq 1}[-n,n]$.
+
+Sea $m^{\ast}:\wp(\mathbb{R})\longrightarrow \overline{\mathbb{R}^{+}}$ definida por $m^{\ast}(A)=\inf_{(I_{n})\in\iota(A)} \sum_{n\geq 1} l(I_{n})=\inf \left\lbrace \sum_{n\geq 1} l(I_{n}): (I_{n})_{n\in\mathbb{N}}\in\iota(A) \right\rbrace $
+
+```{remark}
+$m^{\ast}$ no es una medida en $\wp(\mathbb{R})$ (no es $\sigma$-aditiva en $\wp(\mathbb{R})$). Aunque tiene algunas propiedades importantes, similares a las medidas.
+
+```
+
+```{proposition}
+La función $m^{\ast}$ tiene las siguientes propiedades:
+
+(i.) $m^{\ast}(\emptyset)=0$.
+
+(ii.) $m^{\ast}$ es monótona, esto es, si $A\subseteq B$, entonces $m^{\ast}(A)\leq m^{\ast}(B)$.
+
+(iii.) $m^{\ast}$ coincide con la longitud en el conjunto de los intervalos finitos, es decir, si $I$ es un intervalo finito, $m^{\ast}(I)=l(I)$.
+
+```
+```{proof}
+(i.) Como $\emptyset\subseteq(a,a)$ para cualquier número real $a$, entonces $m^{\ast}(\emptyset)$.
+
+(ii.) Sean $A, B\in\mathbb{R}$, tales que $A\subseteq B$. Es claro que $\iota(B)\subseteq \iota(A)$, de donde se sigue que $$m^{\ast}(A)=\inf_{(I_{n})\in\iota(A)} \sum_{n\geq 1} l(I_{n})\leq \inf_{(I_{n})\in\iota(A)} \sum_{n\geq 1} l(I_{n})=m^{\ast}(B)$$.
+
+(iii.) Sea $I$ un intervalo finto. $$m^{\ast}(I)=\inf_{(I_{n})\in\iota(I)} \sum_{n\geq 1} l(I_{n})\leq l(I)$$
+por otro lado, si $I\subseteq \bigcup_{n\geq 1} I_{n}$ para una familia $(I_{n})_{n}$ de intervalos finitos, entonces $$l(I)\leq \sum_{n=1} l(I_{n})\leq \inf_{(I_{n})\in\iota(I)} \sum_{n\geq 1} l(I_{n})\leq m^{\ast}(I).$$
+		Por lo tanto $m^{\ast}(I)=l(I)$.
+
+```
+
+```{definition}
+Una función $\mu:\mathcal{C}\longrightarrow\mathbb{R}$ es $\sigma$-subaditiva si para todo $(A_{n})_{n\in\mathbb{N}}\subseteq\mathcal{C}$ se tiene que $\mu\left( \bigcup_{n\geq 1} A_{n}\right) \leq \sum_{n\geq 1} \mu(A_{n})$.
+
+```
+
+```{proposition}
+$m^{\ast}$ es $\sigma$-subaditiva.
+
+```
+```{proof}
+Sea $(A_{n})_{n\in\mathbb{N}}$ una colección de subconjuntos de $\mathbb{R}$. 
+Si $m^{\ast}(A_{n})=\infty$ para algún $n\in\mathbb{N}$, es claro que $m^{\ast}\left( \bigcup_{n\geq 1} A_{n}\right) \leq \sum_{n\geq 1} m^{\ast}(A_{n})$.
+Supongamos que $m^{\ast}(A_{n})<\infty$ para todo $n\in\mathbb{N}$. Dado $\epsilon>0$, para cada $n\in\mathbb{N}$, existe una colección de intervalos $(I_{i}^{n})_{i\geq 1}$ tal que $A_{n}\subseteq \bigcup_{i\geq 1} I_{i}^{n}$ tal que $$\sum_{i\geq 1}l(I_{i}^{n})< m^{\ast}(A_{n})+\frac{\epsilon}{2^{n}}.$$
+Consideremos la colección $(I_{i}^{n})_{i,n\geq 1}$ que resulta de unir las colecciones de intervalos hallados para cada $n$. Entonces, $$\bigcup_{n\geq 1} A_{n}\subseteq\bigcup_{i,n\geq 1} I_{i}^{n};$$ por lo tanto
+	$$m^{\ast}\left(\bigcup_{n\geq 1} A_{n}\right)\leq \sum_{n\geq 1}\sum_{i\geq 1} l(I_{i}^{n})< \sum_{n\geq 1} \left( m^{\ast}(A_{n})+\frac{\epsilon}{2^{n}}\right) =\sum_{n\geq 1} m^{\ast}(A_{n})+ \epsilon.$$
+	De donde se sigue que $$m^{\ast}\left(\bigcup_{n\geq 1} A_{n}\right)\leq \sum_{n\geq 1} m^{\ast}(A_{n}).$$
+
+```
+
+El siguiente teorema nos permite aproximar la medida de un conjunto cualquiera de números reales, por la medida de un conjunto abierto en $\mathbb{R}$, tan cercano como se quiera (en términos de medida). Más aún, permite asegurar que existe un conjunto $G_{\delta}$ que contiene al conjunto en cuestión, con idéntica medida.
+
+```{theorem}
+Dado $A\subseteq\mathbb{R}$ y $\epsilon>0$, existe un conjunto abierto $O\mathbb{R}$ tal que $A\subseteq O$ y $m^{\ast}(A)\leq m^{\ast}(O)\leq m^{\ast}(A)+\epsilon$. Además, existe un conjunto $G_{\delta}$, $G$, tal que $A\subseteq G$ y $m^{\ast}(A)=m^{\ast}(G)$.
+
+```
+```{proof}
+Sea $\epsilon>0$, existe una colección $(I_{n})_{n\geq 1}$ tal que $A\subseteq\bigcup_{n\geq 1} I_{n}$ y $\sum_{n\geq 1}l(I_{n})< m^{\ast}(A)+\frac{\epsilon}{2}$. Definamos una colección de intervalos abiertos a partir de la colección $(I_{n})_{n\geq 1}$, así: si $I_{n}=<a_{n}, b_{n}>$, definamos $J_{n}=(a_{n}-\frac{\epsilon}{2^{n+2}}, b_{n}+\frac{\epsilon}{2^{n+2}})$ y sea $O=\bigcup_{n\geq} J_{n}$. Claramente $O$ es un conjunto abierto que contiene al conjunto $A$. Además, $$m^{\ast}(O)\leq \sum_{n\geq 1} J_{n}=\sum_{n\geq 1} l(J_{n})+\frac{\epsilon}{2}\leq m^{\ast}+\frac{\epsilon}{2}=m^{\ast}+\epsilon.$$
+	Ahora, considerando $\epsilon=\frac{1}{n}$, para cada $n\in\mathbb{N}$, por lo anterior, existe $O_{n}$ tal que $A\subseteq O_{n}$ y $m^{\ast}(A)\leq m^{\ast}(O_{n})\leq m^{\ast}(A)+\frac{1}{n}$. Tomando la intersección de todos estos conjuntos abiertos, obtenemos un conjunto $G_{\delta}$, $G=\bigcap_{n\geq 1} O_{n}$, tal que $A\subseteq G=\bigcap_{n\geq 1} O_{n}$ por lo que $m^{\ast}(A)\leq m^{\ast}(G)$. Por otro lado, como $G\subseteq O_{n}$ para todo $n\in\mathbb{N}$, entonces $$m^{\ast}(A)\leq m^{\ast}(G)\leq m^{O_{n}}\leq m^{\ast}(A)+\frac{1}{n}\mbox{ para todo } n\in\mathbb{N}.$$
+	De donde se sigue que $$m^{\ast}(A)=m^{\ast}(G).$$
+
+```
+
+Como la función longitud es invariante bajo traslaciones, es fácil ver que $m^{\ast}$ es invariante bajo traslaciones.
+
+Como ya dijimos, $m^{\ast}$ no es una medida, ya que esta no es $\sigma$-aditiva. Pero podemos considerar un clase donde si lo sea. Para ello, daremos la definición de conjuntos medibles bajo la función $m^{\ast}$, debida a *Carathéodory*.
+
+```{definition}
+Un conjunto $E\subseteq \mathbb{R}$ es $m^{\ast}$ medible si y solo si para todo subconjunto de números reales, $A\subseteq\mathbb{R}$ se tiene que $$m^{\ast}(A)=m^{\ast}(A\cap E)+ m^{\ast}(A\cap E^{c}).$$
+  
+```
+
+```{remark}
+Es claro que si $m^{\ast}$ fuese finitamente aditiva, todo conjunto $E\subseteq\mathbb{R}$ sería un conjunto $m^{\ast}$ medible.
+De la $\sigma$-subaditividad, se tiene que $m^{\ast}(A)\leq m^{\ast}(A\cap E)+m^{\ast}(A\cap E^{c})$. Por lo tanto, para verificar que un conjunto es $m^{\ast}$ medible, basta verificar la otra desigualdad, esto es $m^{\ast}(A)\geq m^{\ast}(A\cap E)+m^{\ast}(A\cap E^{c})$.
+La definición de conjuntos $m^{\ast}$ medibles es simétrica bajo complementación, esto es, $E$ es $m^{\ast}$ medible si y solo si $E^{c}$ lo es.
+Es fácil verificar que el conjunto vaciío es $m^{\ast}$ medible. Por lo anterior, $\mathbb{R}=\emptyset^{c}$ lo es.
+
+```
+
+```{proposition}
+Sea un conjunto $E\subseteq\mathbb{R}$. Si $m^{\ast}=0$, entonces $E$ es $m^{\ast}$ medible.
+
+```
+```{proof}
+Sea $A\subseteq\mathbb{R}$. Como $A\cap E\subseteq E$, se tiene que $m^{\ast}(A\cap E)\leq m^{\ast}(E)\leq 0$. Además, como $A\cap E^{c}\subseteq A$, se tiene que $m^{\ast}(A\cap E^{c})\leq m^{\ast}(A)$. De donde se sigue que 
+	$$m^{\ast}(A)\geq m^{\ast}(A\cap E^{c})=0+ m^{\ast}(A\cap E^{c})\geq m^{\ast}(A\cap E^{c})+m^{\ast}(A\cap E)$$ entonces, $E$ es $m^{\ast}$ medible.
+
+```
+
+Denotemos la familia de conjuntos $m^{\ast}$ medibles, por $\mathcal{M}$. Se puede demostrar que esta colección es una $\sigma$-álgebra, más aún, que la función $m^{\ast}$ restringida a los conjuntos $m^{\ast}$ medibles, es $\sigma$-aditiva.
+
+```{theorem}
+$\mathcal{M}$ es una $\sigma$-álgebra y $m^{\ast}\upharpoonright \mathcal{M}$.
+
+```
+```{proof}
+Demostremos primero que $\mathcal{M}$ es una $\sigma$-álgebra. En las observaciones anteriores, ya vimos que $\mathcal{M}$ es cerrada bajo complementación. Veamos que $\mathcal{M}$ es cerrado bajo uniones finitas (luego veremos que es cerrado bajo uniones numerables). Sean $E_{1}, E_{2}$ dos conjuntos $m^{\ast}$ medibles. Sea $A\subseteq\mathbb{R}$, entonces,
+	$$\begin{array}{rl}
+	m^{\ast}(A)=& m^{\ast}(A\cap E_{1})+m^{\ast}(A\cap E_{1}^{c})\\
+	=& m^{\ast}(A\cap E_{1})+[m^{\ast}(A\cap E_{1}^{c}\cap E_{2})+m^{\ast}(A\cap E_{1}^{c}\cap E_{2}^{c})]\\
+	\geq& m^{\ast} ( (A\cap E_{1})\cup (A\cap E_{1}^{c}\cap E_{2})\cup (A\cap E_{1}^{c}\cap E_{2}^{c}))\\
+	=& m^{\ast} (A\cap (E_{1}\cup E_{2}))+  m^{\ast} (A\cap (E_{1}\cup E_{2})^{c})
+	\end{array}$$ 
+Por lo discutido en la observación, $m^{\ast}(A)=m^{\ast} (A\cap (E_{1}\cup E_{2}))+  m^{\ast} (A\cap (E_{1}\cup E_{2})^{c})$, luego, $E_{1}\cup E_{2}\in\mathcal{M}$.
+Ahora demostremos que $m^{\ast}\upharpoonright$ es finitamente aditiva. Sean $E_{1}, E_{2}\in\mathcal{M}$, entonces  $$m^{\ast}(A\cap(E_{1}\cup E_{2}))=m^{\ast}(A\cap(E_{1}\cup E_{2})\cap E_{1})+m^{\ast}(A\cap(E_{1}\cup E_{2})\cap E_{1}^{c})=m^{\ast}(A\cap E_{1})+m^{\ast}(A\cap E_{2})$$ 
+Por inducción se sigue que 
+$$m^{\ast}\left(A\cap \bigcup_{i=1}^{n} E_{i}\right)=\sum_{i=1}^{n} m^{\ast}(A\cap E_{i}).$$
+Ahora, considerando $A=\bigcup_{i=1}^{n} E_{i}$ se tiene la aditividad finita.
+Con una idea análoga, demostremos la $\sigma$-aditividad. Sea $E=\bigcup_{i\geq 1} E_{i}$ y sea $F_{n}=\bigcup_{i=1}^{n} E_{i}$. Por lo demostrado antes, se tiene que $$m^{\ast}(A\cap F_{n})=\sum_{i=1}^{n} m^{\ast}(A\cap E_{i})$$ 
+así, por monotonía de $m^{\ast}$, se tiene que
+$$m^{\ast}(A\cap E)\geq m^{\ast}(A\cap F_{n})=\sum_{i=1}^{n} m^{\ast}(A\cap E_{i})$$
+Por lo tanto $$m^{\ast}(A\cap E)\geq\sum_{i\geq 1} m^{\ast}(A\cap E_{i}).$$
+La desigualdad $$m^{\ast}(A\cap E)\leq\sum_{i\geq 1} m^{\ast}(A\cap E_{i})$$, se obtiene por monotonía.
+Ahora veamos que $\mathcal{M}$ es cerrado bajo uniones numerables, esto permitiría concluír que $\mathcal{M}$ es una $\sigma$-álgebra. Consideremos una colección disjunta y numerable de subconjuntos en $\mathcal{M}$, $(E_{n})_{n\geq 1}$. Sea $E=\bigcup_{n\geq 1} E_{n}$ y $F_{n}=\bigcup_{i=1}^{n} E_{i}$. Ya vimos que para cada $n$, $F_{n}$ es $m^{\ast}$ medible, por lo tanto para todo $A\subseteq\mathbb{R}$, se tiene que $$m^{\ast}(A)=m^{\ast}(A\cap F_{n})+m^{\ast}(A\cap F_{n}^{c}).$$ Además, como $E\supseteq F_{n}$, $E^{c}\subseteq F_{n}^{c}$, luego $$m^{\ast}(A\cap E^{c})\leq m^{\ast}(A\cap F_{n}^{c}).$$
+Haciendo $n\mapsto \infty$, por la $\sigma$-aditividad, se tiene que para todo $A\subseteq\mathbb{R}$
+	$$m^{\ast}(A)=m^{\ast}(A\cap E)+m^{\ast}(A\cap E^{c})$$
+Lo que demuestra que $E=\bigcup_{n\geq 1} E_{n}\in\mathcal{M}$.
+Todo lo anterior demuestra que $m^{\ast}\upharpoonright\mathcal{M}$ es una medida en $\mathcal{M}$.
+
+```
+
+```{theorem}
+La $\sigma$-álgebra de Borel, está contenida en $\mathcal{M}$, esto es $\mathcal{B}(\mathbb{R})\subseteq\mathcal{M}$.
+
+```
+```{proof}
+Veamos que el conjunto de los intervalos finitos es un subconjunto de $\mathcal{M}$. Sea $I\in\mathcal{I}$ y $A\in\mathbb{R}$. Si $m^{\ast}(A)=\infty$ es claro que $m^{\ast}\geq m^{\ast}(A\cap I)+m^{\ast}(A\cap I^{c})$. Supongamos que $m^{\ast}\leq \infty$. Dado $\epsilon$, existe $(J_{n})_{n\geq 1}$ de intervalos finitos tales que $A\subseteq \bigcup_{n\geq 1}$ tal que $A\subseteq\bigcup_{i\geq 1} J_{n}$ y $m^{\ast}(A)+\epsilon \geq \sum_{n\geq 1} \overline{l}(J_{n})$. Por la aditividad finita de $\overline{l}$, se tiene que 
+$$\begin{array}{rl}
+m^{\ast}(A)+\epsilon \geq& \sum_{n\geq 1} (\overline{l}(J_{n}\cap I)+\overline{l}(J_{n}\cap I^{c}))\\
+=& \sum_{n\geq 1} \overline{l}(J_{n}\cap I)+\sum_{n\geq 1}\overline{l}(J_{n}\cap I^{c})\\
+\geq& m^{\ast}(A\cap I)+m^{\ast}(A\cap I^{c})
+\end{array}$$
+
+```
+
+
 ## Unicidad de la medida de Lebesgue y otras propiedades
 
 ## Consideraciones
