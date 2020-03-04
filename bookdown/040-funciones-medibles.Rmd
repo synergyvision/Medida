@@ -25,6 +25,19 @@ Sea $f: X\longrightarrow \mathbb{R}$. Las siguientes afirmaciones son equivalent
 
 (ii.) Para todo $a,b\in\mathbb{R}$, $f^{-1}(I)\in\mathcal{A}$, con $I=(a,b)$.
 
+(iii.) Para todo $p,q\in\mathbb{Q}$, $f^{-1}(I)\in\mathcal{A}$, con $I=(p,q)$.
+
+(iv.) Para todo $a\in\mathbb{R}$, $f^{-1}(I)\in\mathcal{A}$, con $I=<a,\infty)$.
+
+(v.) Para todo conjunto abierto $A\subseteq\mathbb{R}$, $f^{-1}(A)\in\mathcal{A}$.
+
+(vi.) Para todo conjunto cerrado $C\subseteq\mathbb{R}$, $f^{-1}(C)\in\mathcal{A}$.
+
+
+```
+```{proof}
+Basta notar que las familias de conjuntos abiertos, de conjuntos cerrados, de intervalos de la forma $(a,b)$, con $a,b\in\mathbb{R}$, de intervalos de la forma $(p,q)$, con $p,q\in\mathbb{Q}$ y de los intervalos de la forma $<a,\infty)$, con $a\in\mathbb{R}$, generan la $\sigma$-álgebra de Borel.
+
 ```
 
 

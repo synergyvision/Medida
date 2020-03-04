@@ -504,7 +504,7 @@ Sea $\mathcal{P}$ un sistema $\pi$. El sistema $\lambda$ generado por $\mathcal{
 Los siguientes resultados son aplicaciones de las distintas versiones del teorema de clase monótona.
 
 ```{theorem, label="teorema158"}
-	Si $\mu$ y $\nu$ son medidas finitas en $(\mathbb{R},\mathcal{B}(\mathcal{B}))$ que coinciden en los intervalos del tipo $(a,b]$, entonces $\mu$ y $\nu$ coinciden en todo $\mathcal{B}(\mathcal{B})$.
+	Si $\mu$ y $\nu$ son medidas finitas en $(\mathbb{R},\mathcal{B}(\mathbb{R}))$ que coinciden en los intervalos del tipo $(a,b]$, entonces $\mu$ y $\nu$ coinciden en todo $\mathcal{B}(\mathbb{R})$.
 
 ```
 ```{proof}
@@ -513,7 +513,7 @@ Considerando la clase $\mathcal{H}=\{B\in\mathcal{B}(\mathbb{R}): \mu(B)=\nu(B)\
 ```
 
 ```{theorem, label="teorema159"}
-	Si $\mu$ y $\nu$ son dos medidas en $(\mathbb{R},\mathcal{B}(\mathcal{B}))$ que coinciden y son finitas en los intervalos del tipo $(a,b]$, entonces $\mu$ y $\nu$ coinciden en todo $\mathcal{B}(\mathcal{B})$.
+	Si $\mu$ y $\nu$ son dos medidas en $(\mathbb{R},\mathcal{B}(\mathbb{R}))$ que coinciden y son finitas en los intervalos del tipo $(a,b]$, entonces $\mu$ y $\nu$ coinciden en todo $\mathcal{B}(\mathbb{R})$.
 
 ```
  

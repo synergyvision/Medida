@@ -152,7 +152,7 @@ Consideremos la colección $(I_{i}^{n})_{i,n\geq 1}$ que resulta de unir las col
 El siguiente teorema nos permite aproximar la medida de un conjunto cualquiera de números reales, por la medida de un conjunto abierto en $\mathbb{R}$, tan cercano como se quiera (en términos de medida). Más aún, permite asegurar que existe un conjunto $G_{\delta}$ que contiene al conjunto en cuestión, con idéntica medida.
 
 ```{theorem}
-Dado $A\subseteq\mathbb{R}$ y $\epsilon>0$, existe un conjunto abierto $O\mathbb{R}$ tal que $A\subseteq O$ y $m^{\ast}(A)\leq m^{\ast}(O)\leq m^{\ast}(A)+\epsilon$. Además, existe un conjunto $G_{\delta}$, $G$, tal que $A\subseteq G$ y $m^{\ast}(A)=m^{\ast}(G)$.
+Dado $A\subseteq\mathbb{R}$ y $\epsilon>0$, existe un conjunto abierto $O\subseteq\mathbb{R}$ tal que $A\subseteq O$ y $m^{\ast}(A)\leq m^{\ast}(O)\leq m^{\ast}(A)+\epsilon$. Además, existe un conjunto $G_{\delta}$, $G$, tal que $A\subseteq G$ y $m^{\ast}(A)=m^{\ast}(G)$.
 
 ```
 ```{proof}
