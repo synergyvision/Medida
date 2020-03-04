@@ -235,9 +235,111 @@ m^{\ast}(A)+\epsilon \geq& \sum_{n\geq 1} (\overline{l}(J_{n}\cap I)+\overline{l
 
 ```
 
-
 ## Unicidad de la medida de Lebesgue y otras propiedades
+
+Desde este punto denotaremos por $m$ a la medida en $m^{\ast}\upharpoonright\mathcal{M}$ (y  $m^{\ast}\upharpoonright\mathcal{B}(\mathbb{R})$). Diremos que un conjunto $A\in\mathbb{R}$ es *medible Lebesgue* si es $m^{\ast}$ medible.
+
+```{theorem}
+$m$ es la única medida en $\mathcal{B}(\mathbb{R})$ que coincide con la función $l$ en el anillo de los intervalos.
+
+```
+```{proof}
+Sea $\mu$ una medida que coincide con la función $l$ en $\mathcal{I}$. Del teorema \@ref(thm:teorema158)  se sigue el resultado.
+
+```
+
+```{theorem}
+Sea $E\subseteq\mathbb{R}$. Las siguientes son equivalentes:
+
+(i). $E$ es medible Lebesgue.
+
+(ii.) Dado $\epsilon>0$, existe un conjunto abierto $O$ tal que $E\subseteq O$ y $m^{\ast}(O\backslash E)<\epsilon$.
+
+(iii.) Dado $\epsilon>0$, existe un conjunto cerrado $C$ tal que $C\subseteq E$ y $m^{\ast}(E\backslash C)<\epsilon$.
+
+(iv.) Existe un conjunto $G_{\delta}$, $G$, tal que $E\subseteq G$ y $m^{\ast}(G\backslash E)=0$.
+
+(v.) Existe un conjunto $F_{\sigma}$, $F$, tal que $F\subseteq E$ y $m^{\ast}(E\backslash F)=0$.
+
+Si $m^{\ast}(E)\leq\infty$, entonces las afirmaciones anteriores son equivalentes a:
+
+(vi.) Dado $\epsilon>0$, existe un conjunto $U$ que puede representarse como unión finita de intervalos abiertos, tal que $m^{\ast}(U \triangle E)<\epsilon$.
+
+```
 
 ## Consideraciones
 
+Es importante notar que $\mathcal{B}(\mathbb{R})\subsetneq\mathcal{M}$. De hecho, $|\mathcal{B}(\mathbb{R})|=c$ y $\mathcal{M}=2^{c}$. Entonces, existen conjuntos medibles Lebesgue, que no son medibles Borel. Un ejemplo se puede hallar en *Counterexample in Analysis* de *Gelbaum, Olmsted*. Aunque los conjuntos medibles Lebesgue que no son Borel medibles, son conjuntos de medida cero. Si consideramos la sigma álgebra generada por la unión de la clase de los conjuntos de medida cero con $\mathcal{B}(\mathbb{R})$, coincide con $\mathcal{M}$.
+
+```{proposition}
+Sea $A\subseteq\mathbb{R}$. $A\in\mathcal{B}(\mathbb{R})^{m}$ si y solo si existen $B_{1}, B_{2}\in\mathcal{B}(\mathbb{R})$ tal que $B_{1}\subseteq A\subseteq B_{2}$ y $m(B_{2}-B_{1})=0$.
+
+```
+
+```{proposition}
+$\mathcal{M}=\mathcal{B}(\mathbb{R})$.
+
+```
+
+A continuación daremos un ejemplo clásico de conjunto no medible Lebesgue. La construcción supone el axioma de la elección.
+
+Sean $x,y\in\mathbb{R}$, diremos que $x\sim y$ si y solo si $x-y$ es un número racional. Es claro que $\sim$ es una relación de equivalencia. Note que para todo $x\in\mathbb{R}$, existe $x_{0}\in(0,1)$ tal que $x\sim x_{0}$. Sea $P\subseteq (0,1)$, el conjunto que tiene exactamente un elemento de cada clase. Además, podemos asegurar que para todo $x\in(0,1)$, existe $x_{p}\in P$, tal que $x\sim x_{p}$. Esto es, existe un número racional $-1\leq r\leq 1$, tal que $x\in P+r$, donde $P+r=\{p+r: p\in P\}$, el conjunto de traslaciones de los elementos del conjunto $P$.
+Ahora definamos el conjunto $$S=\bigcup_{r\in\mathbb{Q}\cap (0,1)} P+r.$$ 
+Afirmamos que la unión que la anterior es una unión disjunta. Efectivamente, sean $r_{1},r_{2}\in \mathbb{Q}\cap (0,1)$ distintos. Supongamos que existe $x\in (P+r_{1})\cap (P+r_{2})$, entonces existen $p_{1}, p_{2}\in P$ tales que $x=p_{1}+r_{1}$ y $x=p_{2}+r_{2}$, luego $p_{1}-p_{2}=r_{2}-r_{1}\in\mathbb{Q}$, lo que implica que $p_{1}\sim p_{2}$, lo que contradice la definición de $P$, por lo tanto $S$ es una unión disjunta.
+Ahora bien, se tiene que $(0,1)\subseteq S\subseteq (-1,2)$, por lo tanto $1=m((0,1))\leq m^{\ast}(S)\leq m((-1,2))=3$. Y por otro lado, como $m^{\ast}$ es invariante por traslaciones, se tiene que 
+$$m^{\ast}(S)=\sum_{r\in\mathbb{Q}\cap (0,1)} m^{\ast}(P+r)=\sum_{r\in\mathbb{Q}\cap (0,1)} m^{\ast}(P).$$
+Si suponemos que $P$ es medible Lebesgue, se tiene que $P+r$ es medible Lebesgue para todo $r\in\mathbb{Q}\cap(-1,1)$, por lo que $S$ sería medible Lebesgue y $m(S)=m^{\ast}(S)\geq 1$. Además, $$m^{\ast}(S)=\sum_{r\in\mathbb{Q}\cap (0,1)} m^{\ast}(P)\leq 3$$
+por lo que $\sum_{r\in\mathbb{Q}\cap (0,1)} m^{\ast}(P)$ converge. Como $m^{\ast}(P)=m(P)$ es una constante no negativa en la suma, debe ser que $$\sum_{r\in\mathbb{Q}\cap (0,1)} m^{\ast}(P)=0.$$ Pero esto contradice que $m(S)\geq 1$. De donde se deduce que $P$ no es medible.
+
 ## La Medida de Stieltjes
+
+```{definition}
+Una función $F:\mathbb{R}\longrightarrow\mathbb{R}$ es una *función de Stieltjes* si satisface:
+
+(i.) $F$ es monótona creciente, es decir, si $x\leq Y$, entonces $F(x)\leq F(y)$.
+(ii.) $F$ es continua a la derecha.
+
+```
+
+```{example}
+La función *parte entera* es una función de Stieltjes.
+
+```
+
+Las funciones de Stieltjes $F$ es una función de Stieltjes, entonces: 
+
+(i.) $F$ tiene límite a la izquierda en todo punto.
+
+(ii.) $F$ tiene solo discontinuidades de salto.
+
+(iii.) El conjunto de puntos de discontinuidad, es numerable.
+
+
+Sea $S$ la colección de intervalos del tipo $(a,b]$. Sea $F:\mathbb{R}\longrightarrow\mathbb{R}$ una función de Stieltjes. La función definida por: 
+$$\mu_{F}:S\longrightarrow\overline{\mathbb{R}^{+}}: (a,b]=F(b)-F(a)$$ se conoce como *medida de Stieltje asociada a $F$*.
+
+Esta función se puede extender a los borelianos, $\mathcal{B}(\mathbb{R})$. Damos un esquema de esta construcción. 
+
+(1.) La función $\mu_{F}$, se puede extender a una función $\overset{\circ}{\mu_{F}}$ sobre el anillo generado por $S$, $\mathcal{R}(S)$, de forma análoga a como se extendió la función longitud.
+
+(2.) Se demuestra que $\mathcal{R}(S)$ es $\sigma$-aditiva en $\mathbb{R}(S)$.
+
+(3.) Se define una función análoga a la medida exterior $m^{\ast}$. Para esto, definimos para cada subconjunto $A\in\mathbb{R}$, el conjunto $$I(A)=\{(I_{n})_{n\geq 1}: I_{n}\in S \mbox{ y } A\subseteq \bigcup_{n\geq 1} I_{n}\}$$ 
+	y se define 
+	$$\overset{\ast}{\mu_{F}}(A)=\underset{(I_{n})_{n}\in I(A)}{inf}\sum_{n\geq 1}\overset{\circ}{\mu_{F}}(I_{n}).$$
+	
+(4.) Se demuestra que el conjunto $$\mathcal{M}_{F}=\{E\subseteq\mathbb{R}: \forall A\subseteq\mathbb{R} (\overset{\circ}{\mu_{F}}(A)=\overset{\circ}{\mu_{F}}(A\cap E)+\overset{\circ}{\mu_{F}}(A\cap E^{c}))\}$$ es una $\sigma$-álgebra y que $\overset{\circ}{\mu_{F}}\upharpoonright \mathcal{M}_{F}$ es una medida que coincide con $\mu_{F}$ en $S$.
+
+Es importante notar que muchas medidas en $\mathbb{R}$, son medidas que provienen de una función de Stieljes. De hecho, se tiene que:
+
+```{proposition}
+Sea $\mu: \mathcal{B}(\mathbb{R})\longrightarrow \overline{\mathbb{R}^{+}}$ una medida con la propiedad $\mu(A)\infty$ siempre que $A$ sea un conjunto acotado. Sea $F:\mathbb{R}\rightarrow \mathbb{R}$ definida por 
+	$$F(t)=\left\lbrace \begin{array}{ll}
+	\mu(0,t]&\mbox{ si } t>0,\\
+	0&\mbox{ si } t=0,\\
+	-\mu(t,0] &\mbox{ si } t<0.
+	\end{array}\right. $$
+	Entonces $F$ es una función de Stieltjes y se cumple que 
+	$$\forall A\in\mathcal{B}(\mathbb{R})\mbox{, } \mu_{F}(A)=\mu(A)$$
+
+```

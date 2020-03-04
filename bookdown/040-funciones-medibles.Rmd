@@ -1,6 +1,32 @@
 # FUNCIONES MEDIBLES
 
+En este capítulo estudiaremos las funciones medibles y sus propiedades. Luego definiremos las funciones simples, útiles para definir más adelante la integral de Lebesgue, que para este tipo de funciones, se define de forma muy intuitiva. Además, estudiaremos cuando una función se puede aproximar por funciones simples.
+
 ## Conceptos básicos
+
+```{definition}
+Sea $f:\mathbb{R}\longrightarrow\mathbb{R}$. Se dice que $f$ es *medible Borel* cuando para todo conjunto boreliano $B$, se tiene que $f^{-1}(B)$ es un conjunto boreliano. Es decir, $f^{-1}(\mathcal{B}(\mathbb{R}))\subseteq\mathcal{B}(\mathbb{R})$.
+Cuando para todo conjunto boreliano $B$, $f^{-1}(B)$ es un conjunto medible Lebesgue, $f$ se dice *medible Lebesgue*. Es decir, $f^{-1}(\mathcal{B}(\mathbb{R}))\subseteq\mathcal{M}$.
+Más generalmente, dado un espacio medible $(X,\mathcal{A})$. Una función $f:X\longrightarrow\mathbb{R}$ es una función $\mathcal{A}$-medible, cuando para cada conjunto boreliano $B$, $f^{-1}\in\mathcal{A}$; es decir, $f^{-1}(\mathcal{B}(\mathbb{R}))\subseteq\mathcal{A}$.
+
+```
+
+Como $f^{-1}$ se comporta bien bajo complementación y uniones, en la definición anterior, basta verificar que un conjunto generador de la $\sigma$-álgebra de Borel, tiene imagenes inversas en la $\sigma$-álgebra del espacio dominio $X$ (en el caso del espacio $\mathbb{R}$, $\mathcal{B}(\mathbb{R})$ o $\mathcal{M}$). Para esto iniciamos con el siguiente lema.
+
+```{lemma}
+Sea $\mathcal{C}$ una clase de subconjuntos que genera a $\mathcal{B}(\mathbb{R})$ y $f:(X,\mathcal{A})\longrightarrow\mathbb{R}$. Entonces, $f^{-1}(\mathcal{B}(\mathbb{R}))\subseteq\mathcal{A}$ si y solo si $f^{-1}(\mathcal{C})\subseteq\mathcal{F}$.
+
+```
+
+```{proposition}
+Sea $f: X\longrightarrow \mathbb{R}$. Las siguientes afirmaciones son equivalentes.
+
+(i.) $f$ es $\mathcal{A}$-medible.
+
+(ii.) Para todo $a,b\in\mathbb{R}$, $f^{-1}(I)\in\mathcal{A}$, con $I=(a,b)$.
+
+```
+
 
 ## Aproximación de funciones medibles
 
