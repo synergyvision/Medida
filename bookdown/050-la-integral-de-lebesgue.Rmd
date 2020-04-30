@@ -1,6 +1,215 @@
 # LA INTEGRAL DE LEBESGUE
 
+En este capítulo definiremos la integral de Lebesgue para funciones medibles y función integrable. Lo haremos definiendo la integral de forma natural para las funciones mas sencillas (las funciones escalera y simples) hasta llegar a funciones mas generales. Luego mostraremos algunos resultados importantes de intercambio entre integral y límite así como teoremas de aproximaciones de funciones integrables por funciones simples y continuas. 
+
 ## Conceptos básicos
+
+Para una función escalera no negativa $$f(x)=\sum_{i=1}^{n} k_{i} \chi_{I_{i}}, \mbox{ donde } I_{i} \mbox{ son intervalos y } k_{i}\geq 0\mbox{ escalares }$$ es de esperar que la integral sea la suma de las áreas de los rectángulos de base $l(I_{i})$ y alto $k_{i}$. Con esta misma idea es que definiremos la integral de Lebesgue para funciones simples. En este caso no tenemos necesariamente rectángulos, recuerde que las funciones simples son combinaciones lineales de indicatrices de conjuntos medibles. Por analogía, podemos considerar la medida de los conjuntos, que en el caso de ser intervalos, coincide con la longitud de estos.
+
+```{definition}
+Sea $f:\mathbb{R}\longrightarrow\mathbb{R}^{+}$ una función simple no negativa, $$f=\sum_{i=1}^{n} k_{i}\chi_{A_{i}}\mbox{ con } A_{i}\in\mathcal{M} \mbox{ disjuntos dos a dos y } k_{i}\geq 0\mbox{ escalares }$$ 
+definimos la *integral de Lebesgue* como
+$$\int_{\mathbb{R}} f(x)dx=\sum_{i=1}^{n} k_{i}m(A_{i}).$$
+También se denota $\int_{\mathbb{R}} f$.
+
+```
+
+Note que la suma anterior siempre tiene sentido ya que $k_{i}\geq 0$ y $m(A_{i})\geq 0$. Cuando ocurra que $k_{i}=0$ y $m(A_{i})=\infty$, convenimos en que el producto $k_{i}m(A_{i})=0$.
+
+Es importante notar que la integral esta bien definida. Si una función simple admite dos representaciones distintas, digamos $$f=\sum_{i=1}^{n} c_{i}\chi_{A_{i}}$$ y $$f=\sum_{ij=1}^{m} d_{j}\chi_{B_{j}}$$
+donde $\{A_{i}\}$ y $\{B_{j}\}$ son dos familias de conjuntos medibles disjuntos dos a dos y donde $c_{i}$ y $d_{j}$ son esclares para cada $i$ y cada $j$. Entonces las sumas $$\sum_{i=1}^{n} c_{i}m(A_{i})=\sum_{j=1}^{m} d_{j}m(B_{j}).$$ En efecto, podemos suponer que $\bigcup E_{i}=\mathbb{R}=\bigcup_{j}F_{j}$. Así se tiene que 
+$$\begin{array}{rl}
+E_{i}=&\bigcup_{j=1}^{m} E_{i}\cap F_{j} \mbox{ para cada } i, \mbox{  y }\\
+F_{j}=&\bigcup_{i=1}^{n} F_{j}\cap E_{i} \mbox{ para cada } j
+\end{array}$$
+
+Si $x\in E_{i}\cap F_{j}$, entonces $c_{i}=d_{j}$. Por lo tanto
+
+$$\begin{array}{rl}
+\sum_{i=1}^{n}c_{i}m(E_{i})=&\sum_{i=1}^{n}c_{i}m(\bigcup_{j=1}^{m} E_{i}\cap F_{j})\\
+=&\sum_{i=1}^{n}\sum_{j=1}^{m}c_{i}m(E_{i}\cap F_{j})\\
+=&\sum_{j=1}^{m}\sum_{i=1}^{n}d_{j}m(E_{i}\cap F_{j})\\
+=&\sum_{j=1}^{m}d_{j}m(\bigcup_{i=1}^{n} E_{i}\cap F_{j})\\
+=&\sum_{j=1}^{m}d_{j}m(F_{j})
+\end{array}$$
+
+```{remark}
+Dado un conjunto medible $A$, se tiene que $\int_{\mathbb{R}} \chi_{A}=m(A)$.\\
+La integral de la función indicadora de un intervalo es igual a la longitud del intervalo, esto es $\int_{\mathbb{R}} \chi_{[a,b]}=m([a,b])=l([a,b])=b-a$.\\
+La integral de una función escalera $f=\sum_{i=1}^{n} c_{i}\chi_{I_{i}}$, es $\int_{\mathbb{R}} f=\sum_{i=1}^{n}c_{i}l([a,b])$
+
+```
+
+```{definition}
+Diremos que una función simple no negativa $f$ es *integrable-Lebesgue* cuando $\int_{\mathbb{R}} f$ sea finita.
+
+```
+
+```{example}
+La función indicatriz del conjunto de los racionales del intervalo $[0,1]$, es integrable-Lebesgue. Efectivamente, $$\int_{\mathbb{R}} \chi_{\mathbb{Q}\cap[0,1]}=m(\mathbb{Q}\cap[0,1])=0.$$
+Como también lo es $\chi_{[0,1]\backslash\mathbb{Q}}$.
+
+```
+
+```{example}
+La función $\chi_{\mathbb{R}}$ no es integrable-Lebesgue, ya que $m(\mathbb{R})=\infty$. Así como tampoco lo es $\chi_{[0,\infty)}$.
+
+```
+
+Note que si $f$ es una función simple no negativa y $\lambda> 0$, entonces $\lambda f$ también lo es. En efecto, $\lambda \sum_{i=1}^{n} c_{i}\chi_{A_{i}}=\sum_{i=1}^{n} \lambda c_{i}\chi_{A_{i}}$. Por lo que es inmediato ver que $$\int_{\mathbb{R}} \lambda f=\lambda \int_{\mathbb{R}} f$$
+Otra propiedad fácil de ver es que si $f$ y $g$ son una funciones simples no negativas, $f=\sum_{i=1}^{n} c_{i}\chi_{A_{i}}$ y $g=\sum_{j=1}^{m} d_{j}\chi_{B_{j}}$ entonces $$\int_{\mathbb{R}} f+g=\int_{\mathbb{R}} f+\int_{\mathbb{R}} g.$$ 
+Para mostrar esto, basta notar que se puede considerar la familia disjunta $\{C_{ij}\}$ definida a partir de las familias disjuntas $\{A_{i}\}$ y $\{B_{j}\}$ como $C_{ij}=A_{i}\cap B_{j}$ y $C_{i0}=A_{i}\backslash\bigcup B_{j}$ y $C_{0j}=B_{j}\backslash\bigcup A_{i}$. Definimos los escalares $r_{ij}=c_{i}$ para $i=1,\cdots, n$ y $r_{0j}=0$, y $s_{ij}=d_{j}$ $s_{i0}=0$. Luego $f=\sum_{i=0}^{n}\sum_{j=0}^{m} r_{ij}\chi_{C_{ij}}$ y $g=\sum_{i=0}^{n}\sum_{j=0}^{m} s_{ij}\chi_{C_{ij}}$, por lo tanto 
+$$\begin{array}{rl}
+\int_{\mathbb{R}} f + \int_{\mathbb{R}} g=&\sum_{i=0}^{n}\sum_{j=0}^{m} r_{ij}m(C_{ij}) +\sum_{i=0}^{n}\sum_{j=0}^{m} s_{ij}m(C_{ij})\\
+=&\sum_{i=0}^{n}\sum_{j=0}^{m} (r_{ij}+s_{ij})m(C_{ij})\\
+=&\int_{\mathbb{R}} f+g
+\end{array}$$
+Esto demuestra lo siguiente
+
+```{proposition, label="prop36"}
+Sean $f$ y $g$ funciones simples no negativas y $\lambda\in\mathbb{R}$ un escalar no negativo. Entonces 
+
+(i.) $\int_{\mathbb{R}} \lambda f=\lambda\int_{\mathbb{R}} f$,
+
+(ii.) $\int_{\mathbb{R}} (f+g)=\int_{\mathbb{R}} f + \int_{\mathbb{R}} g.$
+
+```
+
+También se puede probar que la integral de Lebesgue tiene la propiedad de monotonía.
+
+```{proposition}
+Sean $f$ y $g$ funciones no negativas, entonces
+
+(i) $\int_{\mathbb{R}} f\geq 0$,
+
+(ii.) si $f\geq g$, entonces $\int_{\mathbb{R}} f\geq \int_{\mathbb{R}} g$.
+
+```
+```{proof}
+De la definición de integral de Lebesgue, se tiene directamente que $\int_{\mathbb{R}} f\geq 0$. Considerando $g-f$, se sigue el resultado ii.
+
+```
+
+```{definition}
+Dados $f:\mathbb{R}\longrightarrow\mathbb{R}$ una función simple no negativa y un conjunto medible $A\in\mathbb{M}$, definimos \textit{la integral de Lebesgue de $f$ sobre $A$} como sigue:
+	$$\int_{A} f=\int_{\mathbb{R}} f \chi_{A}.$$ 
+
+```
+
+```{proposition}
+Sea $f:\mathbb{R}\longrightarrow\mathbb{R}$ una función simple no negativa, se tiene $$\int_{A} f\leq \int_{\mathbb{R}} f.$$
+
+```
+```{proof}
+Basta notar que $f \chi_{A}\leq f$.
+
+```
+
+En lugar de escribir $\int_{<a,b>} f$, cuando $<a,b>$ es un intervalo, escribiremos $\int_{a}^{b} f$.
+
+Recuerde que para una función medible Lebesgue y no negativa existe una sucesión creciente $\{f_{n}\}_{n}$ de funciones simples no negativas tales que $\lim\limits_{n} f_{n}(x)=f(x)$ (este límite es puntual en casi todo punto y puede valer $+\infty$). De este hecho definiremos la integral de Lebesgue de funciones medibles no negativas.
+
+```{definition}
+Dadas una función medible no negativa $f$ y una sucesión creciente de funciones simples no negativas que la aproximan, esto es, $\lim\limits_{n} f_{n}(x)=f(x)$. La *integral de Lebesgue de la función $f$* es
+	$$\int_{\mathbb{R}} f=\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}.$$
+
+```
+
+También se denota la integral de Lebesgue con $\int_{\mathbb{R}} f(x)d(x)$ o $\int_{\mathbb{R}} f dm$.
+
+```{remark}
+Se puede probar que si $\{g_{n}\}$ es otra sucesión creciente de funciones simples no negativas, tal que $\lim\limits_{n} g_{n}(x)=f(x)$ (puntual en casi todo punto) entonces $\lim\limits_{n\to\infty} \int_{\mathbb{R}} g_{n}=\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}$.
+
+```
+
+```{proposition}
+Si $f:\mathbb{R}\longrightarrow \overline{\mathbb{R}}$ es medible Lebesgue no negativa, entonces
+	$$\int_{\mathbb{R}} f=\sup_{\substack{\phi\mbox{ simple }\\0\leq\phi\leq f}} \int_{\mathbb{R}} \phi.$$
+
+```
+
+Es sencillo ver que la integral de Lebesgue de una función medible no negativa, es lineal. Esto se sigue de la linealidad del límite y de la proposición \@ref(thm:prop36). De igual forma se puede probar que la integral de Lebesgue es monótona.
+
+```{proposition}
+Sean $f, g:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ medibles Lebesgue no negativas. Sea $\lambda\geq 0$ un escalar, entonces 
+
+(i.) $\int_{\mathbb{R}} \lambda f + g=\lambda\int_{\mathbb{R}} f + \int_{\mathbb{R}} g$, y 
+(ii.) Si $f\leq g$, entonces $\int_{\mathbb{R}} f\leq \int_{\mathbb{R}} g$.
+
+```
+
+```{definition}
+Decimos que una función $f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ medible Lebesgue no negativa, es *integrable Lebesgue en $\mathbb{R}$* cuando $\int_{\mathbb{R}} f$ es finita. 
+
+```
+
+```{proposition}
+Sea $f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ una función medible Lebesgue no negativa. Si $f$ es integrable Lebesgue en $\mathbb{R}$, entonces $f$ es finita en casi todo punto.
+
+```
+```{proof}
+Sea $A=\{x\in\mathbb{R}: f(x)=+\infty \}$. Para cualquier $n\in\mathbb{N}$, se tiene que $f(x)\geq n$ siempre que $x\in A$. Entonces,	$$n m(A)=n\int_{\mathbb{R}} \chi_{A}=\int_{\mathbb{R}} n\chi_{A}\leq\int_{\mathbb{R}} f.$$
+	De donde se tiene que 
+	$$0\leq m(A)\leq\frac{1}{n}\int_{\mathbb{R}} f$$
+	para todo $n\in\mathbb{R}$. Por lo tanto se tiene que $m(A)=0$.
+
+```
+
+```{definition}
+Sea $f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ una función medible Lebesgue no negativa y sea $A\in\mathcal{M}$ un conjunto medible Lebesgue. Definimos *la integral de Lebesgue de $f$ en $A$* como $$\int_{A} f=\int_{\mathbb{R}} f \chi_{A}.$$
+Y decimos que \textit{$f$ es integrable en $A$} cuando $\int_{A} f$ es finita.
+
+```
+
+```{remark}
+Se puede demostrar que si $f$ es una función medible Lebesgue no negativa, entonces $\int_{A} f\leq \int_{\mathbb{R}} f$.
+
+```
+
+```{proposition}
+Sea $f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ medible Lebesgue no negativa. Si $A\in\mathcal{M}$ es un conjunto de medida nula, entonces $\int_{A} f=0$. 
+
+```
+
+Cuando $f$ es una función simple no negativa, el resultado se sigue inmediatamente. El caso general, se sigue de la definición de integral.
+
+```{lemma}
+Si $\{f_{n}\}$ es una sucesión creciente de funciones simples no negativas y $f=\lim\limits_{n\to\infty} f_{n}\geq g$, donde $g$ es una función simple no negativa. Entonces $$\lim\limits_{n\to\infty}\int_{\mathbb{R}} f_{n}\geq g.$$
+
+```
+```{proof}
+Como $\{f_{n}\}$ tiende puntualmente a $f$, se tiene que para todo $\epsilon> 0$ y para todo $x\in X$ existe $N(\epsilon, x)$ tal que si $n>N(\epsilon,x)$, entonces $f_{n}(x)>g(x)-\epsilon$. Así, considerando $A_{n}=\{x: f_{n}(x)>g(x)-\epsilon \}$, se tiene que para todo $\epsilon>0$, $\{A_{n}\}\uparrow\mathbb{R}$. Supongamos que $g(x)=\sum_{i=1}^{k} c_{i} \chi_{E_{i}}$. En el caso que $\int_{\mathbb{R}} g=\infty$, existe $i$ tal que $c_{i}> 0$ y $m(E_{i})=\infty$. Sea $0<\epsilon<c_{i}$, entonces $A_{n}\cap E_{i}\uparrow E_{i}$ por lo tanto $m(A_{n}\cap E_{i})\uparrow m(E_{i})=\infty$. Por monotonía $\int_{\mathbb{R}} f_{n}\geq \int_{\mathbb{R}} f_{n}\chi_{A_{n}\cap E_{i}}\geq \int_{\mathbb{R}} (c_{i}-\epsilon)m(A_{n}\cap E_{i})\to\infty$ cuando $n\to\infty$.
+Si $\int_{\mathbb{R}} g<\infty$, el conjunto $A=\{x\in X: g(x)> 0\}=\bigcup_{c_{i}>0} E_{i}$, tiene medida finita, es decir, $m(A)<\infty$. Además $A_{n}\cap A\uparrow A$, por lo tanto $m(A_{n}\cap A)\uparrow m(A)$. Para todo $i$ se tiene que $E_{i}\cap A_{i}\cap A\uparrow E_{i}A$ por lo tanto $m(E_{i}\cap A_{i}\cap A)\uparrow m(E_{i}\cap A)$. Sea $0<\epsilon<\min_{c_{i}>0} c_{i}$, así $g-\epsilon>0$. Por monotonía de la integral, 
+$$\begin{array}{rl}
+	\int_{\mathbb{R}} f_{n}\geq&\int_{\mathbb{R}} f_{n}\chi_{A_{n}\cap A}\\
+	\geq&\int_{\mathbb{R}} (g-\epsilon)\chi_{A_{n}\cap A}\\
+	=&\int_{\mathbb{R}} g\chi_{A_{n}\cap A}-\epsilon\int_{\mathbb{R}} \chi_{A_{n}\cap A}\\
+	=&\int_{\mathbb{R}} g\chi_{A_{n}\cap A}-\epsilon m(A_{n}\cap A)\\
+	\geq&\int_{\mathbb{R}} g\chi_{A_{n}\cap A}-\epsilon m(A)\\
+	=&\sum_{i=1}^{k} c_{i}m(A_{n}\cap A\cap E_{i}) -\epsilon m(A)
+\end{array}$$
+Entonces, cuando $n\to\infty$, se tiene que $$\int_{\mathbb{R}} f_{n}\rightarrow\sum_{i=1}^{k} c_{i}m(A\cap E_{i}) -\epsilon m(A)=\int_{\mathbb{R}} g\chi_{A} -\epsilon m(A)=\int_{\mathbb{R}} g -\epsilon m(A)$$ por lo tanto, $\lim\limits_{n\to\infty}\int_{\mathbb{R}} f_{n}\geq \int_{\mathbb{R}} g$.
+
+```
+
+La integral de Lebesgue está bien definida. Sea $f$ una función medible Lebesgue no negativa. Supongamos que $f$ se aproxima por dos sucesiones crecientes de funciones simples no negativas, esto es, $\{f_{n}\}_{n}\uparrow f$ y $\{g_{n}\}_{n}\uparrow f$. Tenemos entonces que para cada $m$ fijo, $\lim\limits_{n\to\infty} f_{n}\geq g_{m}$. Por el lema anterior, 
+$$\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}\geq \int_{\mathbb{R}} g_{m} \forall m\in\mathbb{N}$$
+por lo tanto $$\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}\geq\lim\limits_{m\to\infty} \int_{\mathbb{R}} g_{m}.$$
+De forma análoga se demuestra la desigualdad contraria
+$$\lim\limits_{m\to\infty} \int_{\mathbb{R}} g_{m}\geq\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}$$.
+
+Para concluír con esta sección, presentaremos la siguiente propiedad de la integral de Lebesgue:
+
+```{proposition}
+Sea $f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ una función medible Lebesgue. $f$ es integrable Lebesgue si y solo si $|f|$ es integrable Lebesgue. Además, $$|\int_{\mathbb{R}} f|\leq \int_{\mathbb{R}} |f|.$$
+
+```
+```{proof}
+Por la linealidad de la integral y como $f=f^{+}-f^{-}$, se tiene que $f$ es integrable Lebesgue si y solo si $f^{+}$ y $f^{-}$ lo son.
+Como $|f|=f^{+}+f^{-}$, se tiene que $|f|$ es integrable Lebesgue si y solo si $f^{+}$ y $f^{-}$ lo son. De donde se sigue que $f$ es integrable Lebesgue si y solo si $|f|$ es integrable Lebesgue.
+Además, $$\left| \int_{\mathbb{R}} f\right| =\left| \int_{\mathbb{R}} f^{+} - \int_{\mathbb{R}} f^{-}\right| \leq \left| \int_{\mathbb{R}} f^{+}\right| + \left| \int_{\mathbb{R}} f^{-}\right|=\int_{\mathbb{R}} f^{+} + \int_{\mathbb{R}} f^{-}=\int_{\mathbb{R}} |f|$$
+
+```
 
 ## Intercambio de límites con la integral
 
