@@ -163,7 +163,7 @@ Si consideramos las operaciones de suma y multiplicación en $\mathbb{Z}_{2}$ (e
 
 ```
 
-##Colecciones de Conjuntos
+## Colecciones de Conjuntos
 
 ```{definition}
 Dado un espacio topológico $(X,\tau)$, decimos que $A\subseteq X$ es un conjunto $G_{\delta}$ si $A$ es intersección numerable de abiertos, esto es, $A=\bigcap_{n\in\mathbb{N}} G_{n}$ con $G_{n}\in\tau$. Decimos que $A$ es un conjunto  $F_{\sigma}$ si es unión numerable de conjuntos cerrados, esto es, $A=\bigcup_{n\in\mathbb{N}} F_{n}$ con $F_{n}^{c}\in\tau$.
@@ -175,7 +175,7 @@ Por ejemplo, $A$ es un conjunto $F_{\sigma\delta}$ si es intersecci\'on numerabl
 
 ```{example}
 El conjunto de los puntos de continuidad de una función cualquiera, es un conjunto $G_{\delta}$.
-	Y el conjunto de puntos de discontinuidad es una función dada, es un conjunto $F_{\sigma}$.
+Y el conjunto de puntos de discontinuidad es una función dada, es un conjunto $F_{\sigma}$.
 
 ```
 
@@ -280,7 +280,7 @@ Sea $\Omega\neq \emptyset$. Sea $\mathcal{C}=\{A\subseteq :A \mbox{ es numerable
 
 ```{example}
 Sea $\mathcal{I}=\{(a,b]\subseteq\mathbb{R}: a\geq b \}$. Sea $\mathcal{C}=\left\lbrace \bigcup_{i\geq n} I_{i}:I_{i}\in \mathcal{I} \mbox{ y } n\in\mathbb{N} \right\rbrace$ es un anillo pero no es un álgebra.
-	Ahora, dado $\tilde{\mathcal{I}}=\{(a,\infty):a\in\mathbb{R}\}$; la colección $\tilde{\mathcal{C}}=\left\lbrace \bigcup_{i\geq n} I_{i}:I_{i}\in \mathcal{I}\cup\tilde{\mathcal{I}} \mbox{ y } n\in\mathbb{N}\right\rbrace $ es un álgebra pero no es una $\sigma$-álgebra.
+Ahora, dado $\tilde{\mathcal{I}}=\{(a,\infty):a\in\mathbb{R}\}$; la colección $\tilde{\mathcal{C}}=\left\lbrace \bigcup_{i\geq n} I_{i}:I_{i}\in \mathcal{I}\cup\tilde{\mathcal{I}} \mbox{ y } n\in\mathbb{N}\right\rbrace $ es un álgebra pero no es una $\sigma$-álgebra.
 
 ```
 
@@ -317,7 +317,7 @@ Sea $(\Omega,\tau)$ un espacio topológico. $\sigma(\tau)$ es la sigma álgebra 
 
 ```{remark}
 Note que los conjuntos $F_{\sigma}$, $G_{\delta}$, $F_{\sigma\delta}$, etc. son conjuntos Borelianos.
-	Podemos considerar el espacio topológico $\overline{\mathbb{R}}=\mathbb{R}\cup\{-\infty,\infty\}$ y en este espacio definir la $\sigma$-álgebra de Borel.
+Podemos considerar el espacio topológico $\overline{\mathbb{R}}=\mathbb{R}\cup\{-\infty,\infty\}$ y en este espacio definir la $\sigma$-álgebra de Borel.
 
 ```
 
@@ -330,8 +330,7 @@ Veamos que $\tau\subseteq\sigma(\mathcal{C})$. Cada conjunto abierto $A=(A^{c})^
 
 ```
 
-
-	Recuerdemos que un espacio topológico es segundo numerable si tiene una base numerable.
+Recuerdemos que un espacio topológico es segundo numerable si tiene una base numerable.
 
 
 ```{proposition}
@@ -343,7 +342,42 @@ Claramente $G\subseteq\tau$, por lo tanto $\sigma(\mathcal{G})\subseteq\mathcal{
 
 ```
 
-##Medida
+## El conjunto de Cantor
+
+Considermos el intervalo $[0,1]$, lo dividimos en tres subintervalos de longitud $\frac{1}{3}$, a saber, $J_{1,1}=[0,\frac{1}{3}]$, $I_{1,1}=(\frac{1}{3},\frac{2}{3})$ y $J_{1,2}=[\frac{2}{3},1]$. LLamamos $C_{1}=J_{1,1}\cup J_{1,2}$, que es unión de conjuntos disjuntos. Además $C_{1}=[0,1]\backslash I_{1,1}$.\\
+
+Luego, los dos intervalos cerrados $J_{1,1}$ y $J_{1,2}$ se dividen nuevamente en tres subintervalos de longitud $\frac{1}{3^{2}}$; estos son, $J_{21}=[0,\frac{1}{3^{2}}]$, $I_{2,1}=(\frac{1}{3^{2}},\frac{2}{3^{2}})$, $J_{2,2}=[\frac{2}{3^{2}},\frac{3}{3^{2}}]$, al dividir $J_{1,1}$ y $J_{2,3}=[\frac{6}{3^{2}},\frac{7}{3^{2}}]$, $I_{2,2}=(\frac{7}{3^{2}},\frac{8}{3^{2}})$ y $J_{2,4}=[\frac{8}{3^{2}},1]$, que resultan de dividir $J_{1,2}$. Al igual que en el primer paso, descartamos los dos intervalos abiertos $I_{2,1}$ e $I_{2,2}$. LLamamos $C_{2}=J_{2,1}\cup J_{2,2}\cup J_{2,3}\cup J_{2,4}$. Además $C_{2}=[0,1]\backslash (E_{1}\cup E_{2})$ donde $E_{i}=\bigcup\limits_{k=1}^{2^{n-1}} I_{n,k}$.\\
+Note que $C_{1}\supseteq C_{2}$.
+
+En el siguiente paso, dividimos cada uno de los cuatro intervalos cerrados $J_{2,1}$, $J_{2,2}$, $J_{2,3}$ y $J_{2,4}$ en tres intervalos de longitud $\frac{1}{3^{3}}$.
+
+En el $n$-\'esimo paso se tienen $2^{n}$ intervalos cerrados $J_{n,i}$, $i=1,\cdots,2^{n}$ y se han descartado $2^{n-1}$ intervalos abiertos $I_{n,i}$ $i=1,\cdots,2^{n-1}$. Hemos construído el conjunto $C_{n}=\bigcup\limits_{k=1}^{2^{n}} J_{n,k}$, de forma que $C_{1}\supseteq C_{2}\supseteq \cdots \supseteq C_{n}$. Adem\'as, $C_{n}=[0,1]\backslash\bigcup\limits_{k=1}^{n} E_{k}$ donde $E_{k}=\bigcup\limits_{k=1}^{2^{n-1}}$.\\
+
+Este proceso se repite infinitamente. Con los conjuntos $\{C_{n}\}_{n}$ construímos el conjunto de Cantor $C=\bigcap\limits_{n=1}^{\infty} C_{n}$. Note que $C=[0,1]\backslash \bigcup\limits_{n=1}^{\infty} E_{n}$. Claramente, $C$ es un conjunto cerrado, más aún, es un conjunto perfecto. Recuerde que un conjunto cerrado es perfecto cuando todos sus puntos son de acumulación.
+
+```{proposition}
+El conjunto de Cantor es cerrado.
+
+```
+
+```{proposition}
+El conjunto de Cantor es perfecto.
+
+```
+
+Por lo tanto
+
+```{proposition}
+El conjunto de Cantor tiene interior vacío.
+
+```
+
+```{remark}
+Se puede demostrar que el conjunto de Cantor se puede poner en correspondencia $1$ a $1$ con el intervalo $[0,1]$. Por lo tanto, $C$ es un conjunto no numerable. Para esto es útil notar que si $x\in C$, entonces $x$ es un número real tal que $0\leq x\leq 1$ y $x=\sum\limits_{n=0}^{\infty} \frac{a_{n}}{3^{n}}$ donde $a_{n}=0$ o $a_{n}=2$ para todo $n\in\mathbb{N}$.
+
+```
+
+## Medida
 
 Podemos definir funciones de una clase en cualquier conjunto $X$, de la siguiente forma: $f:\mathcal{C}\longrightarrow X:D\mapsto x_{D}$ donde $\mathcal{C}$ es una clase cualquiera (es decir, $\mathcal{C}\subseteq\wp(C)$ donde $C$ es un conjunto cualquiera) $D\in\mathcal{C}$ y $x_{D}\in X$. Es otras palabras, *$f$ es una regla que a cada conjunto de la clase $\mathcal{C}$, le asigna un elemento del conjunto $X$*.
 
