@@ -81,7 +81,7 @@ También se puede probar que la integral de Lebesgue tiene la propiedad de monot
 ```{proposition}
 Sean $f$ y $g$ funciones no negativas, entonces
 
-(i) $\int_{\mathbb{R}} f\geq 0$,
+(i.) $\int_{\mathbb{R}} f\geq 0$,
 
 (ii.) si $f\geq g$, entonces $\int_{\mathbb{R}} f\geq \int_{\mathbb{R}} g$.
 
@@ -275,9 +275,9 @@ Bajo las hipótesis del teorema de Beppo-Levy, se puede deducir lo siguiente:
 
 (3.) Si $f$ no es integrable Lebesgue, entonces se tiene alguna de las dos siguientes afirmaciones:
 
-		(a) existe $N$ tal que $f_{N}$ no es integrable Lebesgue, por lo tanto, tampoco $f_{n}$ para todo $n\geq N$, o
+(a) existe $N$ tal que $f_{N}$ no es integrable Lebesgue, por lo tanto, tampoco $f_{n}$ para todo $n\geq N$, o
 
-		(b) todas las $f_{n}$ son integrables Lebesgue, pero $\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}=\infty$.
+(b) todas las $f_{n}$ son integrables Lebesgue, pero $\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}=\infty$.
 		
 ```
 
@@ -489,5 +489,72 @@ Sean $\{f_{n}\}_{n}$ una sucesión de funciones $f_{n}:\mathbb{R}\longrightarrow
 
 ## Teoremas de Aproximación
 
+```{theorem, name="Convergencia dominada de Lebesgue"}
+	Sea $\{f_{n}\}_{n}$ una sucesión de funciones $f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ medibles Lebesgue, tales que $\lim\limits_{n\to\infty} f_{n}(x)=f(x)$ c.s. Sea $h:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ integrable Lebesgue tal que para todo $n\in\mathbb{N}$, $|f_{n}(x)|\leq h(x)$ c.s. Entonces:
+
+(i.) Cada $f_{n}$ es integrable Lebesgue.
+
+(ii.) $f$ es integrable Lebesgue.
+
+(iii.) $\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}=\int_{\mathbb{R}}\lim\limits_{n\to\infty} f_{n}=\int_{\mathbb{R}} f$.
+
+(iv.) $\lim\limits_{n\to\infty}\int_{\mathbb{R}}|f_{n}-f|=0$.
+
+```
+```{proof}
+Como $|f_{n}|\leq h$, para todo $n$, se tiene que cada $|f_{n}|$ es integrable Lebesgue y por lo tanto, cada $f_{n}$ también lo es.
+De forma análoga, como $|f|=\lim\limits_{n\to\infty}|f_{n}|$, $|f|$ y $f$ son integrables Lebesgue.
+Como $-h\leq f_{n}\leq h$, por el lema de Fatou y su corolario, se tiene que
+$$\int_{\mathbb{R}} f=\int_{\mathbb{R}}\liminf\limits_{n}f_{n}\leq\liminf\limits_{n}\int_{\mathbb{R}} f_{n}\leq\limsup\limits_{n}\int_{\mathbb{R}} f_{n}\leq\int_{\mathbb{R}}\limsup\limits_{n}f_{n}=\int_{\mathbb{R}} f$$
+por lo tanto
+$$\int_{\mathbb{R}} f\leq\liminf\limits_{n}\int_{\mathbb{R}} f_{n}\leq\int_{\mathbb{R}} f\mbox{ y }\int_{\mathbb{R}} f\leq\limsup\limits_{n}\int_{\mathbb{R}} f_{n}\leq\int_{\mathbb{R}} f$$
+esto implica que $\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}$ existe y es exactamente $\int_{\mathbb{R}} f$.
+Ahora, definamos $g_{n}=|f_{n}-f|$, note que $g_{n}\xrightarrow[n\to\infty]{} 0$ y $|g_{n}|\leq|f|+|f_{n}|\leq 2h$. Aplicando lo anterior, se tiene que
+$$\int_{\mathbb{R}} g_{n}=\int_{\mathbb{R}} |f_{n}-f|\xrightarrow[n\to\infty]{}0.$$
+  
+```
+
+```{corollary}
+Sea $\{f_{n}\}_{n}$ una sucesión de funciones $f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ medibles Lebesgue, tales que $\lim\limits_{n\to\infty} f_{n}(x)=f(x)$. Sea $A\in\mathcal{M}$ un conjunto de medida finita y supongamos que existe $M\in\mathbb{R}$ tal que $|f_{n}(x)|\leq M$ para todo $n\in\mathbb{N}$ y todo $x\in A$. Entonces $$\lim\limits_{n\to\infty}\int_{A} f_{n}=\int_{A} f.$$
+
+```
+```{proof}
+Sea $g=M\chi_{A}$. Como $m(A)<\infty$, $g$ es integrable. Ahora, $\{f_{n}\chi_{A}\}_{n}$ y $g$ cumplen con las hipótesis del teorema de convergencia dominada de Lebesgue, por lo tanto
+$$\lim\limits_{n\to\infty}\int_{\mathbb{R}} f_{n}\chi_{A}=\int_{\mathbb{R}} f\chi_{A}.$$
+
+```
+
+```{corollary}
+Sea $<a,b>$ un intervalo finito cualquiera de $\mathbb{R}$. Y sea $\{f_{n}\}_{n}$ una sucesión de funciones $f_{n}:<a,b>\longrightarrow\mathbb{R}$ medibles Lebesgue. Supongamos que $f_{n}\xrightarrow[n\to\infty]{} f(x)$ en $<a,b>$. Entonces
+	$$\int_{a}^{b} |f_{n}-f|\xrightarrow[n\to\infty]{} 0.$$
+
+```
+```{proof}
+Dado $\epsilon>0$, por la convergencia uniforme, existe $N\in\mathbb{N}$ tal que si $n\geq N$ entonces $|f_{n}(x)-f(x)|<\epsilon$ para todo $x\in<a,b>$. Por lo tanto $|f_{n}-f|<\epsilon\chi_{<a,b>}$. Como $\epsilon\chi_{<a,b>}$ es integrable Lebesgue, del teorema de CDL se concluye que $$\lim\limits_{n\to\infty}\int_{a}^{b}|f_{n}-f|=0.$$
+
+```
+
 ## Más sobre la Integral de Lebesgue
 
+Presentamos dos teoremas que son consecuencia inmedianta del teorema de convergencia dominada de Lebesgue. Son una formulación del teorema de convergencia dominada de Lebesgue para familias no numerables de funciones.
+
+```{theorem}
+Sea $<a,b>$ un intervalo finito cualquiera de números reales. Sea $f(x,t)$, con $x\in\mathbb{R}$ y $t\in<a,b>$, una función de dos variables tal que para cada $t$ fijo, la función $x\mapsto f(x,t)$ es medible Lebesgue. Supongamos que 
+$$\lim\limits_{t\to b^{-}} f(x,t)=f(x) \mbox{ o } \lim\limits_{t\to a^{+}} f(x,t)=f(x)$$
+y que para todo $t\in<a,b>$, $|f(x,t)|\leq g(x)$ para todo $x\in\mathbb{R}$, donde $g$ es una función integrable. Entonces, $f$ es integrable y 
+$$\int_{\mathbb{R}} f(x,t)dx\rightarrow \int_{\mathbb{R}} f(x)dx\mbox{ cuando } t\to b^{-} \mbox{ o }t\to a^{+}.$$
+
+```
+```{proof}
+Supongamos que $\lim\limits_{t\to b^{-}} f(x,t)=f(x)$. Sea $(t_{n})_{n}$ una sucesión de números reales en $(a,b)$ tal que $t_{n}\longrightarrow$. Consideremos la sucesión de funciones $f_{n}=f(x,t_{n})$, por el teorema de convergencia dominada de Lebesgue, se sigue que
+$$\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}(x)dx=\lim\limits_{t_{n}\to b}\int_{\mathbb{\mathbb{R}}} f(x,t_{n})dx=\int_{\mathbb{R}}f(x)dx.$$
+
+```
+
+Si en lugar de $f(x,t)$ se considera la familia $\{f_{t}(x)\}_{t\in(a,b)}$, se tiene la versión del teorema de convergencia dominada de Lebesgue, como sigue:
+
+```{theorem}
+Sean $-\infty\leq a<b\leq +\infty$. Para cada $t\in(a,b)$, sea $f_{t}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ una función medible Lebesgue. Entonces, si para todo $t\in(a,b)$, $|f_{t}|\leq g$, donde $g$ es una función integrable Lebesgue y $f_{t}\to f$ cuando $t\to a^{+}$ o $t\to b^{-}$. Entonces $f$ es integrable Lebesgue y 
+$$\int_{\mathbb{R}} f_{t}dx=\int_{\mathbb{R}} f dx.$$
+
+```
