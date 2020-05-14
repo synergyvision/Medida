@@ -101,6 +101,18 @@ Es claro que $f_{n}\xrightarrow{m} 0$, ya que para todo $0<\epsilon<1$, $m(\{x\i
 
 ```
 
+Note que, aunque *la sucesión que camina* no converge a $f=0$, en casi todo punto de $[0,1]$, se puede hallar una subsucesión que si lo hace; a saber $f_{2^{p}+q}$, con $p\in\mathbb{N}$ y $q=0$.
+
+```{proposition}
+Sea $(f_{n})_{n\in\mathbb{N}}$ una sucesión de funciones medibles finitas en c.t.p. que converge en medida a una función medible $f$. Entonces, existe una subsucesión $(f_{n_{k}})_{k\in\mathbb{N}}$ tal que $f_{n_{k}}\xrightarrow{k\to\infty} f$ en c.t.p.
+
+```
+```{proof}
+Como $f_{n}\xrightarrow{m} f$, para todo $k\in\mathbb{N}$, existe $n_{k}$ tal que si $n\geq n_{k}$, entonces $$m\{x\in\mathbb{R}: |f_{n}(x)-f(x)|\geq \frac{1}{2^{k}} \}<\frac{1}{2^{k}}.$$
+Siempre puede tomarse $n_{k+1}>n_{k}$. Así, la subsucesión $(f_{n_{k}})_{k}$ es la buscada. En efecto, $(f_{n_{k}})_{k}$ converge a $f$ salvo en el conjunto $E=\bigcup_{k\in\mathbb{N}} E_{k}$, donde $E_{k}=\{x\in\mathbb{R}: |f_{n}(x)-f(x)|\geq \frac{1}{2^{k}} \}$ para cada $k\in\mathbb{N}$.
+
+```
+
 ## Espacios $L^{p}$
 
 ## Espacios de Hilbert
