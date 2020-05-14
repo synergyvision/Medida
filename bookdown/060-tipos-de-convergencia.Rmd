@@ -1,0 +1,106 @@
+# Convergencia
+
+Ya conocemos la convergencia puntual y la convergencia uniforme de sucesiones de funciones, pero se pueden definir otros tipos de convergencia. En este capítulo estuadiaremos los distintos tipos de convergencia, así como la relación entre ellas. Definiremos espacios $L^{p}$ y estudiaremos la convergencia es ellos. Finalmente estudiaremos someramente los espacios de Hilbert.
+
+## Tipos de convergencia
+
+Recordaremos las definiciones ya conocidas de convergencia puntual y uniforme y añadiremos a la lista otras definiciones de convergencia. La definición de sucesión de Cauchy depende de la convergencia, mas adelante veremos como se redefine según el tipo de convergencia.
+
+```{definition}
+Sea $\{f_{n}\}_{n}$ una sucesión de funciones $f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ medibles Lebesgue. Sea $E\in\mathcal{M}$. 
+
+(1.) Decimos que $\{f_{n}\}_{n}$ *converge puntualmente a una función $f$ en $E$, si y solo si para todo $x\in E$, $\lim\limits_{n\to\infty} f_{n}(x)=f(x)$. Es decir $\forall x\in E\forall\epsilon>0\exists N\in\mathbb{N}[n>N\Rightarrow |f_{n}(x)-f(x)|<\epsilon]$. Se suele escribir $f_{n}\to f$ puntualmente.
+
+(2.) Decimos que $\{f_{n}\}_{n}$ *converge uniformemente* a una función $f$ en $E$, si y solo si para todo $\epsilon>0$, existe $N\in\mathbb{N}$ tal que para todo $x\in E$,   si $n>N$ entonces $|f_{n}(x)-f(x)|<\epsilon$. Es decir $\forall\epsilon>0\exists N\in\mathbb{N}[\forall x\in E(n>N\Rightarrow |f_{n}(x)-f(x)|<\epsilon)]$. Se escribe $f_{n}\to f$ uniformemente.
+
+(3.) Decimos que $\{f_{n}\}_{n}$ *converge puntualmente* a una función $f$ *en casi todo punto de* $E$, si y solo si $\{f_{n}\}_{n}$ converge puntualmente a $f$ en un conjunto $F\subseteq E$ y $m(E\backslash F)=0$. Es decir	$m\{x\in E: \{f_{n}(x)\}_{n} \mbox{ no converge a } f(x) \}=0$. Se escribe $f_{n}\to f$ en c.t.p (casi todo punto) de $E$.
+
+(4.) Decimos que $\{f_{n}\}_{n}$ *converge uniformemente* a una función $f$ *en casi todo punto de* $E$, si y solo si $\{f_{n}\}_{n}$ converge uniformemente a $f$ en $F\subseteq E$ y $m(E\backslash F)=0$. Se escribe $f_{n}\to f$ uniformemente en c.t.p. de $E$.
+
+```
+
+```{example}
+La sucesión de las funciones $f_{n}(x)=x^{n}\chi_{[0,1]}$ converge puntualmente a la función $f(x)=\left\lbrace\begin{array}{ll}
+	0&\mbox{ si } 0\leq x<1\\
+	1&\mbox{ si } x=1
+\end{array} \right. $ en el intervalo $[0,1]$. Por lo tanto, converge en casi todo punto de $[0,1]$. Pero no converge uniformemente en $[0,1]$. Tampoco se puede decir que converge uniformemente en casi todo punto de $[0,1]$ aunque el conjunto donde falla la convergencia se puede hacer tan pequeño como se quiera.
+
+```
+
+```{definition}
+Decimos que $\{f_{n}\}_{n}$ *converge casi uniformemente* a una función $f$ en un conjunto medible $E$, si y solo si $\forall\epsilon>0$, existe $F\subseteq E$ tal que $\{f_{n}\}_{n}$ converge uniformemente a $f$ en $F$ y $m(E\backslash F)=0$. Se escribe $f_{n}\to f$ c.u. en $E$.
+
+```
+
+```{remark}
+Es claro que la convergencia uniforme implica la convergencia casi uniforme. Pero el recíproco no es cierto.
+
+```
+
+```{proposition}
+Sea $\{f_{n}\}_{n}$ una sucesión de funciones $f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ medibles Lebesgue. Si $f_{n}\to f$ casi uniformemente en un conjunto medible $E$, entonces $f_{n}\to f$ en casi todo punto de $E$.
+
+```
+```{proof}
+Sea $F_{n}\subseteq E$ tal que $f_{n}\to f$ uniformemente en $E\backslash F_{n}$ y $m(F_{n})<\frac{1}{n}$. Tomando $F=\bigcap F_{n}$, se tiene que $m(F)=0$ y $f_{n}(x)\to f(x)$ en c.t.p de $E$.
+
+```
+
+```{remark}
+El recíproco de la proposición anterior, es falso tal como lo muestra el siguiente ejemplo.
+
+```
+
+```{example}
+Sea $f_{n}=\chi_{[n,\infty)}$. Es claro que $f_{n}\to 0$ para todo $x\in\mathbb{R}$ pero $f_{n}$ no converge c.u. a $0$ en $\mathbb{R}$.
+
+```
+
+```{theorem, name="Egorov´s"}
+Sea $E\in\mathcal{M}$ un conjunto de medida finita y sea $\{f_{n}\}_{n}$ una sucesión de funciones medibles $f_{n}:E\longrightarrow\overline{\mathbb{R}}$ tales que, para cada $n\in\mathbb{N}$, $|f_{n}|<\infty$ en c.t.p de $E$. Sea $f:E\longrightarrow\overline{\mathbb{R}}$ una función finita en c.t.p. de $E$. Supongamos que $f_{n}\to f$ en c.t.p. de $E$. Entonces $f_{n}\to f$ c.u. en $E$.
+
+```
+```{proof}
+Sean $A_{n}=\{x\in\mathbb{R}:|f_{n}(x)|=\infty \}$ para cada $n\in\mathbb{N}$, $B=\{x\in\mathbb{R}:|f(x)|=\infty \}$ y $C=\{x\in\mathbb{R}: f_{n}(c)\mbox{ no converge a } f(x) \}$. Llamemos $F=\left( \bigcup_{n\in\mathbb{N}}A_{n}\right) \cup B\cup C$, entonces $m(F)=0$. Sea $\overline{E}=E\backslash F$. Si demostramos que $f_{n}\to f$ c.u. en $\overline{E}$, entonces se tiene que $f_{n}\to f$ c.u. en $E$. Entonces podemos suponer sin pérdida de generalidad que para todo $n\in\mathbb{N}$, $|f_{n}|$ es finita en $E$, que $|f|$ es finita y que $f_{n}\to f$ en $E$.
+Fijemos $\epsilon>0$. Sea $$E_{n}^{m}=\bigcap_{k\geq n}\left\lbrace x\in\mathbb{R}: |f_{k}(x)-f(x)|<\frac{1}{m} \right\rbrace $$
+para $m$ fijo, la sucesión $(E_{n}^{m})_{n\in\mathbb{N}}$, es una sucesión creciente; además, como $f_{n}(x)\to f(x)$ en $E$, se tiene que $E=\bigcup_{n\in\mathbb{N}} E_{n}^{m}$. Entonces, $(E\backslash E_{n}^{m})_{n\in\mathbb{N}}$ es una sucesión decreciente que tiende a vacío, es decir, $E\backslash E_{n}^{m}\to\emptyset$, para cada $m\in\mathbb{N}$. Como $E$ tiene medida finita, para cada $m$, existe $N_{m}$ tal que $m(E\backslash E_{n}^{m})<\frac{\epsilon}{2^{m}}$ para todo $n\geq N_{m}$. Sea $F_{\epsilon}=\bigcup_{m\in\mathbb{N}} E\backslash E_{N_{m}}^{m}$, entonces $m(F_{\epsilon})<\epsilon$. Se tiene que $f_{n}\to f$ en $E\backslash F_{\epsilon}=\left(\bigcap_{m\in\mathbb{N}} E_{N_{m}}^{m} \right) $. Sea $\xi>0$, tomemos $m\in\mathbb{N}$ tal que $\frac{1}{n}<\xi$, entonces para todo $k\geq N_{m}$ y para todo $x\in E\backslash F_{\epsilon}$ se tiene que $$|f_{k}(x)-f(x)<\xi.$$
+
+```
+
+Definamos ahora otro tipo de convergencia y su respectiva definición de sucesión de Cauchy en medida.
+
+```{definition}
+Sea $(f_{n})_{n\in\mathbb{N}}$ una sucesión de funciones $f_{n}:\mathbb{R}\longrightarrow\overline{R}$ medibles y finitas en c.t.p. Sea $f:\mathbb{R}\longrightarrow\overline{R}$ una función medible finita en c.t.p. Decimos que *$f_{n}$ converge a $f$ en medida* (y lo denotamos por $f_{n}\xrightarrow{m} f$) si para todo $\epsilon>0$ se tiene que $$\lim\limits_{n\to\infty} m\{x\in\mathbb{R}:|f_{n}(x)-f(x)|\geq\epsilon \}=0.$$
+
+```
+Otra forma de expresarlo es: $f_{n}\xrightarrow{m} f$ si y solo si
+$$\forall\epsilon>0\forall\xi>0\exists N\in\mathbb{N}(n\geq N \Rightarrow m\{x\in\mathbb{R}:|f_{n}(x)-f(x)|\geq\epsilon\}<\xi).$$
+
+```{definition}
+Una sucesión $(f_{n})_{n\in\mathbb{N}}$ de funciones $f_{n}:\mathbb{R}\longrightarrow\overline{R}$ medibles es *de Cauchy en medida* si y solo si para todo $\epsilon>0$ y todo $\xi>0$, existe $N\in\mathbb{N}$ tal que si $n,m>N$, entonces $m\{x\in\mathbb{R}:|f_{n}(x)-f_{m}(x)|\geq\epsilon\}<\xi.$
+
+```
+
+```{remark}
+La convergencia en casi todo punto no implica, en general, la convergencia en medida, salvo que la convergencia en c.t.p. esté dada en un conjunto de medida finita. El recíproco tampoco es cierto, es decir, la convergencia en medida no implica la convergencia en c.t.p.
+
+```
+
+```{example}
+La sucesión $\chi_{[n,\infty)}(x)$ converge puntualmente (por lo tanto, en casi todo punto) a la función $f=0$. Pero	$$m\{x\in\mathbb{R}:|f_{n}(x)-f(x)|\geq \epsilon \}=m[n,\infty)=\infty\mbox{, para cualquier } \epsilon<1$$ por lo tanto, la sucesión no converge en medida.
+
+Ahora, si consideramos la misma sucesión pero esta vez relativa a un conjunto de medida finita, esto es, $\chi_{[n,\infty)\cap A}(x)$, donde $A$ es un conjunto de medida finita, entonces se tiene que la sucesión converge en c.t.p de $A$ y converge en medida.
+
+Por otro lado, consideremos *la sucesión que camina*. Está definida como $$f_{2^{p}+q}(x)\left\lbrace \begin{array}{ll}
+	1&\mbox{ si } x\in\left( \frac{q}{2^{p}},\frac{q+1}{2^{p}}\right) \\
+	0&\mbox{ en otro caso }
+	\end{array}\right. \mbox{ para } p\in\mathbb{N}\mbox{ y } q=0,1,\cdots, 2^{p}-1.$$
+	Para ilustrar mejor, estas son las primeras cinco funciones de la sucesión:
+	$$f_{1}=\chi_{(0,1]},\; f_{2}=\chi_{\left( 0,\frac{1}{2}\right] },\; f_{3}=\chi_{\left( \frac{1}{2},1\right] },\; f_{4}=\chi_{\left( 0,\frac{1}{4}\right] },\; f_{5}=\chi_{\left( \frac{1}{4},\frac{1}{2}\right] } $$
+Es claro que $f_{n}\xrightarrow{m} 0$, ya que para todo $0<\epsilon<1$, $m(\{x\in\mathbb{R}:|f_{n}(x)|\geq\epsilon \})=\frac{1}{p}$ (con $n=2^{p}+q$). Pero $f_{n}$ no converge a $f=0$ en ningún punto de $[0,1]$.
+
+```
+
+## Espacios $L^{p}$
+
+## Espacios de Hilbert
