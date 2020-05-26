@@ -115,4 +115,248 @@ Siempre puede tomarse $n_{k+1}>n_{k}$. Así, la subsucesión $(f_{n_{k}})_{k}$ e
 
 ## Espacios $L^{p}$
 
+En esta sección estudiaremos un clase de espacios de funciones muy importantes, estas familias son los espacios $L^{p}$. Para esto vamos a denotar por $\mathfrak{M}$ al conjunto de funciones $f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ medibles Lebesgue, definidas en $\mathbb{R}$ y $\mathfrak{M}(A)$ al conjunto de funciones medibles Lebesgue definidas en un conjunto medible $A$, es decir, $f:A\longrightarrow\overline{\mathbb{R}}$ medibles Lebesgue.
+
+Sea $1\leq p<\infty$ un número real. Definimos el conjunto $L^{p}=\{f\in\mathfrak{M}: \int|f|^{p}<\infty \}$. Si $p=1$, $L^{1}$ es el conjunto de funciones integrables Lebesgue (en $\mathbb{R}$). Si $A\in\mathcal{M}$, $L^{p}(A)=\{f\in\mathfrak{M}: \int_{A}|f|^{p}<\infty \}$.
+
+```{proposition}
+$L^{p}$ es un espacio vectorial.
+
+```
+```{proof}
+Basta notar que $|f+g|^{p}\leq 2^{p}\max(|f|^{p},|g|^{p})\leq 2^{p}(|f|^{p}+|g|^{p})$. De las propiedades de la integral se obtiene el resultado.
+
+```
+
+Sea $f\in L^{p}$, definimos $\|f\|_{p}=\left(\int |f|^{p} \right)^{\frac{1}{p}}$. Si esta función resulta ser una norma, el espacio $L^{p}$ sería un espacio normado; pero no es cierto en general que $\|f\|_{p}=0 \Leftrightarrow f=0$. Lo que si se puede demostrar es que $\|f\|_{p}=0 \Leftrightarrow f=0$  c.s. 
+
+```{proposition}
+$\|f\|_{p}$ es una pseudo-norma en el espacio $L^{p}$, esto es:
+
+(i.) $\|f\|_{p}\geq 0$ para todo $f\in L^{p}$,
+
+(ii.) $\|f\|_{p}=0$ si y solo si $f=0$ casi siempre,
+
+(iii.) $\|kf\|_{p}=|k|\|f\|_{p}$ para todo $k\in\mathbb{R}$ y todo $f\in L^{p}$,
+
+(iv.) $\|f+g\|_{p}\leq \|f\|_{p}+\|g\|_{p}$ para todo $f, g\in L^{p}$ (Desigualdad de Minkowski).
+	
+
+```
+
+Las demostraciones de las primeras tres partes de esta proposición son sencillas. La desigualdad de Minkowski se demostrará como consecuencia de la Desigualdad de Hölder que demostraremos en lo que sigue.
+
+Primero veamos el siguiente lema que será útil para demostrar el teorema.
+
+```{lemma}
+Sean $a, b\geq 0$ números reales y $\frac{1}{p}+\frac{1}{q}=1$, con $p,q\in\mathbb{N}$ no núlos. Entonces $ab\leq\frac{a^{p}}{p}+\frac{b^{q}}{q}$. Además, si $b=a^{p-1}$, se tiene la igualdad.
+
+```
+```{proof}
+Sea $\phi(t)$ una función continua estrictamente creciente en $[0,\infty)$ que toma valor cero en cero, es decir,  $\phi(0)=0$. Sea $(a,b)$ un punto del plano ( con $a$ y $b$ como en las hipótesis). Entonces
+$$ab\leq\int_{0}^{a} \phi(t)dt+\int_{0}^{b} \phi^{-1}(s)ds$$
+y en el caso que $\phi(a)=b$ se tiene la igualdad, es decir,
+$$ab=\int_{0}^{a} \phi(t)dt+\int_{0}^{b} \phi^{-1}(s)ds.$$
+Tomando $\phi(t)=t^{p-1}$, entonces $\phi^{-1}(s)=s^{q-1}$, ya que $\frac{1}{p}+\frac{1}{q}=1$. Entonces 
+$$ab\leq\int_{0}^{a} t^{p-1}dt+\int_{0}^{b} s^{q-1}ds=\frac{a^{p}}{p}+\frac{b^{q}}{q},$$
+y en el caso que $b=a^{p-1}$ se tiene $$ab=\frac{a^{p}}{p}+\frac{b^{q}}{q}.$$
+
+```
+
+```{theorem, name="Desigualdad de Hölder"}
+Sean $1<p,q<\infty$ tales que $\frac{1}{p}+\frac{1}{q}=1$. Entonces, si $f\in L^{p}$ y $g\in L^{q}$, se tiene que $fg\in L^{1}$ y $$\int|fg|\leq \|f\|_{p}\|g\|_{q}.$$
+Además, $$\int|fg|=\|f\|_{p}+\|g\|_{q}\mbox{ si y solo si existen constantes } c,d\in\mathbb{R}\mbox{ tales que } c|f|^{p}=d|g|^{q}.$$
+
+```
+```{proof}
+Podemos suponer que $\|f\|_{p}>0$ y $\|g\|_{q}>0$, ya que en ese caso, $f=0$ c.s y $g=0$ c.s. de donde se obtiene el resultado fácilmente. Más aún, podemos suponer que $\|f\|_{p}=1$ y $\|g\|_{q}=1$, pues en otro caso, tomando $\hat{f}=\frac{f}{\|f\|_{p}}$ y $\hat{g}=\frac{g}{\|g\|_{q}}$, se obtiene el resultado.
+Sabemos, por el lema anterior, que $$|f(x)g(x)|\leq \frac{|f|^{p}}{p}+\frac{|g|^{q}}{q}.$$
+Integrando, obtenemos
+$$\int |f(x)g(x)|dx\leq \frac{1}{p}\|f\|_{p}^{p}+\frac{1}{q}\|g\|_{q}^{q}=\frac{1}{p}+\frac{1}{q}=1=\|f\|_{p}\|g\|_{q}.$$
+
+```
+
+```{remark}
+Si $p=q=2$, la desigualdad anterior es la llamada *desigualdad de Cauchy-Schwarz*, esta es 
+$$|u\cdot v|^{2}\leq (u\cdot u)(v\cdot v)$$
+donde $u\cdot v$ representa el producto escalar entre los vectores $u$ y $v$.
+Otra manera de representarla, suponiendo que los vectores $u=(a_{1},\cdots, a_{n})$ y $v=(b_{1},\cdots, b_{n})$ están en $\mathbb{R}^{n}$, es
+$$\sum_{k=1}^{n} |a_{k}b_{k}|\leq (\sum_{k=1}^{n} |a_{k}|^{2})^{\frac{1}{2}}(\sum_{k=1}^{n} |b_{k}|^{2})^{\frac{1}{2}}.$$
+
+```
+Dado un número real $p\geq 1$, decimos que $q\in\mathbb{R}$ es el *índice conjugado de $p$* si $\frac{1}{p}+\frac{1}{q}=1$. Estas son algunas propiedades de los índices conjugados que resultan muy útiles:
+
+```{proposition}
+Sean $p$ y $q$ índices conjugados. Entonces:
+
+(i.) $q=\frac{p}{p-1}$.
+
+(ii.) $\frac{1}{p-1}=q-1$.
+
+(iii.) $pq=p+q$.
+
+(iv.) $(p-1)q=p$.
+
+```
+La demostración es sencilla, solo requiere de manipulación algebraica de la igualdad $\frac{1}{p}+\frac{1}{q}=1$.
+
+Ahora podemos demostrar la desigualdad de Minkowski.
+
+```{theorem, name="Desigualdad de Minkowski"}
+Si $f,g\in L^{p}$ (con $p\geq 1$) entonces $\|f+g\|_{p}\leq \|f\|_{p}+\|g\|_{p}.$
+
+```
+```{proof}
+Si $p=1$, de la desigualdad triangular se sigue que $\int |f+g|\leq \int |f| +\int |g|$.
+Supongamos que $p>1$. Entonces
+$$\|f+g\|_{p}^{p}=\int |f+g|^{p}=\int |f+g||f+g|^{p-1}\leq \int |f||f+g|^{p-1}\int |g||f+g|^{p-1}$$
+Sea $q\in\mathbb{R}$ tal que $\frac{1}{p}+\frac{1}{q}=1$. Como $p=q(p-1)$, se tiene que 
+$$\int (|f+g|^{p-1})^{q}=\int |f+g|^{p}<\infty.$$
+Luego, se tiene que si $f+g\in L^{p}$, entonces $|f+g|^{p-1}\in L^{q}$. Por la desigualdad de Hölder, se tiene que 
+$$\|f+g\|^{p}_{p}\leq (\|f\|_{p}+\|g\|_{p})\|(f+g)^{p-1}\|_{q}.$$
+Como se tiene que 
+$$	\begin{array}{rl}
+	\|(f+g)^{p-1}\|_{q}=&(\int ((f+g)^{p-1})^{q})^{\frac{1}{q}} \mbox{ y } (p-1)q=p\\
+	=&(\int (f+g)^{p})^{\frac{1}{q}}\\
+	=&\|f+g\|_{p}^{\frac{p}{q}} \mbox{ pero } \frac{p}{q}=p-1\\
+	=&\|f+g\|_{p}^{p-1}
+\end{array}.$$
+Por lo tanto, 
+$$	\begin{array}{ll}
+	\|(f+g)\|_{p}^{p}&\leq(\|f\|_{p}+\|g\|_{p})\|f+g\|_{p}^{p-1}\Leftrightarrow\\
+	\dfrac{\|(f+g)\|_{p}^{p}}{\|(f+g)\|_{p}^{p-1}}&\leq\|f\|_{p}+\|g\|_{p}\Leftrightarrow\\
+	\|(f+g)\|_{p}&\leq \|f\|_{p}+\|g\|_{p}
+\end{array}.$$
+
+```
+
+```{definition}
+Sea $(f_{n})_{n}$ una sucesión de funciones en $L^{p}$. Decimos que $(f_{n})_{n}$ *converge en norma $p$* a una función $f\in L^{p}$ si y solo si $\|f_{n}-f\|\xrightarrow[n\to\infty]{}0$. Es decir $\int |f_{n}-f|^{p}\xrightarrow[n\to\infty]{}0$. Lo que se denota $f_{n}\xrightarrow[\|\,\|_{p}]{} f$.
+
+```
+
+Hasta ahora, hemos demostrado que $L^{p}$ es un espacio vectorial y que la función $\|\cdot\|_{p}$ es una pseudonorma. Para ser una norma, le faltaría la propiedad: 
+$$f=0\Leftrightarrow \|f\|_{p}=0$$
+en cambio se tiene que 
+$$f=0\Leftrightarrow \|f\|_{p}=0\mbox{ c.s.}$$
+
+Si definimos la siguiente relación de equivalencia en $L^{p}$:
+$$f\sim g\Leftrightarrow f=g$$ c.s.
+y definimos las operaciones de suma y multiplicación por un escalar inducidas, en el espacio cociente $L^{p}/_{\sim}$,
+$$\widetilde{f}+\widetilde{g}=\widetilde{f+g}\mbox{ y } k\widetilde{f}=\widetilde{kf}\mbox{ para cualquier } k\in\mathbb{R}$$
+entonces $\|\cdot \|_{p}$ sería una norma en el espacio vectorial $\mathcal{L}_{p}=L_{p}/_{\sim}$. Además, la convergencia en norma $p$ es exactamente la convergencia a la métrica asociada a la norma $p$.
+
+```{example, label="ejemplo522"}
+Considere la sucesión $f_{n}=n\chi_{(0,\frac{1}{n})}$. Se tiene que para todo $\epsilon>0$, $m(\{x\in\mathbb{R}:|f_{n}(x)|\geq\epsilon \})=\frac{1}{n}\xrightarrow[n\to\infty]{}0$ pero $\int|f|^{p}=n^{p-1}\xrightarrow[n\to\infty]{}\infty$, por lo tanto $f_{n}$ no converge a $0$ en norma $p$.
+
+```
+
+```{remark}
+La relación entre los tipos de convergencia:
+
+(		\item[1.])1. La convergencia en c.t.p no implica, en general, la convergencia en norma $p$. Un ejemplo es la sucesión $f_{n}=\frac{1}{n}$, que converge uniformemente a $0$, por lo tanto en c.t.p. pero no converge en norma $p$.
+
+(2.) El recíproco tampoco es cierto, un ejemplo es *la sucesión que camina*.
+
+(3.) La convergencia en medida no implica la convergencia en norma $p$ (ver ejemplo anterior \@ref(exm:exemplo522).
+
+(4.) Como consecuencia de la desigualdad de Chebychov, se tiene que la convergencia en norma $p$, implica la convergencia en medida.
+
+```
+	
+Note que la desigualdad de Chebychov  se traduciría en $L^{p}$, como sigue:
+	$$m\{x\in\mathbb{R}: |f(x)|\geq\epsilon \}\leq\frac{1}{\epsilon^{p}}\|f\|_{p}^{p}\mbox{ para } f\in\L^{p}\mbox{ y }\epsilon>0.$$
+El siguiente teorema es una generalización del teorema de convergencia dominada y es consecuencia de la desigualdad de Chevychov.
+
+```{theorem}
+Sea $p\geq 1$ y sea $(f_{n})_{n}$ una sucesión de funciones medibles Lebesgue tal que existe una función $h$ tal que $|f_{n}|^{p}\leq h$ c.s. Si se cumplen alguna de las siguientes:
+
+
+(1.) si existe una función $f$ tal que $f_{n}\to f$ c.s. o
+
+(2.) si existe una función $f$ tal que $f_{n}\xrightarrow[]{m} f$.
+
+```
+
+Entonces, $f_{n}\xrightarrow[\|\,\|_{p}]{} f$. Además $\liminf_{n\to\infty} |f_{n}-f|^{p}=0$.
+
+```
+
+Otra consecuencia de la desigualdad de Chebychov es que si una *sucesión es de Cauchy en norma $p$*, esto es que para todo $\epsilon>0$ existe $N_{\epsilon}\in\mathbb{N}$ tal que $n,m>N_{\epsilon}\Leftrightarrow \|f_{n}-f_{m}\|<\epsilon$. Entonces es de Cauchy en medida. 
+
+Ahora veamos que el espacio $L^{p}$ es completo, es decir, que toda sucesión de Cauchy converge a un vector del espacio.
+
+```{theorem, name="Riesz-Fischer"}
+Sea $1\leq p<\infty$. Si $(f_{n})_{n\geq 1}$ es de Cauchy en $L^{p}$, entonces existe $f$ en $L^{p}$ tal que $\|f_{n}-f\|_{p}\xrightarrow[n\to\infty]{}0$.
+
+```
+```{proof}
+Como $(f_{n})_{n}$ es una sucesión de Cauchy en $L^{p}$, entonces es de Cauchy en medida. Por lo tanto existe una función medible Lebesgue $f$ tal que $f_{n}\xrightarrow{m} f$. Luego, existe una subsucesión $(f_{n_{k}})_{k}$ que converge a $f$ c.s. lo que implica, por el lema de Fatou, que 
+	$$\int |f|^{p}|=\int \lim_{k\to\infty} |f_{n_{k}}|^{p}\leq \liminf_{k\to\infty} \int| f_{n_{k}}|^{p}=\liminf_{k\to\infty} \| f_{n_{k}}\|^{p}_{p}<\infty$$
+	por lo que $f\in L^{p}$. Ahora bien, como la sucesión $(f_{n})_{n}$ es de Cauchy en $L^{p}$, dado $\epsilon>0$, para $n$ y $n_{k}$ suficientemente grandes, se tiene que 
+	$$\int |f_{n}-f|^{p}=\int \lim_{k\to\infty} |f_{n}-f_{n_{k}}|^{p}\leq \liminf_{k\to\infty}\int |f_{n}-f_{n_{k}}|^{p}<\epsilon$$
+	por lo que $\|f_{n}-f\|_{p}\xrightarrow[n\to\infty]{}0$.
+
+```
+
+Recuerde que un *espacio de Banach* es un espacio métrico completo. Ya demostramos que $\mathcal{L}^{p}$ es un espacio vectorial normado, considerando la métrica inducida por la norma $p$, $\mathcal{L}^{p}$ es un espacio métrico. Y por el resultado anterior, se tiene que es un espacio completo.
+
+```{corollary}
+$\mathcal{L}^{p}$ es un espacio de Banach.
+
+```
+
+## Espacios $L^{\infty}$
+
+```{definition}
+Diremos que una función $f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ es *esencialmente acotada* si existe $a\in\mathbb{R}$, $0<a$ tal que $m\{x\in\mathbb{R}: |f(x)|>a \}=0$. En este caso, decimos que $a$ es *una cota esencial de $f$*. Y definimos el *supremo esencial de $f$*, denotado por $sup.es.|f|$ como el ínfimo del conjunto de cotas esenciales, es decir, 
+	$$sup.es.|f|=\inf\{a\in\mathbb{R}:m\{x\in\mathbb{R}: |f(x)|>a \}=0\}.$$
+
+```
+
+```{remark}
+Note que $sup.es.|f|$ es una cota esencial de $f$. Además, si $C=sup.es.|f|$, entonces $m\{x\in\mathbb{R}:|f(x)|>C \}=0$ por lo que $|f(x)|<C$ en c.s.
+
+```
+
+Denotaremos $L^{\infty}$ al espacio de funciones esencialmente acotadas (es fácil demostrar que el conjunto de las funciones esencialmente acotadas, es un espacio vectorial) y definimos *la norma infinito* en este espacio como $$\|f\|_{\infty}=sup.es.|f| \mbox{para toda función} f\in L^{\infty}.$$ 
+Al igual que la norma $p$, la norma infinito no es una norma en $L^{\infty}$ pero si en el espacio cociente $\mathcal{L}^{\infty}=L^{\infty}/_{\sim}$, con la relación de equivalencia 
+$$f\sim g \Leftrightarrow f=g \mbox{ c.s.}$$
+
+Es decir, si $f,g\in L^{\infty}$, entonces:
+
+(1.) $\|f\|_{\infty}\geq 0$,
+
+(2.) $\|f\|_{\infty}=0$ si y solo si $f=0$ c.s.,
+
+(3.) $\|kf\|_{\infty}=k\|f\|_{\infty}$ para todo $k\in\mathbb{R}$ y
+
+(4.) $\|f+g\|_{\infty}\leq \|f\|_{\infty}+\|g\|_{\infty}$.
+
+Dada $g\in L^{\infty}$, entonces para toda  $f\in L^{1}$, se tiene que $|fg|$ es integrable. En efecto, sea $C=sup.es.|g|$, entonces
+$$\int |fg|=\int |f||g|\leq C\int |f|.$$
+
+Esto es la demostración de la siguiente
+
+```{proposition}
+Si $f\in L^{1}$, $g\in L^{\infty}$; entonces $|fg|\in L^{1}$ y $$\int |fg|=\|f\|_{1}\|g\|_{\infty}.$$
+
+```
+
+La noción de convergencia en $L^{\infty}$ es la natural. Una sucesión $(f_{n})_{n}\subseteq L^{\infty}$ *converge a $f\in L^{\infty}$ en norma infinito* si y solo si 
+$$\|f_{n}-f\|_{\infty}\xrightarrow[n\to\infty]{}0.$$
+
+Se puede demostar que $$\|f_{n}-f\|_{\infty}\xrightarrow[n\to\infty]{}0\Leftrightarrow f_{n}\xrightarrow[n\to\infty]{}f \mbox{c.s.}$$ por lo tanto, $\mathcal{L}^{\infty}$ es un espacio de Banach.
+
+```{remark}
+Para culminar esta sección, haremos las siguientes precisiones:
+
+(1.) Si $m(A)<\infty$, $L^{p}(A)\supseteq L^{q}(A)$ siempre que $p<q$.
+
+(2.) No ocurre en general que $L^{\infty}=\bigcap_{p=1}^{\infty} L^{p}$. La función $f(x)=|\log(x)|\chi_{(0,1]}(x)$ en $L^{p}$, para todo $1\leq p<\infty$ pero no esencialmente acotada, por lo tanto $f\notin L^{\infty}$.
+
+```
+
+
+
 ## Espacios de Hilbert
