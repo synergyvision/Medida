@@ -1,4 +1,4 @@
-# IntegraciÓn en $\mathbb{R}^{n}$
+# INTEGRACIÓN EN $\mathbb{R}^{n}$
 
 ## Espacio Producto
 

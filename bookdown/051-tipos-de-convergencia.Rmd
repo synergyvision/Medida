@@ -1,6 +1,6 @@
-# Convergencia
+# CONVERGENCIA
 
-Ya conocemos la convergencia puntual y la convergencia uniforme de sucesiones de funciones, pero se pueden definir otros tipos de convergencia. En este capítulo estuadiaremos los distintos tipos de convergencia, así como la relación entre ellas. Definiremos espacios $L^{p}$ y estudiaremos la convergencia es ellos. Finalmente estudiaremos someramente los espacios de Hilbert.
+Ya conocemos la convergencia puntual y la convergencia uniforme de sucesiones de funciones, pero se pueden definir otros tipos de convergencia. En este capítulo estuadiaremos los distintos tipos de convergencia, así como la relación entre ellas. Definiremos espacios $L^{p}$ y estudiaremos la convergencia en ellos. Finalmente estudiaremos someramente los espacios de Hilbert.
 
 ## Tipos de convergencia
 
@@ -9,7 +9,7 @@ Recordaremos las definiciones ya conocidas de convergencia puntual y uniforme y 
 ```{definition}
 Sea $\{f_{n}\}_{n}$ una sucesión de funciones $f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}$ medibles Lebesgue. Sea $E\in\mathcal{M}$. 
 
-(1.) Decimos que $\{f_{n}\}_{n}$ *converge puntualmente a una función $f$ en $E$, si y solo si para todo $x\in E$, $\lim\limits_{n\to\infty} f_{n}(x)=f(x)$. Es decir $\forall x\in E\forall\epsilon>0\exists N\in\mathbb{N}[n>N\Rightarrow |f_{n}(x)-f(x)|<\epsilon]$. Se suele escribir $f_{n}\to f$ puntualmente.
+(1.) Decimos que $\{f_{n}\}_{n}$ *converge puntualmente a una función $f$* en $E$, si y solo si para todo $x\in E$, $\lim\limits_{n\to\infty} f_{n}(x)=f(x)$. Es decir $\forall x\in E\forall\epsilon>0\exists N\in\mathbb{N}[n>N\Rightarrow |f_{n}(x)-f(x)|<\epsilon]$. Se suele escribir $f_{n}\to f$ puntualmente.
 
 (2.) Decimos que $\{f_{n}\}_{n}$ *converge uniformemente* a una función $f$ en $E$, si y solo si para todo $\epsilon>0$, existe $N\in\mathbb{N}$ tal que para todo $x\in E$,   si $n>N$ entonces $|f_{n}(x)-f(x)|<\epsilon$. Es decir $\forall\epsilon>0\exists N\in\mathbb{N}[\forall x\in E(n>N\Rightarrow |f_{n}(x)-f(x)|<\epsilon)]$. Se escribe $f_{n}\to f$ uniformemente.
 
@@ -20,10 +20,10 @@ Sea $\{f_{n}\}_{n}$ una sucesión de funciones $f_{n}:\mathbb{R}\longrightarrow\
 ```
 
 ```{example}
-La sucesión de las funciones $f_{n}(x)=x^{n}\chi_{[0,1]}$ converge puntualmente a la función $f(x)=\left\lbrace\begin{array}{ll}
+La sucesión de las funciones $f_{n}(x)=x^{n}\chi_{[0,1]}$ converge puntualmente a la función $$f(x)=\left\lbrace\begin{array}{ll}
 	0&\mbox{ si } 0\leq x<1\\
 	1&\mbox{ si } x=1
-\end{array} \right. $ en el intervalo $[0,1]$. Por lo tanto, converge en casi todo punto de $[0,1]$. Pero no converge uniformemente en $[0,1]$. Tampoco se puede decir que converge uniformemente en casi todo punto de $[0,1]$ aunque el conjunto donde falla la convergencia se puede hacer tan pequeño como se quiera.
+\end{array}\right.$$ en el intervalo $[0,1]$. Por lo tanto, converge en casi todo punto de $[0,1]$. Pero no converge uniformemente en $[0,1]$. Tampoco se puede decir que converge uniformemente en casi todo punto de $[0,1]$ aunque el conjunto donde falla la convergencia se puede hacer tan pequeño como se quiera.
 
 ```
 
@@ -276,8 +276,6 @@ Sea $p\geq 1$ y sea $(f_{n})_{n}$ una sucesión de funciones medibles Lebesgue t
 
 (2.) si existe una función $f$ tal que $f_{n}\xrightarrow[]{m} f$.
 
-```
-
 Entonces, $f_{n}\xrightarrow[\|\,\|_{p}]{} f$. Además $\liminf_{n\to\infty} |f_{n}-f|^{p}=0$.
 
 ```
@@ -357,6 +355,305 @@ Para culminar esta sección, haremos las siguientes precisiones:
 
 ```
 
-
-
 ## Espacios de Hilbert
+
+Le dedicaremos unas lineas al espacio $L^{2}$ por tener unas características especiales que lo diferencian de los espacios $L^{p}$ cuando $p\neq 2$. Este espacio es un tipo de espacio especial llamado Espacio de Hilbert, que se diferencia de los espacios de Banach.
+
+Comencemos recordando que es un producto interno.
+
+```{definition}
+Sea $X$ un espacio vectorial (sobre $\mathbb{R}$). Un *producto interno* en $X$ es una función $(\cdot,\cdot):X\times X\longrightarrow\mathbb{R}$ que cumple:
+
+(i.) $(x,y)=(y,x)$ para todo $x,y\in X$,
+
+(ii.) $(k_{1}x_{1}+k_{2}x_{2},y)=k_{1}(x_{1},y)+k_{2}(x_{2},y)$ para todo $k_{1}, k_{2}\in\mathbb{R}$ y $x_{1}, x_{2}, y\in X$ y
+
+(iii.) $(x,x)\geq 0$ para todo $x\in X$ y $(x,x)=0$ si y solo si $x=0$.
+
+```
+
+```{example, \label="ejemplo532"}
+La función $(f,g)\mapsto \int_{a}^{b}f(t)g(t)dt$ es un producto interno en $\mathcal{L}^{2}$.
+
+```
+
+Siempre que se tiene un producto interno definido en un espacio vectorial, se puede definir una norma a partir del producto interno:
+$$\|x\|=\sqrt{(x,x)}.$$
+
+```{definition}
+Dado un espacio vectorial $X$ con producto interno, decimos que $X$ es un *espacio de Hilbert* si $X$ es completo respecto a la norma inducida por el producto interno.
+
+```
+
+```{example}
+$\mathbb{R}^{n}$ es un espacio de Hilbert con el producto interno $$(x,y)=\sum_{i=1}^{n} x_{i}y_{i}$$
+donde $x=(x_{1},\cdots,x_{n})$ y $y=(y_{1},\cdots,y_{n})$.
+
+```
+
+```{example}
+$\mathcal{L}^{2}$ es un espacio de Hilbert, con el producto interno definido en el ejemplo \@ref{exm:ejemplo532}.
+
+```
+
+```{example}
+Sea $l^{2}$ el conjunto de sucesiones de numeros reales de cuadrados convergentes, es decir, $\sum_{i\in\mathbb{N}} |x_{i}|^{2}<\infty$. La función $(x,y)=\sum_{i=1}^{n}x_{i}y_{i}$, con $x=(x_{n})_{n},  y=(y_{n})_{n}\in l^{2}$ es un producto interno. Se puede demostrar que $l^{2}$ junto a esta función es un espacio de Hilbert. 
+
+```
+
+```{proposition}
+Sea $X$ un espacio con producto interno. Dados $x,y\in X$, se cumple que $$|(x,y)|^{2}\leq (x,x)(y,y)$$
+
+```
+```{proof}
+Por definición de producto interno,
+$$(x+\lambda y, x+ \lambda y)\geq 0$$
+para cualquier escalar $\lambda\in\mathbb{R}$, en particular para $\lambda=-\frac{(x,y)}{y,y}$
+Desarrollando en producto interno y usando la linealidad, se tiene que
+$$\begin{array}{ll}
+	0&\leq(x+\lambda y, x+\lambda y)\\
+	&=(x,x)+2\lambda(x,y)+\lambda^{2}(y,y)\\
+	&=(x,x)-2\frac{(x,y)^{2}}{(y,y)}+\frac{(x,y)^{2}}{(y,y)^{2}}(y,y)
+\end{array}$$
+de donde se sigue el resultado.
+
+```
+
+Note que si $\mathcal{H}$ es un espacio de Hilbert, se cumplen las siguientes propiedades, que son una generalización de propiedades conocidas de $\mathbb{R}^{n}$:
+
+(1.) **Ley del paralelogramo**: Si $x,y\in \mathcal{H}$, entonces $$\|x+y\|^{2}+\|x-y\|^{2}=2(\|x\|^{2}+\|y\|^{2}).$$
+
+(2.) **Ley de los cosenos**: Dados $x,y\in \mathcal{H}$, definimos el ángulo entre $x$ e $y$, $\theta$, de la igualdad siguiente
+$$\cos\theta=\frac{(x,y)}{\|x\|\|y\|}.$$
+Luego, se tiene la propiedad:
+$$\|x+y\|^{2}=\|x\|^{2}-2\|x\|\|y\|\cos\theta+\|y\|^{2}.$$
+
+(3.) **Teorema de Pitágoras**: se dice que $x, y\in \mathcal{H}$ son *ortogonales* si $(x,y)=0$. Luego se sigue la propiedad:
+$$\|x+y\|^{2}=\|x\|^{2}-2\|x\|\|y\|\cos\theta+\|y\|^{2}.$$
+Más aún, sean $x_{1}, \cdots, x_{k}\in \mathcal{H}$, si $(x_{i},x_{j})=0$ siempre que $i\neq j$, entonces 
+$$\left\|  \sum_{i=1}^{k}x_{i}\right\|  =\sum_{i=1}^{k}\|x_{i}\|.$$
+
+
+También se pueden generalizar conceptos de base y de base ortogonal.
+
+```{definition}
+Sea $\mathcal{H}$ un espacio de Hilbert. Un conjunto $E\subseteq \mathcal{H}$ es *linealmente independiente* si todos sus subconjuntos finitos lo son.
+
+```
+
+```{definition}
+Sea $C\subseteq \mathcal{H}$ se llama *sistema ortogonal* si $(x,y)=0$ para todo $x,y\in A$. Si además se cumple que $\|x\|=1$ para todo $x\in C$, se dice que el sistema $C$ es *ortonormal*.
+
+```
+
+Es obvio que todo sistema ortogonal es linealmente independiente.
+
+```{definition}
+Dado un conjunto $C\subseteq\mathcal{H}$, el conjunto de todas las *combinaciones lineales finitas* de $C$ lo denotamos por  $$S(C)=\left\lbrace \sum_{i=1}^{n} c_{i}x_{i}: n\in\mathbb{N}, c_{i}\in\mathbb{R}\mbox{ y } x_{i}\in C \right\rbrace .$$
+Decimos que $C$ es un *sistema completo* si $S(C)$ es denso en $\mathcal{H}$.
+
+```
+
+El proceso de ortogonalización de Gram-Schmidt consiste en construír, a partir de una familia linealmente independiente de un espacio vectorial con producto interno, un sistema ortogonal, que además generan los mismos subespacios. Recordemos esto a detalle.
+
+Sea $X$ un espacio vectorial con producto interno $(\cdot,\cdot)$. Sea $\{x_{1},x_{2},\cdots \}$ un conjunto linealmente independiente. Hallaremos $\{\phi_{1},\phi_{2},\cdots \}$ un sistema ortogonal con la propiedad siguiente: $\phi_{n}$ es combinación lineal de $x_{1},\cdots, x_{n}$ y $\left\langle x_{1},\cdots, x_{n}\right\rangle =\left\langle  \phi_{1},\cdots,\phi_{n}\right\rangle $, es decir, el subespacio generado por $\{x_{1},\cdots, x_{n}\}$ coincide con el subespacio generado por $\{\phi_{1},\cdots,\phi_{n}\}$.
+El sistema ortogonal es construído así
+$\phi_{1}=x_{1}$ y para $n>1$ se pone $\phi_{n}=x_{n}+\sum_{k=1}^{n-1}\frac{(x_{n},\phi_{k})}{\|\phi_{k}\|^{2}}\phi_{k}.$
+
+```{example}
+Definamos las siguientes funciones en $L^{2}[0,1]$, para cada $n\in\mathbb{N}$
+$$R_{n}(t)=(-1)^{k} \mbox{ si } t\in\frac{k}{2^{n}},\frac{k+1}{2^{n}} k=0,\cdots,2^{n}-1$$
+	A $R_{n}$ se le llama la $n$-ésima *función de Rademacher*. Las funciones de Rademacher forman un sistema ortonormal en $L^{2}[0,1]$.
+
+```
+
+```{theorem}
+Sea $\mathcal{H}$ un espacio de Hilbert. Si $\mathcal{H}$ es separable, es decir, contiene un subconjunto denso numerable; entonces todo sistema ortogonal en $\mathcal{H}$ es numerable.
+
+```
+
+```{theorem}
+Sea $\mathcal{H}$ un espacio de Hilbert separable. Entonces $\mathcal{H}$ posee un sistema ortonormal completo.
+
+```
+```{proof}
+Sea $(x_{n})_{n}$ un subconjunto denso numerable de $\mathcal{H}$. Consideremos el subconjunto $(y_{n})_{n}\subseteq (x_{n})_{n}$ linealmente independiente maximal. Es claro que $(y_{n})_{n}$ es un sistema completo. Aplicando el proceso de ortogonalización de Gram-Schmidt y normalizando, se obtiene en sistema ortonormal completo.
+
+```
+
+```{example}
+La familia $1, \cos x, \sen x,\cdots, \cos nx, \sen nx,\cdots$ es un sistema ortogonal completo. Y $\frac{1}{\sqrt{2\pi}},\frac{1}{\sqrt{\pi}}\cos x,\frac{1}{\sqrt{\pi}}\sen x, \cdots,\frac{1}{\sqrt{\pi}}\cos nx,\frac{1}{\sqrt{\pi}}\sen nx, \cdots$ es un sistema ortonormal completo.
+
+```
+
+```{example}
+Los **polinomios de Legendre** $P_{n}(x)=\frac{1}{2^{n}n!}\frac{d^{n}}{dx^{n}}[(x^{2}-1)^{n}]$ con $n=0,1,2,\cdots$ son ortogonales en $L^{2}[-1,1]$. La familia $\sqrt{\frac{1}{2}(2n+1)}P_{n}(x)$ es una familia ortonormal.
+
+```
+
+```{definition}
+Sea $\mathcal{H}$ un espacio de Hilbert separable y sea $(\phi_{n})_{n\in\mathbb{N}}$ un sistema ortonormal en $\mathcal{H}$. Sea $x\in\mathcal{H}$, los *coeficientes de Fourier* de $x$ respecto del sistema $(\phi_{n})_{n\in\mathbb{N}}$ se definen como sigue:
+	$$\widehat{x}_{n}=(x,\phi_{n})$$
+a cada $x_{n}$ se le llama el *$n$-ésimo coeficiente de Fourier* de $x$.
+
+```
+
+En $\mathbb{R}^{n}$, la distancia de un punto a un plano es la longitud del segmento de recta perpendicular del punto al plano. Esta noción se puede generalizar en los espacios de Hilbert, como sigue.
+
+```{proposition}
+Sea $(\phi_{n})_{n}$ un sistema ortonormal en $H$. Sean $x\in H$ y $\lambda_{1},\cdots, \lambda_{2}$ números reales cualesquiera. Entonces se tiene que 
+$$\left\|x-\sum_{i=1}^{n}\widehat{x_{i}}\phi_{i} \right\|\leq \left\|x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right\|.$$
+
+```
+```{proof}
+$$\begin{array}{ll}
+	\left\|x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right\|^{2}&=\left(x-\sum_{i=1}^{n}\lambda_{i}\phi_{i},x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right)\\
+	&=\|x\|^{2}-2\sum_{i=1}^{n}(x,\lambda_{i}\phi_{i})+\sum_{i=1}^{n}\sum_{j=1}^{n} (\lambda_{i}\phi_{i},\lambda_{j}\phi_{j})\\
+	&=\|x\|^{2}-2\sum_{i=1}^{n}\lambda_{i}\hat{x_{i}}+\sum_{i=1}^{n} \lambda_{i}^{2}.
+	\end{array}$$
+	Es decir,
+	$$\left\|x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right\|^{2}=\|x\|^{2}-\sum_{i=1}^{n} \widehat{x_{i}}^{2}+\sum_{i=1}^{n} (\lambda_{i}-\widehat{x_{i}})^{2},$$
+por lo tanto, $\left\|x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right\|^{2}$ toma su valor mínimo cuando $\sum_{i=1}^{n} (\lambda_{i}-\widehat{x_{i}})^{2}=0$
+esto es cuando $\lambda_{i}=\widehat{x_{i}}$ para todo $i$.
+
+```
+
+Esta proposición nos dice que la mejor aproximación en norma a $x$ es la combinación lineal $\sum_{i=1}^{n} \widehat{x_{i}}\phi_{i}$, es decir, con los coeficientes de Fourier.
+
+```{proposition, name="Desigualdad de Bessel"}
+Sean $\mathcal{H}$ un espacio de Hilbert separable y $(\phi_{n})_{n}$ un sistema ortonormal en $\mathcal{H}$. Dado $x\in\mathcal{H}$, se tiene que 
+$$\sum_{k\in\mathbb{N}} (\widehat{x_{k}})^{2}\leq \|x\|^{2}.$$
+
+```
+```{proof}
+Tal como en la prueba de la proposición anterior, se tiene que 
+$$\left\|x-\sum_{k=1}^{N}\widehat{x_{k}}\phi_{k} \right\|^{2}=\|x\|^{2}-\sum_{k=1}^{N} \widehat{x_{k}}^{2}\mbox{ para todo } N$$
+de donde se sigue el resultado.
+
+```
+
+Veamos una carcaterización de un sistema ortogonal completo.
+
+```{theorem}
+Sea $\mathcal{H}$ un espacio de Hilbert y $(\phi_{n})_{n}$ un sistema ortonormal en $\mathcal{H}$. Las siguientes condiciones son equivalentes:
+
+(i.) $(\phi_{n})$ es un sistema completo.
+
+(ii.) Para todo $x\in\mathcal{H}$, las sumas parciales $\sum_{i=1}^{N} \widehat{x_{i}}\phi_{i}$ convergen a $x$ en norma, es decir,
+		$$x=\sum_{i\in\mathbb{N}} (x,\phi_{i})\phi_{i}.$$
+		
+(iii.) Se tiene que $$\sum_{i\in\mathbb{N}} |(x,\phi_{i})|^{2}=\|x\|^{2} \mbox{ (Igualdad de Parseval)}.$$
+
+
+```
+```{proof}
+Es claro que $ii$ implica $i$. Ahora, supongamos que $(\phi_{n})$ es un sistema completo. Sea $x\in\mathcal{H}$. Dado $\epsilon>0$, existen $N\in\mathbb{N}$ y $c_{1}, \cdots, c_{N}$ tales que $\sum_{i=1}^{N} c_{i}\phi_{i}$ tal que 
+$$\left\|x-\sum_{i=1}^{N} c_{i}\phi_{i} \right\| <\epsilon,$$
+si $\sum_{i=1}^{N} (x,\phi_{i})\phi_{i}$ es la correspondiente suma parcial de Fourier de $x$, entonces
+$$\left\| \sum_{i=1}^{N} (x,\phi_{i})\phi_{i} -x\right\| \leq \left\| x--\sum_{i=1}^{N} c_{i}\phi_{i} \right\|$$
+de donde se obtiene $ii.$
+Ahora, veamos que $ii$ es equivalente a $iii$; sea $S_{n}=\sum_{i=1}^{n} (x,\phi_{i})\phi_{i}$, entonces
+$$\|S_{n}-x\|^{2}=\|x\|^{2}-\sum_{i=1}^{n} |(x,\phi_{i})|^{2}$$
+esto es 
+$$\|S_{n}-x\|^{2}\xrightarrow[n\to\infty]{} 0 \Leftrightarrow \sum_{i=1}^{n}|(x,\phi_{i})|^{2}\xrightarrow[n\to\infty]{}\|x\|^{2}.$$
+
+```
+
+```{remark}
+La serie $\sum_{i\in\mathbb{N}} (x,\phi_{i})\phi_{i}$ es llamada la serie de Fourier de $x$ respecto del sistema $(\phi_{n})_{n}$.
+Se puede demostrar que las afirmaciones del teorema también son equivalentes a las siguientes dos proposiciones:
+
+(iv.) Si $x,y\in\mathcal{H}$, entonces $(x,y)=\sum_{n} (x,\phi_{n})(y,\phi_{n})$.
+
+(v.) Si $x\in\mathcal{H}$ es ortogonal a $\phi_{n}$ para todo $n$, entonces $x=0$.
+
+
+Las condiciones $i$ y $v$ generalizan la noción de bases ortonormales de espacios de dimensión finita a espacios de Hilbert, razón por la cual se llaman *bases ortonormales* a los sistemas ortonormales completos.
+
+```
+
+Para que una colección $(\beta_{n})_{n}$ de números reales sean los coeficientes de Fourier de un vector $x$ de un espacio de Hilbert $\mathcal{H}$, es necesario por la desigualdad de Bessel, que $\sum_{n\in\mathbb{N}} \beta^{2}<\infty$. El siguiente teorema nos indica que también es una condición suficiente. Por lo que existe una correspondecia biunívoca entre las sucesiones cuya serie de cuadrados es convergente y las bases ortonormales de un espacio de Hilbert.
+
+```{theorem, name="Riesz-Fischer"}
+Sea $(\phi_{n})_{n\in\mathbb{N}}$ un sistema ortonormal en un espacio de Hilbert $\mathcal{H}$. Sea $(\beta_{n})_{n\in\mathbb{N}}$ una sucesión de números reales, tal que $\sum_{n\in\mathbb{N}} \beta^{2}<\infty$. Entonces existe $x\in\mathcal{H}$ cuyos coeficientes de Fourier son $\beta_{n}=(x,\phi_{n})$ y además las sumas parciales $\sum_{i=1}^{n}\beta_{i}\phi_{i}$ convergen a $x$ en norma.
+
+```
+```{proof}
+Sea $S_{n}=\sum_{i=1}^{n}\beta_{i}\phi_{i}$, entonces $\|S_{n+p}-S_{n}\|^{2}=\sum_{i=n+1}^{n+p}\beta_{i}^{2}$, por lo tanto $(S_{n})_{n\in\mathbb{N}}$ es de Cauchy en norma.	Como $\mathcal{H}$ es completo, existe $x\in\mathcal{H}$ tal que $S_{n}\xrightarrow[\|.\|]{} x$. Ahora bien, 
+	$$(x_{i},\phi_{i})=(S_{n},\phi_{i})+(x-S_{n},\phi_{i})=\beta_{i}+(x-S_{n},\phi_{i})\mbox{ si } n\geq i.$$
+Como
+$$|(x-S_{n},\phi_{i})\leq \|x-S_{n}\|\|\phi_{i}\|=\|x-S_{n}\|\xrightarrow[n\to\infty]{}0,$$
+entonces
+$$(x_{i},\phi_{i})=\beta_{i}+\lim\limits_{n\to\infty} (x-S_{n},\phi_{i})=\beta_{i}\mbox{ para todo } i.$$
+
+```
+
+```{corollary}
+Todo espacio de Hilbert $n$-dimensional es isomorfo a $\mathbb{R}^{n}$. Todo espacio de Hilbert separable, infinito dimensional es isomorfo a $l^{2}$.
+
+```
+
+Demos una mirada a los funcionales lineales en los espacios de Hilbert.
+
+```{definition}
+Sea $X$ un espacio vectorial normado sobre $\mathbb{R}$. Una función $T:X\longrightarrow\mathbb{R}$ es un *funcional lineal* si para todo $x,y\in X$ y para todo $\alpha,\beta\in\mathbb{R}$, $T(\alpha x+\beta y)=\alpha T(x)+\beta T(y)$. Decimos que $T$ *es continua en $x_{0}\in X$* si para todo $\epsilon>0$, existe $\delta>0$ tal que, si $\|x-x_{0}\|<\delta$, entonces $|T(x)-T(x_{0})|<\epsilon$. LLamamos a $T$ un *funcional acotado* si existe una constante $C$ tal que $|T(x)|<C\|x\|$ para todo $x\in X$
+
+```
+
+```{remark}
+Note que si $T$ es un funcional lineal continuo en un punto $x_{0}$, entonces lo es en todo punto del espacio vectorial.
+
+```
+
+Veamos la relación entre la continuidad y la acotación:
+
+```{lemma}
+Sea $T$ un funcional lineal en un espacio vectorial normado $X$. $T$ es continuo si y solo si $T$ es acotado.
+
+```
+```{proof}
+Supongamos que $T$ es continua en todo $x\in X$, en particular en $x_{0}=0$. Luego, existe $K>0$ tal que si $\|x\|\leq B$, entonces $|T(x)|\leq 1$. Como, para todo $x\in X$,
+$$\left\|\frac{K}{\|x\|}x \right\| = K$$
+por lo que 
+$$|T(x)|=\frac{\|x\|}{K}T\left( \frac{B}{\|x\|}x\right) \leq \frac{1}{K}\|x\|$$
+luego, $T$ es acotada.
+Ahora, supongamos que $T$ es acotada. Sea $x_{0}\in X$ cualquiera, entonces
+$$|T(x)-T(x_{0})|=|T(x-x_{0})|\leq K\|x-x_{0}\|.$$
+Luego, dado $\epsilon>0$, tomando $\delta=\frac{\epsilon}{K}$, se obtiene que 
+$$\|x-x_{0}\|<\delta\Rightarrow |T(x)-T(x_{0})|\leq K\|x-x_{0}\|\leq K\frac{\epsilon}{K}=\epsilon.$$
+
+```
+
+```{definition}
+Sea $T$ un funcional lineal acotado en un espacio vectorial normado $X$. Llamamos norma del funcional $T$ a la menor cota $K$, y se denota por $\|T\|$. Es claro que:
+$$\|T\|=\sup_{\substack{x\neq 0}}\frac{|T(x)|}{\|x\|}=\sup_{\substack{\|x\|=1}}{|T(x)|}.$$
+
+```
+```{theorem, name="Riesz"}
+Sea $H$ un espacio de Hilbert separable y $T$ un funcional lineal acotado en $\mathcal{H}$. Entonces, existe $y\in\mathcal{H}$ tal que para todo $x\in\mathcal{H}$, $T(x)=(x,y)$. Además, se tiene que $\|T\|=\|y\|$.
+
+```
+```{proof}
+Sea $(\phi_{n})_{n}$ un sistema ortonormal completo en $\mathcal{H}$. Construímos la siguiente sucesión
+$b_{n}=T(\phi_{n})$ para cada $n\in\mathbb{N}$. Entonces, para cada $n$, se tiene 
+$$\begin{array}{ll}
+	\sum_{k=1}^{n}b_{k}^{2}&=T(\sum_{k=1}^{n}b_{k}\phi_{k})\\
+	&\leq \|T\|\left\|\sum_{k=1}^{n}b_{k}\phi_{k} \right\| \\
+	&\leq \|T\|\left( \sum_{k=1}^{n}b_{k}^{2} \right) ^{\frac{1}{2}}
+\end{array}.$$
+Luego, para todo $n$, $\sum_{k=1}^{n}b_{k}^{2}\leq \|T\|^{2}$ y así $\sum_{k=1}^{n}b_{k}^{2}<\infty$. Por lo tanto, existe $y\in \mathcal{H}$ tal que 
+$$y=\sum_{k=1}^{\infty}b_{k}\phi_{k}\mbox{ y que }\|y\|\leq\|T\|.$$
+Sea $x\in\mathcal{H}$, entonces
+$$x=\sum_{k\in\mathbb{N}}(x,\phi_{n})\phi_{n}$$
+luego,
+$$\begin{array}{ll}
+	T(x)&=\lim\limits_{n\to\infty} T\left(\sum_{k=1}^{n}(x,\phi_{k})\phi_{k} \right) \\
+	&=\lim\limits_{n\to\infty} \sum_{k=1}^{n}(x,\phi_{k})b_{k}  \\
+	&=\lim\limits_{n\to\infty} \sum_{k=1}^{n}(x,\phi_{k})(y,\phi_{k}) \\
+	&=(x,y)
+\end{array}.$$
+Ahora, por la desigualdad de Cauchy-Schwarz
+$$T(x)=|(x,y)|\leq \|x\|\|y\|$$
+por lo tanto $\|T\|\leq \|y\|$ y así se concluye que $\|T\|=\|y\|$.
+
+```
