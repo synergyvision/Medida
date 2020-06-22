@@ -344,19 +344,20 @@ Claramente $G\subseteq\tau$, por lo tanto $\sigma(\mathcal{G})\subseteq\mathcal{
 
 ## El conjunto de Cantor
 
-Considermos el intervalo $[0,1]$, lo dividimos en tres subintervalos de longitud $\frac{1}{3}$, a saber, $J_{1,1}=[0,\frac{1}{3}]$, $I_{1,1}=(\frac{1}{3},\frac{2}{3})$ y $J_{1,2}=[\frac{2}{3},1]$. LLamamos $C_{1}=J_{1,1}\cup J_{1,2}$, que es unión de conjuntos disjuntos. Además $C_{1}=[0,1]\backslash I_{1,1}$.\\
+Considermos el intervalo $[0,1]$, lo dividimos en tres subintervalos de longitud $\frac{1}{3}$, a saber, $J_{1,1}=\left[0,\frac{1}{3}\right]$, $I_{1,1}=\left(\frac{1}{3},\frac{2}{3}\right)$ y $J_{1,2}=\left[\frac{2}{3},1\right] $. LLamamos $C_{1}=J_{1,1}\cup J_{1,2}$, que es unión de conjuntos disjuntos. Además $C_{1}=[0,1]\backslash I_{1,1}$.
 
-Luego, los dos intervalos cerrados $J_{1,1}$ y $J_{1,2}$ se dividen nuevamente en tres subintervalos de longitud $\frac{1}{3^{2}}$; estos son, $J_{21}=[0,\frac{1}{3^{2}}]$, $I_{2,1}=(\frac{1}{3^{2}},\frac{2}{3^{2}})$, $J_{2,2}=[\frac{2}{3^{2}},\frac{3}{3^{2}}]$, al dividir $J_{1,1}$ y $J_{2,3}=[\frac{6}{3^{2}},\frac{7}{3^{2}}]$, $I_{2,2}=(\frac{7}{3^{2}},\frac{8}{3^{2}})$ y $J_{2,4}=[\frac{8}{3^{2}},1]$, que resultan de dividir $J_{1,2}$. Al igual que en el primer paso, descartamos los dos intervalos abiertos $I_{2,1}$ e $I_{2,2}$. LLamamos $C_{2}=J_{2,1}\cup J_{2,2}\cup J_{2,3}\cup J_{2,4}$. Además $C_{2}=[0,1]\backslash (E_{1}\cup E_{2})$ donde $E_{i}=\bigcup\limits_{k=1}^{2^{n-1}} I_{n,k}$.\\
+Luego, los dos intervalos cerrados $J_{1,1}$ y $J_{1,2}$ se dividen nuevamente en tres subintervalos de longitud $\frac{1}{3^{2}}$; estos son, $J_{21}=\left[0,\frac{1}{3^{2}}\right]$, $I_{2,1}=\left(\frac{1}{3^{2}},\frac{2}{3^{2}}\right)$, $J_{2,2}=\left[\frac{2}{3^{2}},\frac{3}{3^{2}}\right]$, al dividir $J_{1,1}$ y $J_{2,3}=\left[\frac{6}{3^{2}},\frac{7}{3^{2}}\right]$, $I_{2,2}=\left(\frac{7}{3^{2}},\frac{8}{3^{2}}\right)$ y $J_{2,4}=\left[\frac{8}{3^{2}},1\right]$, que resultan de dividir $J_{1,2}$. Al igual que en el primer paso, descartamos los dos intervalos abiertos $I_{2,1}$ e $I_{2,2}$. LLamamos $C_{2}=J_{2,1}\cup J_{2,2}\cup J_{2,3}\cup J_{2,4}$. Además $C_{2}=[0,1]\backslash (E_{1}\cup E_{2})$ donde $E_{k}=\bigcup\limits_{i=1}^{2^{k-1}} I_{k,i}$.
+
 Note que $C_{1}\supseteq C_{2}$.
 
 En el siguiente paso, dividimos cada uno de los cuatro intervalos cerrados $J_{2,1}$, $J_{2,2}$, $J_{2,3}$ y $J_{2,4}$ en tres intervalos de longitud $\frac{1}{3^{3}}$.
 
-En el $n$-\'esimo paso se tienen $2^{n}$ intervalos cerrados $J_{n,i}$, $i=1,\cdots,2^{n}$ y se han descartado $2^{n-1}$ intervalos abiertos $I_{n,i}$ $i=1,\cdots,2^{n-1}$. Hemos construído el conjunto $C_{n}=\bigcup\limits_{k=1}^{2^{n}} J_{n,k}$, de forma que $C_{1}\supseteq C_{2}\supseteq \cdots \supseteq C_{n}$. Adem\'as, $C_{n}=[0,1]\backslash\bigcup\limits_{k=1}^{n} E_{k}$ donde $E_{k}=\bigcup\limits_{k=1}^{2^{n-1}}$.\\
+En el $n$-ésimo paso se tienen $2^{n}$ intervalos cerrados $J_{n,i}$, $i=1,\cdots,2^{n}$ y se han descartado $2^{n-1}$ intervalos abiertos $I_{n,i}$ $i=1,\cdots,2^{n-1}$. Hemos construído el conjunto $C_{n}=\bigcup\limits_{k=1}^{2^{n}} J_{n,k}$, de forma que $C_{1}\supseteq C_{2}\supseteq \cdots \supseteq C_{n}$. Además, $C_{n}=[0,1]\backslash\bigcup\limits_{k=1}^{n} E_{k}$ donde $E_{k}=\bigcup\limits_{i=1}^{2^{k-1}} I_{k,i}$.
 
 Este proceso se repite infinitamente. Con los conjuntos $\{C_{n}\}_{n}$ construímos el conjunto de Cantor $C=\bigcap\limits_{n=1}^{\infty} C_{n}$. Note que $C=[0,1]\backslash \bigcup\limits_{n=1}^{\infty} E_{n}$. Claramente, $C$ es un conjunto cerrado, más aún, es un conjunto perfecto. Recuerde que un conjunto cerrado es perfecto cuando todos sus puntos son de acumulación.
 
 ```{proposition}
-El conjunto de Cantor es cerrado.
+	El conjunto de Cantor es cerrado.
 
 ```
 
@@ -373,9 +374,30 @@ El conjunto de Cantor tiene interior vacío.
 ```
 
 ```{remark}
-Se puede demostrar que el conjunto de Cantor se puede poner en correspondencia $1$ a $1$ con el intervalo $[0,1]$. Por lo tanto, $C$ es un conjunto no numerable. Para esto es útil notar que si $x\in C$, entonces $x$ es un número real tal que $0\leq x\leq 1$ y $x=\sum\limits_{n=0}^{\infty} \frac{a_{n}}{3^{n}}$ donde $a_{n}=0$ o $a_{n}=2$ para todo $n\in\mathbb{N}$.
+Se puede demostrar que el conjunto de Cantor es un conjunto no numerable. Para esto es útil notar que si $x\in C$, entonces $x$ es un número real tal que $0\leq x\leq 1$ y $x=\sum\limits_{n=0}^{\infty} \frac{a_{n}}{3^{n}}$ donde $a_{n}=0$ o $a_{n}=2$ para todo $n\in\mathbb{N}$.
 
 ```
+
+Definimos la función $\Phi_{C}:C\longrightarrow [0,1]$ como: $\Phi_{C}(x)=\sum_{n=1}^{\infty} \frac{\frac{a_{n}}{2}}{2^{n}}$, cuando $x$ tiene la representación $x=\sum\limits_{n=0}^{\infty} \frac{a_{n}}{3^{n}}$ con $a_{n}\in\{0,2\}$ para todo $n\in\mathbb{N}$ (como observamos antes).
+
+
+```{remark}
+Claramente la función de Cantor es sobreyectiva. Si un número $y\in[0,1]$ tiene el desarrollo binario $y=\sum_{n=1}^{\infty} 2^{-n}b_{n}$ donde $b_{n}\in\{0,1\}$, el número $x=\sum_{n=1}^{\infty} 3^{-n}2b_{n}\in C$ y $\Phi_{C}(x)=y$. Pero $\Phi_{C}$ no es inyectiva, se puede ver que los extremos de los intervalos $I_{n,i}$ tienen la misma imagen por $\Phi_{C}$.
+Se tiene también que $\Phi_{C}$ es creciente. Y estrictamente creciente si excluímos los extremos de los intervalos $I_{n,i}$. 
+
+```
+
+```{definition}
+Ahora extendemos la función $\Phi_{C}$ al intervalo $[0,1]$, de la siguiente forma:
+$$\Phi(x)=\left\lbrace \begin{array}{ll}
+	\Phi_{C}(x)&\mbox{ si } x\in C\\
+	\Phi_{C}(a)=\Phi_{C}(b)&\mbox{ si } x\in I_{n,i}=(a,b) \mbox{ para algunos } n,i.
+\end{array}\right. $$
+La función $\Phi$ es *la función de Cantor*.
+
+```
+
+Construída así, $\Phi$ resulta ser creciente. Y constante en un entorno de cada $x\in[0,1]\backslash C$. De lo que se deduce, junto con la sobreyectividad, que $\Phi$ es continua.
 
 ## Medida
 
