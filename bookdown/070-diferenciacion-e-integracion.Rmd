@@ -1,6 +1,111 @@
 # DIFERENCIACION E INTEGRACIÓN
 
-## Funciones monÓtonas
+En este capítulo estudiaremos las condiciones necesarias para obtener un resultado análogo al teorema fundamental del cálculo usando la integral de Lebesgue en lugar de la integral de Riemann. Para alcanzar este objetivo primero estudiaremos las funciones monótonas, las funciones de variación acotada y las funciones absolutamente continuas.
+
+## Funciones monótonas
+
+```{definition}
+Dada una función $f:(a,b)\longrightarrow\mathbb{R}$ y $x\in(a,b)$, definimos las *derivadas de Dini de $f$ en el punto $x$* como sigue:
+
+(i.) $D^{+}f(x)=\limsup_{h\to 0^{+}}\frac{f(x+h)-f(x)}{h},$
+  
+(ii.) $D_{+}f(x)=\liminf_{h\to 0^{+}}\frac{f(x+h)-f(x)}{h},$
+  
+(iii.) $D^{-}f(x)=\limsup_{h\to 0^{+}}\frac{f(x)-f(x-h)}{h},$
+  
+(iv.) $D_{-}f(x)=\liminf_{h\to 0^{+}}\frac{f(x)-f(x-h)}{h},$
+
+Diremos que $f$ es *derivable en $x$* si $D^{+}f(x)=D_{+}f(x)=D^{-}f(x)=D_{-}f(x)\in\mathbb{R}$. En este caso denotamos a este valor $Df(x)=f´(x)$.
+Si $D^{+}f(x)=D_{+}f(x)$, decimos que $f$ *es derivable (Dini) por la derecha en $x$* y lo denotamos por $f´_{+}(x)$. Si $D^{-}f(x)=D_{-}f(x)$, decimos que $f$ *es derivable (Dini) por la izquierda en $x$* y lo denotamos por $f´_{-}(x)$.
+
+```
+
+```{remark}
+Las derivadas de Dini siempre existen, aunque pueden valer $\infty$ o $-\infty$.
+Es claro que uan función $f$ es derivable en $x$ (en el sentido de Dini) si y solo si es derivable en el sentido usual, es decir, $f \mbox{ es derivable (Dini) en }x \mbox{ si y solo si } \lim\limits_{h\to 0}\frac{f(x+h)-f(x)}{h}\mbox{ existe}$.
+
+```
+
+```{definition}
+Dado $E\subseteq\mathbb{R}$ un conjunto de números reales. Decimos que $\mathcal{I}$ una colección de intervalos no degenerados es un *cubrimiento de Vitali* de $E$ si para todo $\epsilon>0$ y para todo $x\in E$, existe un intervalo $I\in\mathcal{I}$ tal que $x\in I$ y $l(I)<\epsilon$.
+
+```
+
+El siguiente teorema es conocido como el *Lema de Vitali*.
+
+```{theorem, name="Lema de Vitali"}
+Sea $E\subseteq\mathbb{R}$ con $m^{\ast}(E)<\infty$. Si $\mathcal{I}$ es un cubrimiento de Vitali de $E$, entonces existe una familia numerable $(I_{n})_{n\in\mathbb{N}}\subseteq \mathcal{I}$ disjunta dos a dos, tal que $$m^{\ast}\left(E\backslash \bigcup_{n\in\mathbb{N}}I_{n} \right)=0.$$
+
+```
+```{proof}
+Sea $\mathcal{O}$ un conjunto abierto que contiene al conjunto $E$, es decir, $E\subseteq \mathcal{O}$. Podemos suponer, que $\forall I\in \mathcal{I}$ $i\subseteq\mathcal{O}$. En caso contrario, consideraremos la colección $\{I\in \mathcal{I}: I\subseteq\mathcal{O}\}$, que resulta ser también un cubrimiento de Vitali del conjunto $E$. Construíremos una colección numerable de intervalos que cumpla las condiciones deseadas. Supongamos, sin pérdida de generalidad, que los intervalos en $\mathcal{I}$ son cerrados, ya que la medida de los extremos de un intervalo es cero.
+Sea $I_{1}\in\mathcal{I}$, cualquiera de los elementos de la familia. Si $E\subseteq I_{1}$, queda demostrado el teorema, ya que $m^{\ast}(E\backslash I_{1})=0$. Si este no es el caso, existe $x\in E\backslash I_{1}$; como $\mathcal{I}$ es un cubrimiento de Vitali, existe $I_{2}\in\mathcal{I}$, disjusto de $I_{1}$, tal que $x\in I_{2}$ y cuya longitud sea mayor a la mitad de la longitud de $I_{1}$, es decir $l(I_{2})>\frac{l(I_{1})}{2}$. Ahora, supongamos que hemos elegido $m$ intervalos disjuntos $I_{1},\cdots, I_{m}$. Si $E\subseteq \bigcup_{n\leq m} I_{n}$, se tiene el resultado. En caso contrario, existe $x\in E\backslash \bigcup_{n\leq m} I_{n}$. Elegimos $I_{m+1}\in\mathcal{I}$ disjunto de todos los intervalos anteriores, tal que $x\in I_{m+1}$ y $l(I_{m+1})>\frac{r_{m}}{2}$, donde 
+$$r_{m}=\sup\left\lbrace l(J): x\in J \mbox{ y } J\cap I_{n}=\emptyset \forall n\in\{1,\cdots,m\} \right\rbrace $$
+esto es posible ya que cada $I_{n}$ es cerrado. Siguiendo con este proceso, construímos la familia disjunta  $(I_{n})_{n\in\mathbb{N}}$ tal que $m^{\ast}\left(E\backslash \bigcup_{n\in\mathbb{N}}I_{n} \right)=0$. Supongamos que 
+$$m^{\ast}\left(E\backslash \bigcup_{n\in\mathbb{N}}I_{n} \right)=\delta>0.$$
+Como $m\left( \bigcup_{n\in\mathbb{N}} I_{n}\right)=\sum_{n\in\mathbb{N}}  l(I_{n})\leq m(\mathcal{O})<\infty$, existe $N\in\mathbb{N}$ tal que $\sum_{n>N}  l(I_{n})<\frac{\delta}{5}$. Sea $F=E\backslash\bigcup_{n\leq N} I_{n}$, entonces $m^{\ast}(F)\geq\delta$ (por monotonía). Por otro lado, para $x\in F$, existe $J\in\mathcal{I}$ disjunto de $bigcup_{n\leq N} I_{n}$ tal que $x\in J$. Además $J$ debe intersectar a algún $I_{k}$, con $k>N$. En caso contrario, como $l(J)\leq r_{p}<2l(I_{k+1})$, ya que $l(I_{k+1})\to 0$, cuando $k\to\infty$, $J$ sería degenerado. Sea $i$ el menor entero mayor que $N$ tal que $J\cap I_{i}\neq \emptyset$. Como $J\cap I_{n}=\emptyset$ para todo $n<i$, se tiene que $l(J)\leq r_{i-1}<2l(I_{i})$; sea $x_{i}$ el punto medio de $I_{i}$, entonces
+$$|x-x_{i}|\leq l(J)+\frac{1}{2}l(I_{i})\leq \frac{5}{2} l(I_{i}).$$
+Tomando intervalos  $H_{i}$, de centro $x_{i}$ y longitud $5l(I_{i})$, se tiene que $x\in H_{i}$, $F\subseteq \bigcup_{n\geq N+1} H_{n}$. Por lo tanto
+$$m^{\ast}(F)\leq \sum_{n\geq N+1} l(H_{n})=5\sum_{n\geq N+1} l(I_{n})<\delta.$$
+
+```
+
+```{remark}
+Si la medida del conjunto es infinita, $m^{\ast}(E)=\infty$, se puede tomar $E=\bigcup_{i\in\mathbb{N}}E_{i}$ tal que cada $E_{i}$ tiene medida finita y $E_{i}\cap E_{j}=\emptyset$ siempre que $i\neq j$. Por lo que el teorema también es cierto si $m^{\ast}(E)=\infty$.
+
+```
+
+En ocaciones el Lema de Vitali se enuncia como el siguiente resultado, que es un corolario inmediato del teorema anterior.
+
+```{corollary}
+Sea $E\subseteq\mathbb{R}$ con $m^{\ast}(E)<\infty$. Si $\mathcal{I}$ es un cubrimiento de Vitali de $E$, entonces, para todo $\epsilon>0$, existe una colección finita $I_{1},\cdots, I_{N}$ de intervalos disjuntos de $\mathcal{I}$, tales que $$m^{\ast}\left(E\backslash\bigcup_{i=1}^{N}I_{i} \right) <\epsilon.$$
+
+```
+
+```{theorem, name="Lebesgue"}
+Sea $f:(\alpha, \beta)\longrightarrow\mathbb{R}$ una función monótona creciente. Entonces $f$ es derivable en c.t.p de $(\alpha,\beta)$. La derivada de $f$, $f´$ es medible Lebesgue y se cumple que si $[a,b]\subseteq (\alpha,\beta)$, entonces
+$$\int_{a}^{b} f´(x)dx\leq f(b)-f(a).$$
+
+```
+```{proof}
+Sea $E_{u,v}=\{x\in(\alpha,\beta): D^{+}f(x)>u>v>D_{-}f(x)\}$ para $u,v\in\mathbb{Q}$. Y consideremos 
+$$E=\bigcup_{u,v\in\mathbb{Q}} E_{u,v}.$$
+Probemos que $m^{\ast}(E_{u,v})=0$. Sea $s=m^{\ast}(E_{u,v})$ y $\epsilon>0$. Existe un abierto $\mathcal{O}$ tal que $E_{u,v}\subseteq\mathcal{O}$ y $m(\mathcal{O})<s+\epsilon$. Para cada $x\in E_{u,v}$, existe $h_{x}$ tal que $[x-h_{x},x]\subseteq\mathcal{O}$ y $f(x)-f(x-h_{x})<vh_{x}$. La colección de estos intervalos forman un cubrimiento de Vitali de $E_{u,v}$, por lo tanto existe una colección finita de dichos intervalos, $I_{1},\cdots, I_{N}$ tal que $m^{\ast}\left(E_{u,v}\backslash\bigcup_{i=1}^{N} I_{i} \right)<\epsilon$, más aún, podemos hallar una colección finita de estos intervalos tales que $A\subseteq \bigcup_{i=1}^{N}\overset{\circ}{I_{i}}$ y $m^{E_{u,v}\backslash A}<\epsilon$. De esta forma
+$$\sum_{i=1}^{N} (f(x_{i})-f(x_{i}-h_{x_{i}}))<v\sum_{i=1}^{N} h_{x_{i}}<v m(\mathcal{O})<v(s+\epsilon).$$
+Además, para cada $y\in A$, se tiene que $D^{+}f(y)>u$. Por lo que existe $h_{y}$ tal que $(y,y+h_{y})$ es subconjunto de algún $I_{i}$ y $f(y+h_{y})-f(y)>uh_{y}$. Con un procedimiento análogo, podemos hallar una colección finita de intervalos $J_{1},\cdots,J_{M}$ tales que contienen a un subconjunto de $A$ de medida exterior mayor que $s-2\epsilon$. Por lo tanto,
+$$\sum_{i=1}^{M} (f(y_{i})-f(y_{i}-h_{y_{i}}))>u\sum_{i=1}^{M} h_{y_{i}}>u m(\mathcal{O})>u(s+2\epsilon).$$
+Como cada $J_{j}$ está contenido en algún $I_{i}$, como $f$ es creciente
+$$\sum_{i: J_{i}\subseteq I_{j}}f(y_{i}+h_{y_{i}})-f(y_{i})\leq f(x_{j})-f(x_{n}-h_{x_{n}})$$
+sumando sobre $j$, se obtiene
+$$\sum_{j=1}^{N} f(x_{j})-f(x_{n}-h_{x_{n}})\geq \sum_{i=1}^{M}f(y_{i}+h_{y_{i}})-f(y_{i})$$
+de donde se tiene que $v(s+\epsilon)>u(s-2\epsilon)$, por lo tanto, como $u>v$, $s=0$.
+Análogamente se muestra que $\{x\in(\alpha,\beta): D^{-+}f(x)>D_{+}f(x)\}$ tiene medida cero.
+De esto se puede concluír que las derivadas de Dini coinciden en casi todo punto de $(\alpha,\beta)$, por lo tanto la función $f$ será derivable donde $g(x)=\frac{f(x+h)-f(x)}{h}$ sea finita.
+Sea $g_{n}(x)=n\left(f\left(x+\frac{1}{n} \right) -f(x) \right) $, cada $g_{n}$ es medible y $g_{n}(x)\to g(x)$, por lo tanto $g$ es medible. Sea $[a,b]\subseteq(\alpha,\beta)$ y redefinamos $f(x)=f(b)$ siempre que $x>b$. Como $f$ es creciente, para cada $n$, $g_{n}\geq 0$. Por el lema de Fatou, se tiene 
+$$\int_{a}^{b} g(x)dx\leq \liminf_{n\to\infty}\int_{a}^{b} g_{n}(x)dx=\liminf_{n\to\infty}\left( \int_{a}^{b}f\left(x+\frac{1}{n}\right)dx -\int_{a}^{b} f(x)dx\right)$$
+Como $\int f\left( x+\frac{1}{n}\right) \chi_{[a,b]}(x)dx=\int f\left( x\right) \chi_{[a+\frac{1}{n},b+\frac{1}{n}]}(x)dx$, nos queda
+$$\int_{a}^{b} g(x)dx\leq \liminf_{n\to\infty} \left[ n\int_{b}^{b+\frac{1}{n}} f(x)dx- n int_{a}^{a+\frac{1}{n}}f\left(x\right)dx \right]=\liminf_{n\to\infty} \left[ n\int_{b}^{b+\frac{1}{n}} f(b)dx- n int_{a}^{a+\frac{1}{n}}f\left(x\right)dx \right]$$
+y como $f$ es una función creciente, se tiene que
+$$\int_{a}^{b} g(x)dx\leq\liminf_{n\to\infty} \left[ nf(b)\frac{1}{n}- n int_{a}^{a+\frac{1}{n}}f(a)dx \right]=f(b)-f(a).$$
+De aquí se concluye que $g$ es integrable en $[a,b]$ y así finita en c.t.p. de $[a,b]$, por lo tanto finita en c.t.p. de $(\alpha,\beta_{n})$. De esto se sigue que $f$ es derivable en c.t.p. de $(\alpha,\beta_{n})$ y que 
+$$\int_{a}^{b} f´(x)dx\leq f(b)-f(a).$$
+
+```
+
+```{remark}
+Recordemos que si $\phi$ es la función de Cantor, se tiene que $\phi(1)-\phi(0)\neq 0$. Pero $\phi´=0$. Esto muestra que, en general, si $f$ es monótona, no puede asegurarse que $\int_{a}^{b}f´(x)dx=f(b)-f(a)$.
+
+```
+
+Hay otra demostarción del teorema de derivación de Lebesgue, basado en el llamado "Lema del sol naciente".
+
+Cerramos esta sección enunciando un teorema debido a Fubini, sobre derivación de series de funciones monótonas. La demostración se sigue del teorema de derivación de Lebesgue.
+
+```{theorem}
+Sea $(f_{n})_{n\in\mathbb{N}}$ una sucesión de funciones monótonas crecientes definidas en $[a,b]$ tal que la serie $\sum_{n\in\mathbb{N}} f_{n}(x)$ converge puntualmente en $[a,b]$. Sea $f(x)=\sum_{n\in\mathbb{N}} f_{n}(x)$. Entonces 
+$\sum_{n\in\mathbb{N}} f´_{n}(x)=f´(x)$ en c.t.p. de $[a,b]$.
+
+```
 
 ## Funciones de variaciÓn acotada
 
