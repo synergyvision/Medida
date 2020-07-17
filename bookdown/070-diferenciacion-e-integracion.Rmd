@@ -107,10 +107,229 @@ $\sum_{n\in\mathbb{N}} f´_{n}(x)=f´(x)$ en c.t.p. de $[a,b]$.
 
 ```
 
-## Funciones de variaciÓn acotada
+## Funciones de variación acotada
 
-## De la Integral indefinida
+```{definition}
+Sea $f:[a,b]\longrightarrow\mathbb{R}$. Decimos que $f$ es una *función de variación acotada* en $[a,b]$ si
+$$\underset{\rho\in Par[a,b]}{\sup}\sum_{i=1}^{n_{\rho}}|f(x_{i})-f(x_{i-1})|<\infty$$
+	donde $Par[a,b]$ es el conjunto de todas las particiones de $[a,b]$ y $a=x_{0},\cdots,x_{n_{\rho}}=b$.
 
-## Continuidad Absoluta
+```
 
-## Cambio de variables e integraciÓn por partes
+```{remark}
+Se puede demostrar fácilmente que las funciones monótonas son de variación acotada. Si $f$ es creciente y $\rho$ es la partición determinada por los puntos $a=x_{0},\cdots, x_{n}=b$, se tiene que 
+$$\sum_{i=1}^{n}|f(x_{i})-f(x_{i-1})|=\sum_{i=1}^{n}f(x_{i})-f(x_{i-1})=f(b)-f(a)$$
+Cuando la función es decreciente, la demostración es análoga.
+Si una función $f$ es de variación acotada, entonces es acotada. Supongamos que $V=\sup_{\substack{\rho\in Par[a,b]}}\sum_{i=1}^{n_{\rho}}|f(x_{i})-f(x_{i-1})|$. Para la partición $x_{0}=a,x,x_{2}=b$, se tiene que $|f(x)-f(a)|+|f(b)-f(x)|\leq V$, por lo tanto $|f(x)-f(a)|\leq V$. De donde se sigue que $|f(x)|\leq f(a)+ V$. El recíproco no es cierto en general; un ejemplo es la función $\sen(\frac{1}{x})$ en el intervalo $(0,1]$, y $f(0)=0$. Basta notar que $\lim\limits_{k\to\infty}\sum_{i=1}^{k}|\sen(\frac{1}{x_{i+1}})-\sen(\frac{1}{x_{i}})|\to\infty$.
+Otra observación se deduce del teorema del valor medio. Si $f$ es continua en $[a,b]$, derivable en $(a,b)$ y su derivada $f´$ es acotada en $(a,b)$, entonces es $f$ es de variación acotada.
+
+```
+
+```{definition}
+Dada $f:\mathbb{R}\longrightarrow\mathbb{R}$, la variación total de $f$ sobre un intervalo finito $I$, está defindo como $$V_{f}(I)=\sup_{\substack{\rho\in Par[I]}}\sum_{x_{i}\in\rho} |f(x_{i})-f(x_{i-1})|.$$
+
+```
+
+```{remark}
+Si $f$ es de variación acotada en $[a,b]$, para todo $c\in(a,b)$, se puede probar que $V_{f}(a,b)=V_{f}(a,c)+V_{f}(c,b)$.
+
+```
+
+Considermos la función $x\mapsto V_{f}(a,x)$, para todo $x\in(a,b)$, cuando $f$ es de variación acotada en $[a,b]$. El siguiente resultado nos muestra un interesante hecho sobre esta función.
+
+```{proposition}
+Sea $f$ de variación acotada en $[a,b]$. Sea $V:[a,b]\longrightarrow\mathbb{R}$ la función
+$$V(x)=\left\lbrace \begin{array}{ll}
+V_{f}(a,x)&\mbox{ si } a<x\leq b\\
+0&\mbox{ si }x=a
+\end{array}\right. $$
+Se tiene que:
+
+(i.) $V$ es creciente en $[a,b]$.
+
+(ii.) $V-f$ es creciente en $[a,b]$.
+
+
+```
+```{proof}
+Sean $x,y\in[a,b]$ tales que $x\leq y$. Supongamos que $\rho$ es la partición $\{a=x_{0}<\cdots,x_{n}=x\}$, del intervalo $(a,x)$. Si completamos la partición con el punto $y$, se tiene que una partición del intervalo $(a,y)$ y
+$$\sum_{i=1}^{n}|f(x_{i})-f(x_{i-1})|\leq \sum_{i=1}^{n}|f(x_{i})-f(x_{i-1})|+|f(y)-f(x)|\leq V_{f}(a,y)$$
+como esto ocurre para cualquier partición $rho$ del intervalo $(a,x)$, se tiene que 
+$$V_{f}(a,x)\leq V_{f}(a,y).$$
+Por otro lado, como $f(y)-f(x)\leq V_{f}(x,y)$, se tiene que
+$$(V-f)(y)-(V-f)(x)=V(y)-V(x)-(f(y)-f(x))\geq V_{f}(a,y)-V_{f}(a,x)-V_{f}(x,y)$$
+Por la observación anterior, se sigue el resultado.
+
+```
+
+De la proposición se sigue inmediatamente que si $f$ es de variación acotada en $[a,b]$, se escribe como diferencia de funciones monótonas crecientes. Ahora, si $f$ es la diferencia de funciones monótonas crecientes $g_{1}$ y $-g_{2}$, se tiene que $V_{f}[a,b]\leq V_{g_{1}}[a,b]-V_{g_{2}}[a,b]=g_{1}(b)-g_{1}(a)+g_{1}(b)-g_{1}(a)$. Esto lo resume el siguiente corolario.
+
+```{corollary}
+Sea $f:[a,b]\longrightarrow\mathbb{R}$. Entonces $f$ es de variación acotada en $[a,b]$ si y solo si $f$ se escribe como diferencia de funciones monótonas.
+
+```
+
+Del teorema de derivaciÓn de Lebesgue, se tiene que las funciones monótonas en $I=(\alpha,\beta)$ tienen derivada en c.t.p. de $I$ y que 
+$$\int_{a}^{b}f´(x)dx\leq f(b)-f(a)\mbox{ para todo } [a,b]\subseteq I$$
+luego, del corolario anterior se tiene el siguiente resultado
+
+```{corollary}
+Sea $f:[a,b]\longrightarrow\mathbb{R}$ de variaciÓn acotada en $[a,b]$, entonces $f$ es derivable en c.t.p. de $[a,b]$
+
+```
+
+## De la Integral indefinida.  Continuidad Absoluta
+
+Que una función sea de variación acotada es una condición necesaria para que una función sea la integral indefinida de su integral.
+
+```{proposition}
+Sea $f:[a,b]\longrightarrow\mathbb{R}$ integrable Lebesgue. Entonces la función 
+$$F(x)=\int_{a}^{x} f(t)dt \mbox{ para todo } x\in[a,b]$$
+es uniformemente continua y de variación acotada en $[a,b]$.
+
+```
+```{proof}
+Note que $$F(x)=\int_{a}^{x}f^{+}(t)dt-\int_{a}^{x}f^{-}(t)dt$$
+es decir $F$ es la diferencia de dos funciones de variación acotada, por lo tanto $F$ es de variación acotada.
+Por la continuaidad absoluta de la integral de Lebesgue, se sigue que $F$ es uniformemente continua.
+
+```
+
+Podemos pensar que como $F$ es de variación acotada en $[a,b]$, entonces es derivable en casi todo punto de $[a,b]$, entonces ¿$F$ puede escribirse como la integral indefinida de su derivada? La respuesta es NO, ya que esto no es necesariamente cierto ni para una función continua. La función de Cantor es el contraejemplo de esto último.
+
+```{lemma}
+Si $f$ es integrable en $[a,b]$ y para todo $x\in[a,b]$ $\int_{a}^{x} f(t)dt=0$. Entonces $f=0$ en c.t.p. de $[a,b]$.
+
+```
+```{proof}
+Consideremos el conjunto $E=\{x: f(x)>0 \}$. Supongamos que $m(E)>0$; entonces existe un conjunto cerrado $F\subseteq \mathbb{R}$ tal que $F\subseteq E$ y $m(F)>0$. Tomemos $O=(a,b)\backslash F$. Entonces 
+$$\int_{a}^{b}f=\int_{F} f+\int_{O} f$$
+por lo tanto
+$$\int_{O}f=-\int_{F} f.$$
+Como $F\subseteq E$  y es un conjunto de medida no nula, se tiene que $\int_{F} f\neq 0$.
+Por otro lado, $O$ se puede escribir como una unión numerable y disjunta de intervalos abiertos, digamos $O=\bigcup_{n\in\mathbb{N}} (a_{n},b_{n})$ con $(a_{n},b_{n})\cap(a_{m},b_{m})=\emptyset$ siempre que $n\neq m$. Por lo tanto
+$$\int_{O} f=\sum_{n\in\mathbb{N}} \int_{a_{n}}^{b_{n}} f\neq 0$$
+lo que implica que existe $n\in\mathbb{N}$ tal que $\int_{a_{n}}^{b_{n}}f\neq 0$, por lo que $\int_{a}^{a_{n}}f\neq 0$ o $\int_{a}^{b_{n}} f\neq 0$ lo que es una contradicción.
+Para el conjunto $\{x: f(x)<0 \}$, el razonamiento es análogo.
+
+```
+
+```{theorem}
+Sea $f:[a,b]\longrightarrow\overline{\mathbb{R}}$ integrable Lebesgue. La función 
+$$F(x)=c+\int_{a}^{x}f(t)dt, \mbox{ con } c\in\mathbb{R}$$ 
+es derivable en casi todo punto de $[a,b]$ y $F´(x)=f(x)$ en c.t.p. de $[a,b]$.
+
+```
+```{proof}
+$F$ es derivable ya que es de variación acotada. Supongamos que $f$ es acotada en $[a,b]$. Sea $M\in\mathbb{R}$ la cota, es decir $|f(x)|\leq M$ para todo $x\in[a,b]$. Definamos, para cada $n\in \mathbb{N}$ una función 
+$$f_{n}(x)=n\left[F\left(x+\frac{1}{n}\right)- F(x)\right].$$
+Así, $f_{n}\to F´(x)$ cuando $n\to\infty$. Además
+$$|f_{n}(x)=n\left|\int_{x}^{x+\frac{1}{n}} f(t)dt \right|\leq M n\frac{1}{n}=M.$$
+Usando el teorema de convergencia dominada, para $d\in[a,b]$, se tiene que 
+$$\begin{array}{ll}
+\int_{a}^{d}F´(t)dt&=\lim\limits_{n\to\infty}\int_{a}^{d} f_{n}(x)dx\\
+&=\lim\limits_{n\to\infty}\left[n\int_{d}^{d+\frac{1}{n}}F(x)dx -n\int_{a}^{a+\frac{1}{n}}F(x)dx\right]
+\end{array}.$$
+De la continuidad de $F$ se tiene que, dado $\epsilon>0$, sea $\delta>0$ tal que $|F(d)-F(d+x)|<\epsilon$. Entonces
+$$\left|F(d)-\frac{1}{h}\int_{d}^{d+\frac{1}{h}}F(x)dx \right|\leq \frac{1}{h}\int_{d}^{d+\frac{1}{h}}|F(d)-F(x)|dx\leq h\frac{1}{h}\epsilon\mbox{ si }|h|<\delta$$
+por lo tanto
+$$F(d)=\lim\limits_{h\to 0}\frac{1}{h} \int_{d}^{d+h} F(x)dx.$$
+Luego
+$$\begin{array}{ll}
+\int_{a}^{d}F´(t)dt&=\lim\limits_{n\to\infty}\int_{a}^{d} f_{n}(x)dx\\
+&=F(d)-F(a)\\
+&=\int_{a}^{d} f(x)dx
+\end{array}.$$
+Así, para todo $d\in[a,b]$ 
+$$\int_{a}^{d} \left(F´(x)- f(x)\right) dx=0$$
+Del lema anterior se tiene que $F´(x)=f(x)$ para casi todo punto de $[a,b]$.
+Para el caso general, podemos suponer que $f\geq 0$. Definimos para cada $n\in\mathbb{N}$ $f_{n}=f\wedge n$. Entonces $f-f_{n}\geq 0$. Tenemos que $G_{n}(x)=\int_{a}^{x}(f-f_{n})(x)dx$ es creciente y por lo tanto derivable en c.t.p. Además $G´_{n}(x)\geq 0$. Del caso anterior, se tiene que
+$$\frac{d}{dx}\int_{a}^{x} f_{n}(t)dt=f_{n}(x)\mbox{ en c.t.p.}$$
+Luego $F´(x)=\frac{d}{dx}G_{n}+\frac{d}{dx}\int_{a}^{x} f_{n}(t)dt\geq f_{n}(x)$ c.s. Si $n\to\infty$, se sigue que $F´(x)\geq f(x)$ c.s. Y así
+$$\int_{a}^{b} F´(x)d_{x}\geq \int_{a}^{b} f(x)dx=F(b)-F(a).$$
+Por el teorema de derivación de Lebesgue, 
+$$\int_{a}^{b} F´(x)d_{x}=F(b)-F(a)= \int_{a}^{b} f(x)dx.$$
+Es decir,
+$$\int_{a}^{b}(F´(x)-f(x))dx=0,$$
+como $F´-f\geq 0$ se debe tener que 
+$$F´(x)=f(x)\mbox{ c.s.}$$
+
+```
+
+Este teorema no permite hallar una función $F$ integrable Lebesgue tal que $F´=f$ c.s. Pero puede haber más de una función que al derivarla sea igual a $f$ en casi todo punto. Supongamos que $F$ y $G$ son funciones tales que $F´=f$ c.s. y $G´=f$ c.s. entonces $(f-G)´=0$ en c.t.p. pero de esto no implica que $F=G+k$ c.s. donde $k$ es una constante. La función de Cantor es un ejemplo de esto.
+
+```{definition}
+Dada $F:\mathbb{R}\longrightarrow\mathbb{R}$ una función continua y monótona, tal que $F´=0$ c.s. decimos que $F$ es una *función singular*.
+
+```
+
+Si a una primitiva $F$, de una función integrable $f$ le sumamos una función singular $G$, obtenemos otra primitiva de $f$.
+
+Por otro lado, para tener certeza de que para todo $x\in[a,b]$, $F(x)=F(a)+\int_{a}^{x} F´(t)dt$, cuando $F:[a,b]\longrightarrow\mathbb{R}$ es una función continua y derivable c.s. se debe pedir continuidad absoluta de la función $F$. Que $F$ sea de variación acotada es una condición necesaria, más no suficiente.
+
+```{definition}
+Sea $I\subseteq\mathbb{R}$ un intervalo cualquiera. La función $f:I\longrightarrow\mathbb{R}$ es *absolutamente continua en un intervalo acotado* $[a,b]\subseteq I$ si para todo $\epsilon>0$, existe $\delta>0$ tal que si $(a_{i},b_{i})_{i=1}^{n}$ es una colección finita cualquiera de subintervalos disjuntos de $[a,b]$, tienen la propiedad:
+$$\sum_{i=1}^{n} (b_{i}-a_{i})<\delta\Rightarrow \sum_{i=1}^{n}|f(b_{i})-f(a_{i})|<\epsilon.$$
+
+```
+
+```{remark}
+La continuidad absoluta implica la continuidad uniforme.
+
+```
+
+La continuidad absoluta de la integral de Lebesgue, implica la continuidad absoluta de la integral indefinida, esto es,
+
+```{proposition}
+Se $f$ es integrable Lebesgue en $[a,b]$ y $F(x)=F(a)+\int_{a}^{x} f(t)dt$, entonces $F$ es absolutamente continua.
+
+```
+```{proof}
+Sea $\epsilon>0$. Por la continuidad absoluta de la integral que, existe $\delta>0$ tal que 
+$$m(A)<\delta\Rightarrow \int_{A} |f|dt<\epsilon\mbox{ para } A\subseteq[a,b].$$
+Tomando $A=\bigcup_{i=1}^{n}(a_{i},b_{i})$, donde la familia $[(a_{i},b_{i})]_{i=1}^{n}$ es una familia disjunta de subintervalos tales que $\sum_{i=1}^{n}l(a_{i},b_{i})<\delta$, entonces 
+$$\sum_{i=1}^{n}|F(b_{i})-F(a_{i})|=\sum_{i=1}^{n}\left| \int_{a_{i}}^{b_{i}}f(t)dt\right| \leq\sum_{i=1}^{n} \int_{a_{i}}^{b_{i}}|f(t)|dt=\int_{A}|f(t)|dt<\epsilon.$$
+
+```
+
+Es fácil ver que una función absolutamente continua, es de variación acotada. 
+
+```{proposition}
+Si $f$ es absolutamente continua en $[a,b]$, entonces es de variación acotada en $[a,b]$.
+
+```
+
+```{lemma}
+Si $f$ es absolutamente continua en $[a,b]$ y $f´(x)=0$ en c.t.p. de $[a,b]$, entonces $f$ es constante.
+
+```
+```{proof}
+Sea $c\in[a,b]$. Sea $E\subseteq(a,c)$ tal que $m(E)=c-a$ y $f´(x)=0$ para todo $x\in E$. Sean $\epsilon$ y $\xi$ números reales positivos cualesquiera. Para cada $x\in E$ existe $h$ tal que $[x,x+h]\subseteq[a,c]$ y $|f(x+h)-f(x)|<\xi h$. Por el lema de Vitali, podemos hallar una colección finita $[x_{1},y_{1}],\cdots[x_{n},y_{n}]$ disjuntos dos a dos, tal que $E\backslash\subseteq\bigcup_{k=1}^{n}[x_{k},y_{k}]$ tiene medida menor que $\delta$ siendo este el que da cuenta de la continuidad absoluta de $f$ cuando consideramos el $\epsilon$ ya fijado. Podemos suponer que $a=y_{0}\leq x_{1}< y_{1}\geq \cdots\geq x_{n}<y_{n}=c=x_{n+1}$ y así $$\sum_{k=0}^{n} |x_{k+1}-y_{k}|<\delta.$$
+Además, $$\sum_{k=1}^{n} |f(y_{k})-f(x_{k})|\leq \xi\sum_{k=1}^{n} (y_{k}-x_{k})<\xi(c-a)$$
+Por otro lado, de la continuidad absoluta se tiene que
+$$\sum_{k=0}^{n} |f(x_{k+1})-f(y_{k})|<\epsilon.$$
+De este modo,
+$$f(c)-f(a)=\sum_{k=0}^{n} |f(x_{k+1})-f(y_{k})|+\sum_{k=1}^{n} |f(y_{k})-f(x_{k})|\leq \epsilon+\xi(c-a).$$
+De donde se sigue que $f(c)=f(a)$.
+
+```
+
+Tenemos entonces que si $F:I\longrightarrow\mathbb{R}$ una función definida en un intervalo cualquiera $I$ es absolutamente continua, es de variación acotada y por lo tanto, es derivable en c.t.p. de $I$ y además puede escribirse como diferencia de funciones monótonas, esto es, $F=F_{1}-F_{2}$. Por lo que $|F´(x)|\leq F_{1}´(x)+F_{2}´(x)$ en c.t.p. Como $F_{1}´$ y $F_{2}´$ son integrables, entonces $F´$ también lo és. Con lo que se puede definir
+$$G(x)=\int_{a}^{x} F´(t)dt\mbox{, para todo }[a,b]\subseteq I$$
+con $G$ absolutamente continua. Sea $H=F-G$, entonces $H$ es absolutamente continua y $H´=F´-G´=0$ en c.t.p. Por el lema anterior, $H$ es constante. Así
+$$F(x)=\int_{a}^{x} F^{'}(t)dt.$$
+Ya se demostró que una integral indefinida, es decir, *una función $F:I\longrightarrow\mathbb{R}$ tal que existe $f:I\longrightarrow\mathbb{R}$ integrable tal que $F(b)-F(a)=\int_{a}^{b}f(t)dt$ para todo $[a,b]\subseteq I$*; es una función absolutamente continua.
+Esto es una caracterización de las integrales indefinidas y es la demostración del siguiente teorema.
+
+```{theorem}
+Una función $F:I\longrightarrow\mathbb{R}$ es una integral indefinida si y solo si es absolutamente continua.
+
+```
+
+```{corollary}
+Toda función absolutamente continua es la integral indefinida de su derivada.
+
+```
+
+## Cambio de variables
+
