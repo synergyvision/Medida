@@ -120,7 +120,8 @@ $$\underset{\rho\in Par[a,b]}{\sup}\sum_{i=1}^{n_{\rho}}|f(x_{i})-f(x_{i-1})|<\i
 Se puede demostrar fácilmente que las funciones monótonas son de variación acotada. Si $f$ es creciente y $\rho$ es la partición determinada por los puntos $a=x_{0},\cdots, x_{n}=b$, se tiene que 
 $$\sum_{i=1}^{n}|f(x_{i})-f(x_{i-1})|=\sum_{i=1}^{n}f(x_{i})-f(x_{i-1})=f(b)-f(a)$$
 Cuando la función es decreciente, la demostración es análoga.
-Si una función $f$ es de variación acotada, entonces es acotada. Supongamos que $V=\sup_{\substack{\rho\in Par[a,b]}}\sum_{i=1}^{n_{\rho}}|f(x_{i})-f(x_{i-1})|$. Para la partición $x_{0}=a,x,x_{2}=b$, se tiene que $|f(x)-f(a)|+|f(b)-f(x)|\leq V$, por lo tanto $|f(x)-f(a)|\leq V$. De donde se sigue que $|f(x)|\leq f(a)+ V$. El recíproco no es cierto en general; un ejemplo es la función $\sen(\frac{1}{x})$ en el intervalo $(0,1]$, y $f(0)=0$. Basta notar que $\lim\limits_{k\to\infty}\sum_{i=1}^{k}|\sen(\frac{1}{x_{i+1}})-\sen(\frac{1}{x_{i}})|\to\infty$.
+Si una función $f$ es de variación acotada, entonces es acotada. Supongamos que $V=\sup_{\substack{\rho\in Par[a,b]}}\sum_{i=1}^{n_{\rho}}|f(x_{i})-f(x_{i-1})|$. Para la partición $x_{0}=a,x,x_{2}=b$, se tiene que $|f(x)-f(a)|+|f(b)-f(x)|\leq V$, por lo tanto $|f(x)-f(a)|\leq V$. De donde se sigue que $|f(x)|\leq f(a)+ V$. 
+El recíproco no es cierto en general; un ejemplo es la función $sen\left(\frac{1}{x}\right)$ en el intervalo $(0,1]$, y $f(0)=0$. Basta notar que $\lim\limits_{k\to\infty}\sum_{i=1}^{k}|sen\left(\frac{1}{x_{i+1}}\right)-  sen\left(\frac{1}{x_{i}}\right)|\to\infty.$
 Otra observación se deduce del teorema del valor medio. Si $f$ es continua en $[a,b]$, derivable en $(a,b)$ y su derivada $f´$ es acotada en $(a,b)$, entonces es $f$ es de variación acotada.
 
 ```
@@ -333,3 +334,45 @@ Toda función absolutamente continua es la integral indefinida de su derivada.
 
 ## Cambio de variables
 
+Este capítulo abordará de forma muy somera teoremas referidos al cambio de variables en la integral de Lebesgue.
+
+Comencemos por la siguiente idea. Sea $(X,\mathcal{F},\mu)$ un espacio de medida y $(Y,\mathcal{G})$ un espacio medible. Sea $f:X\longrightarrow Y$ una función $\mathcal{F}$-medible. Definamos una medida en $Y$ de esta forma:
+$$\nu(A)=\mu(f^{-1}(A))\mbox{ para cualquier } A\in\mathcal{G}.$$
+En efecto, $\nu$ es una medida en $(Y,\mathcal{G})$. Como $f$ es medible, $f^{-1}(A)\in\mathcal{F}$ y $\mu(f^{-1}(A))\geq 0$, para todo $A\in\mathcal{G}$. Claramente, $\nu(\emptyset)=0$ y por último, como la función inversa se comporta bien bajo uniones, se tiene que $$\nu\left( \bigcup_{i\geq 1} E_{i}\right)=\mu\left(f^{-1}\left( \bigcup_{i\geq 1} E_{i}\right) \right)=\sum_{i\geq 1}\mu(f^{-1}(E_{i}))=\sum_{i\geq 1}\nu(E_{i})$$
+cuando $(E_{i})_{i\geq 1}\subseteq \mathcal{G}$ es una familia disjunta.
+
+```{theorem}
+Sea $f:(A,\mathcal{F},\mu)\longrightarrow(Y,\mathcal{G})$ medible respecto de $\mathcal{F}$ y $\mathcal{G}$. Sea $\nu=\mu\circ f^{-1}$. Entonces, si $g:(Y,\mathcal{G})\longrightarrow(\overline{\mathbb{R}},\mathcal{M})$ es una función medible, se tiene que 
+	$$\int_{Y} g(y)d\nu(y)=\int_{X} g\circ f(x) d\mu(x).$$
+
+```
+```{proof}
+Comencemos por hacer la demostración para una función indicatriz. Supongamos que $g=\chi_{E}$ para algún conjunto medible $E\in\mathcal{G}$. Entonces
+	$$(g\circ f)(x)=\left\lbrace\begin{array}{ll}
+	1 &\mbox{ si } f(x)\in E\\
+	0 &\mbox{ sino } 
+	\end{array} \right.$$
+Luego
+	$$\int_{X} g\circ f(x) d\mu(x)=\mu(f^{-1}(E))=\nu(E)=\int_{Y} \chi_{E}(y)d\nu(y)=\int_{Y} g(y)d\nu(y).$$
+Usando la linealidad de la integral se obtiene el resultado para funciones $\mathcal{G}$-simples. Si $g$ es medible no negativa, el resultado se obtiene aproximando $g$ por funciones simples. Y para el caso general, se escribe $g$ como la suma de funciones no negativas, esto es, $g=g^{+}+g^{-}$.
+
+```
+
+```{theorem}
+Sea $F:[a,b]\longrightarrow\mathbb{R}$ medible, continua y creciente. Sea $g:\mathbb{R}\longrightarrow\mathbb{R}$ integrable Lebesgue en $[F(a),F(b)]$. Entonces
+$$\int_{F(a)}^{F(b)} g(x)dx=\int_{a}^{b} g(F(t))dF(t)$$
+donde $dF(t)$ denota la integral respecto de la medida de Stieltjes asociada a $F$.
+
+```
+El esquema de la demostración es el siguiente:
+Se considera la aplicación 
+$$\left([a,b],\mathcal{M}\upharpoonright_{[a,b]}, dF\right)\longrightarrow\left(\left[F(a), F(b)\right],\mathcal{M}\right)$$
+y se define la medida
+$$\nu=dF\circ F^{-1}.$$
+Del teorema anterior se obtiene el resultado.
+
+```{remark}
+Si $F$ es tal que $F(b)-F(a)=\int_{a}^{b} F´(t)dt$, entonces el teorema anterior concluye que 
+$$\int_{F(a)}^{F(b)} g(x)dx=\int_{a}^{b} g(F(t))F´(t)d(t).$$
+
+```
