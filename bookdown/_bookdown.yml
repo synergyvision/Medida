@@ -2,7 +2,7 @@ book_filename: Medida
 repo: https://github.com/rstudio/bookdown/
 output_dir: ../docs
 clean: [packages.bib, bookdown.bbl]
-delete_merged_file: false
+delete_merged_file: true
 language:
   label:
     fig: 'Figura '

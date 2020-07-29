@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 FUNCIONES MEDIBLES | Medida</title>
+  <meta name="description" content="Capítulo 4 FUNCIONES MEDIBLES | Medida" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 FUNCIONES MEDIBLES | Medida" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://synergy.vision/Medida/" />
+  <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
+  
+  <meta name="github-repo" content="synergyvision/Medida/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 FUNCIONES MEDIBLES | Medida" />
+  
+  
+  <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
+
+<meta name="author" content="Synergy Vision" />
+
+
+<meta name="date" content="2020-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="la-medida-de-lebesgue.html"/>
+<link rel="next" href="la-integral-de-lebesgue.html"/>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="images/logovision-black.png" width="160"></img></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-qué-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prácticas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a><ul>
+<li class="chapter" data-level="2.1" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a></li>
+<li class="chapter" data-level="2.2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#colecciones-de-conjuntos"><i class="fa fa-check"></i><b>2.2</b> Colecciones de Conjuntos</a></li>
+<li class="chapter" data-level="2.3" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#el-conjunto-de-cantor"><i class="fa fa-check"></i><b>2.3</b> El conjunto de Cantor</a></li>
+<li class="chapter" data-level="2.4" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#medida"><i class="fa fa-check"></i><b>2.4</b> Medida</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html"><i class="fa fa-check"></i><b>3</b> LA MEDIDA DE LEBESGUE</a><ul>
+<li class="chapter" data-level="3.1" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#construyendo-la-medida-de-lebesgue"><i class="fa fa-check"></i><b>3.1</b> Construyendo la Medida de Lebesgue</a></li>
+<li class="chapter" data-level="3.2" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#unicidad-de-la-medida-de-lebesgue-y-otras-propiedades"><i class="fa fa-check"></i><b>3.2</b> Unicidad de la medida de Lebesgue y otras propiedades</a></li>
+<li class="chapter" data-level="3.3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#consideraciones"><i class="fa fa-check"></i><b>3.3</b> Consideraciones</a></li>
+<li class="chapter" data-level="3.4" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#la-medida-de-stieltjes"><i class="fa fa-check"></i><b>3.4</b> La Medida de Stieltjes</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="funciones-medibles.html"><a href="funciones-medibles.html"><i class="fa fa-check"></i><b>4</b> FUNCIONES MEDIBLES</a><ul>
+<li class="chapter" data-level="4.1" data-path="funciones-medibles.html"><a href="funciones-medibles.html#conceptos-básicos"><i class="fa fa-check"></i><b>4.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="4.2" data-path="funciones-medibles.html"><a href="funciones-medibles.html#aproximaciones-de-funciones-medibles"><i class="fa fa-check"></i><b>4.2</b> Aproximaciones de funciones medibles</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html"><i class="fa fa-check"></i><b>5</b> LA INTEGRAL DE LEBESGUE</a><ul>
+<li class="chapter" data-level="5.1" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#conceptos-básicos-1"><i class="fa fa-check"></i><b>5.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="5.2" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#intercambio-de-límites-con-la-integral"><i class="fa fa-check"></i><b>5.2</b> Intercambio de límites con la integral</a></li>
+<li class="chapter" data-level="5.3" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#teoremas-de-aproximación"><i class="fa fa-check"></i><b>5.3</b> Teoremas de Aproximación</a></li>
+<li class="chapter" data-level="5.4" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#más-sobre-la-integral-de-lebesgue"><i class="fa fa-check"></i><b>5.4</b> Más sobre la Integral de Lebesgue</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="convergencia.html"><a href="convergencia.html"><i class="fa fa-check"></i><b>6</b> CONVERGENCIA</a><ul>
+<li class="chapter" data-level="6.1" data-path="convergencia.html"><a href="convergencia.html#tipos-de-convergencia"><i class="fa fa-check"></i><b>6.1</b> Tipos de convergencia</a></li>
+<li class="chapter" data-level="6.2" data-path="convergencia.html"><a href="convergencia.html#espacios-lp"><i class="fa fa-check"></i><b>6.2</b> Espacios <span class="math inline">\(L^{p}\)</span></a></li>
+<li class="chapter" data-level="6.3" data-path="convergencia.html"><a href="convergencia.html#espacios-linfty"><i class="fa fa-check"></i><b>6.3</b> Espacios <span class="math inline">\(L^{\infty}\)</span></a></li>
+<li class="chapter" data-level="6.4" data-path="convergencia.html"><a href="convergencia.html#espacios-de-hilbert"><i class="fa fa-check"></i><b>6.4</b> Espacios de Hilbert</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html"><i class="fa fa-check"></i><b>7</b> DIFERENCIACION E INTEGRACIÓN</a><ul>
+<li class="chapter" data-level="7.1" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-monótonas"><i class="fa fa-check"></i><b>7.1</b> Funciones monótonas</a></li>
+<li class="chapter" data-level="7.2" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-de-variación-acotada"><i class="fa fa-check"></i><b>7.2</b> Funciones de variación acotada</a></li>
+<li class="chapter" data-level="7.3" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#de-la-integral-indefinida.-continuidad-absoluta"><i class="fa fa-check"></i><b>7.3</b> De la Integral indefinida. Continuidad Absoluta</a></li>
+<li class="chapter" data-level="7.4" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#cambio-de-variables"><i class="fa fa-check"></i><b>7.4</b> Cambio de variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html"><i class="fa fa-check"></i><b>8</b> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></a><ul>
+<li class="chapter" data-level="8.1" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#espacio-producto"><i class="fa fa-check"></i><b>8.1</b> Espacio Producto</a></li>
+<li class="chapter" data-level="8.2" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#medida-de-lebesgue-en-mathbbrn"><i class="fa fa-check"></i><b>8.2</b> Medida de Lebesgue en <span class="math inline">\(\mathbb{R}^{n}\)</span></a></li>
+<li class="chapter" data-level="8.3" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#teorema-de-fibini.-teorema-de-tonelli"><i class="fa fa-check"></i><b>8.3</b> Teorema de Fibini. Teorema de Tonelli</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apéndice</b></span></li>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A.1" data-path="software-tools.html"><a href="software-tools.html#r-and-r-packages"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
+<li class="chapter" data-level="A.2" data-path="software-tools.html"><a href="software-tools.html#pandoc"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
+<li class="chapter" data-level="A.3" data-path="software-tools.html"><a href="software-tools.html#latex"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Medida</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="funciones-medibles" class="section level1">
+<h1><span class="header-section-number">Capítulo 4</span> FUNCIONES MEDIBLES</h1>
+<p>En este capítulo estudiaremos las funciones medibles y sus propiedades. Luego definiremos las funciones simples, útiles para definir más adelante la integral de Lebesgue, que para este tipo de funciones, se define de forma muy intuitiva. Además, estudiaremos cuando una función se puede aproximar por funciones simples.</p>
+<div id="conceptos-básicos" class="section level2">
+<h2><span class="header-section-number">4.1</span> Conceptos básicos</h2>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-115" class="definition"><strong>Definición 4.1  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\mathbb{R}\)</span>. Se dice que <span class="math inline">\(f\)</span> es <em>medible Borel</em> cuando para todo conjunto boreliano <span class="math inline">\(B\)</span>, se tiene que <span class="math inline">\(f^{-1}(B)\)</span> es un conjunto boreliano. Es decir, <span class="math inline">\(f^{-1}(\mathcal{B}(\mathbb{R}))\subseteq\mathcal{B}(\mathbb{R})\)</span>. Cuando para todo conjunto boreliano <span class="math inline">\(B\)</span>, <span class="math inline">\(f^{-1}(B)\)</span> es un conjunto medible Lebesgue, <span class="math inline">\(f\)</span> se dice <em>medible Lebesgue</em>. Es decir, <span class="math inline">\(f^{-1}(\mathcal{B}(\mathbb{R}))\subseteq\mathcal{M}\)</span>. Más generalmente, dado un espacio medible <span class="math inline">\((X,\mathcal{A})\)</span>. Una función <span class="math inline">\(f:X\longrightarrow\mathbb{R}\)</span> es una función <span class="math inline">\(\mathcal{A}\)</span>-medible, cuando para cada conjunto boreliano <span class="math inline">\(B\)</span>, <span class="math inline">\(f^{-1}\in\mathcal{A}\)</span>; es decir, <span class="math inline">\(f^{-1}(\mathcal{B}(\mathbb{R}))\subseteq\mathcal{A}\)</span>.</p>
+</div>
+
+<p>Como <span class="math inline">\(f^{-1}\)</span> se comporta bien bajo complementación y uniones, en la definición anterior, basta verificar que un conjunto generador de la <span class="math inline">\(\sigma\)</span>-álgebra de Borel, tiene imagenes inversas en la <span class="math inline">\(\sigma\)</span>-álgebra del espacio dominio <span class="math inline">\(X\)</span> (en el caso del espacio <span class="math inline">\(\mathbb{R}\)</span>, <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span> o <span class="math inline">\(\mathcal{M}\)</span>). Para esto iniciamos con el siguiente lema.</p>
+
+<div class="lemma">
+<p><span id="lem:unnamed-chunk-116" class="lemma"><strong>Lema 4.1  </strong></span>Sea <span class="math inline">\(\mathcal{C}\)</span> una clase de subconjuntos que genera a <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span> y <span class="math inline">\(f:(X,\mathcal{A})\longrightarrow\mathbb{R}\)</span>. Entonces, <span class="math inline">\(f^{-1}(\mathcal{B}(\mathbb{R}))\subseteq\mathcal{A}\)</span> si y solo si <span class="math inline">\(f^{-1}(\mathcal{C})\subseteq\mathcal{F}\)</span>.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-117" class="proposition"><strong>Proposición 4.1  </strong></span>Sea <span class="math inline">\(f: X\longrightarrow \mathbb{R}\)</span>. Las siguientes afirmaciones son equivalentes.</p>
+<p>(i.) <span class="math inline">\(f\)</span> es <span class="math inline">\(\mathcal{A}\)</span>-medible.</p>
+<p>(ii.) Para todo <span class="math inline">\(a,b\in\mathbb{R}\)</span>, <span class="math inline">\(f^{-1}(I)\in\mathcal{A}\)</span>, con <span class="math inline">\(I=(a,b)\)</span>.</p>
+<p>(iii.) Para todo <span class="math inline">\(p,q\in\mathbb{Q}\)</span>, <span class="math inline">\(f^{-1}(I)\in\mathcal{A}\)</span>, con <span class="math inline">\(I=(p,q)\)</span>.</p>
+<p>(iv.) Para todo <span class="math inline">\(a\in\mathbb{R}\)</span>, <span class="math inline">\(f^{-1}(I)\in\mathcal{A}\)</span>, con <span class="math inline">\(I=&lt;a,\infty)\)</span>.</p>
+<p>(v.) Para todo conjunto abierto <span class="math inline">\(A\subseteq\mathbb{R}\)</span>, <span class="math inline">\(f^{-1}(A)\in\mathcal{A}\)</span>.</p>
+<p>(vi.) Para todo conjunto cerrado <span class="math inline">\(C\subseteq\mathbb{R}\)</span>, <span class="math inline">\(f^{-1}(C)\in\mathcal{A}\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Basta notar que las familias de conjuntos abiertos, de conjuntos cerrados, de intervalos de la forma <span class="math inline">\((a,b)\)</span>, con <span class="math inline">\(a,b\in\mathbb{R}\)</span>, de intervalos de la forma <span class="math inline">\((p,q)\)</span>, con <span class="math inline">\(p,q\in\mathbb{Q}\)</span> y de los intervalos de la forma <span class="math inline">\(&lt;a,\infty)\)</span>, con <span class="math inline">\(a\in\mathbb{R}\)</span>, generan la <span class="math inline">\(\sigma\)</span>-álgebra de Borel.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-119" class="example"><strong>Ejemplo 4.1  </strong></span>Si <span class="math inline">\((X,\mathcal{A})\)</span> es un espacio medible y <span class="math inline">\(A\in\mathcal{A}\)</span> entonces la función indicatriz <span class="math inline">\(\chi_{A}\)</span>, es una función <span class="math inline">\(\mathcal{A}\)</span>-medible.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-120" class="example"><strong>Ejemplo 4.2  </strong></span>Las funciones continuas son medibles Borel: Sea <span class="math inline">\(X\)</span> un espacio topológico y <span class="math inline">\(f:X\longrightarrow \mathbb{R}\)</span> una función continua. Entonces <span class="math inline">\(f\)</span> es medible Borel.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-121" class="example"><strong>Ejemplo 4.3  </strong></span>Las funciones constantes son medibles: Si <span class="math inline">\((X,\mathcal{A})\)</span> es un espacio medible y <span class="math inline">\(\lambda\in\mathbb{R}\)</span>. La función <span class="math inline">\(f:X\longrightarrow \mathbb{R}:x\mapsto \lambda\)</span> es una función <span class="math inline">\(\mathcal{A}\)</span>-medible.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-122" class="example"><strong>Ejemplo 4.4  </strong></span>Las variables aleatorias son funciones medibles: Si <span class="math inline">\((\omega,\mathcal{A}, P)\)</span> es un espacio de probabilidad y <span class="math inline">\(X:\omega\longrightarrow\mathbb{R}\)</span> una variable aleatoria. Se tiene que <span class="math inline">\(X\)</span> es una función <span class="math inline">\(\mathcal{A}\)</span>-medible.</p>
+</div>
+
+<p>Podemos considerar funciones que tomen valores infinitos, esto es <span class="math inline">\(f:X\longrightarrow \overline{\mathbb{R}}\)</span>. Y para estas funciones, la definición de medibilidad sería así: <span class="math inline">\(f\)</span> es una <em>función <span class="math inline">\(\mathcal{A}\)</span>-medible</em> si y solo si:</p>
+<p>(i.) <span class="math inline">\(f^{-1}(B)\in\mathcal{A}\)</span>, para todo <span class="math inline">\(B\in\mathcal{B}(\mathbb{R})\)</span>,</p>
+<p>( ii.) <span class="math inline">\(f^{-1}(\infty)\in\mathcal{A}\)</span> y</p>
+<p>(iii.) <span class="math inline">\(f^{-1}(-\infty)\in\mathcal{A}\)</span>.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-123" class="proposition"><strong>Proposición 4.2  </strong></span>Sean <span class="math inline">\(f,g: X\longrightarrow \mathbb{R}\)</span> funciones <span class="math inline">\(\mathcal{A}\)</span>-medibles. Entonces:</p>
+<p>(i.) <span class="math inline">\(f+g\)</span> es una función <span class="math inline">\(\mathcal{A}\)</span>-medible.</p>
+<p>(ii.) Para todo <span class="math inline">\(k\in\mathbb{R}\)</span>, <span class="math inline">\(kf\)</span> es una función <span class="math inline">\(\mathcal{A}\)</span>-medible.</p>
+<p>(iii.) <span class="math inline">\(f^{2}\)</span> es una función <span class="math inline">\(\mathcal{A}\)</span>-medible.</p>
+<p>(iv.) <span class="math inline">\(fg\)</span> es una función <span class="math inline">\(\mathcal{A}\)</span>-medible.</p>
+<p>(v.) <span class="math inline">\(\frac{1}{f}\)</span> es una función <span class="math inline">\(\mathcal{A}\)</span>-medible, tomando <span class="math inline">\(\frac{1}{f}=\infty\)</span> si <span class="math inline">\(f(x)=0\)</span>.</p>
+<p>(vi.) La función máximo entre <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span>, <span class="math inline">\(f\vee g\)</span> y la función mínimo entre <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span>, <span class="math inline">\(f\wedge g\)</span> son funciones medibles.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sean <span class="math inline">\(f,g: X\longrightarrow \mathbb{R}\)</span> funciones <span class="math inline">\(\mathcal{A}\)</span>-medibles.</p>
+<p>(i.) Note que <span class="math display">\[\begin{array}{rl}
+        x\in(f+g)^{-1}(-\infty,c)\Leftrightarrow&amp;(f+g)(x)&lt;c\\
+        \Leftrightarrow&amp;f(x)+g(x)&lt;c\\
+        \Leftrightarrow&amp;f(x)&lt;c-g(x)
+        \end{array}\]</span> Como <span class="math inline">\(\mathbb{Q}\)</span> es denso en <span class="math inline">\(\mathbb{R}\)</span>, se tiene que <span class="math display">\[\begin{array}{rl}
+        x\in(f+g)^{-1}(-\infty,c)\Leftrightarrow&amp;\exists r\in\mathbb{Q}(f(x)&lt;r&lt;c-g(x))\\
+        \Leftrightarrow&amp;\exists r\in\mathbb{Q}(f(x)&lt;r \mbox{ y } g(x)&lt;c-r)\\
+        \Leftrightarrow&amp;\exists r\in\mathbb{Q}(x\in f^{-1}(-\infty,r)\cap g^{-1}(-\infty,c-r))\\
+        \Leftrightarrow&amp; x\in \bigcup_{r\in\mathbb{Q}} f^{-1}(-\infty,r)\cap g^{-1}(-\infty,c-r)
+        \end{array}\]</span> Como <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> son <span class="math inline">\(\mathcal{A}\)</span>-medibles, <span class="math inline">\(f^{-1}(-\infty,r), g^{-1}(-\infty,c-r)\in\mathcal{A}\)</span> y <span class="math inline">\(\mathcal{A}\)</span> es cerrado bajo uniones numerables e intersecciones, se tiene que <span class="math display">\[x\in(f+g)^{-1}(-\infty,c)\Leftrightarrow\bigcup_{r\in\mathbb{Q}} f^{-1}(-\infty,r)\cap g^{-1}(-\infty,c-r)\]</span></p>
+<p>(ii.) Sea <span class="math inline">\(k\in\mathbb{R}\)</span>. Si <span class="math inline">\(k=0\)</span>, <span class="math inline">\(kf\equiv 0\)</span> de donde se sigue el resultado. Supongamos que <span class="math inline">\(k\neq 0\)</span>. Note que <span class="math inline">\(kf^{-1}(a,b)=f^{-1}(\frac{a}{k}, \infty)\cap f^{-1}(-\infty, \frac{b}{k})\)</span>. Como <span class="math inline">\(f\)</span> es <span class="math inline">\(\mathcal{A}\)</span>-medible, <span class="math inline">\(kf^{-1}(a,b)=f^{-1}(\frac{a}{k}, \infty)\cap f^{-1}(-\infty, \frac{b}{k})\in\mathcal{A}\)</span>.</p>
+<p>(iii.) Sea <span class="math inline">\(a\in\mathbb{R}\)</span>. Si <span class="math inline">\(a\geq 0\)</span>, entonces <span class="math display">\[\begin{array}{rl}
+        (f^{2})^{-1}(a,\infty)=&amp;\{x\in X: f^{2}(x)&gt;a\}\\
+        =&amp;\{x\in X: f(x)&gt;\sqrt{a}\}\\
+        =&amp;f^{-1}(\sqrt{a},\infty)
+        \end{array}\]</span> Si <span class="math inline">\(a&lt;0\)</span>, entonces <span class="math display">\[\begin{array}{rl}
+        (f^{2})^{-1}(a,\infty)=&amp;\{x\in X: f^{2}(x)&gt;a\}\\
+        =&amp;\{x\in X: f(x)&lt;\sqrt{-a}\}\\
+        =&amp;f^{-1}(-\infty,\sqrt{-a})
+        \end{array}\]</span> en cualquier caso, <span class="math inline">\((f^{2})^{-1}(a,\infty)\in\mathcal{A}\)</span>.</p>
+<p>(iv.) Note que <span class="math inline">\(fg=\frac{(f+g)^{2}-f^{2}-g^{2}}{2}\)</span>. De <span class="math inline">\((i.)\)</span> y <span class="math inline">\((iii.)\)</span> se sigue el resultado.</p>
+<p>(v.) Basta notar que <span class="math inline">\((\frac{1}{f})^{-1}(a,\infty)=f^{-1}(-\infty,\frac{1}{a})\)</span>, cuando <span class="math inline">\(a\neq 0\)</span> y <span class="math inline">\((\frac{1}{f})^{-1}(\infty)=f^{-1}(\{0\})\)</span>.</p>
+<p>(vi.) Solo basta notar que <span class="math display">\[(f\vee g)(x)&lt;c\Leftrightarrow f(x)&lt;c \wedge g(x)&lt;c\]</span> y <span class="math display">\[(f\wedge g)(x)&lt;c\Leftrightarrow f(x)&lt;c \vee g(x)&lt;c.\]</span></p>
+</div>
+
+<p>Dada una función <span class="math inline">\(f:X\longrightarrow\mathbb{R}\)</span>, se define:</p>
+<p>(i.) <em>la parte positiva de <span class="math inline">\(f\)</span></em> como la función <span class="math inline">\(f^{+}(x)=f(x)\vee 0=\max\{f(x),0\}\)</span> y</p>
+<p>(ii.) <em>la parte negativa de <span class="math inline">\(f\)</span></em> como la función <span class="math inline">\(f^{-}(x)=-(f(x)\wedge 0)=-\min\{f(x),0\}\)</span>.</p>
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Note que las funciones <span class="math inline">\(f^{+}\)</span> y <span class="math inline">\(f^{-}\)</span> son funciones no negativas. También se tiene que <span class="math inline">\(f^{-}=-f\vee 0\)</span>.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-126" class="proposition"><strong>Proposición 4.3  </strong></span>Sean <span class="math inline">\(f,g:X\longrightarrow\overline{\mathbb{R}}\)</span> funciones <span class="math inline">\(\mathcal{A}\)</span>-medibles, entonces <span class="math inline">\(f\vee g\)</span> y <span class="math inline">\(f\wedge g\)</span> son funciones <span class="math inline">\(\mathcal{A}\)</span>-medibles.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Como <span class="math inline">\(\{x\in X:(f\vee g)(x)&lt; r \}=\{x\in X:f(x)&lt; r \}\cap\{x\in X:g(x)&lt; r \}\)</span> y <span class="math inline">\(\{x\in X:(f\wedge g)(x)&gt; r \}=\{x\in X:f(x)&gt; r \}\cup\{x\in X:g(x)&gt; r \}\)</span>, para cualquier <span class="math inline">\(r\in\mathbb{R}\)</span>, de las hipótesis se sigue el resultado.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Por la proposión anterior, se sigue que:</p>
+<p>(i.) Las funciones positivas y negativas, son funciones medibles, siempre que <span class="math inline">\(f\)</span> lo sea. (ii) Como <span class="math inline">\(|f|=f^{+}+f^{-}\)</span>, se tiene que <span class="math inline">\(|f|\)</span> es medible, siempre que <span class="math inline">\(f\)</span> lo sea.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-129" class="proposition"><strong>Proposición 4.4  </strong></span>Sean <span class="math inline">\(f,g:X\longrightarrow\overline{\mathbb{R}}\)</span> funciones <span class="math inline">\(\mathcal{A}\)</span>-medibles. Entonces <span class="math inline">\(\forall\epsilon&gt;0\)</span> se tiene que <span class="math inline">\(\{x\in X: |f(x)-g(x)|&gt;\epsilon \}\in\mathcal{A}\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Como <span class="math inline">\(|f-g|\)</span> es una función <span class="math inline">\(\mathcal{A}\)</span>-medible y el intervalo <span class="math inline">\((\epsilon,\infty)\)</span> es un conjunto Boreliano, se tiene el resultado.</p>
+</div>
+
+</div>
+<div id="aproximaciones-de-funciones-medibles" class="section level2">
+<h2><span class="header-section-number">4.2</span> Aproximaciones de funciones medibles</h2>
+<p>Recuerde que una función escalera es una combinación lineal de funciones indicadoras de intervalos <span class="math inline">\(\mathbb{I}_{k}\)</span> <span class="math display">\[f=\sum_{k=1}^{n} C_{k}\chi_{\mathbb{I}_{k}}.\]</span> Si <span class="math inline">\(\mathcal{A}\)</span> es una <span class="math inline">\(\sigma\)</span>-álgebra de <span class="math inline">\(\mathbb{R}\)</span> que contiene a los intervalos, entonces las funciones escaleras son funciones <span class="math inline">\(\mathcal{A}\)</span>-medibles.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-131" class="definition"><strong>Definición 4.2  </strong></span>Sea <span class="math inline">\((X,\mathcal{A})\)</span> un espacio medible. Una función <span class="math inline">\(f:X\longrightarrow\mathbb{R}\)</span> de la forma <span class="math display">\[f(x)=\sum_{k=1}^{n} C_{k}\chi_{A_{k}}(x) \mbox{ donde } x_{k}\in\mathbb{R} \mbox{ y }A_{k}\in\mathcal{A}\]</span> es llamada <em>función <span class="math inline">\(\mathcal{A}\)</span>-simple</em>. En el caso que la <span class="math inline">\(\sigma\)</span>-álgebra sea la <span class="math inline">\(\sigma\)</span>-álgebra de Borel, decimos que es una función simple, omitiendo la <span class="math inline">\(\sigma\)</span>-álgebra.</p>
+</div>
+
+<p>Es fácil ver que la suma y el producto de funciones <span class="math inline">\(\mathcal{A}\)</span>-simples, son funciones <span class="math inline">\(\mathcal{A}\)</span>-simples. Así como el producto de una función <span class="math inline">\(\mathcal{A}\)</span>-simple por un escalar, resulta ser también una función <span class="math inline">\(\mathcal{A}\)</span>-simple.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-132" class="definition"><strong>Definición 4.3  </strong></span>Sea <span class="math inline">\((X,\mathcal{A},\mu)\)</span> un espacio de medida y <span class="math inline">\(f:X\longrightarrow \overline{R}\)</span> diremos que <span class="math inline">\(f\)</span> cumple cierta propiedad <span class="math inline">\(P\)</span> <em><span class="math inline">\(\mu\)</span>-casi siempre</em> (abreviado <span class="math inline">\(\mu\)</span>-c.s.) si y solo si <span class="math inline">\(\{x\in X: f(x) \mbox{ no cumple } P \}\in\mathcal{A}\)</span> y <span class="math inline">\(\mu(\{x\in X: f(x) \mbox{ no cumple } P \})=0\)</span>.</p>
+</div>
+
+<p>También puede usarse la expresión <em><span class="math inline">\(P\)</span> en casi todo punto</em>, aunque esta última no evidencia la referencia a la medida <span class="math inline">\(\mu\)</span>, por lo que suele usarse cuando la medida es la de Borel o Lebesgue. Esto se abrevia <span class="math inline">\(c.t.p\)</span>.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-133" class="example"><strong>Ejemplo 4.5  </strong></span>Sea <span class="math inline">\(f=\chi_{\mathbb{R}-\mathbb{Q}}\)</span>. La propiedad <em><span class="math inline">\(f\)</span> es constantemente igual a <span class="math inline">\(1\)</span></em> no es cierta. Pero si se cumple en casi todo punto, ya que <span class="math inline">\(\{x\in \mathbb{R}: f(x)\neq 1 \}=\mathbb{Q}\)</span>.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-134" class="proposition"><strong>Proposición 4.5  </strong></span>Sean <span class="math inline">\(f,g:\mathbb{R}\longrightarrow\mathbb{R}\)</span> funciones. Si <span class="math inline">\(f\)</span> es medible lebesgue y <span class="math inline">\(g=f\)</span> casi siempre, entonces <span class="math inline">\(g\)</span> es medible lebesgue.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(E=\{x\in X: f(x)=g(x)\}\)</span>. Sea <span class="math inline">\(k\in\mathbb{R}\)</span>, <span class="math display">\[\begin{array}{rl}
+    g^{-1}(k,\infty)=&amp;\{x\in X: g(x)&gt; k \}\\
+    =&amp;\{x\in E: g(x)&gt; k \}\cup \{x\in E^{c}: g(x)&gt; k \}
+    \end{array}\]</span> Como <span class="math inline">\(g=f\)</span> casi siempre, <span class="math inline">\(m(\{x\in E: g(x)&gt; k \})\leq m(E)=0\)</span>. Además <span class="math inline">\(\{x\in E^{c}: g(x)&gt; k \}=E^{c}\cap f^{-1}(k,\infty)\in\mathcal{M}\)</span>, ya que <span class="math inline">\(E^{c}\in\mathcal{M}\)</span>. Luego, <span class="math display">\[  g^{-1}(k,\infty)=\{x\in E: g(x)&gt; k \}\cup \{x\in E^{c}: g(x)&gt; k \}\in\mathcal{M}\]</span>.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> En la proposición anterior, la hipótesis <em><span class="math inline">\(f\)</span> es medible Lebesgue</em> es esencial. Si esta se cambia por <em><span class="math inline">\(f\)</span> es medible Borel</em> no es cierta la proposición.</p>
+</div>
+
+<p>El siguiente resultado propone que podemos apróximar una función medible no negativa, por una sucesión de funciones simples. Veremos la utilidad de este resultado mas adelante.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-137" class="theorem"><strong>Teorema 4.1  </strong></span>Sea <span class="math inline">\((X,\mathcal{A})\)</span> un espacio medible y <span class="math inline">\(f:X\longrightarrow\overline{\mathbb{R}}\)</span> una función <span class="math inline">\(\mathcal{A}\)</span>-medible no negativa (<span class="math inline">\(f\geq 0\)</span>). Entonces, existe una sicesión creciente de funciones <span class="math inline">\(\mathcal{F}\)</span>-simples, <span class="math inline">\(\{f_{n} \}_{n\in\mathbb{N}}\)</span> que converge puntualmente a <span class="math inline">\(f\)</span>. Además, si <span class="math inline">\(f\)</span> es acotada, entonces <span class="math inline">\(\{f_{n} \}_{n\in\mathbb{N}}\)</span> converge uniformemente a <span class="math inline">\(f\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Construiremos una sucesión creciente de funciones simples a partir de una función medible no negativa. Para cada <span class="math inline">\(n\in\mathbb{N}\)</span>, consideraremos una partición del intervalo <span class="math inline">\([0,\infty)\)</span> en el intervalo <span class="math inline">\([2^{n},\infty)\)</span> y <span class="math inline">\(2^{2n}\)</span> intervalos que resultan de dividir el intervalo <span class="math inline">\([0,2^{n}]\)</span> en subintervalos de longitud <span class="math inline">\(\frac{1}{2^{n}}\)</span>. A partir de estos intervalos definimos los conjuntos medibles siguientes <span class="math display">\[\begin{array}{rl}
+    A_{k,n}=&amp;f^{-1}\left[\frac{k-1}{2^{n}},\frac{k}{2^{n}} \right] \mbox{ con } k=1,\cdots,2^{2n} \mbox{ y }\\
+    A_{0,n}=&amp;f^{-1}[2^{n},\infty)
+    \end{array}\]</span> Como <span class="math inline">\(f\)</span> es una función <span class="math inline">\(\mathcal{A}\)</span>-medible, se tiene que cada <span class="math inline">\(A_{n,k}\in\mathcal{A}\)</span>, para todo <span class="math inline">\(n\in\mathbb{N}\)</span> y <span class="math inline">\(k=0,1,\cdots,2^{2n}\)</span>. Además, note que la sucesión de conjuntos <span class="math inline">\(\{A_{n,k} \}_{k}\)</span>, para cada <span class="math inline">\(n\in\mathbb{N}\)</span>, es una partición del espacio <span class="math inline">\(X\)</span>. Con estos conjuntos <span class="math inline">\(\mathcal{A}\)</span>-medibles, definamos las funciones simples <span class="math inline">\(f_{n}\)</span>, que constituirán la sucesión. Sea <span class="math display">\[f_{n}=2^{n}\chi_{A_{0,n}}+\sum_{k=1}^{2^{2n}} \frac{k-1}{2^{n}} \chi_{A_{k,n}}.\]</span> Así definidas, cada <span class="math inline">\(f_{n}\)</span> es <span class="math inline">\(\mathcal{A}\)</span>-medible. Además <span class="math inline">\(0\leq f_{n}(x)\leq f(x)\)</span>. Veamos que la sucesión <span class="math inline">\(\{f_{n} \}_{n}\)</span> es creciente. Sea <span class="math inline">\(x\in X\)</span>; dado <span class="math inline">\(n\in\mathbb{N}\)</span>, existe <span class="math inline">\(k\in\mathbb{N}\)</span> tal que <span class="math inline">\(x\in A_{k,n}\)</span> o <span class="math inline">\(x\in A_{0,n}\)</span>.</p>
+<p>Caso 1: Si <span class="math inline">\(x\in A_{k,n}\)</span>, <span class="math inline">\(\frac{k-1}{2^{n}}\leq f(x)\leq \frac{k}{2^{n}}\)</span>. Luego, para <span class="math inline">\(n+1\)</span>, se tiene que <span class="math display">\[\frac{2(k-1)}{2^{n+1}}\leq f(x)\leq \frac{2k-1}{2^{n+1}} \mbox{ o } \frac{2k-1}{2^{n+1}}\leq f(x)\leq \frac{2k}{2^{n+1}}\]</span></p>
+<p>Caso 2: Si <span class="math inline">\(x\in A_{0,n}\)</span>, <span class="math inline">\(f(x)=2^{n}\)</span>. Para <span class="math inline">\(n+1\)</span>, <span class="math inline">\(x\in A_{0,n+1}\)</span> o <span class="math inline">\(x\in A_{k,n+1}\)</span> para algún <span class="math inline">\(k\geq 2^{2n+1}+1\)</span>.</p>
+<p>En cualquier caso, se sigue que <span class="math inline">\(f_{n}(x)\leq f_{n+1}\)</span>. Ahora veamos que efectivamente hemos construído una sucesión que converge a <span class="math inline">\(f\)</span>.\ Si <span class="math inline">\(f(x)=\infty\)</span>, <span class="math inline">\(2^{n}&lt;f(x)\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>, luego <span class="math inline">\(f_{n}(x)\rightarrow \infty\)</span>.\ Si <span class="math inline">\(f(x)&lt;\infty\)</span>], existe <span class="math inline">\(n_{0}\in\mathbb{N}\)</span> tal que <span class="math inline">\(f(x)&lt;2^{n_{0}}\)</span>. luego, para todo <span class="math inline">\(n&gt;n_{0}\)</span> existe <span class="math inline">\(k\in\{1,\cdots, 2^{2n}\}\)</span> tal que <span class="math inline">\(\frac{k-1}{2^{n}}\leq f(x)&lt;\frac{k}{2^{n}}\)</span> por lo tanto <span class="math inline">\(0\leq f(x)-f_{n}(x)&lt;\frac{1}{2^{n}}\)</span>, de donde se sigue que <span class="math inline">\(f_{n}(x)\rightarrow f(x)\)</span>. Por último, si <span class="math inline">\(f\)</span> es acotada, existe <span class="math inline">\(N_{0}\in\mathbb{N}\)</span> tal que <span class="math inline">\(f(x)&lt;2^{N_{0}}\)</span> para todo <span class="math inline">\(x\in X\)</span>, de donde se sigue que <span class="math inline">\(f_{n}(x)\rightarrow f(x)\)</span> uniformemente.</p>
+</div>
+
+<p>Como toda función <span class="math inline">\(f\)</span> se escribe como <span class="math inline">\(f=f^{+}-f^{-}\)</span>, del teorema anterior se tiene el siguiente resultado.</p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-139" class="corollary"><strong>Corolario 4.1  </strong></span>Sea <span class="math inline">\(f:(X,\mathcal{A})\longrightarrow (\mathbb{R},\mathcal{B}(\mathbb{R}))\)</span> <span class="math inline">\(\mathcal{A}\)</span>-medible. Entonces existe una sucesión de funciones simples <span class="math inline">\(\{f_{n}\}_{n}\)</span> tal que <span class="math inline">\(f_{n}(x)\rightarrow f(x)\)</span> para cada <span class="math inline">\(x\in X\)</span>. Además, si <span class="math inline">\(f\)</span> es una función acotada, la convergencia es uniforme.</p>
+</div>
+
+<p>Otro corolario del teorema es</p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-140" class="corollary"><strong>Corolario 4.2  </strong></span>Sea <span class="math inline">\(f:(X,\mathcal{A})\longrightarrow (\mathbb{R},\mathcal{B}(\mathbb{R}))\)</span> <span class="math inline">\(\mathcal{A}\)</span>-medible y acotada. Entonces <span class="math inline">\(\forall\epsilon&gt;0\)</span> existe una sucesión de funciones simples <span class="math inline">\(\{f_{n}\}_{n}\)</span> tal que <span class="math inline">\(|f_{n}(x)-f(x)|\)</span> para todo <span class="math inline">\(x\in X\)</span>.</p>
+</div>
+
+<p>Una aplicación de este teorema consiste en la aproximación de funciones medibles por funciones escaleras y por funciones continuas:</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-141" class="theorem"><strong>Teorema 4.2  </strong></span>Sea <span class="math inline">\(f\)</span> una función medible Lebesgue (o medible Borel) definida en el intervalo <span class="math inline">\([a,b]\)</span>. Si <span class="math inline">\(f\)</span> es finita en casi todo punto, entonces para todo <span class="math inline">\(\epsilon&gt;0\)</span>, existe una función escalera <span class="math inline">\(g\)</span> y una función continua <span class="math inline">\(h\)</span> tales que <span class="math display">\[|f-g|&lt;\epsilon\mbox{ y } |f-h|&lt;\epsilon\]</span> salvo en un conjunto de medida menor que <span class="math inline">\(\epsilon\)</span>. Además, si existen <span class="math inline">\(m, M\in\mathbb{R}\)</span> tales que <span class="math inline">\(m\leq f\leq M\)</span>, entonces <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> se pueden elegir acotadas por <span class="math inline">\(m\)</span> y <span class="math inline">\(M\)</span>, es decir, <span class="math inline">\(m\leq g,h\leq M\)</span>.</p>
+</div>
+
+
+</div>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-78759535-1', 'auto');
+ga('send', 'pageview');  
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="la-medida-de-lebesgue.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="la-integral-de-lebesgue.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/synergyvision/Medida/edit/master/bookdown/040-funciones-medibles.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Medida.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

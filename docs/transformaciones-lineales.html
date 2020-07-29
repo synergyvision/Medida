@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Capítulo 10 Transformaciones lineales | Medida</title>
-  <meta name="description" content="Capítulo 10 Transformaciones lineales | Medida">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 16 Transformaciones lineales | Medida</title>
+  <meta name="description" content="Capítulo 16 Transformaciones lineales | Medida" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 10 Transformaciones lineales | Medida" />
+  <meta property="og:title" content="Capítulo 16 Transformaciones lineales | Medida" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://synergy.vision/Medida/" />
   <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
@@ -17,23 +16,23 @@
   <meta name="github-repo" content="synergyvision/Medida/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 10 Transformaciones lineales | Medida" />
+  <meta name="twitter:title" content="Capítulo 16 Transformaciones lineales | Medida" />
   
   
   <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
 
-<meta name="author" content="Synergy Vision">
+<meta name="author" content="Synergy Vision" />
 
 
-<meta name="date" content="2019-11-05">
+<meta name="date" content="2020-07-28" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="calculo-en-vectores-y-matrices.html">
-<link rel="next" href="producto-escalar.html">
+<link rel="prev" href="integración-en-mathbbrn.html"/>
+<link rel="next" href="producto-escalar.html"/>
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
@@ -41,6 +40,9 @@
 <link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -106,72 +108,93 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-que-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-qué-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#informacion-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#practicas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prácticas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
-<li class="chapter" data-level="1" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
-<li class="chapter" data-level="2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html"><i class="fa fa-check"></i><b>2</b> Estructuras algebraicas</a><ul>
-<li class="chapter" data-level="2.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#conjuntos"><i class="fa fa-check"></i><b>2.1</b> Conjuntos</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#definiciones-iniciales"><i class="fa fa-check"></i><b>2.1.1</b> Definiciones Iniciales</a></li>
-<li class="chapter" data-level="2.1.2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#operaciones-entre-conjuntos"><i class="fa fa-check"></i><b>2.1.2</b> Operaciones entre conjuntos</a></li>
-<li class="chapter" data-level="2.1.3" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#producto-cartesiano"><i class="fa fa-check"></i><b>2.1.3</b> Producto cartesiano</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a><ul>
+<li class="chapter" data-level="2.1" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a></li>
+<li class="chapter" data-level="2.2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#colecciones-de-conjuntos"><i class="fa fa-check"></i><b>2.2</b> Colecciones de Conjuntos</a></li>
+<li class="chapter" data-level="2.3" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#el-conjunto-de-cantor"><i class="fa fa-check"></i><b>2.3</b> El conjunto de Cantor</a></li>
+<li class="chapter" data-level="2.4" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#medida"><i class="fa fa-check"></i><b>2.4</b> Medida</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#relaciones-de-equivalencia"><i class="fa fa-check"></i><b>2.2</b> Relaciones de Equivalencia</a></li>
-<li class="chapter" data-level="2.3" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#funciones"><i class="fa fa-check"></i><b>2.3</b> Funciones</a></li>
-<li class="chapter" data-level="2.4" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#cardinales"><i class="fa fa-check"></i><b>2.4</b> Cardinales</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios"><i class="fa fa-check"></i><b>2.4.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html"><i class="fa fa-check"></i><b>3</b> LA MEDIDA DE LEBESGUE</a><ul>
+<li class="chapter" data-level="3.1" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#construyendo-la-medida-de-lebesgue"><i class="fa fa-check"></i><b>3.1</b> Construyendo la Medida de Lebesgue</a></li>
+<li class="chapter" data-level="3.2" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#unicidad-de-la-medida-de-lebesgue-y-otras-propiedades"><i class="fa fa-check"></i><b>3.2</b> Unicidad de la medida de Lebesgue y otras propiedades</a></li>
+<li class="chapter" data-level="3.3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#consideraciones"><i class="fa fa-check"></i><b>3.3</b> Consideraciones</a></li>
+<li class="chapter" data-level="3.4" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#la-medida-de-stieltjes"><i class="fa fa-check"></i><b>3.4</b> La Medida de Stieltjes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#teoria-de-grupos"><i class="fa fa-check"></i><b>2.5</b> Teoría de Grupos</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios-1"><i class="fa fa-check"></i><b>2.5.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="4" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>4</b> Vectores</a><ul>
+<li class="chapter" data-level="4.1" data-path="vectores.html"><a href="vectores.html#representación-geométrica"><i class="fa fa-check"></i><b>4.1</b> Representación geométrica</a></li>
+<li class="chapter" data-level="4.2" data-path="vectores.html"><a href="vectores.html#operaciones-entre-vectores"><i class="fa fa-check"></i><b>4.2</b> Operaciones entre vectores</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores.html"><a href="vectores.html#producto-escalar-y-producto-vectorial"><i class="fa fa-check"></i><b>4.2.1</b> Producto escalar y producto vectorial</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#anillos"><i class="fa fa-check"></i><b>2.6</b> Anillos</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios-2"><i class="fa fa-check"></i><b>2.6.1</b> Ejercicios</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>3</b> Vectores</a><ul>
-<li class="chapter" data-level="3.1" data-path="vectores.html"><a href="vectores.html#representacion-geometrica"><i class="fa fa-check"></i><b>3.1</b> Representación geométrica</a></li>
-<li class="chapter" data-level="3.2" data-path="vectores.html"><a href="vectores.html#operaciones-entre-vectores"><i class="fa fa-check"></i><b>3.2</b> Operaciones entre vectores</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="vectores.html"><a href="vectores.html#producto-escalar-y-producto-vectorial"><i class="fa fa-check"></i><b>3.2.1</b> Producto escalar y producto vectorial</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="vectores.html"><a href="vectores.html#rectas-y-planos"><i class="fa fa-check"></i><b>3.3</b> Rectas y Planos</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="vectores.html"><a href="vectores.html#rectas-en-el-espacio"><i class="fa fa-check"></i><b>3.3.1</b> Rectas en el espacio</a></li>
-<li class="chapter" data-level="3.3.2" data-path="vectores.html"><a href="vectores.html#rectas-en-el-plano"><i class="fa fa-check"></i><b>3.3.2</b> Rectas en el plano</a></li>
-<li class="chapter" data-level="3.3.3" data-path="vectores.html"><a href="vectores.html#planos"><i class="fa fa-check"></i><b>3.3.3</b> Planos</a></li>
+<li class="chapter" data-level="4.3" data-path="vectores.html"><a href="vectores.html#rectas-y-planos"><i class="fa fa-check"></i><b>4.3</b> Rectas y Planos</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="vectores.html"><a href="vectores.html#rectas-en-el-espacio"><i class="fa fa-check"></i><b>4.3.1</b> Rectas en el espacio</a></li>
+<li class="chapter" data-level="4.3.2" data-path="vectores.html"><a href="vectores.html#rectas-en-el-plano"><i class="fa fa-check"></i><b>4.3.2</b> Rectas en el plano</a></li>
+<li class="chapter" data-level="4.3.3" data-path="vectores.html"><a href="vectores.html#planos"><i class="fa fa-check"></i><b>4.3.3</b> Planos</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html"><i class="fa fa-check"></i><b>4</b> Espacios vectoriales</a><ul>
-<li class="chapter" data-level="4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales"><i class="fa fa-check"></i><b>4.1</b> Ecuaciones lineales</a></li>
-<li class="chapter" data-level="4.2" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#matrices"><i class="fa fa-check"></i><b>4.2</b> Matrices</a></li>
-<li class="chapter" data-level="4.3" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales-y-matrices"><i class="fa fa-check"></i><b>4.3</b> Ecuaciones lineales y matrices</a></li>
-<li class="chapter" data-level="4.4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#teoria-de-espacios-vectoriales"><i class="fa fa-check"></i><b>4.4</b> Teoría de espacios vectoriales</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#espacio-cociente"><i class="fa fa-check"></i><b>4.4.1</b> Espacio cociente</a></li>
+<li class="chapter" data-level="5" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html"><i class="fa fa-check"></i><b>5</b> Espacios vectoriales</a><ul>
+<li class="chapter" data-level="5.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales"><i class="fa fa-check"></i><b>5.1</b> Ecuaciones lineales</a></li>
+<li class="chapter" data-level="5.2" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#matrices"><i class="fa fa-check"></i><b>5.2</b> Matrices</a></li>
+<li class="chapter" data-level="5.3" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales-y-matrices"><i class="fa fa-check"></i><b>5.3</b> Ecuaciones lineales y matrices</a></li>
+<li class="chapter" data-level="5.4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#teoría-de-espacios-vectoriales"><i class="fa fa-check"></i><b>5.4</b> Teoría de espacios vectoriales</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#espacio-cociente"><i class="fa fa-check"></i><b>5.4.1</b> Espacio cociente</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ejercicios-3"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
+<li class="chapter" data-level="5.5" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ejercicios"><i class="fa fa-check"></i><b>5.5</b> Ejercicios</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="polinomios.html"><a href="polinomios.html"><i class="fa fa-check"></i><b>5</b> Polinomios</a><ul>
-<li class="chapter" data-level="5.0.1" data-path="polinomios.html"><a href="polinomios.html#factorizacion-prima-de-un-polinomio"><i class="fa fa-check"></i><b>5.0.1</b> Factorizacion prima de un polinomio</a></li>
-<li class="chapter" data-level="5.1" data-path="polinomios.html"><a href="polinomios.html#ejercicios-4"><i class="fa fa-check"></i><b>5.1</b> ejercicios</a></li>
+<li class="chapter" data-level="6" data-path="funciones-medibles.html"><a href="funciones-medibles.html"><i class="fa fa-check"></i><b>6</b> FUNCIONES MEDIBLES</a><ul>
+<li class="chapter" data-level="6.1" data-path="funciones-medibles.html"><a href="funciones-medibles.html#conceptos-básicos"><i class="fa fa-check"></i><b>6.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="6.2" data-path="funciones-medibles.html"><a href="funciones-medibles.html#aproximaciones-de-funciones-medibles"><i class="fa fa-check"></i><b>6.2</b> Aproximaciones de funciones medibles</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="matrices-1.html"><a href="matrices-1.html"><i class="fa fa-check"></i><b>6</b> Matrices</a></li>
-<li class="chapter" data-level="7" data-path="determinantes.html"><a href="determinantes.html"><i class="fa fa-check"></i><b>7</b> Determinantes</a><ul>
-<li class="chapter" data-level="7.0.1" data-path="determinantes.html"><a href="determinantes.html#ejercicios-5"><i class="fa fa-check"></i><b>7.0.1</b> {Ejercicios}</a></li>
+<li class="chapter" data-level="7" data-path="polinomios.html"><a href="polinomios.html"><i class="fa fa-check"></i><b>7</b> Polinomios</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="polinomios.html"><a href="polinomios.html#factorizacion-prima-de-un-polinomio"><i class="fa fa-check"></i><b>7.0.1</b> Factorizacion prima de un polinomio</a></li>
+<li class="chapter" data-level="7.1" data-path="polinomios.html"><a href="polinomios.html#ejercicios-1"><i class="fa fa-check"></i><b>7.1</b> ejercicios</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="autovalores-y-autovectores.html"><a href="autovalores-y-autovectores.html"><i class="fa fa-check"></i><b>8</b> Autovalores y autovectores</a></li>
-<li class="chapter" data-level="9" data-path="calculo-en-vectores-y-matrices.html"><a href="calculo-en-vectores-y-matrices.html"><i class="fa fa-check"></i><b>9</b> Cálculo en vectores y matrices</a></li>
-<li class="chapter" data-level="10" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html"><i class="fa fa-check"></i><b>10</b> Transformaciones lineales</a><ul>
-<li class="chapter" data-level="10.1" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#bases-ordenadas"><i class="fa fa-check"></i><b>10.1</b> Bases ordenadas</a></li>
-<li class="chapter" data-level="10.2" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#matriz-de-una-transformacion"><i class="fa fa-check"></i><b>10.2</b> Matriz de una transformación</a></li>
-<li class="chapter" data-level="10.3" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#transformaciones-invertibles"><i class="fa fa-check"></i><b>10.3</b> Transformaciones invertibles</a></li>
-<li class="chapter" data-level="10.4" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#funcionales-lineales"><i class="fa fa-check"></i><b>10.4</b> Funcionales lineales</a></li>
-<li class="chapter" data-level="10.5" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#el-doble-dual"><i class="fa fa-check"></i><b>10.5</b> El doble dual</a></li>
-<li class="chapter" data-level="10.6" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#ejercicios-6"><i class="fa fa-check"></i><b>10.6</b> Ejercicios</a></li>
+<li class="chapter" data-level="8" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html"><i class="fa fa-check"></i><b>8</b> LA INTEGRAL DE LEBESGUE</a><ul>
+<li class="chapter" data-level="8.1" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#conceptos-básicos-1"><i class="fa fa-check"></i><b>8.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="8.2" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#intercambio-de-límites-con-la-integral"><i class="fa fa-check"></i><b>8.2</b> Intercambio de límites con la integral</a></li>
+<li class="chapter" data-level="8.3" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#teoremas-de-aproximación"><i class="fa fa-check"></i><b>8.3</b> Teoremas de Aproximación</a></li>
+<li class="chapter" data-level="8.4" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#más-sobre-la-integral-de-lebesgue"><i class="fa fa-check"></i><b>8.4</b> Más sobre la Integral de Lebesgue</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="producto-escalar.html"><a href="producto-escalar.html"><i class="fa fa-check"></i><b>11</b> Producto escalar</a><ul>
-<li class="chapter" data-level="11.0.1" data-path="producto-escalar.html"><a href="producto-escalar.html#ejercicios-7"><i class="fa fa-check"></i><b>11.0.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="9" data-path="matrices-1.html"><a href="matrices-1.html"><i class="fa fa-check"></i><b>9</b> Matrices</a></li>
+<li class="chapter" data-level="10" data-path="determinantes.html"><a href="determinantes.html"><i class="fa fa-check"></i><b>10</b> Determinantes</a><ul>
+<li class="chapter" data-level="10.0.1" data-path="determinantes.html"><a href="determinantes.html#ejercicios-2"><i class="fa fa-check"></i><b>10.0.1</b> {Ejercicios}</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="convergencia.html"><a href="convergencia.html"><i class="fa fa-check"></i><b>11</b> CONVERGENCIA</a><ul>
+<li class="chapter" data-level="11.1" data-path="convergencia.html"><a href="convergencia.html#tipos-de-convergencia"><i class="fa fa-check"></i><b>11.1</b> Tipos de convergencia</a></li>
+<li class="chapter" data-level="11.2" data-path="convergencia.html"><a href="convergencia.html#espacios-lp"><i class="fa fa-check"></i><b>11.2</b> Espacios <span class="math inline">\(L^{p}\)</span></a></li>
+<li class="chapter" data-level="11.3" data-path="convergencia.html"><a href="convergencia.html#espacios-linfty"><i class="fa fa-check"></i><b>11.3</b> Espacios <span class="math inline">\(L^{\infty}\)</span></a></li>
+<li class="chapter" data-level="11.4" data-path="convergencia.html"><a href="convergencia.html#espacios-de-hilbert"><i class="fa fa-check"></i><b>11.4</b> Espacios de Hilbert</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="autovalores-y-autovectores.html"><a href="autovalores-y-autovectores.html"><i class="fa fa-check"></i><b>12</b> Autovalores y autovectores</a></li>
+<li class="chapter" data-level="13" data-path="cálculo-en-vectores-y-matrices.html"><a href="cálculo-en-vectores-y-matrices.html"><i class="fa fa-check"></i><b>13</b> Cálculo en vectores y matrices</a></li>
+<li class="chapter" data-level="14" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html"><i class="fa fa-check"></i><b>14</b> DIFERENCIACION E INTEGRACIÓN</a><ul>
+<li class="chapter" data-level="14.1" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-monótonas"><i class="fa fa-check"></i><b>14.1</b> Funciones monótonas</a></li>
+<li class="chapter" data-level="14.2" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-de-variación-acotada"><i class="fa fa-check"></i><b>14.2</b> Funciones de variación acotada</a></li>
+<li class="chapter" data-level="14.3" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#de-la-integral-indefinida.-continuidad-absoluta"><i class="fa fa-check"></i><b>14.3</b> De la Integral indefinida. Continuidad Absoluta</a></li>
+<li class="chapter" data-level="14.4" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#cambio-de-variables"><i class="fa fa-check"></i><b>14.4</b> Cambio de variables</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html"><i class="fa fa-check"></i><b>15</b> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></a><ul>
+<li class="chapter" data-level="15.1" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#espacio-producto"><i class="fa fa-check"></i><b>15.1</b> Espacio Producto</a></li>
+<li class="chapter" data-level="15.2" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#medida-de-lebesgue-en-mathbbrn"><i class="fa fa-check"></i><b>15.2</b> Medida de Lebesgue en <span class="math inline">\(\mathbb{R}^{n}\)</span></a></li>
+<li class="chapter" data-level="15.3" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#teorema-de-fibini.-teorema-de-tonelli"><i class="fa fa-check"></i><b>15.3</b> Teorema de Fibini. Teorema de Tonelli</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html"><i class="fa fa-check"></i><b>16</b> Transformaciones lineales</a><ul>
+<li class="chapter" data-level="16.1" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#bases-ordenadas"><i class="fa fa-check"></i><b>16.1</b> Bases ordenadas</a></li>
+<li class="chapter" data-level="16.2" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#matriz-de-una-transformación"><i class="fa fa-check"></i><b>16.2</b> Matriz de una transformación</a></li>
+<li class="chapter" data-level="16.3" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#transformaciones-invertibles"><i class="fa fa-check"></i><b>16.3</b> Transformaciones invertibles</a></li>
+<li class="chapter" data-level="16.4" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#funcionales-lineales"><i class="fa fa-check"></i><b>16.4</b> Funcionales lineales</a></li>
+<li class="chapter" data-level="16.5" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#el-doble-dual"><i class="fa fa-check"></i><b>16.5</b> El doble dual</a></li>
+<li class="chapter" data-level="16.6" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#ejercicios-3"><i class="fa fa-check"></i><b>16.6</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="producto-escalar.html"><a href="producto-escalar.html"><i class="fa fa-check"></i><b>17</b> Producto escalar</a><ul>
+<li class="chapter" data-level="17.0.1" data-path="producto-escalar.html"><a href="producto-escalar.html#ejercicios-4"><i class="fa fa-check"></i><b>17.0.1</b> Ejercicios</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apéndice</b></span></li>
 <li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
@@ -201,40 +224,40 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="transformaciones-lineales" class="section level1">
-<h1><span class="header-section-number">Capítulo 10</span> Transformaciones lineales</h1>
+<h1><span class="header-section-number">Capítulo 16</span> Transformaciones lineales</h1>
 <p>En este capítulos estudiaremos unas funciones especiales entre espacios vectoriales. Lo deseable es que las funciones preserven la estructura de espacio vectorial, entre otras cosas, queremos que la imagen del vector cero, sea el vector cero en el espacio de llegada. Estas funciones son las llamadas transformaciones lineales. Veremos que el nombre obedece a que dichas funciones corresponden a una recta si los espacios son los números reales.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-440" class="definition"><strong>Definición 10.1  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> dos espacios vectoriales sobre el mismo cuerpo de escalares <span class="math inline">\(\mathbb{F}\)</span>. Decimos que una función <span class="math inline">\(T\)</span> de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span> es una <em>transformación lineal</em> si <span class="math inline">\(T(\lambda u+ v)=\lambda T(u)+T(v)\)</span> para todo escalar <span class="math inline">\(\lambda\in \mathbb{F}\)</span> y todo <span class="math inline">\(u,v\in V\)</span>.</p>
+<p><span id="def:unnamed-chunk-598" class="definition"><strong>Definición 16.1  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> dos espacios vectoriales sobre el mismo cuerpo de escalares <span class="math inline">\(\mathbb{F}\)</span>. Decimos que una función <span class="math inline">\(T\)</span> de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span> es una <em>transformación lineal</em> si <span class="math inline">\(T(\lambda u+ v)=\lambda T(u)+T(v)\)</span> para todo escalar <span class="math inline">\(\lambda\in \mathbb{F}\)</span> y todo <span class="math inline">\(u,v\in V\)</span>.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-441" class="example"><strong>Ejemplo 10.1  </strong></span>La <em>transformación identidad</em>. Sea <span class="math inline">\(V\)</span> un espacio vectorial cualquiera. <span class="math inline">\(I: V\longrightarrow V\)</span> en la que a cada vector <span class="math inline">\(v\in V\)</span> se le asigna el mismo <span class="math inline">\(v\)</span>, es decir, <span class="math inline">\(I(v)=v\)</span>.</p>
+<p><span id="exm:unnamed-chunk-599" class="example"><strong>Ejemplo 16.1  </strong></span>La <em>transformación identidad</em>. Sea <span class="math inline">\(V\)</span> un espacio vectorial cualquiera. <span class="math inline">\(I: V\longrightarrow V\)</span> en la que a cada vector <span class="math inline">\(v\in V\)</span> se le asigna el mismo <span class="math inline">\(v\)</span>, es decir, <span class="math inline">\(I(v)=v\)</span>.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-442" class="example"><strong>Ejemplo 10.2  </strong></span>La <em>transformación cero</em>. Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales. <span class="math inline">\(0:V\longrightarrow W\)</span>, definido por <span class="math inline">\(0(v)=0\)</span>. Note que el cero de la derecha es el vector cero del espacio <span class="math inline">\(W\)</span>.</p>
+<p><span id="exm:unnamed-chunk-600" class="example"><strong>Ejemplo 16.2  </strong></span>La <em>transformación cero</em>. Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales. <span class="math inline">\(0:V\longrightarrow W\)</span>, definido por <span class="math inline">\(0(v)=0\)</span>. Note que el cero de la derecha es el vector cero del espacio <span class="math inline">\(W\)</span>.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-443" class="example"><strong>Ejemplo 10.3  </strong></span>La <em>transformación derivación</em> <span class="math inline">\(D\)</span>. Sea <span class="math inline">\(V\)</span> el espacio de las funciones infinitamente derivables. Sea <span class="math inline">\(D:V\longrightarrow V\)</span>, definida como <span class="math inline">\(D(f)(x)=f´(x)\)</span>. Como la derivada de una suma es la suma de las derivadas y las constantes salen de la derivada, se sigue que <span class="math inline">\(D\)</span> es una transformación lineal.</p>
+<p><span id="exm:unnamed-chunk-601" class="example"><strong>Ejemplo 16.3  </strong></span>La <em>transformación derivación</em> <span class="math inline">\(D\)</span>. Sea <span class="math inline">\(V\)</span> el espacio de las funciones infinitamente derivables. Sea <span class="math inline">\(D:V\longrightarrow V\)</span>, definida como <span class="math inline">\(D(f)(x)=f´(x)\)</span>. Como la derivada de una suma es la suma de las derivadas y las constantes salen de la derivada, se sigue que <span class="math inline">\(D\)</span> es una transformación lineal.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-444" class="example"><strong>Ejemplo 10.4  </strong></span>Sea <span class="math inline">\(A\in\mathcal{M}_{m\times n}(\mathbb{F})\)</span>. Definimos la función <span class="math inline">\(T:\mathbb{F}^{n}\longrightarrow \mathbb{F}^{m}\)</span>, como <span class="math inline">\(T(X)=AX\)</span>. En la sección de matrices vimos las propiedades de las operaciones de suma y producto por un escalar de matrices, de donde se sigue que <span class="math inline">\(T(\lambda X+Y)=A(\lambda X+Y)=\lambda AX+AY=\lambda T(X)+T(Y)\)</span>.</p>
+<p><span id="exm:unnamed-chunk-602" class="example"><strong>Ejemplo 16.4  </strong></span>Sea <span class="math inline">\(A\in\mathcal{M}_{m\times n}(\mathbb{F})\)</span>. Definimos la función <span class="math inline">\(T:\mathbb{F}^{n}\longrightarrow \mathbb{F}^{m}\)</span>, como <span class="math inline">\(T(X)=AX\)</span>. En la sección de matrices vimos las propiedades de las operaciones de suma y producto por un escalar de matrices, de donde se sigue que <span class="math inline">\(T(\lambda X+Y)=A(\lambda X+Y)=\lambda AX+AY=\lambda T(X)+T(Y)\)</span>.</p>
 </div>
 
 <p>Note que si <span class="math inline">\(T\)</span> es una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, <span class="math inline">\(T(0)=0\)</span>. Además, se puede probar que las transformaciones lineales preservan las combinaciones lineales, es decir, <span class="math inline">\(T(\sum_{i=1}^{n}\lambda_{i}v_{i})=\sum_{i=1}^{n}\lambda_{i}T(v_{i})\)</span>.</p>
 <div id="bases-ordenadas" class="section level2">
-<h2><span class="header-section-number">10.1</span> Bases ordenadas</h2>
+<h2><span class="header-section-number">16.1</span> Bases ordenadas</h2>
 <p>En el capítulo anterior definimos base de un espacio vectorial, como un conjunto de vectores linealmente independiente que generan el espacio. Para esta parte tomaremos en cuenta el orden en el que aparecen los vectores que conforman la base, es decir, tomaremos bases ordenadas.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-445" class="definition"><strong>Definición 10.2  </strong></span>Decimos que una sucesión finita de vectores de un espacio vectorial de dimensión finita <span class="math inline">\(V\)</span>, es una <em>base ordenada</em> si es un conjunto linealmente independiente y generan <span class="math inline">\(V\)</span>. Es decir, la sucesión <span class="math inline">\(\mathcal{B}=\{v_{1},v_{2},\cdots v_{n} \}\subseteq V\)</span> es una base ordenada de <span class="math inline">\(V\)</span>, si <span class="math inline">\(\mathcal{B}\)</span> es l.i. y <span class="math inline">\(\left\langle v_{1},v_{2},\cdots v_{n} \right\rangle =V\)</span>.</p>
+<p><span id="def:unnamed-chunk-603" class="definition"><strong>Definición 16.2  </strong></span>Decimos que una sucesión finita de vectores de un espacio vectorial de dimensión finita <span class="math inline">\(V\)</span>, es una <em>base ordenada</em> si es un conjunto linealmente independiente y generan <span class="math inline">\(V\)</span>. Es decir, la sucesión <span class="math inline">\(\mathcal{B}=\{v_{1},v_{2},\cdots v_{n} \}\subseteq V\)</span> es una base ordenada de <span class="math inline">\(V\)</span>, si <span class="math inline">\(\mathcal{B}\)</span> es l.i. y <span class="math inline">\(\left\langle v_{1},v_{2},\cdots v_{n} \right\rangle =V\)</span>.</p>
 </div>
 
 <p>Al considerar la base <span class="math inline">\(\mathcal{B}\)</span> como un conjunto ordenado, a cada vector <span class="math inline">\(v\in V\)</span> le corresponde una sucesión única de escalares <span class="math inline">\((\lambda_{1},\lambda_{2},\cdots ,\lambda_{n})\)</span> tales que <span class="math inline">\(v=\sum_{i=1}^{n} \lambda_{i}v_{i}\)</span>. La unicidad viene dada por el orden de los vectores de la base, sin dicho orden, una permutación de los escalares nos dotaría de una sucesión distinta de escalares. Llamaremos <em><span class="math inline">\(i\)</span>-ésima coordenada de <span class="math inline">\(v\)</span> en la base <span class="math inline">\(\mathcal{B}\)</span></em>, al escalar <span class="math inline">\(\lambda_{i}\)</span>. Además, note que</p>
@@ -259,7 +282,7 @@ v=&amp;\sum_{j=1}^{n} \gamma_{j} u_{j}\\
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-447" class="example"><strong>Ejemplo 10.5  </strong></span>Sean <span class="math inline">\(\mathcal{B}_{1}=\{e_{1}, e_{2}\}\)</span> la base canónica y <span class="math inline">\(\mathcal{B}_{2}=\{(1,2), (-2,1)\}\)</span> otra base de <span class="math inline">\(\mathbb{R}^{2}\)</span>. Entonces <span class="math display">\[(1,2)=1e_{1}+2e_{2}\]</span> y <span class="math display">\[(-2,1)=-2e_{1}+1e_{2}\]</span> por lo tanto las coordenadas de los vectores <span class="math inline">\((1,2), (-2,1)\)</span> de la base <span class="math inline">\(\mathcal{B}_{2}\)</span> son <span class="math inline">\((1,2)\)</span> y <span class="math inline">\((-2,1)\)</span> respectivamente.</p>
+<p><span id="exm:unnamed-chunk-605" class="example"><strong>Ejemplo 16.5  </strong></span>Sean <span class="math inline">\(\mathcal{B}_{1}=\{e_{1}, e_{2}\}\)</span> la base canónica y <span class="math inline">\(\mathcal{B}_{2}=\{(1,2), (-2,1)\}\)</span> otra base de <span class="math inline">\(\mathbb{R}^{2}\)</span>. Entonces <span class="math display">\[(1,2)=1e_{1}+2e_{2}\]</span> y <span class="math display">\[(-2,1)=-2e_{1}+1e_{2}\]</span> por lo tanto las coordenadas de los vectores <span class="math inline">\((1,2), (-2,1)\)</span> de la base <span class="math inline">\(\mathcal{B}_{2}\)</span> son <span class="math inline">\((1,2)\)</span> y <span class="math inline">\((-2,1)\)</span> respectivamente.</p>
 <p>Por otro lado, <span class="math display">\[e_{1}=(1,0)=\frac{1}{5}(1,2)-\frac{2}{5}(-2,1)\]</span> y <span class="math display">\[e_{2}=(0,1)=\frac{2}{5}(1,2)+\frac{1}{5}(-2,1)\]</span> por lo que las coordenadas de los vectores <span class="math inline">\(e_{1}\)</span> y <span class="math inline">\(e_{2}\)</span> son <span class="math inline">\((\frac{1}{5},-\frac{2}{5})\)</span> y <span class="math inline">\((\frac{2}{5},\frac{1}{5})\)</span> respectivamente.</p>
 <p>De este modo la matriz cambio de base de <span class="math inline">\(\mathcal{B}_{1}\)</span> a la base <span class="math inline">\(\mathcal{B}_{2}\)</span> es</p>
 <p><span class="math display">\[
@@ -283,7 +306,7 @@ P^{-1}=\left(
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-448" class="example"><strong>Ejemplo 10.6  </strong></span>Para <span class="math inline">\(\theta\)</span> fijo,</p>
+<p><span id="exm:unnamed-chunk-606" class="example"><strong>Ejemplo 16.6  </strong></span>Para <span class="math inline">\(\theta\)</span> fijo,</p>
 <p><span class="math display">\[P=\left(\begin{array}{cc}
 \cos\theta &amp; -\sin\theta\\
 \sin\theta &amp; \cos\theta
@@ -298,7 +321,7 @@ P^{-1}=\left(
 
 
 <div class="theorem">
-<p><span id="thm:teorema410" class="theorem"><strong>Teorema 10.1  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita (sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>). Sea <span class="math inline">\(\{v_{1}, v_{2},\cdots, v_{n}\}\)</span> una base ordenada de <span class="math inline">\(V\)</span>. Sea <span class="math inline">\(W\)</span> un espacio vectorial (sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>) y sean <span class="math inline">\(u_{1}, u_{2},\cdots, u_{n}\)</span> vectores cualesquiera de <span class="math inline">\(W\)</span>. Entonces existe una única transformación lineal <span class="math inline">\(T\)</span> de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span> tal que <span class="math inline">\(Tv_{i}=u_{i}\)</span>, para todo <span class="math inline">\(1\leq i\leq n\)</span>.</p>
+<p><span id="thm:teorema410" class="theorem"><strong>Teorema 16.1  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita (sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>). Sea <span class="math inline">\(\{v_{1}, v_{2},\cdots, v_{n}\}\)</span> una base ordenada de <span class="math inline">\(V\)</span>. Sea <span class="math inline">\(W\)</span> un espacio vectorial (sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>) y sean <span class="math inline">\(u_{1}, u_{2},\cdots, u_{n}\)</span> vectores cualesquiera de <span class="math inline">\(W\)</span>. Entonces existe una única transformación lineal <span class="math inline">\(T\)</span> de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span> tal que <span class="math inline">\(Tv_{i}=u_{i}\)</span>, para todo <span class="math inline">\(1\leq i\leq n\)</span>.</p>
 </div>
 
 
@@ -318,7 +341,7 @@ T(\gamma v+w)=&amp;T((\gamma\lambda_{1}v_{1}+\gamma\lambda_{2}v_{2}+\cdots+\gamm
 <p>El resultado de este teorema nos dice que una transformación lineal está unívocamente determinada por las imagenes de los vectores de una base del espacio <span class="math inline">\(V\)</span>.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-450" class="definition"><strong>Definición 10.3  </strong></span>Sea <span class="math inline">\(T:V\longrightarrow W\)</span> una transformación lineal del espacio vectorial <span class="math inline">\(V\)</span> en el espacio vectorial <span class="math inline">\(W\)</span>. El conjunto <em>imagen de <span class="math inline">\(T\)</span></em> es el conjunto formado por los vectores imagen de la transformación y se denota por <span class="math inline">\(Img(T)\)</span>. Es decir <span class="math inline">\(Img(T)=\{Tv:v\in V \}\)</span>.</p>
+<p><span id="def:unnamed-chunk-608" class="definition"><strong>Definición 16.3  </strong></span>Sea <span class="math inline">\(T:V\longrightarrow W\)</span> una transformación lineal del espacio vectorial <span class="math inline">\(V\)</span> en el espacio vectorial <span class="math inline">\(W\)</span>. El conjunto <em>imagen de <span class="math inline">\(T\)</span></em> es el conjunto formado por los vectores imagen de la transformación y se denota por <span class="math inline">\(Img(T)\)</span>. Es decir <span class="math inline">\(Img(T)=\{Tv:v\in V \}\)</span>.</p>
 </div>
 
 
@@ -328,13 +351,13 @@ T(\gamma v+w)=&amp;T((\gamma\lambda_{1}v_{1}+\gamma\lambda_{2}v_{2}+\cdots+\gamm
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-452" class="definition"><strong>Definición 10.4  </strong></span>Sea <span class="math inline">\(T:V\longrightarrow W\)</span> una transformación lineal del espacio vectorial <span class="math inline">\(V\)</span> en el espacio vectorial <span class="math inline">\(W\)</span>. El <em>núcleo (o espacio nulo) de <span class="math inline">\(T\)</span></em> es el conjunto <span class="math inline">\(Ker(T)=\{v\in V: Tv=0 \}\)</span>.</p>
+<p><span id="def:unnamed-chunk-610" class="definition"><strong>Definición 16.4  </strong></span>Sea <span class="math inline">\(T:V\longrightarrow W\)</span> una transformación lineal del espacio vectorial <span class="math inline">\(V\)</span> en el espacio vectorial <span class="math inline">\(W\)</span>. El <em>núcleo (o espacio nulo) de <span class="math inline">\(T\)</span></em> es el conjunto <span class="math inline">\(Ker(T)=\{v\in V: Tv=0 \}\)</span>.</p>
 </div>
 
 <p>Si <span class="math inline">\(V\)</span> es un espacio vectorial de dimensión finita, el<em>rango de <span class="math inline">\(T\)</span></em> es la dimensión de la imagen de <span class="math inline">\(T\)</span> y <em>la nulidad de <span class="math inline">\(T\)</span></em> es la dimensión del núcleo de <span class="math inline">\(T\)</span>. Se denota <span class="math inline">\(rango(T)\)</span> y <span class="math inline">\(Nul(T)\)</span> respectivamente.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-453" class="theorem"><strong>Teorema 10.2  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales, donde <span class="math inline">\(V\)</span> es de dimensión finita. Sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. Entonces</p>
+<p><span id="thm:unnamed-chunk-611" class="theorem"><strong>Teorema 16.2  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales, donde <span class="math inline">\(V\)</span> es de dimensión finita. Sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. Entonces</p>
 <span class="math display">\[dim V=rango(T)+Nul(T).\]</span>
 </div>
 
@@ -345,7 +368,7 @@ T(\gamma v+w)=&amp;T((\gamma\lambda_{1}v_{1}+\gamma\lambda_{2}v_{2}+\cdots+\gamm
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-455" class="theorem"><strong>Teorema 10.3  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Sean <span class="math inline">\(T_{1}\)</span> y <span class="math inline">\(T_{2}\)</span> transformaciones lineales de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, se tiene:</p>
+<p><span id="thm:unnamed-chunk-613" class="theorem"><strong>Teorema 16.3  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Sean <span class="math inline">\(T_{1}\)</span> y <span class="math inline">\(T_{2}\)</span> transformaciones lineales de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, se tiene:</p>
 <ol style="list-style-type: decimal">
 <li><p>La función <span class="math inline">\((T_{1}+T_{2})\)</span> definida por <span class="math inline">\((T_{1}+T_{2})(v)=T_{1}(v)+T_{2}(v)\)</span>, es una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>.</p></li>
 <li><p>Dado un escalar <span class="math inline">\(\lambda\)</span>, la función <span class="math inline">\(\lambda T_{1}\)</span> definida por <span class="math inline">\((\lambda T_{1})(v)=\lambda T_{1}(v)\)</span>, es una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>.</p></li>
@@ -373,7 +396,7 @@ T(\gamma v+w)=&amp;T((\gamma\lambda_{1}v_{1}+\gamma\lambda_{2}v_{2}+\cdots+\gamm
 <p>El teorema dota de multiples ejemplos de espacios vectoriales, para cada par de espacios <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span>, <em>el espacio vectorial de las transformaciones lineales de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span></em> con las operaciones de suma y multiplicación por un escalar definidas en el teorema, que denotamos <span class="math inline">\(L(V,W)\)</span>. En el cuerpo de la demostración se evidencia que es importante que ambos espacios vectoriales esten definidos sobre el mismo cuerpo de escalares. Vale preguntarse cuál es la dimensión de este espacio vectorial.</p>
 
 <div class="theorem">
-<p><span id="thm:teorema416" class="theorem"><strong>Teorema 10.4  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios de dimensión finita, digamos <span class="math inline">\(dim V=n\)</span> y <span class="math inline">\(dim W=m\)</span>. Entonces <span class="math inline">\(L(V,W)\)</span> es de dimensión finita y su dimensión es <span class="math inline">\(nm\)</span>.</p>
+<p><span id="thm:teorema416" class="theorem"><strong>Teorema 16.4  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios de dimensión finita, digamos <span class="math inline">\(dim V=n\)</span> y <span class="math inline">\(dim W=m\)</span>. Entonces <span class="math inline">\(L(V,W)\)</span> es de dimensión finita y su dimensión es <span class="math inline">\(nm\)</span>.</p>
 </div>
 
 
@@ -396,7 +419,7 @@ Ahora veamos que el conjunto de los <span class="math inline">\(E^{pq}\)</span> 
 
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-458" class="theorem"><strong>Teorema 10.5  </strong></span>Sean <span class="math inline">\(V_{1}, V_{2}\)</span> y <span class="math inline">\(V_{3}\)</span> espacios vectoriales sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Sean <span class="math inline">\(T_{1}:V_{1}\longrightarrow V_{2}\)</span> y <span class="math inline">\(T_{2}:V_{2}\longrightarrow V_{3}\)</span> transformaciones lineales. Entonces, la función compuesta definida por <span class="math inline">\((T_{2}\circ T_{1})v=T_{2}(T_{1}v)\)</span> es una transformación lineal de <span class="math inline">\(V_{1}\)</span> en <span class="math inline">\(V_{3}\)</span>.
+<span id="thm:unnamed-chunk-616" class="theorem"><strong>Teorema 16.5  </strong></span>Sean <span class="math inline">\(V_{1}, V_{2}\)</span> y <span class="math inline">\(V_{3}\)</span> espacios vectoriales sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Sean <span class="math inline">\(T_{1}:V_{1}\longrightarrow V_{2}\)</span> y <span class="math inline">\(T_{2}:V_{2}\longrightarrow V_{3}\)</span> transformaciones lineales. Entonces, la función compuesta definida por <span class="math inline">\((T_{2}\circ T_{1})v=T_{2}(T_{1}v)\)</span> es una transformación lineal de <span class="math inline">\(V_{1}\)</span> en <span class="math inline">\(V_{3}\)</span>.
 </div>
 
 
@@ -411,14 +434,14 @@ Ahora veamos que el conjunto de los <span class="math inline">\(E^{pq}\)</span> 
 <p>La composición de transformaciones lineales <span class="math inline">\(T_{2}\circ T_{1}\)</span> se denota <span class="math inline">\(T_{2}T_{1}\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-460" class="definition"><strong>Definición 10.5  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>, un operador lineal sobre <span class="math inline">\(V\)</span> es una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(V\)</span>.
+<span id="def:unnamed-chunk-618" class="definition"><strong>Definición 16.5  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>, un operador lineal sobre <span class="math inline">\(V\)</span> es una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(V\)</span>.
 </div>
 
 <p>En el teorema anterior, si <span class="math inline">\(T_{1}\)</span> y <span class="math inline">\(T_{2}\)</span> son operadores lineales sobre <span class="math inline">\(V\)</span>, se tiene que la composición <span class="math inline">\(T_{2}T_{1}\)</span> es también un operador lineal. De este modo el espacio <span class="math inline">\(L(V,V)\)</span> tiene una operación multiplicación definida por la composición de operadores lineales. Además, la composición <span class="math inline">\(T_{1}T_{2}\)</span> también está definida pero en general <span class="math inline">\(T_{2}T_{1}\neq T_{1}T_{2}\)</span>, es decir, <span class="math inline">\(T_{2}T_{1}-T_{1}T_{2}\neq 0\)</span>.</p>
 <p>También es posible componer un operador lineal consigo mismo, dos o más veces, en este caso denotamos <span class="math inline">\(T^{2}=TT\)</span> y en general, <span class="math inline">\(T^{n}=TT\cdots T\)</span> (<span class="math inline">\(n\)</span>-veces) para cualquier <span class="math inline">\(n\in \mathbb{N}\)</span>. Se define <span class="math inline">\(T^{0}=I\)</span> si <span class="math inline">\(T\neq 0\)</span>.</p>
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-461" class="lemma"><strong>Lema 10.1  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>, sean <span class="math inline">\(U, T_{1}\)</span> y <span class="math inline">\(T_{2}\)</span> operadores lineales sobre <span class="math inline">\(V\)</span>; sea <span class="math inline">\(c\)</span> un elemento de <span class="math inline">\(\mathbb{F}\)</span>.</p>
+<p><span id="lem:unnamed-chunk-619" class="lemma"><strong>Lema 16.1  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>, sean <span class="math inline">\(U, T_{1}\)</span> y <span class="math inline">\(T_{2}\)</span> operadores lineales sobre <span class="math inline">\(V\)</span>; sea <span class="math inline">\(c\)</span> un elemento de <span class="math inline">\(\mathbb{F}\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(IU=UI=U\)</span>;</p></li>
 <li><p><span class="math inline">\(U(T_{1}+T_{2})=UT_{1}+UT_{2}\)</span>; <span class="math inline">\((T_{1}+T_{2})U=T_{1}U+T_{2}U\)</span>;</p></li>
@@ -441,8 +464,8 @@ Ahora veamos que el conjunto de los <span class="math inline">\(E^{pq}\)</span> 
 </li>
 </ol>
 </div>
-<div id="matriz-de-una-transformacion" class="section level2">
-<h2><span class="header-section-number">10.2</span> Matriz de una transformación</h2>
+<div id="matriz-de-una-transformación" class="section level2">
+<h2><span class="header-section-number">16.2</span> Matriz de una transformación</h2>
 <p>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales de dimensión finita tales que <span class="math inline">\(\dim V=n\)</span> y <span class="math inline">\(\dim W=m\)</span>, y sean <span class="math inline">\(\mathcal{B}_{1}=\{v_{1},v_{2}, \cdots, v_{n} \}\)</span> y <span class="math inline">\(\mathcal{B}_{2}=\{w_{1},w_{2}, \cdots, w_{m} \}\)</span> bases de <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> respectivamente. Sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, entonces <span class="math inline">\(T\)</span> está determinado por las imágenes de la base <span class="math inline">\(\mathcal{B}_{1}\)</span>, es decir, <span class="math inline">\(T(v_{1}),T(v_{2}), \cdots, T(v_{n})\)</span>. A su vez, <span class="math inline">\(Tv_{j}\)</span> se escribe como combinación lineal de los vectores <span class="math inline">\(w_{i}\)</span>, así <span class="math inline">\(Tv_{j}=\sum_{i=1}^{m} A_{ij}w_{i}\)</span> donde <span class="math inline">\(A_{ij}\)</span> son las coordenadas del vector <span class="math inline">\(Tv_{j}\)</span> en la base <span class="math inline">\(\mathcal{B}_{2}\)</span>. Para cualquier <span class="math inline">\(v\in V\)</span>, <span class="math inline">\(v=\lambda_{1}v_{1}+\lambda_{2}v_{2}+ \cdots+ \lambda_{n}v_{n}\)</span>, entonces</p>
 <p><span class="math display">\[\begin{array}{rl}
 Tv=&amp;T\sum_{j=1}^{n}\lambda_{j}v_{j}\\
@@ -454,7 +477,7 @@ Tv=&amp;T\sum_{j=1}^{n}\lambda_{j}v_{j}\\
 <p>Ahora, sea <span class="math inline">\(A\in\mathcal{M}_{m\times n}(\mathbb{F})\)</span>, entonces <span class="math inline">\(T(\sum_{j=1}^{n}\lambda_{j}v_{j})=\sum_{i=1}^{m}(\sum_{j=1}^{n}[A]_{ij}\lambda_{j})w_{i}\)</span> define una transformación de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, para la cual <span class="math inline">\(A\)</span> es la matriz de <span class="math inline">\(T\)</span> respecto de las bases <span class="math inline">\(\mathcal{B}_{1}\)</span> y <span class="math inline">\(\mathcal{B}_{1}\)</span>. Lo anterior es la demostración del siguiente teorema:</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-463" class="theorem"><strong>Teorema 10.6  </strong></span>Sean <span class="math inline">\(V\)</span>y <span class="math inline">\(W\)</span> espacios vectoriales de dimensión finita, donde <span class="math inline">\(\dim V=n\)</span> y <span class="math inline">\(\dim W=m\)</span>. Sean <span class="math inline">\(\mathcal{B}_{1}\)</span> y <span class="math inline">\(\mathcal{B}_{2}\)</span> bases ordenadas de <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> respectivamente. Para cada transformación <span class="math inline">\(T\)</span> de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, existe una matriz <span class="math inline">\(A\in\mathcal{M}_{m\times n}(\mathbb{R})\)</span> tal que <span class="math inline">\([Tv]_{\mathcal{B}_{2}}=A[v]_{\mathcal{B}_{1}}\)</span> para todo <span class="math inline">\(v\in V\)</span>. Además <span class="math inline">\(T\longmapsto A\)</span> es una correspondencia biyectiva entre el conjunto <span class="math inline">\(L(V,W)\)</span> y <span class="math inline">\(\mathcal{M}_{m\times n}(\mathbb{R})\)</span>.</p>
+<p><span id="thm:unnamed-chunk-621" class="theorem"><strong>Teorema 16.6  </strong></span>Sean <span class="math inline">\(V\)</span>y <span class="math inline">\(W\)</span> espacios vectoriales de dimensión finita, donde <span class="math inline">\(\dim V=n\)</span> y <span class="math inline">\(\dim W=m\)</span>. Sean <span class="math inline">\(\mathcal{B}_{1}\)</span> y <span class="math inline">\(\mathcal{B}_{2}\)</span> bases ordenadas de <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> respectivamente. Para cada transformación <span class="math inline">\(T\)</span> de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, existe una matriz <span class="math inline">\(A\in\mathcal{M}_{m\times n}(\mathbb{R})\)</span> tal que <span class="math inline">\([Tv]_{\mathcal{B}_{2}}=A[v]_{\mathcal{B}_{1}}\)</span> para todo <span class="math inline">\(v\in V\)</span>. Además <span class="math inline">\(T\longmapsto A\)</span> es una correspondencia biyectiva entre el conjunto <span class="math inline">\(L(V,W)\)</span> y <span class="math inline">\(\mathcal{M}_{m\times n}(\mathbb{R})\)</span>.</p>
 </div>
 
 
@@ -465,11 +488,11 @@ Además, si <span class="math inline">\(U\)</span> es otra transformación de <s
 
 </div>
 <div id="transformaciones-invertibles" class="section level2">
-<h2><span class="header-section-number">10.3</span> Transformaciones invertibles</h2>
+<h2><span class="header-section-number">16.3</span> Transformaciones invertibles</h2>
 <p>Recuerde que una función <span class="math inline">\(T:V\longrightarrow W\)</span> es invertible si existe una función <span class="math inline">\(U:W\longrightarrow V\)</span> tal que <span class="math inline">\(UT\)</span> es la función identidad en <span class="math inline">\(V\)</span>, <span class="math inline">\(I_{V}\)</span> y <span class="math inline">\(TU\)</span> es la función identidad en <span class="math inline">\(W\)</span>, <span class="math inline">\(I_{W}\)</span>. Ya vimos que de existir la inversa, es única y la denotamos por <span class="math inline">\(T^{-1}\)</span> y en este caso decimos que <span class="math inline">\(T\)</span> es invertible. Además sabemos que <span class="math inline">\(T\)</span> es biyectiva si y solo si existe su inversa, <span class="math inline">\(T^{-1}\)</span>.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-465" class="theorem"><strong>Teorema 10.7  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span> y sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. Si <span class="math inline">\(T\)</span> es invertible, entonces la función <span class="math inline">\(T^{-1}\)</span> es una transformación lineal de <span class="math inline">\(W\)</span> en <span class="math inline">\(V\)</span>.
+<span id="thm:unnamed-chunk-623" class="theorem"><strong>Teorema 16.7  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span> y sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. Si <span class="math inline">\(T\)</span> es invertible, entonces la función <span class="math inline">\(T^{-1}\)</span> es una transformación lineal de <span class="math inline">\(W\)</span> en <span class="math inline">\(V\)</span>.
 </div>
 
 
@@ -487,12 +510,12 @@ Además, si <span class="math inline">\(U\)</span> es otra transformación de <s
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-468" class="definition"><strong>Definición 10.6  </strong></span>Diremos que <span class="math inline">\(T\)</span> es <em>no singular</em> si <span class="math inline">\(Tv=0 \Rightarrow v=0\)</span> (esto es <span class="math inline">\(Ker(T)=\{0\}\)</span>).</p>
+<p><span id="def:unnamed-chunk-626" class="definition"><strong>Definición 16.6  </strong></span>Diremos que <span class="math inline">\(T\)</span> es <em>no singular</em> si <span class="math inline">\(Tv=0 \Rightarrow v=0\)</span> (esto es <span class="math inline">\(Ker(T)=\{0\}\)</span>).</p>
 </div>
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-469" class="theorem"><strong>Teorema 10.8  </strong></span>Sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. Entonces <span class="math inline">\(T\)</span> es no singular si y solo si, <span class="math inline">\(T\)</span> aplica cada conjunto linealmente independiente de <span class="math inline">\(V\)</span> en un conjunto linealmente independiente de <span class="math inline">\(W\)</span>.</p>
+<p><span id="thm:unnamed-chunk-627" class="theorem"><strong>Teorema 16.8  </strong></span>Sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. Entonces <span class="math inline">\(T\)</span> es no singular si y solo si, <span class="math inline">\(T\)</span> aplica cada conjunto linealmente independiente de <span class="math inline">\(V\)</span> en un conjunto linealmente independiente de <span class="math inline">\(W\)</span>.</p>
 </div>
 
 
@@ -503,17 +526,17 @@ Además, si <span class="math inline">\(U\)</span> es otra transformación de <s
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-471" class="example"><strong>Ejemplo 10.7  </strong></span>Sea <span class="math inline">\(T:\mathbb{R}^{2}\longrightarrow \mathbb{R}^{2}\)</span> definida por <span class="math inline">\(T(x,y)=(x+y,x)\)</span>. Como <span class="math inline">\(T(x,y)=(0,0)\)</span> si y solo si <span class="math inline">\(x=y=0\)</span>, se tiene que <span class="math inline">\(T\)</span> es no singular.</p>
+<p><span id="exm:unnamed-chunk-629" class="example"><strong>Ejemplo 16.7  </strong></span>Sea <span class="math inline">\(T:\mathbb{R}^{2}\longrightarrow \mathbb{R}^{2}\)</span> definida por <span class="math inline">\(T(x,y)=(x+y,x)\)</span>. Como <span class="math inline">\(T(x,y)=(0,0)\)</span> si y solo si <span class="math inline">\(x=y=0\)</span>, se tiene que <span class="math inline">\(T\)</span> es no singular.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-472" class="example"><strong>Ejemplo 10.8  </strong></span>Sea <span class="math inline">\(D:V\longrightarrow V\)</span>, donde <span class="math inline">\(V\)</span> es el espacio de los polinomios y <span class="math inline">\(D\)</span> es la derivada. Como la derivada de cualquier constante es cero, <span class="math inline">\(D\)</span> es singular. Pero la dimensión de <span class="math inline">\(V\)</span> no es finita y <span class="math inline">\(Img D=V\)</span>, entonces es posible definir una inversa a la derecha <span class="math inline">\(E\)</span>, a saber la integral indefinida, tal que <span class="math inline">\(ED=I_{V}\)</span>. Pero no se puede definir la inversa a la izquierda.</p>
+<p><span id="exm:unnamed-chunk-630" class="example"><strong>Ejemplo 16.8  </strong></span>Sea <span class="math inline">\(D:V\longrightarrow V\)</span>, donde <span class="math inline">\(V\)</span> es el espacio de los polinomios y <span class="math inline">\(D\)</span> es la derivada. Como la derivada de cualquier constante es cero, <span class="math inline">\(D\)</span> es singular. Pero la dimensión de <span class="math inline">\(V\)</span> no es finita y <span class="math inline">\(Img D=V\)</span>, entonces es posible definir una inversa a la derecha <span class="math inline">\(E\)</span>, a saber la integral indefinida, tal que <span class="math inline">\(ED=I_{V}\)</span>. Pero no se puede definir la inversa a la izquierda.</p>
 </div>
 
 
 <div class="theorem">
-<p><span id="thm:teorema427" class="theorem"><strong>Teorema 10.9  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales de dimensión finita sobre <span class="math inline">\(\mathbb{F}\)</span>, tales que <span class="math inline">\(\dim V=\dim W\)</span>. Si <span class="math inline">\(T\)</span> es una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, las siguientes afirmaciones son equivalentes:</p>
+<p><span id="thm:teorema427" class="theorem"><strong>Teorema 16.9  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales de dimensión finita sobre <span class="math inline">\(\mathbb{F}\)</span>, tales que <span class="math inline">\(\dim V=\dim W\)</span>. Si <span class="math inline">\(T\)</span> es una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, las siguientes afirmaciones son equivalentes:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(T\)</span> es invertible.</p></li>
 <li><p><span class="math inline">\(T\)</span> es no singular.</p></li>
@@ -528,7 +551,7 @@ Además, si <span class="math inline">\(U\)</span> es otra transformación de <s
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-474" class="definition"><strong>Definición 10.7  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales (sobre el mismo cuerpo <span class="math inline">\(\mathbb{F}\)</span>). Sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. Si <span class="math inline">\(T\)</span> es biyectiva, decimos que <span class="math inline">\(T\)</span> es un <em>isomorfismo de <span class="math inline">\(V\)</span> sobre <span class="math inline">\(W\)</span></em>. Si existe un isomorfismo de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, decimos que <em><span class="math inline">\(V\)</span> es isomorfo a <span class="math inline">\(W\)</span></em> y se denota <span class="math inline">\(V\simeq W\)</span>.</p>
+<p><span id="def:unnamed-chunk-632" class="definition"><strong>Definición 16.7  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales (sobre el mismo cuerpo <span class="math inline">\(\mathbb{F}\)</span>). Sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. Si <span class="math inline">\(T\)</span> es biyectiva, decimos que <span class="math inline">\(T\)</span> es un <em>isomorfismo de <span class="math inline">\(V\)</span> sobre <span class="math inline">\(W\)</span></em>. Si existe un isomorfismo de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, decimos que <em><span class="math inline">\(V\)</span> es isomorfo a <span class="math inline">\(W\)</span></em> y se denota <span class="math inline">\(V\simeq W\)</span>.</p>
 </div>
 
 
@@ -543,7 +566,7 @@ Además, si <span class="math inline">\(U\)</span> es otra transformación de <s
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-476" class="theorem"><strong>Teorema 10.10  </strong></span>Todo espacio vectorial de dimensión <span class="math inline">\(n\)</span> (sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>) es isomorfo a <span class="math inline">\(\mathbb{F}^{n}\)</span>.</p>
+<p><span id="thm:unnamed-chunk-634" class="theorem"><strong>Teorema 16.10  </strong></span>Todo espacio vectorial de dimensión <span class="math inline">\(n\)</span> (sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>) es isomorfo a <span class="math inline">\(\mathbb{F}^{n}\)</span>.</p>
 </div>
 
 
@@ -553,7 +576,7 @@ Además, si <span class="math inline">\(U\)</span> es otra transformación de <s
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-478" class="theorem"><strong>Teorema 10.11  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales (sobre <span class="math inline">\(\mathbb{F}\)</span>) de dimensión finita. Sean <span class="math inline">\(n=\dim V\)</span> y <span class="math inline">\(m=\dim W\)</span>. Y sean <span class="math inline">\(\mathcal{B}_{1}\)</span> y <span class="math inline">\(\mathcal{B}_{2}\)</span> bases ordenadas de <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> respectivamente. La función que asigna a cada transformación <span class="math inline">\(T\)</span> (de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>), la matriz de la transformación en las bases <span class="math inline">\(\mathcal{B}_{1}\)</span> y <span class="math inline">\(\mathcal{B}_{2}\)</span>, es un isomorfismo entre <span class="math inline">\(L(V,W)\)</span> y <span class="math inline">\(\mathcal{M}_{m\times n}(\mathbb{R})\)</span>.</p>
+<p><span id="thm:unnamed-chunk-636" class="theorem"><strong>Teorema 16.11  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales (sobre <span class="math inline">\(\mathbb{F}\)</span>) de dimensión finita. Sean <span class="math inline">\(n=\dim V\)</span> y <span class="math inline">\(m=\dim W\)</span>. Y sean <span class="math inline">\(\mathcal{B}_{1}\)</span> y <span class="math inline">\(\mathcal{B}_{2}\)</span> bases ordenadas de <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> respectivamente. La función que asigna a cada transformación <span class="math inline">\(T\)</span> (de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>), la matriz de la transformación en las bases <span class="math inline">\(\mathcal{B}_{1}\)</span> y <span class="math inline">\(\mathcal{B}_{2}\)</span>, es un isomorfismo entre <span class="math inline">\(L(V,W)\)</span> y <span class="math inline">\(\mathcal{M}_{m\times n}(\mathbb{R})\)</span>.</p>
 </div>
 
 
@@ -564,7 +587,7 @@ Además, si <span class="math inline">\(U\)</span> es otra transformación de <s
 <p>Si <span class="math inline">\(T\)</span> es una transformación lineal de <span class="math inline">\(V\)</span> en si mismo, diremos que <span class="math inline">\(T\)</span> es un <em>operador lineal</em>. En este caso, la matriz asociada a <span class="math inline">\(T\)</span> en una base <span class="math inline">\(\mathcal{B}\)</span> de <span class="math inline">\(V\)</span> se denota <span class="math inline">\([T]_{\mathcal{B}}\)</span> en lugar de <span class="math inline">\([T]_{\mathcal{B}\mathcal{B}}\)</span>.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-480" class="theorem"><strong>Teorema 10.12  </strong></span>Sean <span class="math inline">\(V_{1}, V_{2}\)</span> y <span class="math inline">\(V_{3}\)</span> espacios vectoriales de dimensión finita, cuyas dimensiones son <span class="math inline">\(n,m\)</span> y <span class="math inline">\(p\)</span> respectivamente. Sean <span class="math inline">\(\mathcal{B}_{1}, \mathcal{B}_{2}\)</span> y <span class="math inline">\(\mathcal{B}_{1}\)</span> bases de <span class="math inline">\(V_{1}, V_{2}\)</span> y <span class="math inline">\(V_{3}\)</span> respectivamente. Sean <span class="math inline">\(T_{1}:V_{1}\longrightarrow V_{2}\)</span> y <span class="math inline">\(T_{2}:V_{1}\longrightarrow V_{2}\)</span> transformaciones lineales. Entonces la matriz de la transformación <span class="math inline">\([T_{2}\circ T_{1}]_{\mathcal{B}_{1}\mathcal{B}_{3}}=[T_{2}]_{\mathcal{B}_{2}\mathcal{B}_{3}}[T_{1}]_{\mathcal{B}_{1}\mathcal{B}_{2}}\)</span>.</p>
+<p><span id="thm:unnamed-chunk-638" class="theorem"><strong>Teorema 16.12  </strong></span>Sean <span class="math inline">\(V_{1}, V_{2}\)</span> y <span class="math inline">\(V_{3}\)</span> espacios vectoriales de dimensión finita, cuyas dimensiones son <span class="math inline">\(n,m\)</span> y <span class="math inline">\(p\)</span> respectivamente. Sean <span class="math inline">\(\mathcal{B}_{1}, \mathcal{B}_{2}\)</span> y <span class="math inline">\(\mathcal{B}_{1}\)</span> bases de <span class="math inline">\(V_{1}, V_{2}\)</span> y <span class="math inline">\(V_{3}\)</span> respectivamente. Sean <span class="math inline">\(T_{1}:V_{1}\longrightarrow V_{2}\)</span> y <span class="math inline">\(T_{2}:V_{1}\longrightarrow V_{2}\)</span> transformaciones lineales. Entonces la matriz de la transformación <span class="math inline">\([T_{2}\circ T_{1}]_{\mathcal{B}_{1}\mathcal{B}_{3}}=[T_{2}]_{\mathcal{B}_{2}\mathcal{B}_{3}}[T_{1}]_{\mathcal{B}_{1}\mathcal{B}_{2}}\)</span>.</p>
 </div>
 
 
@@ -588,13 +611,13 @@ P^{-1}[T]_{\mathcal{B}_{1}}P[\alpha]_{\mathcal{B}_{2}}=[T\alpha]_{\mathcal{B}_{1
 <p>Esto se puede enunciar como sigue:</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-483" class="theorem"><strong>Teorema 10.13  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span> y sean <span class="math inline">\(\mathcal{B}_{1}=\{\alpha_{1},\alpha_{2},\cdots, \alpha_{n} \}\)</span> y <span class="math inline">\(\mathcal{B}_{2}=\{\beta_{1},\beta_{2},\cdots, \beta_{n} \}\)</span> dos bases ordenadas de <span class="math inline">\(V\)</span>. Supóngase que <span class="math inline">\(T\)</span> es un operador lineal sobre <span class="math inline">\(V\)</span>. Si <span class="math inline">\(P=[P_{1}, P_{2},\cdots, P_{n}]\)</span> es la matriz <span class="math inline">\(n\times n\)</span> de columnas <span class="math inline">\(P_{j}=[\beta_{j}]_{\mathcal{B}_{1}}\)</span>, entonces <span class="math display">\[[T]_{\mathcal{B}_{2}}=P^{-1}[T]_{\mathcal{B}_{1}}P\]</span>
+<span id="thm:unnamed-chunk-641" class="theorem"><strong>Teorema 16.13  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span> y sean <span class="math inline">\(\mathcal{B}_{1}=\{\alpha_{1},\alpha_{2},\cdots, \alpha_{n} \}\)</span> y <span class="math inline">\(\mathcal{B}_{2}=\{\beta_{1},\beta_{2},\cdots, \beta_{n} \}\)</span> dos bases ordenadas de <span class="math inline">\(V\)</span>. Supóngase que <span class="math inline">\(T\)</span> es un operador lineal sobre <span class="math inline">\(V\)</span>. Si <span class="math inline">\(P=[P_{1}, P_{2},\cdots, P_{n}]\)</span> es la matriz <span class="math inline">\(n\times n\)</span> de columnas <span class="math inline">\(P_{j}=[\beta_{j}]_{\mathcal{B}_{1}}\)</span>, entonces <span class="math display">\[[T]_{\mathcal{B}_{2}}=P^{-1}[T]_{\mathcal{B}_{1}}P\]</span>
 </div>
 
 <p>Otra forma de escribir el resultado anterior es considerar el operador lineal <span class="math inline">\(U\)</span> sobre <span class="math inline">\(V\)</span>, definido como <span class="math inline">\(U\alpha_{j}=\beta_{j}\)</span>, para todo <span class="math inline">\(j=1,\cdots, n\)</span>, entonces <span class="math display">\[[T]_{\mathcal{B}_{2}}=[U]^{-1}_{\mathcal{B}_{1}}[T]_{\mathcal{B}_{1}}[U]_{\mathcal{B}_{1}}.\]</span></p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-484" class="example"><strong>Ejemplo 10.9  </strong></span>Sea <span class="math inline">\(T\)</span> el operador lineal que aplica un vector <span class="math inline">\((x,y)\)</span> de <span class="math inline">\(\mathbb{R}^{2}\)</span> en el vector <span class="math inline">\((x,0)\)</span>, es decir <span class="math inline">\(T:\mathbb{R}^{2}\longrightarrow\mathbb{R}^{2}\)</span>, definido por <span class="math inline">\(T(x,y)=(x,0)\)</span>. Se tiene que la matriz de la transformación <span class="math inline">\(T\)</span> en la base (ordenada) canónica <span class="math inline">\(\mathcal{B}_{1}=\{e_{1},e_{2} \}\)</span>, es <span class="math display">\[\left[ \begin{array}{cc}
+<span id="exm:unnamed-chunk-642" class="example"><strong>Ejemplo 16.9  </strong></span>Sea <span class="math inline">\(T\)</span> el operador lineal que aplica un vector <span class="math inline">\((x,y)\)</span> de <span class="math inline">\(\mathbb{R}^{2}\)</span> en el vector <span class="math inline">\((x,0)\)</span>, es decir <span class="math inline">\(T:\mathbb{R}^{2}\longrightarrow\mathbb{R}^{2}\)</span>, definido por <span class="math inline">\(T(x,y)=(x,0)\)</span>. Se tiene que la matriz de la transformación <span class="math inline">\(T\)</span> en la base (ordenada) canónica <span class="math inline">\(\mathcal{B}_{1}=\{e_{1},e_{2} \}\)</span>, es <span class="math display">\[\left[ \begin{array}{cc}
 1&amp;0\\
 0&amp;0
 \end{array}\right] \]</span> Dada otra base ordenada de <span class="math inline">\(\mathbb{R}^{2}\)</span>, <span class="math inline">\(\mathcal{B}_{2}=\{(1,1), (2,1) \}\)</span>, la matriz <span class="math inline">\(P\)</span> cambio de base viene dada por <span class="math display">\[\left[\begin{array}{cc}
@@ -635,7 +658,7 @@ T(2,1=&amp;((2,0)=&amp;-2(1,1)+2(2,1)
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-485" class="example"><strong>Ejemplo 10.10  </strong></span>Sea <span class="math inline">\(V\)</span> el espacio de las funciones polinomios generadas por <span class="math inline">\(\mathcal{B}=\{f_{1}, f_{2}, f_{3}, f_{4} \}\)</span> donde <span class="math inline">\(f_{i}=x^{i-1}\)</span> para cada <span class="math inline">\(i\in\{1,2,3,4\}\)</span>. Sea <span class="math inline">\(D:V\longrightarrow V\)</span> el operador derivación. Definamos las funciones <span class="math inline">\(g_{i}=(x+t)^{i-1}\)</span> para un <span class="math inline">\(t\in\mathbb{R}\)</span> fijo y cada <span class="math inline">\(i\in\{1,2,3,4\}\)</span>. Se puede ver que las funciones <span class="math display">\[\begin{array}{ll}
+<span id="exm:unnamed-chunk-643" class="example"><strong>Ejemplo 16.10  </strong></span>Sea <span class="math inline">\(V\)</span> el espacio de las funciones polinomios generadas por <span class="math inline">\(\mathcal{B}=\{f_{1}, f_{2}, f_{3}, f_{4} \}\)</span> donde <span class="math inline">\(f_{i}=x^{i-1}\)</span> para cada <span class="math inline">\(i\in\{1,2,3,4\}\)</span>. Sea <span class="math inline">\(D:V\longrightarrow V\)</span> el operador derivación. Definamos las funciones <span class="math inline">\(g_{i}=(x+t)^{i-1}\)</span> para un <span class="math inline">\(t\in\mathbb{R}\)</span> fijo y cada <span class="math inline">\(i\in\{1,2,3,4\}\)</span>. Se puede ver que las funciones <span class="math display">\[\begin{array}{ll}
 g_{1}=&amp;f_{1}\\
 g_{2}=&amp;tf_{1}+f_{2}\\
 g_{3}=&amp;t^{2}f_{1}+2tf_{2}+f_{3}\\
@@ -701,17 +724,17 @@ Dg_{4}=&amp;3g_{3}
 <p>Concluíremos esta sección con lo siguiente:</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-486" class="definition"><strong>Definición 10.8  </strong></span>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos matrices (cuadradas) <span class="math inline">\(n\times n\)</span> sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Se dice que <em><span class="math inline">\(B\)</span> es semejante a <span class="math inline">\(A\)</span> sobre <span class="math inline">\(\mathbb{F}\)</span></em> si existe una matriz <span class="math inline">\(n\times n\)</span> sobre <span class="math inline">\(\mathbb{F}\)</span> invertible <span class="math inline">\(P\)</span> tal que <span class="math inline">\(B=P^{-1}AP\)</span>.</p>
+<p><span id="def:unnamed-chunk-644" class="definition"><strong>Definición 16.8  </strong></span>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos matrices (cuadradas) <span class="math inline">\(n\times n\)</span> sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Se dice que <em><span class="math inline">\(B\)</span> es semejante a <span class="math inline">\(A\)</span> sobre <span class="math inline">\(\mathbb{F}\)</span></em> si existe una matriz <span class="math inline">\(n\times n\)</span> sobre <span class="math inline">\(\mathbb{F}\)</span> invertible <span class="math inline">\(P\)</span> tal que <span class="math inline">\(B=P^{-1}AP\)</span>.</p>
 </div>
 
 <p>De este modo, dado un operador lineal sobre un espacio vectorial <span class="math inline">\(V\)</span> de dimensión finita <span class="math inline">\(n\)</span> y dadas dos bases <span class="math inline">\(\mathcal{B}_{1}\)</span> y <span class="math inline">\(\mathcal{B}_{2}\)</span> del espacio, las matrices del operador <span class="math inline">\(T\)</span> en las bases <span class="math inline">\(\mathcal{B}_{1}\)</span> y <span class="math inline">\(\mathcal{B}_{2}\)</span>, son semejantes, es decir, <span class="math inline">\([T]_{\mathcal{B}_{1}}\)</span> y <span class="math inline">\([T]_{\mathcal{B}_{2}}\)</span>, son semejantes. Inversamente, dadas las matrices semejantes <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> de orden <span class="math inline">\(n\times n\)</span> sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>, sea <span class="math inline">\(V\)</span> un espacio de dimensión <span class="math inline">\(n\)</span> sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span> (por ejemplo <span class="math inline">\(\mathbb{F}^{n}\)</span>) y sea <span class="math inline">\(\mathbb{B}_{1}\)</span> una base ordenada de <span class="math inline">\(V\)</span>. Sea <span class="math inline">\(T\)</span> el operador lineal representado por la matriz <span class="math inline">\(A\)</span> en la base <span class="math inline">\(\mathbb{B}_{1}\)</span>, entonces <span class="math inline">\(B\)</span> representa el operador lineal <span class="math inline">\(T\)</span> en la base obtenida de <span class="math inline">\(\mathbb{B}_{1}\)</span> por medio de <span class="math inline">\(P\)</span>, donde <span class="math inline">\(P\)</span> es la matriz que evidencia la semejanza de <span class="math inline">\(B\)</span> y <span class="math inline">\(A\)</span>. Note que toda matriz <span class="math inline">\(A\)</span> <span class="math inline">\(n\times n\)</span> es semejante a si misma tomando <span class="math inline">\(P\)</span> como la identidad. Si <span class="math inline">\(B\)</span> es semejante a <span class="math inline">\(A\)</span>, <span class="math inline">\(A\)</span> es semejante a <span class="math inline">\(B\)</span>, considerando <span class="math inline">\(P^{-1}\)</span> como la matriz testigo. Además, si <span class="math inline">\(B\)</span> es semejante a <span class="math inline">\(A\)</span> y <span class="math inline">\(C\)</span> es semejante a <span class="math inline">\(B\)</span>, entonces <span class="math inline">\(C\)</span> es semejante a <span class="math inline">\(A\)</span>, ya que <span class="math inline">\(B=P^{-1}AP\)</span> y <span class="math inline">\(C=Q^{-1}BQ\)</span>, por lo tanto <span class="math inline">\(C=(PQ)^{-1}A(PQ)\)</span>. De donde concluímos que la semejanza es una relación de equivalencia en el conjunto de matrices <span class="math inline">\(n\times n\)</span> sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>.</p>
 </div>
 <div id="funcionales-lineales" class="section level2">
-<h2><span class="header-section-number">10.4</span> Funcionales lineales</h2>
+<h2><span class="header-section-number">16.4</span> Funcionales lineales</h2>
 <p>Dado un espacio vectorial <span class="math inline">\(V\)</span> sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>, una transformación lineal <span class="math inline">\(f\)</span> de un espacio vectorial <span class="math inline">\(V\)</span> en el conjunto de escalares <span class="math inline">\(\mathbb{F}\)</span>, se llama <em>funcional lineal</em> sobre <span class="math inline">\(V\)</span>, es decir, es una función <span class="math inline">\(f:V\longrightarrow \mathbb{F}\)</span> tal que <span class="math inline">\(f(\lambda u +v)=\lambda f(u)+ f(v)\)</span> para cualesquiera vectores <span class="math inline">\(u,v\in V\)</span> y cualquier escalar <span class="math inline">\(\lambda \mathbb{F}\)</span>.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-487" class="example"><strong>Ejemplo 10.11  </strong></span> Sea <span class="math inline">\(\mathbb{F}\)</span> un cuerpo y sean <span class="math inline">\(\lambda_{1}, \lambda_{2},\cdots , \lambda_{n}\)</span> en <span class="math inline">\(\mathbb{F}\)</span>. Sea <span class="math inline">\(f\)</span> la función en <span class="math inline">\(\mathbb{F}^{n}\)</span> definida por <span class="math inline">\(f(x_{1},x_{2},\cdots,x_{n})=\lambda_{1}x_{1}+ \lambda_{2}x_{2}+\cdots +\lambda_{n}x_{n}\)</span>. Entonces <span class="math inline">\(f\)</span> es un funcional lineal sobre <span class="math inline">\(\mathbb{F}^{n}\)</span>. Si consideramos la base canónica de <span class="math inline">\(\mathbb{F}^{n}\)</span> y la base <span class="math inline">\(\{1\}\)</span> de <span class="math inline">\(\mathbb{F}\)</span>, la matriz del funcional es <span class="math inline">\([\lambda_{1}, \lambda_{2},\cdots , \lambda_{n}]\)</span>, ya que <span class="math inline">\(f(e_{j})=\lambda_{j}\)</span>, <span class="math inline">\(j=1,2,\cdots ,n\)</span>. Todo funcional lineal sobre <span class="math inline">\(\mathbb{F}\)</span> tendrá esta forma, para ciertos escalares <span class="math inline">\(\lambda_{1}, \lambda_{2},\cdots , \lambda_{n}\)</span> en <span class="math inline">\(\mathbb{F}\)</span>, ya que <span class="math display">\[\begin{array}{ll}
+<span id="exm:unnamed-chunk-645" class="example"><strong>Ejemplo 16.11  </strong></span> Sea <span class="math inline">\(\mathbb{F}\)</span> un cuerpo y sean <span class="math inline">\(\lambda_{1}, \lambda_{2},\cdots , \lambda_{n}\)</span> en <span class="math inline">\(\mathbb{F}\)</span>. Sea <span class="math inline">\(f\)</span> la función en <span class="math inline">\(\mathbb{F}^{n}\)</span> definida por <span class="math inline">\(f(x_{1},x_{2},\cdots,x_{n})=\lambda_{1}x_{1}+ \lambda_{2}x_{2}+\cdots +\lambda_{n}x_{n}\)</span>. Entonces <span class="math inline">\(f\)</span> es un funcional lineal sobre <span class="math inline">\(\mathbb{F}^{n}\)</span>. Si consideramos la base canónica de <span class="math inline">\(\mathbb{F}^{n}\)</span> y la base <span class="math inline">\(\{1\}\)</span> de <span class="math inline">\(\mathbb{F}\)</span>, la matriz del funcional es <span class="math inline">\([\lambda_{1}, \lambda_{2},\cdots , \lambda_{n}]\)</span>, ya que <span class="math inline">\(f(e_{j})=\lambda_{j}\)</span>, <span class="math inline">\(j=1,2,\cdots ,n\)</span>. Todo funcional lineal sobre <span class="math inline">\(\mathbb{F}\)</span> tendrá esta forma, para ciertos escalares <span class="math inline">\(\lambda_{1}, \lambda_{2},\cdots , \lambda_{n}\)</span> en <span class="math inline">\(\mathbb{F}\)</span>, ya que <span class="math display">\[\begin{array}{ll}
     f(x_{1},x_{2},\cdots,x_{n})&amp;=f(\sum_{j=1}^{n} x_{j}e_{j})\\
     &amp;=\sum_{j=1}^{n} x_{j}f(e_{j})\\
     &amp;=\sum_{j=1}^{n} \lambda_{j}x_{j}
@@ -720,7 +743,7 @@ Dg_{4}=&amp;3g_{3}
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-488" class="example"><strong>Ejemplo 10.12  </strong></span> <em>El operador traza de una matriz</em>. Sea <span class="math inline">\(A\)</span> una matriz <span class="math inline">\(n\times n\)</span> sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>, la <em>traza</em> de <span class="math inline">\(A\)</span> es el escalar <span class="math display">\[tr A=[A]_{11}+[A]_{22}+\cdots +[A]_{nn}\]</span> la suma de la los elementos de la diagonal de una matriz. Esta función es un funcional lineal sobre el espacio de las matrices <span class="math inline">\(\mathcal{M}_{n\times n}(\mathbb{F})\)</span>. En efecto, <span class="math display">\[\begin{array}{ll}
+<span id="exm:unnamed-chunk-646" class="example"><strong>Ejemplo 16.12  </strong></span> <em>El operador traza de una matriz</em>. Sea <span class="math inline">\(A\)</span> una matriz <span class="math inline">\(n\times n\)</span> sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>, la <em>traza</em> de <span class="math inline">\(A\)</span> es el escalar <span class="math display">\[tr A=[A]_{11}+[A]_{22}+\cdots +[A]_{nn}\]</span> la suma de la los elementos de la diagonal de una matriz. Esta función es un funcional lineal sobre el espacio de las matrices <span class="math inline">\(\mathcal{M}_{n\times n}(\mathbb{F})\)</span>. En efecto, <span class="math display">\[\begin{array}{ll}
     tr (\lambda A + B)&amp;=\sum_{i=1}^{n}(\lambda [A]_{ii}+[B]_{ii})\\
     &amp;=\lambda \sum_{i=1}^{n} [A]_{ii} + \sum_{i=1}^{n} [B]_{ii}\\
     &amp;=\lambda tr A + tr B
@@ -729,17 +752,17 @@ Dg_{4}=&amp;3g_{3}
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-489" class="example"><strong>Ejemplo 10.13  </strong></span> Sea <span class="math inline">\(V\)</span> el espacio de todas las funciones polinómicas sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Para <span class="math inline">\(t\in\mathbb{F}\)</span>, definamos <span class="math inline">\(L_{t}:V\longrightarrow \mathbb{F}\)</span> como la evaluación en <span class="math inline">\(t\)</span>, es decir <span class="math inline">\(L_{t}(p)=p(t)\)</span> para todo <span class="math inline">\(p\in V\)</span>. Entonces <span class="math inline">\(L_{t}\)</span> es un funcional lineal en <span class="math inline">\(V\)</span>. En general, se puede definir el funcional lineal <span class="math inline">\(L_{t}\)</span> en el espacio de las funciones sobre <span class="math inline">\(\mathbb{F}\)</span> en si mismo, como <span class="math inline">\(L_{t}(f)=f(t)\)</span>, para cada función <span class="math inline">\(f: \mathbb{F}\longrightarrow\mathbb{F}\)</span>.</p>
+<p><span id="exm:unnamed-chunk-647" class="example"><strong>Ejemplo 16.13  </strong></span> Sea <span class="math inline">\(V\)</span> el espacio de todas las funciones polinómicas sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Para <span class="math inline">\(t\in\mathbb{F}\)</span>, definamos <span class="math inline">\(L_{t}:V\longrightarrow \mathbb{F}\)</span> como la evaluación en <span class="math inline">\(t\)</span>, es decir <span class="math inline">\(L_{t}(p)=p(t)\)</span> para todo <span class="math inline">\(p\in V\)</span>. Entonces <span class="math inline">\(L_{t}\)</span> es un funcional lineal en <span class="math inline">\(V\)</span>. En general, se puede definir el funcional lineal <span class="math inline">\(L_{t}\)</span> en el espacio de las funciones sobre <span class="math inline">\(\mathbb{F}\)</span> en si mismo, como <span class="math inline">\(L_{t}(f)=f(t)\)</span>, para cada función <span class="math inline">\(f: \mathbb{F}\longrightarrow\mathbb{F}\)</span>.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-490" class="example"><strong>Ejemplo 10.14  </strong></span> Sea <span class="math inline">\(\mathcal{C}(I)\)</span> el espacio de las funciones continuas sobre el intervalo <span class="math inline">\(I=[a,b]\)</span>. Definimos, <span class="math display">\[L(f)=\int_{a}^{b}f(t)dt\]</span> entonces <span class="math inline">\(L\)</span> es un funcional lineal sobre <span class="math inline">\(\mathcal{C}(I)\)</span>.</p>
+<p><span id="exm:unnamed-chunk-648" class="example"><strong>Ejemplo 16.14  </strong></span> Sea <span class="math inline">\(\mathcal{C}(I)\)</span> el espacio de las funciones continuas sobre el intervalo <span class="math inline">\(I=[a,b]\)</span>. Definimos, <span class="math display">\[L(f)=\int_{a}^{b}f(t)dt\]</span> entonces <span class="math inline">\(L\)</span> es un funcional lineal sobre <span class="math inline">\(\mathcal{C}(I)\)</span>.</p>
 </div>
 
 <p>Si <span class="math inline">\(V\)</span> es un espacio vectorial, el conjunto de todos los funcionales lineales sobre <span class="math inline">\(V\)</span>, <span class="math inline">\(L(V,\mathbb{F})\)</span>, forman un espacio vectorial. Este recibe el nombre de espacio dual de <span class="math inline">\(V\)</span> y se denota <span class="math inline">\(V^{\ast}\)</span>.</p>
-<p>Por el teorema <a href="transformaciones-lineales.html#thm:teorema416">10.4</a>, se tiene que <span class="math inline">\(dim V^{\ast}=dim V\)</span>.</p>
-<p>Dada una base <span class="math inline">\(\mathcal{B}=\{v_{1}, v_{2}, \cdots, v_{n} \}\)</span> de <span class="math inline">\(V\)</span>, para cada <span class="math inline">\(i=1,2,\cdots, n\)</span> existe un funcional lineal <span class="math inline">\(f_{i}\)</span> tal que <span class="math inline">\(f_{i}(v_{j})=\delta_{ij}\)</span> (<a href="transformaciones-lineales.html#thm:teorema410">10.1</a>. Estos <span class="math inline">\(n\)</span> funcionales lineales, <span class="math inline">\(f_{1}, f_{2}, \cdots , f_{n}\)</span>, son linealmente independientes, en efecto, supongamos que <span class="math inline">\(f=\sum_{i=1}^{n} c_{i}f_{i}\)</span> <span class="math display">\[\begin{array}{ll}
+<p>Por el teorema <a href="transformaciones-lineales.html#thm:teorema416">16.4</a>, se tiene que <span class="math inline">\(dim V^{\ast}=dim V\)</span>.</p>
+<p>Dada una base <span class="math inline">\(\mathcal{B}=\{v_{1}, v_{2}, \cdots, v_{n} \}\)</span> de <span class="math inline">\(V\)</span>, para cada <span class="math inline">\(i=1,2,\cdots, n\)</span> existe un funcional lineal <span class="math inline">\(f_{i}\)</span> tal que <span class="math inline">\(f_{i}(v_{j})=\delta_{ij}\)</span> (<a href="transformaciones-lineales.html#thm:teorema410">16.1</a>. Estos <span class="math inline">\(n\)</span> funcionales lineales, <span class="math inline">\(f_{1}, f_{2}, \cdots , f_{n}\)</span>, son linealmente independientes, en efecto, supongamos que <span class="math inline">\(f=\sum_{i=1}^{n} c_{i}f_{i}\)</span> <span class="math display">\[\begin{array}{ll}
 f(v_{j})&amp;=\sum_{i=1}^{n} c_{i}f_{i}(v_{j})\\
 &amp;=\sum_{i=1}^{n} c_{i}f_{i}(v_{j})\\
 &amp;=c_{j}
@@ -747,7 +770,7 @@ f(v_{j})&amp;=\sum_{i=1}^{n} c_{i}f_{i}(v_{j})\\
 <p>Por lo tanto los <span class="math inline">\(n\)</span> funcionales lineales <span class="math inline">\(f_{1}, f_{2}, \cdots , f_{n}\)</span> forman una base para <span class="math inline">\(V^{\ast}\)</span> a la que llamaremos base dual de <span class="math inline">\(\mathcal{B}\)</span> y denotaremos <span class="math inline">\(\mathcal{B}^{\ast}\)</span>.</p>
 
 <div class="theorem">
-<p><span id="thm:teorema114" class="theorem"><strong>Teorema 10.14  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span> y sea <span class="math inline">\(\mathcal{B}=\{v_{1}, v_{2}, \cdots, v_{n} \}\)</span> una base de <span class="math inline">\(V\)</span>. Existe una única base dual <span class="math inline">\(\mathcal{B}^{\ast}=\{f_{1}, f_{2}, \cdots , f_{n} \}\)</span> de <span class="math inline">\(V^{\ast}\)</span> tal que <span class="math inline">\(f_{i}(v_{j})=\delta_{ij}\)</span>. Además, para cada funcional lineal <span class="math inline">\(f\)</span> sobre <span class="math inline">\(V\)</span> se tiene que <span class="math display">\[f=\sum_{i=1}^{n} f(v_{i})f_{i}\]</span> y para cada <span class="math inline">\(v\in V\)</span> se tine que <span class="math display">\[v=\sum_{i=1}^{n} f_{i}(v)v_{i}\]</span>.</p>
+<p><span id="thm:teorema114" class="theorem"><strong>Teorema 16.14  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span> y sea <span class="math inline">\(\mathcal{B}=\{v_{1}, v_{2}, \cdots, v_{n} \}\)</span> una base de <span class="math inline">\(V\)</span>. Existe una única base dual <span class="math inline">\(\mathcal{B}^{\ast}=\{f_{1}, f_{2}, \cdots , f_{n} \}\)</span> de <span class="math inline">\(V^{\ast}\)</span> tal que <span class="math inline">\(f_{i}(v_{j})=\delta_{ij}\)</span>. Además, para cada funcional lineal <span class="math inline">\(f\)</span> sobre <span class="math inline">\(V\)</span> se tiene que <span class="math display">\[f=\sum_{i=1}^{n} f(v_{i})f_{i}\]</span> y para cada <span class="math inline">\(v\in V\)</span> se tine que <span class="math display">\[v=\sum_{i=1}^{n} f_{i}(v)v_{i}\]</span>.</p>
 </div>
 
 
@@ -762,7 +785,7 @@ f(v_{j})&amp;=\sum_{i=1}^{n} c_{i}f_{i}(v_{j})\\
 <p>El teorema anterior nos dice que dada una base <span class="math inline">\(\mathcal{B}=\{v_{1}, v_{2}, \cdots, v_{n} \}\)</span> de un espacio vectorial <span class="math inline">\(V\)</span>, la base dual viene dada por las funciones <span class="math inline">\(f_{i}\)</span>, donde cada <span class="math inline">\(f_{i}\)</span> es la función que asigna a cada vector <span class="math inline">\(v\)</span> la i-ésima coordenada de <span class="math inline">\(v\)</span> respecto a la base ordenada <span class="math inline">\(\mathcal{B}\)</span>, por esta razón también se conoce a las funciones <span class="math inline">\(f_{i}\)</span> como funciones coordenadas de <span class="math inline">\(\mathcal{B}\)</span>. Por otro lado, dado un funcional <span class="math inline">\(f\)</span> en <span class="math inline">\(V^{\ast}\)</span>, si <span class="math inline">\(\lambda_{i}=f(v_{i})\)</span>, entonces para cada vector <span class="math inline">\(v=\gamma_{1}v_{1}+\gamma_{2}v_{2}+\cdots +\gamma_{n}v_{n}\)</span> se tiene que <span class="math inline">\(f(v)=\gamma_{1}\lambda_{1}+\gamma_{2}\lambda_{2}+\cdots +\gamma_{n}\lambda_{n}\)</span>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-492" class="example"><strong>Ejemplo 10.15  </strong></span>Sea <span class="math inline">\(V\)</span> el espacio vectorial de todas las funciones polinomios <span class="math inline">\(p\)</span> de <span class="math inline">\(\mathbb{R}\)</span> en <span class="math inline">\(\mathbb{R}\)</span> que tienen grado menor o igual que dos. Sean <span class="math inline">\(t_{1}, t{2}, t{3}\)</span> tres números reales distintos cualesquiera y sea <span class="math inline">\(L_{i}(p)=p(t_{i})\)</span>. Entonces <span class="math inline">\(L_{1}\)</span>, <span class="math inline">\(L_{2}\)</span> y <span class="math inline">\(L_{3}\)</span> son funcionales lineales sobre <span class="math inline">\(V\)</span>. Si consideramos el funcional <span class="math inline">\(L=\gamma_{1} L_{1}+ \gamma_{2} L_{2} + \gamma_{3} L_{3}\)</span>, luego <span class="math inline">\(L\equiv 0\)</span> si y solo si <span class="math inline">\(L(p)=0\)</span> para todo <span class="math inline">\(p\)</span> de <span class="math inline">\(V\)</span>, entonces aplicando <span class="math inline">\(L\)</span> a las funciones plinómicas <span class="math inline">\(1, x, x^{2}\)</span>, tenemos <span class="math display">\[\left\lbrace \begin{array}{rl}
+<p><span id="exm:unnamed-chunk-650" class="example"><strong>Ejemplo 16.15  </strong></span>Sea <span class="math inline">\(V\)</span> el espacio vectorial de todas las funciones polinomios <span class="math inline">\(p\)</span> de <span class="math inline">\(\mathbb{R}\)</span> en <span class="math inline">\(\mathbb{R}\)</span> que tienen grado menor o igual que dos. Sean <span class="math inline">\(t_{1}, t{2}, t{3}\)</span> tres números reales distintos cualesquiera y sea <span class="math inline">\(L_{i}(p)=p(t_{i})\)</span>. Entonces <span class="math inline">\(L_{1}\)</span>, <span class="math inline">\(L_{2}\)</span> y <span class="math inline">\(L_{3}\)</span> son funcionales lineales sobre <span class="math inline">\(V\)</span>. Si consideramos el funcional <span class="math inline">\(L=\gamma_{1} L_{1}+ \gamma_{2} L_{2} + \gamma_{3} L_{3}\)</span>, luego <span class="math inline">\(L\equiv 0\)</span> si y solo si <span class="math inline">\(L(p)=0\)</span> para todo <span class="math inline">\(p\)</span> de <span class="math inline">\(V\)</span>, entonces aplicando <span class="math inline">\(L\)</span> a las funciones plinómicas <span class="math inline">\(1, x, x^{2}\)</span>, tenemos <span class="math display">\[\left\lbrace \begin{array}{rl}
     c_{1}+c_{2}+c_{3}&amp;=0\\
     t_{1}c_{1}+t_{2}c_{2}+t_{3}c_{3}&amp;=0\\
     t_{1}^{2}c_{1}+t_{2}^{2}c_{2}+t_{3}^{2}c_{3}&amp;=0
@@ -779,13 +802,13 @@ f(v_{j})&amp;=\sum_{i=1}^{n} c_{i}f_{i}(v_{j})\\
 <p>En un espacio vectorial de dimensión <span class="math inline">\(n\)</span>, un subespacio de dimensión <span class="math inline">\(n-1\)</span> se le llama un <em>hiperespacio</em> (o <em>hiperplanos</em> o <em>subespacios de codimensión 1</em>). Se nos ocurre entonces la pregunta, ¿ todo hiperespacio es el espacio nulo de un funcional lineal? se puede ver fácilmente que si. También puede surgir la conjetura: todo subespacio de dimensión <span class="math inline">\(m\)</span> es la intersección de los espacios nulos de <span class="math inline">\(n-m\)</span> funcionales lineales. Esto lo veremos en lo que sigue.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-493" class="definition"><strong>Definición 10.9  </strong></span>Si <span class="math inline">\(V\)</span> es un espacio vectorial sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span> y <span class="math inline">\(S\)</span> es un subconjunto de <span class="math inline">\(V\)</span>, el <em>anulador</em> de <span class="math inline">\(S\)</span> es el conjunto <span class="math inline">\(S^{0}\)</span> de funcionales lineales <span class="math inline">\(f\)</span> sobre <span class="math inline">\(V\)</span> tales que <span class="math inline">\(f(v)=0\)</span> para todo <span class="math inline">\(v\in S\)</span>.</p>
+<p><span id="def:unnamed-chunk-651" class="definition"><strong>Definición 16.9  </strong></span>Si <span class="math inline">\(V\)</span> es un espacio vectorial sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span> y <span class="math inline">\(S\)</span> es un subconjunto de <span class="math inline">\(V\)</span>, el <em>anulador</em> de <span class="math inline">\(S\)</span> es el conjunto <span class="math inline">\(S^{0}\)</span> de funcionales lineales <span class="math inline">\(f\)</span> sobre <span class="math inline">\(V\)</span> tales que <span class="math inline">\(f(v)=0\)</span> para todo <span class="math inline">\(v\in S\)</span>.</p>
 </div>
 
 <p>Es claro que <span class="math inline">\(S^{0}\)</span> es un subespacio de <span class="math inline">\(V^{\ast}\)</span>, independientemente de que <span class="math inline">\(S\)</span> sea subespacio o no de <span class="math inline">\(V\)</span>. Además, si <span class="math inline">\(S\)</span> consta unicamente del vector cero, es decir, <span class="math inline">\(S=\{0\}\)</span>, entonces <span class="math inline">\(S^{0}=V^{\ast}\)</span>; y si <span class="math inline">\(S=V\)</span>, entonces <span class="math inline">\(S^{0}\)</span> es el espacio nulo de <span class="math inline">\(V^{\ast}\)</span>.</p>
 
 <div class="theorem">
-<p><span id="thm:teorema115" class="theorem"><strong>Teorema 10.15  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span> y sea <span class="math inline">\(W\)</span> un subespacio de <span class="math inline">\(V\)</span>. Entonces <span class="math display">\[dim W+dim W^{0}=dim V.\]</span></p>
+<p><span id="thm:teorema115" class="theorem"><strong>Teorema 16.15  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span> y sea <span class="math inline">\(W\)</span> un subespacio de <span class="math inline">\(V\)</span>. Entonces <span class="math display">\[dim W+dim W^{0}=dim V.\]</span></p>
 </div>
  
 <div class="proof">
@@ -794,7 +817,7 @@ f(v_{j})&amp;=\sum_{i=1}^{n} c_{i}f_{i}(v_{j})\\
 
 
 <div class="corollary">
-<p><span id="cor:corolario11" class="corollary"><strong>Corolario 10.1  </strong></span>Si <span class="math inline">\(W\)</span> es un subespacio de dimensión <span class="math inline">\(k\)</span> de un espacio vectorial de dimensión <span class="math inline">\(n\)</span>, entonces <span class="math inline">\(W\)</span> es la intersección de <span class="math inline">\(n-k\)</span> hiperespacios de <span class="math inline">\(V\)</span>.</p>
+<p><span id="cor:corolario11" class="corollary"><strong>Corolario 16.1  </strong></span>Si <span class="math inline">\(W\)</span> es un subespacio de dimensión <span class="math inline">\(k\)</span> de un espacio vectorial de dimensión <span class="math inline">\(n\)</span>, entonces <span class="math inline">\(W\)</span> es la intersección de <span class="math inline">\(n-k\)</span> hiperespacios de <span class="math inline">\(V\)</span>.</p>
 </div>
 
 
@@ -804,7 +827,7 @@ f(v_{j})&amp;=\sum_{i=1}^{n} c_{i}f_{i}(v_{j})\\
 
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-496" class="corollary"><strong>Corolario 10.2  </strong></span>Si <span class="math inline">\(W_{1}\)</span> y <span class="math inline">\(W_{2}\)</span> son subespacios de un espacio vectorial de dimensión finita, entonces <span class="math inline">\(W_{1}=W_{2}\)</span> si y solo si <span class="math inline">\(W^{0}_{1}=W^{0}_{2}\)</span>.</p>
+<p><span id="cor:unnamed-chunk-654" class="corollary"><strong>Corolario 16.2  </strong></span>Si <span class="math inline">\(W_{1}\)</span> y <span class="math inline">\(W_{2}\)</span> son subespacios de un espacio vectorial de dimensión finita, entonces <span class="math inline">\(W_{1}=W_{2}\)</span> si y solo si <span class="math inline">\(W^{0}_{1}=W^{0}_{2}\)</span>.</p>
 </div>
 
 
@@ -822,7 +845,7 @@ A_{m1}x_{1}+&amp;\cdots&amp;+ A_{mn}x_{n}&amp;=&amp; 0
 \end{array}.\]</span> Entonces la reducción de filas nos permite hallar el anulador de un subespacio generado por un conjunto de vectores.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-498" class="example"><strong>Ejemplo 10.16  </strong></span>Dados tres funcionales lineales sobre <span class="math inline">\(\mathbb{R}^{4}\)</span>: <span class="math display">\[\begin{array}{ll}
+<p><span id="exm:unnamed-chunk-656" class="example"><strong>Ejemplo 16.16  </strong></span>Dados tres funcionales lineales sobre <span class="math inline">\(\mathbb{R}^{4}\)</span>: <span class="math display">\[\begin{array}{ll}
 f_{1}(x_{1},x_{2},x_{3},x_{4})&amp;= 2x_{1}-1x_{2}+3x_{3}+2x_{4}\\
 f_{2}(x_{1},x_{2},x_{3},x_{4})&amp;= x_{1}+4x_{2}-x_{4}\\
 f_{3}(x_{1},x_{2},x_{3},x_{4})&amp;= 2x_{1}+6x_{2}-x_{3}+5x_{4}
@@ -830,7 +853,7 @@ f_{3}(x_{1},x_{2},x_{3},x_{4})&amp;= 2x_{1}+6x_{2}-x_{3}+5x_{4}
 2&amp;-1&amp;3&amp;2\\
 1&amp;4&amp;0&amp;-1\\
 2&amp;6&amp;-1&amp;5
-\end{array} \right] \]</span> es la matriz de coeficientes. Como ya vimos en el ejemplo <a href="espacios-vectoriales.html#exm:ejm45">4.5</a> del capítulo 4, la matriz <span class="math inline">\(A\)</span> es equivalente por filas a la matriz escalonada reducida <span class="math display">\[R=\left[\begin{array}{cccc}
+\end{array} \right] \]</span> es la matriz de coeficientes. Como ya vimos en el ejemplo <a href="espacios-vectoriales.html#exm:ejm45">5.5</a> del capítulo 4, la matriz <span class="math inline">\(A\)</span> es equivalente por filas a la matriz escalonada reducida <span class="math display">\[R=\left[\begin{array}{cccc}
 1&amp;0&amp;0&amp;\frac{17}{3}\\
 0&amp;1&amp;0&amp;-\frac{5}{3}\\
 0&amp;0&amp;1&amp;-\frac{11}{3}
@@ -851,7 +874,7 @@ x_{3}&amp;=\frac{11}{3}x_{4}
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-499" class="example"><strong>Ejemplo 10.17  </strong></span>Sean <span class="math inline">\(v_{1}=(-6,-3,0,-3,-3)\)</span>, <span class="math inline">\(v_{2}=(0,3,6,3,2)\)</span>, <span class="math inline">\(v_{3}=(-3,1,5,1,0)\)</span> y <span class="math inline">\(v_{4}=(4,1,-2,1,5)\)</span> vectores de <span class="math inline">\(\mathbb{R}^{5}\)</span>. Sea <span class="math inline">\(W\)</span> el subespacio generado por los vectores <span class="math inline">\(v_{1}, v_{2}, v_{3}\)</span> y <span class="math inline">\(v_{4}\)</span>. El espacio anulador de <span class="math inline">\(W\)</span>, <span class="math inline">\(W^{0}\)</span> consta de los funcionales <span class="math inline">\(f(x_{1},x_{2},x_{3},x_{4},x_{5})=\sum_{j=1}^{5} \lambda_{j}x_{j}\)</span> tales que <span class="math inline">\(f(v_{i})=0\)</span>, para cada <span class="math inline">\(i=1,\cdots,4\)</span>. Como <span class="math display">\[A=\left[\begin{array}{ccccc}
+<p><span id="exm:unnamed-chunk-657" class="example"><strong>Ejemplo 16.17  </strong></span>Sean <span class="math inline">\(v_{1}=(-6,-3,0,-3,-3)\)</span>, <span class="math inline">\(v_{2}=(0,3,6,3,2)\)</span>, <span class="math inline">\(v_{3}=(-3,1,5,1,0)\)</span> y <span class="math inline">\(v_{4}=(4,1,-2,1,5)\)</span> vectores de <span class="math inline">\(\mathbb{R}^{5}\)</span>. Sea <span class="math inline">\(W\)</span> el subespacio generado por los vectores <span class="math inline">\(v_{1}, v_{2}, v_{3}\)</span> y <span class="math inline">\(v_{4}\)</span>. El espacio anulador de <span class="math inline">\(W\)</span>, <span class="math inline">\(W^{0}\)</span> consta de los funcionales <span class="math inline">\(f(x_{1},x_{2},x_{3},x_{4},x_{5})=\sum_{j=1}^{5} \lambda_{j}x_{j}\)</span> tales que <span class="math inline">\(f(v_{i})=0\)</span>, para cada <span class="math inline">\(i=1,\cdots,4\)</span>. Como <span class="math display">\[A=\left[\begin{array}{ccccc}
 -6&amp;-3&amp;0&amp;-3&amp;-3\\
 0&amp;3&amp;6&amp;3&amp;2\\
 -3&amp;1&amp;5&amp;1&amp;0\\
@@ -870,7 +893,7 @@ x_{3}&amp;=\frac{11}{3}x_{4}
 
 </div>
 <div id="el-doble-dual" class="section level2">
-<h2><span class="header-section-number">10.5</span> El doble dual</h2>
+<h2><span class="header-section-number">16.5</span> El doble dual</h2>
 <p>Ya vimos que a cada base <span class="math inline">\(\mathcal{B}\)</span> de un espacio vectorial <span class="math inline">\(V\)</span>, le corresponde una base dual <span class="math inline">\(\mathbb{B}^{\ast}\)</span>. Y que dada una base <span class="math inline">\(\mathcal{B}^{\ast}\)</span> de <span class="math inline">\(V^{\ast}\)</span>, se puede hallar una base de <span class="math inline">\(V\)</span> para la cual <span class="math inline">\(\mathcal{B}^{\ast}\)</span> es dual. Veremos que podemos hacer esto último considerando el espacio dual de <span class="math inline">\(V^{\ast}\)</span>, es decir el <em>doble dual</em> de <span class="math inline">\(V\)</span>.</p>
 <p>Dado un vector <span class="math inline">\(v\in V\)</span>, este induce un funcional lineal sobre <span class="math inline">\(V^{\ast}\)</span>, <span class="math inline">\(L_{v}\)</span>, definido por <span class="math inline">\(L_{v}=f(v)\)</span>, para cada <span class="math inline">\(f\in V^{\ast}\)</span>. La linealidad de <span class="math inline">\(L_{v}\)</span> viene dada por la linealidad de las operaciones en <span class="math inline">\(V^{\ast}\)</span>: <span class="math display">\[\begin{array}{rl}
 L_{v}(\lambda f + g)&amp;=(\lambda f + g)(v)\\
@@ -881,7 +904,7 @@ L_{v}(\lambda f + g)&amp;=(\lambda f + g)(v)\\
 <p>Si <span class="math inline">\(v_{0}\)</span> es un vector no nulo de un espacio de dimensión finita <span class="math inline">\(V\)</span>, <span class="math inline">\(L_{v_{0}}\)</span> no es cero. Por lo tanto, para cada <span class="math inline">\(v\)</span> no nulo, existe un funcional lineal <span class="math inline">\(f\)</span> tal que <span class="math inline">\(f(v)\neq 0\)</span>. Es muy fácil ver que efectivamente es así, tomando una base ordenada <span class="math inline">\(\mathcal{B}=\{v_{1}, v_{2},\cdots, v_{n} \}\)</span> de <span class="math inline">\(V\)</span>, de forma que <span class="math inline">\(v_{1}=v_{0}\)</span>, se define el funcional lineal <span class="math inline">\(f\)</span> que a cada vector <span class="math inline">\(v\)</span> de <span class="math inline">\(V\)</span> le asigna su primera coordenada en la base <span class="math inline">\(\mathcal{B}\)</span>, es decir, <span class="math inline">\(f(v)=([v]_{\mathcal{B}})_{1}\)</span>.</p>
 
 <div class="theorem">
-<p><span id="thm:teorema116" class="theorem"><strong>Teorema 10.16  </strong></span> Sea <span class="math inline">\(V\)</span> un espacio de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Para cada vector <span class="math inline">\(v\)</span> de <span class="math inline">\(V\)</span> se define <span class="math display">\[L_{v}(f)
+<p><span id="thm:teorema116" class="theorem"><strong>Teorema 16.16  </strong></span> Sea <span class="math inline">\(V\)</span> un espacio de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Para cada vector <span class="math inline">\(v\)</span> de <span class="math inline">\(V\)</span> se define <span class="math display">\[L_{v}(f)
 =f(v)\mbox{, } \forall f\in V^{\ast}\]</span> La aplicación <span class="math inline">\(v\mapsto L_{v}\)</span> es entonces un isomorfismo de <span class="math inline">\(V\)</span> sobre <span class="math inline">\(V^{\ast\ast}\)</span>.</p>
 </div>
 
@@ -889,25 +912,25 @@ L_{v}(\lambda f + g)&amp;=(\lambda f + g)(v)\\
 L_{\lambda v+ u}(f)=&amp;f(\lambda v+ u)\\
 =&amp;\lambda f(v)+ f(u)\\
 =&amp;\lambda L_{v}(f)+ L_{u}(f)
-\end{array}\]</span> es decir, <span class="math inline">\(L_{\lambda v+ u}=\lambda L_{v}+ L_{u}\)</span>. Además es una transformación inyectiva, ya que <span class="math inline">\(v=0\)</span> si y solo si <span class="math inline">\(L_{v}=0\)</span>. Como <span class="math inline">\(\dim V=\dim V^{\ast}=\dim V^{\ast\ast}\)</span>, por el teorema <a href="transformaciones-lineales.html#thm:teorema427">10.9</a> se tiene que esta transformación es biyectiva y por lo tanto, un isomorfismo entre <span class="math inline">\(V\)</span> y <span class="math inline">\(V^{\ast\ast}\)</span>.</p>
+\end{array}\]</span> es decir, <span class="math inline">\(L_{\lambda v+ u}=\lambda L_{v}+ L_{u}\)</span>. Además es una transformación inyectiva, ya que <span class="math inline">\(v=0\)</span> si y solo si <span class="math inline">\(L_{v}=0\)</span>. Como <span class="math inline">\(\dim V=\dim V^{\ast}=\dim V^{\ast\ast}\)</span>, por el teorema <a href="transformaciones-lineales.html#thm:teorema427">16.9</a> se tiene que esta transformación es biyectiva y por lo tanto, un isomorfismo entre <span class="math inline">\(V\)</span> y <span class="math inline">\(V^{\ast\ast}\)</span>.</p>
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-500" class="corollary"><strong>Corolario 10.3  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Si <span class="math inline">\(L\)</span> es un funcional lineal en el espacio dual <span class="math inline">\(V^{\ast}\)</span>, entonces existe un único <span class="math inline">\(v\in V\)</span> tal que <span class="math inline">\(L(f)=f(v)\)</span> para cada <span class="math inline">\(f\in V^{\ast}\)</span>.</p>
+<p><span id="cor:unnamed-chunk-658" class="corollary"><strong>Corolario 16.3  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Si <span class="math inline">\(L\)</span> es un funcional lineal en el espacio dual <span class="math inline">\(V^{\ast}\)</span>, entonces existe un único <span class="math inline">\(v\in V\)</span> tal que <span class="math inline">\(L(f)=f(v)\)</span> para cada <span class="math inline">\(f\in V^{\ast}\)</span>.</p>
 </div>
 
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-501" class="corollary"><strong>Corolario 10.4  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Toda base de <span class="math inline">\(V^{\ast}\)</span> es el dual de una base de <span class="math inline">\(\mathcal{B}\)</span> de <span class="math inline">\(V\)</span>.</p>
+<p><span id="cor:unnamed-chunk-659" class="corollary"><strong>Corolario 16.4  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Toda base de <span class="math inline">\(V^{\ast}\)</span> es el dual de una base de <span class="math inline">\(\mathcal{B}\)</span> de <span class="math inline">\(V\)</span>.</p>
 </div>
  
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(\mathcal{B}^{\ast}=\{f_{1},\cdots, f_{n} \}\)</span> una base de <span class="math inline">\(V^{\ast}\)</span>. Por el teorema <a href="transformaciones-lineales.html#thm:teorema114">10.14</a> existe una única base <span class="math inline">\(\{L_{1},\cdots, L_{n} \}\)</span> de <span class="math inline">\(V^{\ast\ast}\)</span> tal que <span class="math inline">\(L_{i}(f_{j})=\delta_{ij}\)</span>. Por el corolario anterior se tiene que para cada <span class="math inline">\(i\)</span> existe <span class="math inline">\(v_{i}\in V\)</span> tal que <span class="math inline">\(L_{i}(f)=f(v_{i})=L_{v_{i}}(f)\)</span> para todo <span class="math inline">\(f\in V^{\ast}\)</span>. Se sigue que <span class="math inline">\(\{v_{1},\cdots, v_{n}\}\)</span> es una base de <span class="math inline">\(V\)</span> y <span class="math inline">\(\mathcal{B}^{\ast}\)</span> es el dual de esta base.</p>
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(\mathcal{B}^{\ast}=\{f_{1},\cdots, f_{n} \}\)</span> una base de <span class="math inline">\(V^{\ast}\)</span>. Por el teorema <a href="transformaciones-lineales.html#thm:teorema114">16.14</a> existe una única base <span class="math inline">\(\{L_{1},\cdots, L_{n} \}\)</span> de <span class="math inline">\(V^{\ast\ast}\)</span> tal que <span class="math inline">\(L_{i}(f_{j})=\delta_{ij}\)</span>. Por el corolario anterior se tiene que para cada <span class="math inline">\(i\)</span> existe <span class="math inline">\(v_{i}\in V\)</span> tal que <span class="math inline">\(L_{i}(f)=f(v_{i})=L_{v_{i}}(f)\)</span> para todo <span class="math inline">\(f\in V^{\ast}\)</span>. Se sigue que <span class="math inline">\(\{v_{1},\cdots, v_{n}\}\)</span> es una base de <span class="math inline">\(V\)</span> y <span class="math inline">\(\mathcal{B}^{\ast}\)</span> es el dual de esta base.</p>
 </div>
 
-<p>El teorema <a href="transformaciones-lineales.html#thm:teorema116">10.16</a> nos permite pensar que el espacio dual de <span class="math inline">\(V^{\ast}\)</span>, es el mismo espacio <span class="math inline">\(V\)</span>, en realidad hay una identificación entre ellos. Este hecho es de utilidad, una muestra de ello es el corolario anterior. Pero no es la única; dado un conjunto <span class="math inline">\(C\)</span> del espacio <span class="math inline">\(V^{\ast}\)</span>, <span class="math inline">\(C^{0}\)</span> es su anulador en <span class="math inline">\(V^{\ast\ast}\)</span>, entonces (por el teorema <a href="transformaciones-lineales.html#thm:teorema116">10.16</a>) <span class="math inline">\(C^{0}\)</span> es un subespacio de <span class="math inline">\(V\)</span> que consta de todos los vectores <span class="math inline">\(v\)</span> tales que <span class="math inline">\(f(v)=0\)</span> para todos los <span class="math inline">\(f\in C\)</span>, es decir de la intersección de todos los espacios nulos de <span class="math inline">\(f\in C\)</span>. El corolario <a href="transformaciones-lineales.html#cor:corolario11">10.1</a> nos dice que todo subespacio <span class="math inline">\(W\)</span> está determinado por su subespacio anulador, esto es, igual que antes, los funcionales que anulan a los vectores de <span class="math inline">\(W\)</span>, es decir, las intersecciones de los subespacios nulos de los funcionales <span class="math inline">\(f\)</span> en <span class="math inline">\(W^{0}\)</span>. De alguna forma podríamos pensar que <span class="math inline">\(W=(W^{0})^{0}\)</span>.</p>
+<p>El teorema <a href="transformaciones-lineales.html#thm:teorema116">16.16</a> nos permite pensar que el espacio dual de <span class="math inline">\(V^{\ast}\)</span>, es el mismo espacio <span class="math inline">\(V\)</span>, en realidad hay una identificación entre ellos. Este hecho es de utilidad, una muestra de ello es el corolario anterior. Pero no es la única; dado un conjunto <span class="math inline">\(C\)</span> del espacio <span class="math inline">\(V^{\ast}\)</span>, <span class="math inline">\(C^{0}\)</span> es su anulador en <span class="math inline">\(V^{\ast\ast}\)</span>, entonces (por el teorema <a href="transformaciones-lineales.html#thm:teorema116">16.16</a>) <span class="math inline">\(C^{0}\)</span> es un subespacio de <span class="math inline">\(V\)</span> que consta de todos los vectores <span class="math inline">\(v\)</span> tales que <span class="math inline">\(f(v)=0\)</span> para todos los <span class="math inline">\(f\in C\)</span>, es decir de la intersección de todos los espacios nulos de <span class="math inline">\(f\in C\)</span>. El corolario <a href="transformaciones-lineales.html#cor:corolario11">16.1</a> nos dice que todo subespacio <span class="math inline">\(W\)</span> está determinado por su subespacio anulador, esto es, igual que antes, los funcionales que anulan a los vectores de <span class="math inline">\(W\)</span>, es decir, las intersecciones de los subespacios nulos de los funcionales <span class="math inline">\(f\)</span> en <span class="math inline">\(W^{0}\)</span>. De alguna forma podríamos pensar que <span class="math inline">\(W=(W^{0})^{0}\)</span>.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-503" class="theorem"><strong>Teorema 10.17  </strong></span>Sea <span class="math inline">\(S\)</span> un subconjunto de un espacio de dimensión finita <span class="math inline">\(V\)</span>, entonces <span class="math inline">\((S^{0})^{0}\)</span> es el espacio generado por <span class="math inline">\(S\)</span>, es decir <span class="math inline">\((S^{0})^{0}=\left\langle S\right\rangle\)</span>.</p>
+<p><span id="thm:unnamed-chunk-661" class="theorem"><strong>Teorema 16.17  </strong></span>Sea <span class="math inline">\(S\)</span> un subconjunto de un espacio de dimensión finita <span class="math inline">\(V\)</span>, entonces <span class="math inline">\((S^{0})^{0}\)</span> es el espacio generado por <span class="math inline">\(S\)</span>, es decir <span class="math inline">\((S^{0})^{0}=\left\langle S\right\rangle\)</span>.</p>
 </div>
 
 
@@ -925,25 +948,25 @@ T^{t}(\lambda g_{1}+ g_{2})(v)=&amp;((\lambda g_{1}+ g_{2})\circ T)(v)\\
 <p>Esto se puede escribir de la siguiente manera</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-505" class="theorem"><strong>Teorema 10.18  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Para toda transformación lineal <span class="math inline">\(T\)</span> de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, existe una única transformación lineal <span class="math inline">\(T^{t}\)</span> de <span class="math inline">\(W^{\ast}\)</span> en <span class="math inline">\(V^{\ast}\)</span> tal que <span class="math inline">\((gT^{t})(v)=g(Tv)\)</span> para toda <span class="math inline">\(g\in W^{\ast}\)</span> y todo <span class="math inline">\(v\in V\)</span>.</p>
+<p><span id="thm:unnamed-chunk-663" class="theorem"><strong>Teorema 16.18  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Para toda transformación lineal <span class="math inline">\(T\)</span> de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, existe una única transformación lineal <span class="math inline">\(T^{t}\)</span> de <span class="math inline">\(W^{\ast}\)</span> en <span class="math inline">\(V^{\ast}\)</span> tal que <span class="math inline">\((gT^{t})(v)=g(Tv)\)</span> para toda <span class="math inline">\(g\in W^{\ast}\)</span> y todo <span class="math inline">\(v\in V\)</span>.</p>
 </div>
 
 <p>A <span class="math inline">\(T^{t}\)</span> se le llama <em>traspuesta</em> de <span class="math inline">\(T\)</span>, también se le puede llamar adjunta de <span class="math inline">\(T\)</span>.</p>
 
 <div class="theorem">
-<p><span id="thm:teorema819" class="theorem"><strong>Teorema 10.19  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span> y sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. El espacio nulo de <span class="math inline">\(T^{t}\)</span> es el anulador de la imagen de <span class="math inline">\(T\)</span>. Si <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> son de dimensión finita, entonces</p>
+<p><span id="thm:teorema819" class="theorem"><strong>Teorema 16.19  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span> y sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. El espacio nulo de <span class="math inline">\(T^{t}\)</span> es el anulador de la imagen de <span class="math inline">\(T\)</span>. Si <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> son de dimensión finita, entonces</p>
 <p>(i.) <span class="math inline">\(rango(T^{t})=rango (T)\)</span>.</p>
 <p>(ii.) la imagen de <span class="math inline">\(T^{t}\)</span> es el anulador del espacio nulo de <span class="math inline">\(T\)</span>.</p>
 </div>
 
 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Si <span class="math inline">\(g\)</span> pertenece a <span class="math inline">\(W^{\ast}\)</span>, entonces por definición <span class="math inline">\((gT^{t})(v)=g(Tv)\)</span> para todo <span class="math inline">\(v\in V\)</span>, <span class="math inline">\(g\)</span> está en el espacio nulo de <span class="math inline">\(T^{t}\)</span> si y solo si <span class="math inline">\(g(Tv)=0\)</span> para todo <span class="math inline">\(v\in V\)</span>. Entonces, el espacio nulo de <span class="math inline">\(T^{t}\)</span> es el anulador de la imagen <span class="math inline">\(T\)</span>. Supongamos que <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> son espacios de dimensión finita, digamos <span class="math inline">\(\dim V=n\)</span> y <span class="math inline">\(\dim W=m\)</span>. Sea <span class="math inline">\(r=rango T\)</span>, por el teorema <a href="transformaciones-lineales.html#thm:teorema115">10.15</a> se tiene que <span class="math inline">\(\dim (Img T)^{0}=\dim W - rango T=m-r\)</span>. Por la primera parte del teorema <span class="math inline">\(Nul (T^{t})=m-r\)</span>, por otro lado, como <span class="math inline">\(T^{t}\)</span> es una transformación lineal sobre un espacio de dimensión <span class="math inline">\(m\)</span>, <span class="math inline">\(rango T^{t}=\dim W-Nul (T^{t})=m-(m-r)=r\)</span> por lo tanto <span class="math inline">\(rango T^{t}=rango T\)</span>. Sea <span class="math inline">\(N=Ker T\)</span>, si <span class="math inline">\(f\)</span> es un funcional en la imagen de <span class="math inline">\(T^{t}\)</span>, entonces <span class="math inline">\(f=T^{t}g\)</span> para algún <span class="math inline">\(g\in W^{\ast}\)</span>, entonces si <span class="math inline">\(v\in N\)</span>, <span class="math inline">\(f(v)=(T^{t}g)(v)=g(Tv)=g(0)=0\)</span>. Ahora bien, la imagen de <span class="math inline">\(T^{t}\)</span> es un subespacio de <span class="math inline">\(N^{0}\)</span> y <span class="math inline">\(\dim N^{0}=n-\dim N=rango (T)=rango (T^{t})\)</span>, por lo tanto la imagen de <span class="math inline">\(T^{t}\)</span> es exactamente <span class="math inline">\(N^{0}\)</span>.</p>
+<p> <span class="proof"><em>Demostración. </em></span> Si <span class="math inline">\(g\)</span> pertenece a <span class="math inline">\(W^{\ast}\)</span>, entonces por definición <span class="math inline">\((gT^{t})(v)=g(Tv)\)</span> para todo <span class="math inline">\(v\in V\)</span>, <span class="math inline">\(g\)</span> está en el espacio nulo de <span class="math inline">\(T^{t}\)</span> si y solo si <span class="math inline">\(g(Tv)=0\)</span> para todo <span class="math inline">\(v\in V\)</span>. Entonces, el espacio nulo de <span class="math inline">\(T^{t}\)</span> es el anulador de la imagen <span class="math inline">\(T\)</span>. Supongamos que <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> son espacios de dimensión finita, digamos <span class="math inline">\(\dim V=n\)</span> y <span class="math inline">\(\dim W=m\)</span>. Sea <span class="math inline">\(r=rango T\)</span>, por el teorema <a href="transformaciones-lineales.html#thm:teorema115">16.15</a> se tiene que <span class="math inline">\(\dim (Img T)^{0}=\dim W - rango T=m-r\)</span>. Por la primera parte del teorema <span class="math inline">\(Nul (T^{t})=m-r\)</span>, por otro lado, como <span class="math inline">\(T^{t}\)</span> es una transformación lineal sobre un espacio de dimensión <span class="math inline">\(m\)</span>, <span class="math inline">\(rango T^{t}=\dim W-Nul (T^{t})=m-(m-r)=r\)</span> por lo tanto <span class="math inline">\(rango T^{t}=rango T\)</span>. Sea <span class="math inline">\(N=Ker T\)</span>, si <span class="math inline">\(f\)</span> es un funcional en la imagen de <span class="math inline">\(T^{t}\)</span>, entonces <span class="math inline">\(f=T^{t}g\)</span> para algún <span class="math inline">\(g\in W^{\ast}\)</span>, entonces si <span class="math inline">\(v\in N\)</span>, <span class="math inline">\(f(v)=(T^{t}g)(v)=g(Tv)=g(0)=0\)</span>. Ahora bien, la imagen de <span class="math inline">\(T^{t}\)</span> es un subespacio de <span class="math inline">\(N^{0}\)</span> y <span class="math inline">\(\dim N^{0}=n-\dim N=rango (T)=rango (T^{t})\)</span>, por lo tanto la imagen de <span class="math inline">\(T^{t}\)</span> es exactamente <span class="math inline">\(N^{0}\)</span>.</p>
 </div>
 
 
 <div class="theorem">
-<p><span id="thm:teorema820" class="theorem"><strong>Teorema 10.20  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Sean <span class="math inline">\(\mathcal{B}\)</span> es una base ordenada de <span class="math inline">\(V\)</span> y <span class="math inline">\(\mathcal{B}^{\ast}\)</span> su base dual. Sean <span class="math inline">\(\mathcal{B}_{1}\)</span> es una base ordenada de <span class="math inline">\(W\)</span> y <span class="math inline">\(\mathcal{B}_{1}^{\ast}\)</span> su base dual. Sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. Sea <span class="math inline">\(A\)</span> la matriz de <span class="math inline">\(T\)</span> respecto de las bases <span class="math inline">\(\mathcal{B}\)</span> y <span class="math inline">\(\mathcal{B}_{1}\)</span> y <span class="math inline">\(B\)</span> la matriz de la transformación <span class="math inline">\(T^{t}\)</span> respecto a <span class="math inline">\(\mathcal{B}_{1}^{\ast}\)</span> y <span class="math inline">\(\mathcal{B}^{\ast}\)</span>. Entonces <span class="math inline">\(B_{ij}=A_{ji}\)</span>.</p>
+<p><span id="thm:teorema820" class="theorem"><strong>Teorema 16.20  </strong></span>Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales de dimensión finita sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Sean <span class="math inline">\(\mathcal{B}\)</span> es una base ordenada de <span class="math inline">\(V\)</span> y <span class="math inline">\(\mathcal{B}^{\ast}\)</span> su base dual. Sean <span class="math inline">\(\mathcal{B}_{1}\)</span> es una base ordenada de <span class="math inline">\(W\)</span> y <span class="math inline">\(\mathcal{B}_{1}^{\ast}\)</span> su base dual. Sea <span class="math inline">\(T\)</span> una transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>. Sea <span class="math inline">\(A\)</span> la matriz de <span class="math inline">\(T\)</span> respecto de las bases <span class="math inline">\(\mathcal{B}\)</span> y <span class="math inline">\(\mathcal{B}_{1}\)</span> y <span class="math inline">\(B\)</span> la matriz de la transformación <span class="math inline">\(T^{t}\)</span> respecto a <span class="math inline">\(\mathcal{B}_{1}^{\ast}\)</span> y <span class="math inline">\(\mathcal{B}^{\ast}\)</span>. Entonces <span class="math inline">\(B_{ij}=A_{ji}\)</span>.</p>
 </div>
 
 
@@ -959,13 +982,13 @@ T^{t}(\lambda g_{1}+ g_{2})(v)=&amp;((\lambda g_{1}+ g_{2})\circ T)(v)\\
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-508" class="definition"><strong>Definición 10.10  </strong></span>Si <span class="math inline">\(A\)</span> es una matriz <span class="math inline">\(m\times n\)</span> sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>, la traspuesta de <span class="math inline">\(A\)</span> es la matriz <span class="math inline">\(A^{t}\)</span>, <span class="math inline">\(n\times m\)</span>, definida por <span class="math inline">\(A^{t}_{ij}=A_{ji}\)</span>.</p>
+<p><span id="def:unnamed-chunk-666" class="definition"><strong>Definición 16.10  </strong></span>Si <span class="math inline">\(A\)</span> es una matriz <span class="math inline">\(m\times n\)</span> sobre un cuerpo <span class="math inline">\(\mathbb{F}\)</span>, la traspuesta de <span class="math inline">\(A\)</span> es la matriz <span class="math inline">\(A^{t}\)</span>, <span class="math inline">\(n\times m\)</span>, definida por <span class="math inline">\(A^{t}_{ij}=A_{ji}\)</span>.</p>
 </div>
 
-<p>En virtud de la definición anterior, el teorema <a href="transformaciones-lineales.html#thm:teorema820">10.20</a> nos dice que si <span class="math inline">\(T\)</span> es una transformación de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span> y <span class="math inline">\(A\)</span> es la matriz de la transformación <span class="math inline">\(T\)</span> en un par de bases ordenadas, entonces la matriz de <span class="math inline">\(T^{t}\)</span> en las bases duales correspondientes no es mas que la matriz <span class="math inline">\(A^{t}\)</span>, la traspuesta de <span class="math inline">\(A\)</span>.</p>
+<p>En virtud de la definición anterior, el teorema <a href="transformaciones-lineales.html#thm:teorema820">16.20</a> nos dice que si <span class="math inline">\(T\)</span> es una transformación de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span> y <span class="math inline">\(A\)</span> es la matriz de la transformación <span class="math inline">\(T\)</span> en un par de bases ordenadas, entonces la matriz de <span class="math inline">\(T^{t}\)</span> en las bases duales correspondientes no es mas que la matriz <span class="math inline">\(A^{t}\)</span>, la traspuesta de <span class="math inline">\(A\)</span>.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-509" class="theorem"><strong>Teorema 10.21  </strong></span>Sea <span class="math inline">\(A\)</span> cualquier matriz <span class="math inline">\(m\times n\)</span> sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Entonces el rango de filas de <span class="math inline">\(A\)</span> es igual al rango de columnas de <span class="math inline">\(A\)</span>.</p>
+<p><span id="thm:unnamed-chunk-667" class="theorem"><strong>Teorema 16.21  </strong></span>Sea <span class="math inline">\(A\)</span> cualquier matriz <span class="math inline">\(m\times n\)</span> sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Entonces el rango de filas de <span class="math inline">\(A\)</span> es igual al rango de columnas de <span class="math inline">\(A\)</span>.</p>
 </div>
 
 
@@ -984,8 +1007,8 @@ B_{ij}=&amp;[(U^{-1})^{t}f_{i}](Tu_{j})\\
     =&amp;[U]_{\mathcal{B}}^{-1}[T]_{\mathcal{B}}[U]_{\mathcal{B}}
 \end{array}\]</span> lo que es precisamente la fórmula de cambio de base que antes vimos.</p>
 </div>
-<div id="ejercicios-6" class="section level2">
-<h2><span class="header-section-number">10.6</span> Ejercicios</h2>
+<div id="ejercicios-3" class="section level2">
+<h2><span class="header-section-number">16.6</span> Ejercicios</h2>
 <ol style="list-style-type: decimal">
 <li>Dada una transfotmación lineal <span class="math inline">\(T:V\longrightarrow W\)</span>, el conjunto <span class="math inline">\(Img(T)\prec W\)</span>. Además, el conjunto <span class="math inline">\(\{v\in V: Tv=0 \}\prec V\)</span>.</li>
 </ol>
@@ -1031,17 +1054,19 @@ ga('send', 'pageview');
           </div>
         </div>
       </div>
-<a href="calculo-en-vectores-y-matrices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="integración-en-mathbbrn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="producto-escalar.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
 <script src="libs/gitbook/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1049,12 +1074,11 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1066,6 +1090,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -1084,8 +1112,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

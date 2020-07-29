@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 DIFERENCIACION E INTEGRACIÓN | Medida</title>
+  <meta name="description" content="Capítulo 7 DIFERENCIACION E INTEGRACIÓN | Medida" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 DIFERENCIACION E INTEGRACIÓN | Medida" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://synergy.vision/Medida/" />
+  <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
+  
+  <meta name="github-repo" content="synergyvision/Medida/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 DIFERENCIACION E INTEGRACIÓN | Medida" />
+  
+  
+  <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
+
+<meta name="author" content="Synergy Vision" />
+
+
+<meta name="date" content="2020-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="convergencia.html"/>
+<link rel="next" href="integración-en-mathbbrn.html"/>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="images/logovision-black.png" width="160"></img></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-qué-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prácticas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a><ul>
+<li class="chapter" data-level="2.1" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a></li>
+<li class="chapter" data-level="2.2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#colecciones-de-conjuntos"><i class="fa fa-check"></i><b>2.2</b> Colecciones de Conjuntos</a></li>
+<li class="chapter" data-level="2.3" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#el-conjunto-de-cantor"><i class="fa fa-check"></i><b>2.3</b> El conjunto de Cantor</a></li>
+<li class="chapter" data-level="2.4" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#medida"><i class="fa fa-check"></i><b>2.4</b> Medida</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html"><i class="fa fa-check"></i><b>3</b> LA MEDIDA DE LEBESGUE</a><ul>
+<li class="chapter" data-level="3.1" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#construyendo-la-medida-de-lebesgue"><i class="fa fa-check"></i><b>3.1</b> Construyendo la Medida de Lebesgue</a></li>
+<li class="chapter" data-level="3.2" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#unicidad-de-la-medida-de-lebesgue-y-otras-propiedades"><i class="fa fa-check"></i><b>3.2</b> Unicidad de la medida de Lebesgue y otras propiedades</a></li>
+<li class="chapter" data-level="3.3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#consideraciones"><i class="fa fa-check"></i><b>3.3</b> Consideraciones</a></li>
+<li class="chapter" data-level="3.4" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#la-medida-de-stieltjes"><i class="fa fa-check"></i><b>3.4</b> La Medida de Stieltjes</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="funciones-medibles.html"><a href="funciones-medibles.html"><i class="fa fa-check"></i><b>4</b> FUNCIONES MEDIBLES</a><ul>
+<li class="chapter" data-level="4.1" data-path="funciones-medibles.html"><a href="funciones-medibles.html#conceptos-básicos"><i class="fa fa-check"></i><b>4.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="4.2" data-path="funciones-medibles.html"><a href="funciones-medibles.html#aproximaciones-de-funciones-medibles"><i class="fa fa-check"></i><b>4.2</b> Aproximaciones de funciones medibles</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html"><i class="fa fa-check"></i><b>5</b> LA INTEGRAL DE LEBESGUE</a><ul>
+<li class="chapter" data-level="5.1" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#conceptos-básicos-1"><i class="fa fa-check"></i><b>5.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="5.2" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#intercambio-de-límites-con-la-integral"><i class="fa fa-check"></i><b>5.2</b> Intercambio de límites con la integral</a></li>
+<li class="chapter" data-level="5.3" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#teoremas-de-aproximación"><i class="fa fa-check"></i><b>5.3</b> Teoremas de Aproximación</a></li>
+<li class="chapter" data-level="5.4" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#más-sobre-la-integral-de-lebesgue"><i class="fa fa-check"></i><b>5.4</b> Más sobre la Integral de Lebesgue</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="convergencia.html"><a href="convergencia.html"><i class="fa fa-check"></i><b>6</b> CONVERGENCIA</a><ul>
+<li class="chapter" data-level="6.1" data-path="convergencia.html"><a href="convergencia.html#tipos-de-convergencia"><i class="fa fa-check"></i><b>6.1</b> Tipos de convergencia</a></li>
+<li class="chapter" data-level="6.2" data-path="convergencia.html"><a href="convergencia.html#espacios-lp"><i class="fa fa-check"></i><b>6.2</b> Espacios <span class="math inline">\(L^{p}\)</span></a></li>
+<li class="chapter" data-level="6.3" data-path="convergencia.html"><a href="convergencia.html#espacios-linfty"><i class="fa fa-check"></i><b>6.3</b> Espacios <span class="math inline">\(L^{\infty}\)</span></a></li>
+<li class="chapter" data-level="6.4" data-path="convergencia.html"><a href="convergencia.html#espacios-de-hilbert"><i class="fa fa-check"></i><b>6.4</b> Espacios de Hilbert</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html"><i class="fa fa-check"></i><b>7</b> DIFERENCIACION E INTEGRACIÓN</a><ul>
+<li class="chapter" data-level="7.1" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-monótonas"><i class="fa fa-check"></i><b>7.1</b> Funciones monótonas</a></li>
+<li class="chapter" data-level="7.2" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-de-variación-acotada"><i class="fa fa-check"></i><b>7.2</b> Funciones de variación acotada</a></li>
+<li class="chapter" data-level="7.3" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#de-la-integral-indefinida.-continuidad-absoluta"><i class="fa fa-check"></i><b>7.3</b> De la Integral indefinida. Continuidad Absoluta</a></li>
+<li class="chapter" data-level="7.4" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#cambio-de-variables"><i class="fa fa-check"></i><b>7.4</b> Cambio de variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html"><i class="fa fa-check"></i><b>8</b> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></a><ul>
+<li class="chapter" data-level="8.1" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#espacio-producto"><i class="fa fa-check"></i><b>8.1</b> Espacio Producto</a></li>
+<li class="chapter" data-level="8.2" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#medida-de-lebesgue-en-mathbbrn"><i class="fa fa-check"></i><b>8.2</b> Medida de Lebesgue en <span class="math inline">\(\mathbb{R}^{n}\)</span></a></li>
+<li class="chapter" data-level="8.3" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#teorema-de-fibini.-teorema-de-tonelli"><i class="fa fa-check"></i><b>8.3</b> Teorema de Fibini. Teorema de Tonelli</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apéndice</b></span></li>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A.1" data-path="software-tools.html"><a href="software-tools.html#r-and-r-packages"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
+<li class="chapter" data-level="A.2" data-path="software-tools.html"><a href="software-tools.html#pandoc"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
+<li class="chapter" data-level="A.3" data-path="software-tools.html"><a href="software-tools.html#latex"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Medida</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="diferenciacion-e-integración" class="section level1">
+<h1><span class="header-section-number">Capítulo 7</span> DIFERENCIACION E INTEGRACIÓN</h1>
+<p>En este capítulo estudiaremos las condiciones necesarias para obtener un resultado análogo al teorema fundamental del cálculo usando la integral de Lebesgue en lugar de la integral de Riemann. Para alcanzar este objetivo primero estudiaremos las funciones monótonas, las funciones de variación acotada y las funciones absolutamente continuas.</p>
+<div id="funciones-monótonas" class="section level2">
+<h2><span class="header-section-number">7.1</span> Funciones monótonas</h2>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-273" class="definition"><strong>Definición 7.1  </strong></span>Dada una función <span class="math inline">\(f:(a,b)\longrightarrow\mathbb{R}\)</span> y <span class="math inline">\(x\in(a,b)\)</span>, definimos las <em>derivadas de Dini de <span class="math inline">\(f\)</span> en el punto <span class="math inline">\(x\)</span></em> como sigue:</p>
+<p>(i.) <span class="math inline">\(D^{+}f(x)=\limsup_{h\to 0^{+}}\frac{f(x+h)-f(x)}{h},\)</span></p>
+<p>(ii.) <span class="math inline">\(D_{+}f(x)=\liminf_{h\to 0^{+}}\frac{f(x+h)-f(x)}{h},\)</span></p>
+<p>(iii.) <span class="math inline">\(D^{-}f(x)=\limsup_{h\to 0^{+}}\frac{f(x)-f(x-h)}{h},\)</span></p>
+<p>(iv.) <span class="math inline">\(D_{-}f(x)=\liminf_{h\to 0^{+}}\frac{f(x)-f(x-h)}{h},\)</span></p>
+<p>Diremos que <span class="math inline">\(f\)</span> es <em>derivable en <span class="math inline">\(x\)</span></em> si <span class="math inline">\(D^{+}f(x)=D_{+}f(x)=D^{-}f(x)=D_{-}f(x)\in\mathbb{R}\)</span>. En este caso denotamos a este valor <span class="math inline">\(Df(x)=f´(x)\)</span>. Si <span class="math inline">\(D^{+}f(x)=D_{+}f(x)\)</span>, decimos que <span class="math inline">\(f\)</span> <em>es derivable (Dini) por la derecha en <span class="math inline">\(x\)</span></em> y lo denotamos por <span class="math inline">\(f´_{+}(x)\)</span>. Si <span class="math inline">\(D^{-}f(x)=D_{-}f(x)\)</span>, decimos que <span class="math inline">\(f\)</span> <em>es derivable (Dini) por la izquierda en <span class="math inline">\(x\)</span></em> y lo denotamos por <span class="math inline">\(f´_{-}(x)\)</span>.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Las derivadas de Dini siempre existen, aunque pueden valer <span class="math inline">\(\infty\)</span> o <span class="math inline">\(-\infty\)</span>. Es claro que uan función <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x\)</span> (en el sentido de Dini) si y solo si es derivable en el sentido usual, es decir, <span class="math inline">\(f \mbox{ es derivable (Dini) en }x \mbox{ si y solo si } \lim\limits_{h\to 0}\frac{f(x+h)-f(x)}{h}\mbox{ existe}\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-275" class="definition"><strong>Definición 7.2  </strong></span>Dado <span class="math inline">\(E\subseteq\mathbb{R}\)</span> un conjunto de números reales. Decimos que <span class="math inline">\(\mathcal{I}\)</span> una colección de intervalos no degenerados es un <em>cubrimiento de Vitali</em> de <span class="math inline">\(E\)</span> si para todo <span class="math inline">\(\epsilon&gt;0\)</span> y para todo <span class="math inline">\(x\in E\)</span>, existe un intervalo <span class="math inline">\(I\in\mathcal{I}\)</span> tal que <span class="math inline">\(x\in I\)</span> y <span class="math inline">\(l(I)&lt;\epsilon\)</span>.</p>
+</div>
+
+<p>El siguiente teorema es conocido como el <em>Lema de Vitali</em>.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-276" class="theorem"><strong>Teorema 7.1  (Lema de Vitali)  </strong></span>Sea <span class="math inline">\(E\subseteq\mathbb{R}\)</span> con <span class="math inline">\(m^{\ast}(E)&lt;\infty\)</span>. Si <span class="math inline">\(\mathcal{I}\)</span> es un cubrimiento de Vitali de <span class="math inline">\(E\)</span>, entonces existe una familia numerable <span class="math inline">\((I_{n})_{n\in\mathbb{N}}\subseteq \mathcal{I}\)</span> disjunta dos a dos, tal que <span class="math display">\[m^{\ast}\left(E\backslash \bigcup_{n\in\mathbb{N}}I_{n} \right)=0.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(\mathcal{O}\)</span> un conjunto abierto que contiene al conjunto <span class="math inline">\(E\)</span>, es decir, <span class="math inline">\(E\subseteq \mathcal{O}\)</span>. Podemos suponer, que <span class="math inline">\(\forall I\in \mathcal{I}\)</span> <span class="math inline">\(i\subseteq\mathcal{O}\)</span>. En caso contrario, consideraremos la colección <span class="math inline">\(\{I\in \mathcal{I}: I\subseteq\mathcal{O}\}\)</span>, que resulta ser también un cubrimiento de Vitali del conjunto <span class="math inline">\(E\)</span>. Construíremos una colección numerable de intervalos que cumpla las condiciones deseadas. Supongamos, sin pérdida de generalidad, que los intervalos en <span class="math inline">\(\mathcal{I}\)</span> son cerrados, ya que la medida de los extremos de un intervalo es cero. Sea <span class="math inline">\(I_{1}\in\mathcal{I}\)</span>, cualquiera de los elementos de la familia. Si <span class="math inline">\(E\subseteq I_{1}\)</span>, queda demostrado el teorema, ya que <span class="math inline">\(m^{\ast}(E\backslash I_{1})=0\)</span>. Si este no es el caso, existe <span class="math inline">\(x\in E\backslash I_{1}\)</span>; como <span class="math inline">\(\mathcal{I}\)</span> es un cubrimiento de Vitali, existe <span class="math inline">\(I_{2}\in\mathcal{I}\)</span>, disjusto de <span class="math inline">\(I_{1}\)</span>, tal que <span class="math inline">\(x\in I_{2}\)</span> y cuya longitud sea mayor a la mitad de la longitud de <span class="math inline">\(I_{1}\)</span>, es decir <span class="math inline">\(l(I_{2})&gt;\frac{l(I_{1})}{2}\)</span>. Ahora, supongamos que hemos elegido <span class="math inline">\(m\)</span> intervalos disjuntos <span class="math inline">\(I_{1},\cdots, I_{m}\)</span>. Si <span class="math inline">\(E\subseteq \bigcup_{n\leq m} I_{n}\)</span>, se tiene el resultado. En caso contrario, existe <span class="math inline">\(x\in E\backslash \bigcup_{n\leq m} I_{n}\)</span>. Elegimos <span class="math inline">\(I_{m+1}\in\mathcal{I}\)</span> disjunto de todos los intervalos anteriores, tal que <span class="math inline">\(x\in I_{m+1}\)</span> y <span class="math inline">\(l(I_{m+1})&gt;\frac{r_{m}}{2}\)</span>, donde <span class="math display">\[r_{m}=\sup\left\lbrace l(J): x\in J \mbox{ y } J\cap I_{n}=\emptyset \forall n\in\{1,\cdots,m\} \right\rbrace \]</span> esto es posible ya que cada <span class="math inline">\(I_{n}\)</span> es cerrado. Siguiendo con este proceso, construímos la familia disjunta <span class="math inline">\((I_{n})_{n\in\mathbb{N}}\)</span> tal que <span class="math inline">\(m^{\ast}\left(E\backslash \bigcup_{n\in\mathbb{N}}I_{n} \right)=0\)</span>. Supongamos que <span class="math display">\[m^{\ast}\left(E\backslash \bigcup_{n\in\mathbb{N}}I_{n} \right)=\delta&gt;0.\]</span> Como <span class="math inline">\(m\left( \bigcup_{n\in\mathbb{N}} I_{n}\right)=\sum_{n\in\mathbb{N}} l(I_{n})\leq m(\mathcal{O})&lt;\infty\)</span>, existe <span class="math inline">\(N\in\mathbb{N}\)</span> tal que <span class="math inline">\(\sum_{n&gt;N} l(I_{n})&lt;\frac{\delta}{5}\)</span>. Sea <span class="math inline">\(F=E\backslash\bigcup_{n\leq N} I_{n}\)</span>, entonces <span class="math inline">\(m^{\ast}(F)\geq\delta\)</span> (por monotonía). Por otro lado, para <span class="math inline">\(x\in F\)</span>, existe <span class="math inline">\(J\in\mathcal{I}\)</span> disjunto de <span class="math inline">\(bigcup_{n\leq N} I_{n}\)</span> tal que <span class="math inline">\(x\in J\)</span>. Además <span class="math inline">\(J\)</span> debe intersectar a algún <span class="math inline">\(I_{k}\)</span>, con <span class="math inline">\(k&gt;N\)</span>. En caso contrario, como <span class="math inline">\(l(J)\leq r_{p}&lt;2l(I_{k+1})\)</span>, ya que <span class="math inline">\(l(I_{k+1})\to 0\)</span>, cuando <span class="math inline">\(k\to\infty\)</span>, <span class="math inline">\(J\)</span> sería degenerado. Sea <span class="math inline">\(i\)</span> el menor entero mayor que <span class="math inline">\(N\)</span> tal que <span class="math inline">\(J\cap I_{i}\neq \emptyset\)</span>. Como <span class="math inline">\(J\cap I_{n}=\emptyset\)</span> para todo <span class="math inline">\(n&lt;i\)</span>, se tiene que <span class="math inline">\(l(J)\leq r_{i-1}&lt;2l(I_{i})\)</span>; sea <span class="math inline">\(x_{i}\)</span> el punto medio de <span class="math inline">\(I_{i}\)</span>, entonces <span class="math display">\[|x-x_{i}|\leq l(J)+\frac{1}{2}l(I_{i})\leq \frac{5}{2} l(I_{i}).\]</span> Tomando intervalos <span class="math inline">\(H_{i}\)</span>, de centro <span class="math inline">\(x_{i}\)</span> y longitud <span class="math inline">\(5l(I_{i})\)</span>, se tiene que <span class="math inline">\(x\in H_{i}\)</span>, <span class="math inline">\(F\subseteq \bigcup_{n\geq N+1} H_{n}\)</span>. Por lo tanto <span class="math display">\[m^{\ast}(F)\leq \sum_{n\geq N+1} l(H_{n})=5\sum_{n\geq N+1} l(I_{n})&lt;\delta.\]</span></p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Si la medida del conjunto es infinita, <span class="math inline">\(m^{\ast}(E)=\infty\)</span>, se puede tomar <span class="math inline">\(E=\bigcup_{i\in\mathbb{N}}E_{i}\)</span> tal que cada <span class="math inline">\(E_{i}\)</span> tiene medida finita y <span class="math inline">\(E_{i}\cap E_{j}=\emptyset\)</span> siempre que <span class="math inline">\(i\neq j\)</span>. Por lo que el teorema también es cierto si <span class="math inline">\(m^{\ast}(E)=\infty\)</span>.</p>
+</div>
+
+<p>En ocaciones el Lema de Vitali se enuncia como el siguiente resultado, que es un corolario inmediato del teorema anterior.</p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-279" class="corollary"><strong>Corolario 7.1  </strong></span>Sea <span class="math inline">\(E\subseteq\mathbb{R}\)</span> con <span class="math inline">\(m^{\ast}(E)&lt;\infty\)</span>. Si <span class="math inline">\(\mathcal{I}\)</span> es un cubrimiento de Vitali de <span class="math inline">\(E\)</span>, entonces, para todo <span class="math inline">\(\epsilon&gt;0\)</span>, existe una colección finita <span class="math inline">\(I_{1},\cdots, I_{N}\)</span> de intervalos disjuntos de <span class="math inline">\(\mathcal{I}\)</span>, tales que <span class="math display">\[m^{\ast}\left(E\backslash\bigcup_{i=1}^{N}I_{i} \right) &lt;\epsilon.\]</span></p>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-280" class="theorem"><strong>Teorema 7.2  (Lebesgue)  </strong></span>Sea <span class="math inline">\(f:(\alpha, \beta)\longrightarrow\mathbb{R}\)</span> una función monótona creciente. Entonces <span class="math inline">\(f\)</span> es derivable en c.t.p de <span class="math inline">\((\alpha,\beta)\)</span>. La derivada de <span class="math inline">\(f\)</span>, <span class="math inline">\(f´\)</span> es medible Lebesgue y se cumple que si <span class="math inline">\([a,b]\subseteq (\alpha,\beta)\)</span>, entonces <span class="math display">\[\int_{a}^{b} f´(x)dx\leq f(b)-f(a).\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(E_{u,v}=\{x\in(\alpha,\beta): D^{+}f(x)&gt;u&gt;v&gt;D_{-}f(x)\}\)</span> para <span class="math inline">\(u,v\in\mathbb{Q}\)</span>. Y consideremos <span class="math display">\[E=\bigcup_{u,v\in\mathbb{Q}} E_{u,v}.\]</span> Probemos que <span class="math inline">\(m^{\ast}(E_{u,v})=0\)</span>. Sea <span class="math inline">\(s=m^{\ast}(E_{u,v})\)</span> y <span class="math inline">\(\epsilon&gt;0\)</span>. Existe un abierto <span class="math inline">\(\mathcal{O}\)</span> tal que <span class="math inline">\(E_{u,v}\subseteq\mathcal{O}\)</span> y <span class="math inline">\(m(\mathcal{O})&lt;s+\epsilon\)</span>. Para cada <span class="math inline">\(x\in E_{u,v}\)</span>, existe <span class="math inline">\(h_{x}\)</span> tal que <span class="math inline">\([x-h_{x},x]\subseteq\mathcal{O}\)</span> y <span class="math inline">\(f(x)-f(x-h_{x})&lt;vh_{x}\)</span>. La colección de estos intervalos forman un cubrimiento de Vitali de <span class="math inline">\(E_{u,v}\)</span>, por lo tanto existe una colección finita de dichos intervalos, <span class="math inline">\(I_{1},\cdots, I_{N}\)</span> tal que <span class="math inline">\(m^{\ast}\left(E_{u,v}\backslash\bigcup_{i=1}^{N} I_{i} \right)&lt;\epsilon\)</span>, más aún, podemos hallar una colección finita de estos intervalos tales que <span class="math inline">\(A\subseteq \bigcup_{i=1}^{N}\overset{\circ}{I_{i}}\)</span> y <span class="math inline">\(m^{E_{u,v}\backslash A}&lt;\epsilon\)</span>. De esta forma <span class="math display">\[\sum_{i=1}^{N} (f(x_{i})-f(x_{i}-h_{x_{i}}))&lt;v\sum_{i=1}^{N} h_{x_{i}}&lt;v m(\mathcal{O})&lt;v(s+\epsilon).\]</span> Además, para cada <span class="math inline">\(y\in A\)</span>, se tiene que <span class="math inline">\(D^{+}f(y)&gt;u\)</span>. Por lo que existe <span class="math inline">\(h_{y}\)</span> tal que <span class="math inline">\((y,y+h_{y})\)</span> es subconjunto de algún <span class="math inline">\(I_{i}\)</span> y <span class="math inline">\(f(y+h_{y})-f(y)&gt;uh_{y}\)</span>. Con un procedimiento análogo, podemos hallar una colección finita de intervalos <span class="math inline">\(J_{1},\cdots,J_{M}\)</span> tales que contienen a un subconjunto de <span class="math inline">\(A\)</span> de medida exterior mayor que <span class="math inline">\(s-2\epsilon\)</span>. Por lo tanto, <span class="math display">\[\sum_{i=1}^{M} (f(y_{i})-f(y_{i}-h_{y_{i}}))&gt;u\sum_{i=1}^{M} h_{y_{i}}&gt;u m(\mathcal{O})&gt;u(s+2\epsilon).\]</span> Como cada <span class="math inline">\(J_{j}\)</span> está contenido en algún <span class="math inline">\(I_{i}\)</span>, como <span class="math inline">\(f\)</span> es creciente <span class="math display">\[\sum_{i: J_{i}\subseteq I_{j}}f(y_{i}+h_{y_{i}})-f(y_{i})\leq f(x_{j})-f(x_{n}-h_{x_{n}})\]</span> sumando sobre <span class="math inline">\(j\)</span>, se obtiene <span class="math display">\[\sum_{j=1}^{N} f(x_{j})-f(x_{n}-h_{x_{n}})\geq \sum_{i=1}^{M}f(y_{i}+h_{y_{i}})-f(y_{i})\]</span> de donde se tiene que <span class="math inline">\(v(s+\epsilon)&gt;u(s-2\epsilon)\)</span>, por lo tanto, como <span class="math inline">\(u&gt;v\)</span>, <span class="math inline">\(s=0\)</span>. Análogamente se muestra que <span class="math inline">\(\{x\in(\alpha,\beta): D^{-+}f(x)&gt;D_{+}f(x)\}\)</span> tiene medida cero. De esto se puede concluír que las derivadas de Dini coinciden en casi todo punto de <span class="math inline">\((\alpha,\beta)\)</span>, por lo tanto la función <span class="math inline">\(f\)</span> será derivable donde <span class="math inline">\(g(x)=\frac{f(x+h)-f(x)}{h}\)</span> sea finita. Sea $g_{n}(x)=n(f(x+ ) -f(x) ) $, cada <span class="math inline">\(g_{n}\)</span> es medible y <span class="math inline">\(g_{n}(x)\to g(x)\)</span>, por lo tanto <span class="math inline">\(g\)</span> es medible. Sea <span class="math inline">\([a,b]\subseteq(\alpha,\beta)\)</span> y redefinamos <span class="math inline">\(f(x)=f(b)\)</span> siempre que <span class="math inline">\(x&gt;b\)</span>. Como <span class="math inline">\(f\)</span> es creciente, para cada <span class="math inline">\(n\)</span>, <span class="math inline">\(g_{n}\geq 0\)</span>. Por el lema de Fatou, se tiene <span class="math display">\[\int_{a}^{b} g(x)dx\leq \liminf_{n\to\infty}\int_{a}^{b} g_{n}(x)dx=\liminf_{n\to\infty}\left( \int_{a}^{b}f\left(x+\frac{1}{n}\right)dx -\int_{a}^{b} f(x)dx\right)\]</span> Como <span class="math inline">\(\int f\left( x+\frac{1}{n}\right) \chi_{[a,b]}(x)dx=\int f\left( x\right) \chi_{[a+\frac{1}{n},b+\frac{1}{n}]}(x)dx\)</span>, nos queda <span class="math display">\[\int_{a}^{b} g(x)dx\leq \liminf_{n\to\infty} \left[ n\int_{b}^{b+\frac{1}{n}} f(x)dx- n int_{a}^{a+\frac{1}{n}}f\left(x\right)dx \right]=\liminf_{n\to\infty} \left[ n\int_{b}^{b+\frac{1}{n}} f(b)dx- n int_{a}^{a+\frac{1}{n}}f\left(x\right)dx \right]\]</span> y como <span class="math inline">\(f\)</span> es una función creciente, se tiene que <span class="math display">\[\int_{a}^{b} g(x)dx\leq\liminf_{n\to\infty} \left[ nf(b)\frac{1}{n}- n int_{a}^{a+\frac{1}{n}}f(a)dx \right]=f(b)-f(a).\]</span> De aquí se concluye que <span class="math inline">\(g\)</span> es integrable en <span class="math inline">\([a,b]\)</span> y así finita en c.t.p. de <span class="math inline">\([a,b]\)</span>, por lo tanto finita en c.t.p. de <span class="math inline">\((\alpha,\beta_{n})\)</span>. De esto se sigue que <span class="math inline">\(f\)</span> es derivable en c.t.p. de <span class="math inline">\((\alpha,\beta_{n})\)</span> y que <span class="math display">\[\int_{a}^{b} f´(x)dx\leq f(b)-f(a).\]</span></p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Recordemos que si <span class="math inline">\(\phi\)</span> es la función de Cantor, se tiene que <span class="math inline">\(\phi(1)-\phi(0)\neq 0\)</span>. Pero <span class="math inline">\(\phi´=0\)</span>. Esto muestra que, en general, si <span class="math inline">\(f\)</span> es monótona, no puede asegurarse que <span class="math inline">\(\int_{a}^{b}f´(x)dx=f(b)-f(a)\)</span>.</p>
+</div>
+
+<p>Hay otra demostarción del teorema de derivación de Lebesgue, basado en el llamado “Lema del sol naciente”.</p>
+<p>Cerramos esta sección enunciando un teorema debido a Fubini, sobre derivación de series de funciones monótonas. La demostración se sigue del teorema de derivación de Lebesgue.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-283" class="theorem"><strong>Teorema 7.3  </strong></span>Sea <span class="math inline">\((f_{n})_{n\in\mathbb{N}}\)</span> una sucesión de funciones monótonas crecientes definidas en <span class="math inline">\([a,b]\)</span> tal que la serie <span class="math inline">\(\sum_{n\in\mathbb{N}} f_{n}(x)\)</span> converge puntualmente en <span class="math inline">\([a,b]\)</span>. Sea <span class="math inline">\(f(x)=\sum_{n\in\mathbb{N}} f_{n}(x)\)</span>. Entonces <span class="math inline">\(\sum_{n\in\mathbb{N}} f´_{n}(x)=f´(x)\)</span> en c.t.p. de <span class="math inline">\([a,b]\)</span>.</p>
+</div>
+
+</div>
+<div id="funciones-de-variación-acotada" class="section level2">
+<h2><span class="header-section-number">7.2</span> Funciones de variación acotada</h2>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-284" class="definition"><strong>Definición 7.3  </strong></span>Sea <span class="math inline">\(f:[a,b]\longrightarrow\mathbb{R}\)</span>. Decimos que <span class="math inline">\(f\)</span> es una <em>función de variación acotada</em> en <span class="math inline">\([a,b]\)</span> si <span class="math display">\[\underset{\rho\in Par[a,b]}{\sup}\sum_{i=1}^{n_{\rho}}|f(x_{i})-f(x_{i-1})|&lt;\infty\]</span> donde <span class="math inline">\(Par[a,b]\)</span> es el conjunto de todas las particiones de <span class="math inline">\([a,b]\)</span> y <span class="math inline">\(a=x_{0},\cdots,x_{n_{\rho}}=b\)</span>.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Se puede demostrar fácilmente que las funciones monótonas son de variación acotada. Si <span class="math inline">\(f\)</span> es creciente y <span class="math inline">\(\rho\)</span> es la partición determinada por los puntos <span class="math inline">\(a=x_{0},\cdots, x_{n}=b\)</span>, se tiene que <span class="math display">\[\sum_{i=1}^{n}|f(x_{i})-f(x_{i-1})|=\sum_{i=1}^{n}f(x_{i})-f(x_{i-1})=f(b)-f(a)\]</span> Cuando la función es decreciente, la demostración es análoga. Si una función <span class="math inline">\(f\)</span> es de variación acotada, entonces es acotada. Supongamos que <span class="math inline">\(V=\sup_{\substack{\rho\in Par[a,b]}}\sum_{i=1}^{n_{\rho}}|f(x_{i})-f(x_{i-1})|\)</span>. Para la partición <span class="math inline">\(x_{0}=a,x,x_{2}=b\)</span>, se tiene que <span class="math inline">\(|f(x)-f(a)|+|f(b)-f(x)|\leq V\)</span>, por lo tanto <span class="math inline">\(|f(x)-f(a)|\leq V\)</span>. De donde se sigue que <span class="math inline">\(|f(x)|\leq f(a)+ V\)</span>. El recíproco no es cierto en general; un ejemplo es la función <span class="math inline">\(sen\left(\frac{1}{x}\right)\)</span> en el intervalo <span class="math inline">\((0,1]\)</span>, y <span class="math inline">\(f(0)=0\)</span>. Basta notar que <span class="math inline">\(\lim\limits_{k\to\infty}\sum_{i=1}^{k}|sen\left(\frac{1}{x_{i+1}}\right)- sen\left(\frac{1}{x_{i}}\right)|\to\infty.\)</span> Otra observación se deduce del teorema del valor medio. Si <span class="math inline">\(f\)</span> es continua en <span class="math inline">\([a,b]\)</span>, derivable en <span class="math inline">\((a,b)\)</span> y su derivada <span class="math inline">\(f´\)</span> es acotada en <span class="math inline">\((a,b)\)</span>, entonces es <span class="math inline">\(f\)</span> es de variación acotada.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-286" class="definition"><strong>Definición 7.4  </strong></span>Dada <span class="math inline">\(f:\mathbb{R}\longrightarrow\mathbb{R}\)</span>, la variación total de <span class="math inline">\(f\)</span> sobre un intervalo finito <span class="math inline">\(I\)</span>, está defindo como <span class="math display">\[V_{f}(I)=\sup_{\substack{\rho\in Par[I]}}\sum_{x_{i}\in\rho} |f(x_{i})-f(x_{i-1})|.\]</span></p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Si <span class="math inline">\(f\)</span> es de variación acotada en <span class="math inline">\([a,b]\)</span>, para todo <span class="math inline">\(c\in(a,b)\)</span>, se puede probar que <span class="math inline">\(V_{f}(a,b)=V_{f}(a,c)+V_{f}(c,b)\)</span>.</p>
+</div>
+
+<p>Considermos la función <span class="math inline">\(x\mapsto V_{f}(a,x)\)</span>, para todo <span class="math inline">\(x\in(a,b)\)</span>, cuando <span class="math inline">\(f\)</span> es de variación acotada en <span class="math inline">\([a,b]\)</span>. El siguiente resultado nos muestra un interesante hecho sobre esta función.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-288" class="proposition"><strong>Proposición 7.1  </strong></span>Sea <span class="math inline">\(f\)</span> de variación acotada en <span class="math inline">\([a,b]\)</span>. Sea <span class="math inline">\(V:[a,b]\longrightarrow\mathbb{R}\)</span> la función <span class="math display">\[V(x)=\left\lbrace \begin{array}{ll}
+V_{f}(a,x)&amp;\mbox{ si } a&lt;x\leq b\\
+0&amp;\mbox{ si }x=a
+\end{array}\right. \]</span> Se tiene que:</p>
+<p>(i.) <span class="math inline">\(V\)</span> es creciente en <span class="math inline">\([a,b]\)</span>.</p>
+<p>(ii.) <span class="math inline">\(V-f\)</span> es creciente en <span class="math inline">\([a,b]\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sean <span class="math inline">\(x,y\in[a,b]\)</span> tales que <span class="math inline">\(x\leq y\)</span>. Supongamos que <span class="math inline">\(\rho\)</span> es la partición <span class="math inline">\(\{a=x_{0}&lt;\cdots,x_{n}=x\}\)</span>, del intervalo <span class="math inline">\((a,x)\)</span>. Si completamos la partición con el punto <span class="math inline">\(y\)</span>, se tiene que una partición del intervalo <span class="math inline">\((a,y)\)</span> y <span class="math display">\[\sum_{i=1}^{n}|f(x_{i})-f(x_{i-1})|\leq \sum_{i=1}^{n}|f(x_{i})-f(x_{i-1})|+|f(y)-f(x)|\leq V_{f}(a,y)\]</span> como esto ocurre para cualquier partición <span class="math inline">\(rho\)</span> del intervalo <span class="math inline">\((a,x)\)</span>, se tiene que <span class="math display">\[V_{f}(a,x)\leq V_{f}(a,y).\]</span> Por otro lado, como <span class="math inline">\(f(y)-f(x)\leq V_{f}(x,y)\)</span>, se tiene que <span class="math display">\[(V-f)(y)-(V-f)(x)=V(y)-V(x)-(f(y)-f(x))\geq V_{f}(a,y)-V_{f}(a,x)-V_{f}(x,y)\]</span> Por la observación anterior, se sigue el resultado.</p>
+</div>
+
+<p>De la proposición se sigue inmediatamente que si <span class="math inline">\(f\)</span> es de variación acotada en <span class="math inline">\([a,b]\)</span>, se escribe como diferencia de funciones monótonas crecientes. Ahora, si <span class="math inline">\(f\)</span> es la diferencia de funciones monótonas crecientes <span class="math inline">\(g_{1}\)</span> y <span class="math inline">\(-g_{2}\)</span>, se tiene que <span class="math inline">\(V_{f}[a,b]\leq V_{g_{1}}[a,b]-V_{g_{2}}[a,b]=g_{1}(b)-g_{1}(a)+g_{1}(b)-g_{1}(a)\)</span>. Esto lo resume el siguiente corolario.</p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-290" class="corollary"><strong>Corolario 7.2  </strong></span>Sea <span class="math inline">\(f:[a,b]\longrightarrow\mathbb{R}\)</span>. Entonces <span class="math inline">\(f\)</span> es de variación acotada en <span class="math inline">\([a,b]\)</span> si y solo si <span class="math inline">\(f\)</span> se escribe como diferencia de funciones monótonas.</p>
+</div>
+
+<p>Del teorema de derivaciÓn de Lebesgue, se tiene que las funciones monótonas en <span class="math inline">\(I=(\alpha,\beta)\)</span> tienen derivada en c.t.p. de <span class="math inline">\(I\)</span> y que <span class="math display">\[\int_{a}^{b}f´(x)dx\leq f(b)-f(a)\mbox{ para todo } [a,b]\subseteq I\]</span> luego, del corolario anterior se tiene el siguiente resultado</p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-291" class="corollary"><strong>Corolario 7.3  </strong></span>Sea <span class="math inline">\(f:[a,b]\longrightarrow\mathbb{R}\)</span> de variaciÓn acotada en <span class="math inline">\([a,b]\)</span>, entonces <span class="math inline">\(f\)</span> es derivable en c.t.p. de <span class="math inline">\([a,b]\)</span></p>
+</div>
+
+</div>
+<div id="de-la-integral-indefinida.-continuidad-absoluta" class="section level2">
+<h2><span class="header-section-number">7.3</span> De la Integral indefinida. Continuidad Absoluta</h2>
+<p>Que una función sea de variación acotada es una condición necesaria para que una función sea la integral indefinida de su integral.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-292" class="proposition"><strong>Proposición 7.2  </strong></span>Sea <span class="math inline">\(f:[a,b]\longrightarrow\mathbb{R}\)</span> integrable Lebesgue. Entonces la función <span class="math display">\[F(x)=\int_{a}^{x} f(t)dt \mbox{ para todo } x\in[a,b]\]</span> es uniformemente continua y de variación acotada en <span class="math inline">\([a,b]\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Note que <span class="math display">\[F(x)=\int_{a}^{x}f^{+}(t)dt-\int_{a}^{x}f^{-}(t)dt\]</span> es decir <span class="math inline">\(F\)</span> es la diferencia de dos funciones de variación acotada, por lo tanto <span class="math inline">\(F\)</span> es de variación acotada. Por la continuaidad absoluta de la integral de Lebesgue, se sigue que <span class="math inline">\(F\)</span> es uniformemente continua.</p>
+</div>
+
+<p>Podemos pensar que como <span class="math inline">\(F\)</span> es de variación acotada en <span class="math inline">\([a,b]\)</span>, entonces es derivable en casi todo punto de <span class="math inline">\([a,b]\)</span>, entonces ¿<span class="math inline">\(F\)</span> puede escribirse como la integral indefinida de su derivada? La respuesta es NO, ya que esto no es necesariamente cierto ni para una función continua. La función de Cantor es el contraejemplo de esto último.</p>
+
+<div class="lemma">
+<p><span id="lem:unnamed-chunk-294" class="lemma"><strong>Lema 7.1  </strong></span>Si <span class="math inline">\(f\)</span> es integrable en <span class="math inline">\([a,b]\)</span> y para todo <span class="math inline">\(x\in[a,b]\)</span> <span class="math inline">\(\int_{a}^{x} f(t)dt=0\)</span>. Entonces <span class="math inline">\(f=0\)</span> en c.t.p. de <span class="math inline">\([a,b]\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Consideremos el conjunto <span class="math inline">\(E=\{x: f(x)&gt;0 \}\)</span>. Supongamos que <span class="math inline">\(m(E)&gt;0\)</span>; entonces existe un conjunto cerrado <span class="math inline">\(F\subseteq \mathbb{R}\)</span> tal que <span class="math inline">\(F\subseteq E\)</span> y <span class="math inline">\(m(F)&gt;0\)</span>. Tomemos <span class="math inline">\(O=(a,b)\backslash F\)</span>. Entonces <span class="math display">\[\int_{a}^{b}f=\int_{F} f+\int_{O} f\]</span> por lo tanto <span class="math display">\[\int_{O}f=-\int_{F} f.\]</span> Como <span class="math inline">\(F\subseteq E\)</span> y es un conjunto de medida no nula, se tiene que <span class="math inline">\(\int_{F} f\neq 0\)</span>. Por otro lado, <span class="math inline">\(O\)</span> se puede escribir como una unión numerable y disjunta de intervalos abiertos, digamos <span class="math inline">\(O=\bigcup_{n\in\mathbb{N}} (a_{n},b_{n})\)</span> con <span class="math inline">\((a_{n},b_{n})\cap(a_{m},b_{m})=\emptyset\)</span> siempre que <span class="math inline">\(n\neq m\)</span>. Por lo tanto <span class="math display">\[\int_{O} f=\sum_{n\in\mathbb{N}} \int_{a_{n}}^{b_{n}} f\neq 0\]</span> lo que implica que existe <span class="math inline">\(n\in\mathbb{N}\)</span> tal que <span class="math inline">\(\int_{a_{n}}^{b_{n}}f\neq 0\)</span>, por lo que <span class="math inline">\(\int_{a}^{a_{n}}f\neq 0\)</span> o <span class="math inline">\(\int_{a}^{b_{n}} f\neq 0\)</span> lo que es una contradicción. Para el conjunto <span class="math inline">\(\{x: f(x)&lt;0 \}\)</span>, el razonamiento es análogo.</p>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-296" class="theorem"><strong>Teorema 7.4  </strong></span>Sea <span class="math inline">\(f:[a,b]\longrightarrow\overline{\mathbb{R}}\)</span> integrable Lebesgue. La función <span class="math display">\[F(x)=c+\int_{a}^{x}f(t)dt, \mbox{ con } c\in\mathbb{R}\]</span> es derivable en casi todo punto de <span class="math inline">\([a,b]\)</span> y <span class="math inline">\(F´(x)=f(x)\)</span> en c.t.p. de <span class="math inline">\([a,b]\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> <span class="math inline">\(F\)</span> es derivable ya que es de variación acotada. Supongamos que <span class="math inline">\(f\)</span> es acotada en <span class="math inline">\([a,b]\)</span>. Sea <span class="math inline">\(M\in\mathbb{R}\)</span> la cota, es decir <span class="math inline">\(|f(x)|\leq M\)</span> para todo <span class="math inline">\(x\in[a,b]\)</span>. Definamos, para cada <span class="math inline">\(n\in \mathbb{N}\)</span> una función <span class="math display">\[f_{n}(x)=n\left[F\left(x+\frac{1}{n}\right)- F(x)\right].\]</span> Así, <span class="math inline">\(f_{n}\to F´(x)\)</span> cuando <span class="math inline">\(n\to\infty\)</span>. Además <span class="math display">\[|f_{n}(x)=n\left|\int_{x}^{x+\frac{1}{n}} f(t)dt \right|\leq M n\frac{1}{n}=M.\]</span> Usando el teorema de convergencia dominada, para <span class="math inline">\(d\in[a,b]\)</span>, se tiene que <span class="math display">\[\begin{array}{ll}
+\int_{a}^{d}F´(t)dt&amp;=\lim\limits_{n\to\infty}\int_{a}^{d} f_{n}(x)dx\\
+&amp;=\lim\limits_{n\to\infty}\left[n\int_{d}^{d+\frac{1}{n}}F(x)dx -n\int_{a}^{a+\frac{1}{n}}F(x)dx\right]
+\end{array}.\]</span> De la continuidad de <span class="math inline">\(F\)</span> se tiene que, dado <span class="math inline">\(\epsilon&gt;0\)</span>, sea <span class="math inline">\(\delta&gt;0\)</span> tal que <span class="math inline">\(|F(d)-F(d+x)|&lt;\epsilon\)</span>. Entonces <span class="math display">\[\left|F(d)-\frac{1}{h}\int_{d}^{d+\frac{1}{h}}F(x)dx \right|\leq \frac{1}{h}\int_{d}^{d+\frac{1}{h}}|F(d)-F(x)|dx\leq h\frac{1}{h}\epsilon\mbox{ si }|h|&lt;\delta\]</span> por lo tanto <span class="math display">\[F(d)=\lim\limits_{h\to 0}\frac{1}{h} \int_{d}^{d+h} F(x)dx.\]</span> Luego <span class="math display">\[\begin{array}{ll}
+\int_{a}^{d}F´(t)dt&amp;=\lim\limits_{n\to\infty}\int_{a}^{d} f_{n}(x)dx\\
+&amp;=F(d)-F(a)\\
+&amp;=\int_{a}^{d} f(x)dx
+\end{array}.\]</span> Así, para todo <span class="math inline">\(d\in[a,b]\)</span> <span class="math display">\[\int_{a}^{d} \left(F´(x)- f(x)\right) dx=0\]</span> Del lema anterior se tiene que <span class="math inline">\(F´(x)=f(x)\)</span> para casi todo punto de <span class="math inline">\([a,b]\)</span>. Para el caso general, podemos suponer que <span class="math inline">\(f\geq 0\)</span>. Definimos para cada <span class="math inline">\(n\in\mathbb{N}\)</span> <span class="math inline">\(f_{n}=f\wedge n\)</span>. Entonces <span class="math inline">\(f-f_{n}\geq 0\)</span>. Tenemos que <span class="math inline">\(G_{n}(x)=\int_{a}^{x}(f-f_{n})(x)dx\)</span> es creciente y por lo tanto derivable en c.t.p. Además <span class="math inline">\(G´_{n}(x)\geq 0\)</span>. Del caso anterior, se tiene que <span class="math display">\[\frac{d}{dx}\int_{a}^{x} f_{n}(t)dt=f_{n}(x)\mbox{ en c.t.p.}\]</span> Luego <span class="math inline">\(F´(x)=\frac{d}{dx}G_{n}+\frac{d}{dx}\int_{a}^{x} f_{n}(t)dt\geq f_{n}(x)\)</span> c.s. Si <span class="math inline">\(n\to\infty\)</span>, se sigue que <span class="math inline">\(F´(x)\geq f(x)\)</span> c.s. Y así <span class="math display">\[\int_{a}^{b} F´(x)d_{x}\geq \int_{a}^{b} f(x)dx=F(b)-F(a).\]</span> Por el teorema de derivación de Lebesgue, <span class="math display">\[\int_{a}^{b} F´(x)d_{x}=F(b)-F(a)= \int_{a}^{b} f(x)dx.\]</span> Es decir, <span class="math display">\[\int_{a}^{b}(F´(x)-f(x))dx=0,\]</span> como <span class="math inline">\(F´-f\geq 0\)</span> se debe tener que <span class="math display">\[F´(x)=f(x)\mbox{ c.s.}\]</span></p>
+</div>
+
+<p>Este teorema no permite hallar una función <span class="math inline">\(F\)</span> integrable Lebesgue tal que <span class="math inline">\(F´=f\)</span> c.s. Pero puede haber más de una función que al derivarla sea igual a <span class="math inline">\(f\)</span> en casi todo punto. Supongamos que <span class="math inline">\(F\)</span> y <span class="math inline">\(G\)</span> son funciones tales que <span class="math inline">\(F´=f\)</span> c.s. y <span class="math inline">\(G´=f\)</span> c.s. entonces <span class="math inline">\((f-G)´=0\)</span> en c.t.p. pero de esto no implica que <span class="math inline">\(F=G+k\)</span> c.s. donde <span class="math inline">\(k\)</span> es una constante. La función de Cantor es un ejemplo de esto.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-298" class="definition"><strong>Definición 7.5  </strong></span>Dada <span class="math inline">\(F:\mathbb{R}\longrightarrow\mathbb{R}\)</span> una función continua y monótona, tal que <span class="math inline">\(F´=0\)</span> c.s. decimos que <span class="math inline">\(F\)</span> es una <em>función singular</em>.</p>
+</div>
+
+<p>Si a una primitiva <span class="math inline">\(F\)</span>, de una función integrable <span class="math inline">\(f\)</span> le sumamos una función singular <span class="math inline">\(G\)</span>, obtenemos otra primitiva de <span class="math inline">\(f\)</span>.</p>
+<p>Por otro lado, para tener certeza de que para todo <span class="math inline">\(x\in[a,b]\)</span>, <span class="math inline">\(F(x)=F(a)+\int_{a}^{x} F´(t)dt\)</span>, cuando <span class="math inline">\(F:[a,b]\longrightarrow\mathbb{R}\)</span> es una función continua y derivable c.s. se debe pedir continuidad absoluta de la función <span class="math inline">\(F\)</span>. Que <span class="math inline">\(F\)</span> sea de variación acotada es una condición necesaria, más no suficiente.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-299" class="definition"><strong>Definición 7.6  </strong></span>Sea <span class="math inline">\(I\subseteq\mathbb{R}\)</span> un intervalo cualquiera. La función <span class="math inline">\(f:I\longrightarrow\mathbb{R}\)</span> es <em>absolutamente continua en un intervalo acotado</em> <span class="math inline">\([a,b]\subseteq I\)</span> si para todo <span class="math inline">\(\epsilon&gt;0\)</span>, existe <span class="math inline">\(\delta&gt;0\)</span> tal que si <span class="math inline">\((a_{i},b_{i})_{i=1}^{n}\)</span> es una colección finita cualquiera de subintervalos disjuntos de <span class="math inline">\([a,b]\)</span>, tienen la propiedad: <span class="math display">\[\sum_{i=1}^{n} (b_{i}-a_{i})&lt;\delta\Rightarrow \sum_{i=1}^{n}|f(b_{i})-f(a_{i})|&lt;\epsilon.\]</span></p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> La continuidad absoluta implica la continuidad uniforme.</p>
+</div>
+
+<p>La continuidad absoluta de la integral de Lebesgue, implica la continuidad absoluta de la integral indefinida, esto es,</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-301" class="proposition"><strong>Proposición 7.3  </strong></span>Se <span class="math inline">\(f\)</span> es integrable Lebesgue en <span class="math inline">\([a,b]\)</span> y <span class="math inline">\(F(x)=F(a)+\int_{a}^{x} f(t)dt\)</span>, entonces <span class="math inline">\(F\)</span> es absolutamente continua.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(\epsilon&gt;0\)</span>. Por la continuidad absoluta de la integral que, existe <span class="math inline">\(\delta&gt;0\)</span> tal que <span class="math display">\[m(A)&lt;\delta\Rightarrow \int_{A} |f|dt&lt;\epsilon\mbox{ para } A\subseteq[a,b].\]</span> Tomando <span class="math inline">\(A=\bigcup_{i=1}^{n}(a_{i},b_{i})\)</span>, donde la familia <span class="math inline">\([(a_{i},b_{i})]_{i=1}^{n}\)</span> es una familia disjunta de subintervalos tales que <span class="math inline">\(\sum_{i=1}^{n}l(a_{i},b_{i})&lt;\delta\)</span>, entonces <span class="math display">\[\sum_{i=1}^{n}|F(b_{i})-F(a_{i})|=\sum_{i=1}^{n}\left| \int_{a_{i}}^{b_{i}}f(t)dt\right| \leq\sum_{i=1}^{n} \int_{a_{i}}^{b_{i}}|f(t)|dt=\int_{A}|f(t)|dt&lt;\epsilon.\]</span></p>
+</div>
+
+<p>Es fácil ver que una función absolutamente continua, es de variación acotada.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-303" class="proposition"><strong>Proposición 7.4  </strong></span>Si <span class="math inline">\(f\)</span> es absolutamente continua en <span class="math inline">\([a,b]\)</span>, entonces es de variación acotada en <span class="math inline">\([a,b]\)</span>.</p>
+</div>
+
+
+<div class="lemma">
+<p><span id="lem:unnamed-chunk-304" class="lemma"><strong>Lema 7.2  </strong></span>Si <span class="math inline">\(f\)</span> es absolutamente continua en <span class="math inline">\([a,b]\)</span> y <span class="math inline">\(f´(x)=0\)</span> en c.t.p. de <span class="math inline">\([a,b]\)</span>, entonces <span class="math inline">\(f\)</span> es constante.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(c\in[a,b]\)</span>. Sea <span class="math inline">\(E\subseteq(a,c)\)</span> tal que <span class="math inline">\(m(E)=c-a\)</span> y <span class="math inline">\(f´(x)=0\)</span> para todo <span class="math inline">\(x\in E\)</span>. Sean <span class="math inline">\(\epsilon\)</span> y <span class="math inline">\(\xi\)</span> números reales positivos cualesquiera. Para cada <span class="math inline">\(x\in E\)</span> existe <span class="math inline">\(h\)</span> tal que <span class="math inline">\([x,x+h]\subseteq[a,c]\)</span> y <span class="math inline">\(|f(x+h)-f(x)|&lt;\xi h\)</span>. Por el lema de Vitali, podemos hallar una colección finita <span class="math inline">\([x_{1},y_{1}],\cdots[x_{n},y_{n}]\)</span> disjuntos dos a dos, tal que <span class="math inline">\(E\backslash\subseteq\bigcup_{k=1}^{n}[x_{k},y_{k}]\)</span> tiene medida menor que <span class="math inline">\(\delta\)</span> siendo este el que da cuenta de la continuidad absoluta de <span class="math inline">\(f\)</span> cuando consideramos el <span class="math inline">\(\epsilon\)</span> ya fijado. Podemos suponer que <span class="math inline">\(a=y_{0}\leq x_{1}&lt; y_{1}\geq \cdots\geq x_{n}&lt;y_{n}=c=x_{n+1}\)</span> y así <span class="math display">\[\sum_{k=0}^{n} |x_{k+1}-y_{k}|&lt;\delta.\]</span> Además, <span class="math display">\[\sum_{k=1}^{n} |f(y_{k})-f(x_{k})|\leq \xi\sum_{k=1}^{n} (y_{k}-x_{k})&lt;\xi(c-a)\]</span> Por otro lado, de la continuidad absoluta se tiene que <span class="math display">\[\sum_{k=0}^{n} |f(x_{k+1})-f(y_{k})|&lt;\epsilon.\]</span> De este modo, <span class="math display">\[f(c)-f(a)=\sum_{k=0}^{n} |f(x_{k+1})-f(y_{k})|+\sum_{k=1}^{n} |f(y_{k})-f(x_{k})|\leq \epsilon+\xi(c-a).\]</span> De donde se sigue que <span class="math inline">\(f(c)=f(a)\)</span>.</p>
+</div>
+
+<p>Tenemos entonces que si <span class="math inline">\(F:I\longrightarrow\mathbb{R}\)</span> una función definida en un intervalo cualquiera <span class="math inline">\(I\)</span> es absolutamente continua, es de variación acotada y por lo tanto, es derivable en c.t.p. de <span class="math inline">\(I\)</span> y además puede escribirse como diferencia de funciones monótonas, esto es, <span class="math inline">\(F=F_{1}-F_{2}\)</span>. Por lo que <span class="math inline">\(|F´(x)|\leq F_{1}´(x)+F_{2}´(x)\)</span> en c.t.p. Como <span class="math inline">\(F_{1}´\)</span> y <span class="math inline">\(F_{2}´\)</span> son integrables, entonces <span class="math inline">\(F´\)</span> también lo és. Con lo que se puede definir <span class="math display">\[G(x)=\int_{a}^{x} F´(t)dt\mbox{, para todo }[a,b]\subseteq I\]</span> con <span class="math inline">\(G\)</span> absolutamente continua. Sea <span class="math inline">\(H=F-G\)</span>, entonces <span class="math inline">\(H\)</span> es absolutamente continua y <span class="math inline">\(H´=F´-G´=0\)</span> en c.t.p. Por el lema anterior, <span class="math inline">\(H\)</span> es constante. Así <span class="math display">\[F(x)=\int_{a}^{x} F^{&#39;}(t)dt.\]</span> Ya se demostró que una integral indefinida, es decir, <em>una función <span class="math inline">\(F:I\longrightarrow\mathbb{R}\)</span> tal que existe <span class="math inline">\(f:I\longrightarrow\mathbb{R}\)</span> integrable tal que <span class="math inline">\(F(b)-F(a)=\int_{a}^{b}f(t)dt\)</span> para todo <span class="math inline">\([a,b]\subseteq I\)</span></em>; es una función absolutamente continua. Esto es una caracterización de las integrales indefinidas y es la demostración del siguiente teorema.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-306" class="theorem"><strong>Teorema 7.5  </strong></span>Una función <span class="math inline">\(F:I\longrightarrow\mathbb{R}\)</span> es una integral indefinida si y solo si es absolutamente continua.</p>
+</div>
+
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-307" class="corollary"><strong>Corolario 7.4  </strong></span>Toda función absolutamente continua es la integral indefinida de su derivada.</p>
+</div>
+
+</div>
+<div id="cambio-de-variables" class="section level2">
+<h2><span class="header-section-number">7.4</span> Cambio de variables</h2>
+<p>Este capítulo abordará de forma muy somera teoremas referidos al cambio de variables en la integral de Lebesgue.</p>
+<p>Comencemos por la siguiente idea. Sea <span class="math inline">\((X,\mathcal{F},\mu)\)</span> un espacio de medida y <span class="math inline">\((Y,\mathcal{G})\)</span> un espacio medible. Sea <span class="math inline">\(f:X\longrightarrow Y\)</span> una función <span class="math inline">\(\mathcal{F}\)</span>-medible. Definamos una medida en <span class="math inline">\(Y\)</span> de esta forma: <span class="math display">\[\nu(A)=\mu(f^{-1}(A))\mbox{ para cualquier } A\in\mathcal{G}.\]</span> En efecto, <span class="math inline">\(\nu\)</span> es una medida en <span class="math inline">\((Y,\mathcal{G})\)</span>. Como <span class="math inline">\(f\)</span> es medible, <span class="math inline">\(f^{-1}(A)\in\mathcal{F}\)</span> y <span class="math inline">\(\mu(f^{-1}(A))\geq 0\)</span>, para todo <span class="math inline">\(A\in\mathcal{G}\)</span>. Claramente, <span class="math inline">\(\nu(\emptyset)=0\)</span> y por último, como la función inversa se comporta bien bajo uniones, se tiene que <span class="math display">\[\nu\left( \bigcup_{i\geq 1} E_{i}\right)=\mu\left(f^{-1}\left( \bigcup_{i\geq 1} E_{i}\right) \right)=\sum_{i\geq 1}\mu(f^{-1}(E_{i}))=\sum_{i\geq 1}\nu(E_{i})\]</span> cuando <span class="math inline">\((E_{i})_{i\geq 1}\subseteq \mathcal{G}\)</span> es una familia disjunta.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-308" class="theorem"><strong>Teorema 7.6  </strong></span>Sea <span class="math inline">\(f:(A,\mathcal{F},\mu)\longrightarrow(Y,\mathcal{G})\)</span> medible respecto de <span class="math inline">\(\mathcal{F}\)</span> y <span class="math inline">\(\mathcal{G}\)</span>. Sea <span class="math inline">\(\nu=\mu\circ f^{-1}\)</span>. Entonces, si <span class="math inline">\(g:(Y,\mathcal{G})\longrightarrow(\overline{\mathbb{R}},\mathcal{M})\)</span> es una función medible, se tiene que <span class="math display">\[\int_{Y} g(y)d\nu(y)=\int_{X} g\circ f(x) d\mu(x).\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Comencemos por hacer la demostración para una función indicatriz. Supongamos que <span class="math inline">\(g=\chi_{E}\)</span> para algún conjunto medible <span class="math inline">\(E\in\mathcal{G}\)</span>. Entonces <span class="math display">\[(g\circ f)(x)=\left\lbrace\begin{array}{ll}
+    1 &amp;\mbox{ si } f(x)\in E\\
+    0 &amp;\mbox{ sino } 
+    \end{array} \right.\]</span> Luego <span class="math display">\[\int_{X} g\circ f(x) d\mu(x)=\mu(f^{-1}(E))=\nu(E)=\int_{Y} \chi_{E}(y)d\nu(y)=\int_{Y} g(y)d\nu(y).\]</span> Usando la linealidad de la integral se obtiene el resultado para funciones <span class="math inline">\(\mathcal{G}\)</span>-simples. Si <span class="math inline">\(g\)</span> es medible no negativa, el resultado se obtiene aproximando <span class="math inline">\(g\)</span> por funciones simples. Y para el caso general, se escribe <span class="math inline">\(g\)</span> como la suma de funciones no negativas, esto es, <span class="math inline">\(g=g^{+}+g^{-}\)</span>.</p>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-310" class="theorem"><strong>Teorema 7.7  </strong></span>Sea <span class="math inline">\(F:[a,b]\longrightarrow\mathbb{R}\)</span> medible, continua y creciente. Sea <span class="math inline">\(g:\mathbb{R}\longrightarrow\mathbb{R}\)</span> integrable Lebesgue en <span class="math inline">\([F(a),F(b)]\)</span>. Entonces <span class="math display">\[\int_{F(a)}^{F(b)} g(x)dx=\int_{a}^{b} g(F(t))dF(t)\]</span> donde <span class="math inline">\(dF(t)\)</span> denota la integral respecto de la medida de Stieltjes asociada a <span class="math inline">\(F\)</span>.</p>
+</div>
+<p> El esquema de la demostración es el siguiente: Se considera la aplicación <span class="math display">\[\left([a,b],\mathcal{M}\upharpoonright_{[a,b]}, dF\right)\longrightarrow\left(\left[F(a), F(b)\right],\mathcal{M}\right)\]</span> y se define la medida <span class="math display">\[\nu=dF\circ F^{-1}.\]</span> Del teorema anterior se obtiene el resultado.</p>
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Si <span class="math inline">\(F\)</span> es tal que <span class="math inline">\(F(b)-F(a)=\int_{a}^{b} F´(t)dt\)</span>, entonces el teorema anterior concluye que <span class="math display">\[\int_{F(a)}^{F(b)} g(x)dx=\int_{a}^{b} g(F(t))F´(t)d(t).\]</span></p>
+</div>
+
+
+</div>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-78759535-1', 'auto');
+ga('send', 'pageview');  
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="convergencia.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="integración-en-mathbbrn.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/synergyvision/Medida/edit/master/bookdown/070-diferenciacion-e-integracion.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Medida.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

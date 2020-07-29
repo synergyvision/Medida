@@ -372,7 +372,7 @@ Sea $X$ un espacio vectorial (sobre $\mathbb{R}$). Un *producto interno* en $X$ 
 
 ```
 
-```{example, \label="ejemplo532"}
+```{example, label="ejemplo532"}
 La función $(f,g)\mapsto \int_{a}^{b}f(t)g(t)dt$ es un producto interno en $\mathcal{L}^{2}$.
 
 ```

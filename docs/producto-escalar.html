@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Capítulo 11 Producto escalar | Medida</title>
-  <meta name="description" content="Capítulo 11 Producto escalar | Medida">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 17 Producto escalar | Medida</title>
+  <meta name="description" content="Capítulo 17 Producto escalar | Medida" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 11 Producto escalar | Medida" />
+  <meta property="og:title" content="Capítulo 17 Producto escalar | Medida" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://synergy.vision/Medida/" />
   <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
@@ -17,23 +16,23 @@
   <meta name="github-repo" content="synergyvision/Medida/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 11 Producto escalar | Medida" />
+  <meta name="twitter:title" content="Capítulo 17 Producto escalar | Medida" />
   
   
   <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
 
-<meta name="author" content="Synergy Vision">
+<meta name="author" content="Synergy Vision" />
 
 
-<meta name="date" content="2019-11-05">
+<meta name="date" content="2020-07-28" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="transformaciones-lineales.html">
-<link rel="next" href="software-tools.html">
+<link rel="prev" href="transformaciones-lineales.html"/>
+<link rel="next" href="software-tools.html"/>
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
@@ -41,6 +40,9 @@
 <link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -106,72 +108,93 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-que-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-qué-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#informacion-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#practicas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prácticas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
-<li class="chapter" data-level="1" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
-<li class="chapter" data-level="2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html"><i class="fa fa-check"></i><b>2</b> Estructuras algebraicas</a><ul>
-<li class="chapter" data-level="2.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#conjuntos"><i class="fa fa-check"></i><b>2.1</b> Conjuntos</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#definiciones-iniciales"><i class="fa fa-check"></i><b>2.1.1</b> Definiciones Iniciales</a></li>
-<li class="chapter" data-level="2.1.2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#operaciones-entre-conjuntos"><i class="fa fa-check"></i><b>2.1.2</b> Operaciones entre conjuntos</a></li>
-<li class="chapter" data-level="2.1.3" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#producto-cartesiano"><i class="fa fa-check"></i><b>2.1.3</b> Producto cartesiano</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a><ul>
+<li class="chapter" data-level="2.1" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a></li>
+<li class="chapter" data-level="2.2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#colecciones-de-conjuntos"><i class="fa fa-check"></i><b>2.2</b> Colecciones de Conjuntos</a></li>
+<li class="chapter" data-level="2.3" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#el-conjunto-de-cantor"><i class="fa fa-check"></i><b>2.3</b> El conjunto de Cantor</a></li>
+<li class="chapter" data-level="2.4" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#medida"><i class="fa fa-check"></i><b>2.4</b> Medida</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#relaciones-de-equivalencia"><i class="fa fa-check"></i><b>2.2</b> Relaciones de Equivalencia</a></li>
-<li class="chapter" data-level="2.3" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#funciones"><i class="fa fa-check"></i><b>2.3</b> Funciones</a></li>
-<li class="chapter" data-level="2.4" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#cardinales"><i class="fa fa-check"></i><b>2.4</b> Cardinales</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios"><i class="fa fa-check"></i><b>2.4.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html"><i class="fa fa-check"></i><b>3</b> LA MEDIDA DE LEBESGUE</a><ul>
+<li class="chapter" data-level="3.1" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#construyendo-la-medida-de-lebesgue"><i class="fa fa-check"></i><b>3.1</b> Construyendo la Medida de Lebesgue</a></li>
+<li class="chapter" data-level="3.2" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#unicidad-de-la-medida-de-lebesgue-y-otras-propiedades"><i class="fa fa-check"></i><b>3.2</b> Unicidad de la medida de Lebesgue y otras propiedades</a></li>
+<li class="chapter" data-level="3.3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#consideraciones"><i class="fa fa-check"></i><b>3.3</b> Consideraciones</a></li>
+<li class="chapter" data-level="3.4" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#la-medida-de-stieltjes"><i class="fa fa-check"></i><b>3.4</b> La Medida de Stieltjes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#teoria-de-grupos"><i class="fa fa-check"></i><b>2.5</b> Teoría de Grupos</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios-1"><i class="fa fa-check"></i><b>2.5.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="4" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>4</b> Vectores</a><ul>
+<li class="chapter" data-level="4.1" data-path="vectores.html"><a href="vectores.html#representación-geométrica"><i class="fa fa-check"></i><b>4.1</b> Representación geométrica</a></li>
+<li class="chapter" data-level="4.2" data-path="vectores.html"><a href="vectores.html#operaciones-entre-vectores"><i class="fa fa-check"></i><b>4.2</b> Operaciones entre vectores</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores.html"><a href="vectores.html#producto-escalar-y-producto-vectorial"><i class="fa fa-check"></i><b>4.2.1</b> Producto escalar y producto vectorial</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#anillos"><i class="fa fa-check"></i><b>2.6</b> Anillos</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="estructuras-algebraicas.html"><a href="estructuras-algebraicas.html#ejercicios-2"><i class="fa fa-check"></i><b>2.6.1</b> Ejercicios</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>3</b> Vectores</a><ul>
-<li class="chapter" data-level="3.1" data-path="vectores.html"><a href="vectores.html#representacion-geometrica"><i class="fa fa-check"></i><b>3.1</b> Representación geométrica</a></li>
-<li class="chapter" data-level="3.2" data-path="vectores.html"><a href="vectores.html#operaciones-entre-vectores"><i class="fa fa-check"></i><b>3.2</b> Operaciones entre vectores</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="vectores.html"><a href="vectores.html#producto-escalar-y-producto-vectorial"><i class="fa fa-check"></i><b>3.2.1</b> Producto escalar y producto vectorial</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="vectores.html"><a href="vectores.html#rectas-y-planos"><i class="fa fa-check"></i><b>3.3</b> Rectas y Planos</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="vectores.html"><a href="vectores.html#rectas-en-el-espacio"><i class="fa fa-check"></i><b>3.3.1</b> Rectas en el espacio</a></li>
-<li class="chapter" data-level="3.3.2" data-path="vectores.html"><a href="vectores.html#rectas-en-el-plano"><i class="fa fa-check"></i><b>3.3.2</b> Rectas en el plano</a></li>
-<li class="chapter" data-level="3.3.3" data-path="vectores.html"><a href="vectores.html#planos"><i class="fa fa-check"></i><b>3.3.3</b> Planos</a></li>
+<li class="chapter" data-level="4.3" data-path="vectores.html"><a href="vectores.html#rectas-y-planos"><i class="fa fa-check"></i><b>4.3</b> Rectas y Planos</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="vectores.html"><a href="vectores.html#rectas-en-el-espacio"><i class="fa fa-check"></i><b>4.3.1</b> Rectas en el espacio</a></li>
+<li class="chapter" data-level="4.3.2" data-path="vectores.html"><a href="vectores.html#rectas-en-el-plano"><i class="fa fa-check"></i><b>4.3.2</b> Rectas en el plano</a></li>
+<li class="chapter" data-level="4.3.3" data-path="vectores.html"><a href="vectores.html#planos"><i class="fa fa-check"></i><b>4.3.3</b> Planos</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html"><i class="fa fa-check"></i><b>4</b> Espacios vectoriales</a><ul>
-<li class="chapter" data-level="4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales"><i class="fa fa-check"></i><b>4.1</b> Ecuaciones lineales</a></li>
-<li class="chapter" data-level="4.2" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#matrices"><i class="fa fa-check"></i><b>4.2</b> Matrices</a></li>
-<li class="chapter" data-level="4.3" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales-y-matrices"><i class="fa fa-check"></i><b>4.3</b> Ecuaciones lineales y matrices</a></li>
-<li class="chapter" data-level="4.4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#teoria-de-espacios-vectoriales"><i class="fa fa-check"></i><b>4.4</b> Teoría de espacios vectoriales</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#espacio-cociente"><i class="fa fa-check"></i><b>4.4.1</b> Espacio cociente</a></li>
+<li class="chapter" data-level="5" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html"><i class="fa fa-check"></i><b>5</b> Espacios vectoriales</a><ul>
+<li class="chapter" data-level="5.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales"><i class="fa fa-check"></i><b>5.1</b> Ecuaciones lineales</a></li>
+<li class="chapter" data-level="5.2" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#matrices"><i class="fa fa-check"></i><b>5.2</b> Matrices</a></li>
+<li class="chapter" data-level="5.3" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ecuaciones-lineales-y-matrices"><i class="fa fa-check"></i><b>5.3</b> Ecuaciones lineales y matrices</a></li>
+<li class="chapter" data-level="5.4" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#teoría-de-espacios-vectoriales"><i class="fa fa-check"></i><b>5.4</b> Teoría de espacios vectoriales</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#espacio-cociente"><i class="fa fa-check"></i><b>5.4.1</b> Espacio cociente</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ejercicios-3"><i class="fa fa-check"></i><b>4.5</b> Ejercicios</a></li>
+<li class="chapter" data-level="5.5" data-path="espacios-vectoriales.html"><a href="espacios-vectoriales.html#ejercicios"><i class="fa fa-check"></i><b>5.5</b> Ejercicios</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="polinomios.html"><a href="polinomios.html"><i class="fa fa-check"></i><b>5</b> Polinomios</a><ul>
-<li class="chapter" data-level="5.0.1" data-path="polinomios.html"><a href="polinomios.html#factorizacion-prima-de-un-polinomio"><i class="fa fa-check"></i><b>5.0.1</b> Factorizacion prima de un polinomio</a></li>
-<li class="chapter" data-level="5.1" data-path="polinomios.html"><a href="polinomios.html#ejercicios-4"><i class="fa fa-check"></i><b>5.1</b> ejercicios</a></li>
+<li class="chapter" data-level="6" data-path="funciones-medibles.html"><a href="funciones-medibles.html"><i class="fa fa-check"></i><b>6</b> FUNCIONES MEDIBLES</a><ul>
+<li class="chapter" data-level="6.1" data-path="funciones-medibles.html"><a href="funciones-medibles.html#conceptos-básicos"><i class="fa fa-check"></i><b>6.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="6.2" data-path="funciones-medibles.html"><a href="funciones-medibles.html#aproximaciones-de-funciones-medibles"><i class="fa fa-check"></i><b>6.2</b> Aproximaciones de funciones medibles</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="matrices-1.html"><a href="matrices-1.html"><i class="fa fa-check"></i><b>6</b> Matrices</a></li>
-<li class="chapter" data-level="7" data-path="determinantes.html"><a href="determinantes.html"><i class="fa fa-check"></i><b>7</b> Determinantes</a><ul>
-<li class="chapter" data-level="7.0.1" data-path="determinantes.html"><a href="determinantes.html#ejercicios-5"><i class="fa fa-check"></i><b>7.0.1</b> {Ejercicios}</a></li>
+<li class="chapter" data-level="7" data-path="polinomios.html"><a href="polinomios.html"><i class="fa fa-check"></i><b>7</b> Polinomios</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="polinomios.html"><a href="polinomios.html#factorizacion-prima-de-un-polinomio"><i class="fa fa-check"></i><b>7.0.1</b> Factorizacion prima de un polinomio</a></li>
+<li class="chapter" data-level="7.1" data-path="polinomios.html"><a href="polinomios.html#ejercicios-1"><i class="fa fa-check"></i><b>7.1</b> ejercicios</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="autovalores-y-autovectores.html"><a href="autovalores-y-autovectores.html"><i class="fa fa-check"></i><b>8</b> Autovalores y autovectores</a></li>
-<li class="chapter" data-level="9" data-path="calculo-en-vectores-y-matrices.html"><a href="calculo-en-vectores-y-matrices.html"><i class="fa fa-check"></i><b>9</b> Cálculo en vectores y matrices</a></li>
-<li class="chapter" data-level="10" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html"><i class="fa fa-check"></i><b>10</b> Transformaciones lineales</a><ul>
-<li class="chapter" data-level="10.1" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#bases-ordenadas"><i class="fa fa-check"></i><b>10.1</b> Bases ordenadas</a></li>
-<li class="chapter" data-level="10.2" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#matriz-de-una-transformacion"><i class="fa fa-check"></i><b>10.2</b> Matriz de una transformación</a></li>
-<li class="chapter" data-level="10.3" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#transformaciones-invertibles"><i class="fa fa-check"></i><b>10.3</b> Transformaciones invertibles</a></li>
-<li class="chapter" data-level="10.4" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#funcionales-lineales"><i class="fa fa-check"></i><b>10.4</b> Funcionales lineales</a></li>
-<li class="chapter" data-level="10.5" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#el-doble-dual"><i class="fa fa-check"></i><b>10.5</b> El doble dual</a></li>
-<li class="chapter" data-level="10.6" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#ejercicios-6"><i class="fa fa-check"></i><b>10.6</b> Ejercicios</a></li>
+<li class="chapter" data-level="8" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html"><i class="fa fa-check"></i><b>8</b> LA INTEGRAL DE LEBESGUE</a><ul>
+<li class="chapter" data-level="8.1" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#conceptos-básicos-1"><i class="fa fa-check"></i><b>8.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="8.2" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#intercambio-de-límites-con-la-integral"><i class="fa fa-check"></i><b>8.2</b> Intercambio de límites con la integral</a></li>
+<li class="chapter" data-level="8.3" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#teoremas-de-aproximación"><i class="fa fa-check"></i><b>8.3</b> Teoremas de Aproximación</a></li>
+<li class="chapter" data-level="8.4" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#más-sobre-la-integral-de-lebesgue"><i class="fa fa-check"></i><b>8.4</b> Más sobre la Integral de Lebesgue</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="producto-escalar.html"><a href="producto-escalar.html"><i class="fa fa-check"></i><b>11</b> Producto escalar</a><ul>
-<li class="chapter" data-level="11.0.1" data-path="producto-escalar.html"><a href="producto-escalar.html#ejercicios-7"><i class="fa fa-check"></i><b>11.0.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="9" data-path="matrices-1.html"><a href="matrices-1.html"><i class="fa fa-check"></i><b>9</b> Matrices</a></li>
+<li class="chapter" data-level="10" data-path="determinantes.html"><a href="determinantes.html"><i class="fa fa-check"></i><b>10</b> Determinantes</a><ul>
+<li class="chapter" data-level="10.0.1" data-path="determinantes.html"><a href="determinantes.html#ejercicios-2"><i class="fa fa-check"></i><b>10.0.1</b> {Ejercicios}</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="convergencia.html"><a href="convergencia.html"><i class="fa fa-check"></i><b>11</b> CONVERGENCIA</a><ul>
+<li class="chapter" data-level="11.1" data-path="convergencia.html"><a href="convergencia.html#tipos-de-convergencia"><i class="fa fa-check"></i><b>11.1</b> Tipos de convergencia</a></li>
+<li class="chapter" data-level="11.2" data-path="convergencia.html"><a href="convergencia.html#espacios-lp"><i class="fa fa-check"></i><b>11.2</b> Espacios <span class="math inline">\(L^{p}\)</span></a></li>
+<li class="chapter" data-level="11.3" data-path="convergencia.html"><a href="convergencia.html#espacios-linfty"><i class="fa fa-check"></i><b>11.3</b> Espacios <span class="math inline">\(L^{\infty}\)</span></a></li>
+<li class="chapter" data-level="11.4" data-path="convergencia.html"><a href="convergencia.html#espacios-de-hilbert"><i class="fa fa-check"></i><b>11.4</b> Espacios de Hilbert</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="autovalores-y-autovectores.html"><a href="autovalores-y-autovectores.html"><i class="fa fa-check"></i><b>12</b> Autovalores y autovectores</a></li>
+<li class="chapter" data-level="13" data-path="cálculo-en-vectores-y-matrices.html"><a href="cálculo-en-vectores-y-matrices.html"><i class="fa fa-check"></i><b>13</b> Cálculo en vectores y matrices</a></li>
+<li class="chapter" data-level="14" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html"><i class="fa fa-check"></i><b>14</b> DIFERENCIACION E INTEGRACIÓN</a><ul>
+<li class="chapter" data-level="14.1" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-monótonas"><i class="fa fa-check"></i><b>14.1</b> Funciones monótonas</a></li>
+<li class="chapter" data-level="14.2" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-de-variación-acotada"><i class="fa fa-check"></i><b>14.2</b> Funciones de variación acotada</a></li>
+<li class="chapter" data-level="14.3" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#de-la-integral-indefinida.-continuidad-absoluta"><i class="fa fa-check"></i><b>14.3</b> De la Integral indefinida. Continuidad Absoluta</a></li>
+<li class="chapter" data-level="14.4" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#cambio-de-variables"><i class="fa fa-check"></i><b>14.4</b> Cambio de variables</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html"><i class="fa fa-check"></i><b>15</b> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></a><ul>
+<li class="chapter" data-level="15.1" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#espacio-producto"><i class="fa fa-check"></i><b>15.1</b> Espacio Producto</a></li>
+<li class="chapter" data-level="15.2" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#medida-de-lebesgue-en-mathbbrn"><i class="fa fa-check"></i><b>15.2</b> Medida de Lebesgue en <span class="math inline">\(\mathbb{R}^{n}\)</span></a></li>
+<li class="chapter" data-level="15.3" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#teorema-de-fibini.-teorema-de-tonelli"><i class="fa fa-check"></i><b>15.3</b> Teorema de Fibini. Teorema de Tonelli</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html"><i class="fa fa-check"></i><b>16</b> Transformaciones lineales</a><ul>
+<li class="chapter" data-level="16.1" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#bases-ordenadas"><i class="fa fa-check"></i><b>16.1</b> Bases ordenadas</a></li>
+<li class="chapter" data-level="16.2" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#matriz-de-una-transformación"><i class="fa fa-check"></i><b>16.2</b> Matriz de una transformación</a></li>
+<li class="chapter" data-level="16.3" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#transformaciones-invertibles"><i class="fa fa-check"></i><b>16.3</b> Transformaciones invertibles</a></li>
+<li class="chapter" data-level="16.4" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#funcionales-lineales"><i class="fa fa-check"></i><b>16.4</b> Funcionales lineales</a></li>
+<li class="chapter" data-level="16.5" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#el-doble-dual"><i class="fa fa-check"></i><b>16.5</b> El doble dual</a></li>
+<li class="chapter" data-level="16.6" data-path="transformaciones-lineales.html"><a href="transformaciones-lineales.html#ejercicios-3"><i class="fa fa-check"></i><b>16.6</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="producto-escalar.html"><a href="producto-escalar.html"><i class="fa fa-check"></i><b>17</b> Producto escalar</a><ul>
+<li class="chapter" data-level="17.0.1" data-path="producto-escalar.html"><a href="producto-escalar.html#ejercicios-4"><i class="fa fa-check"></i><b>17.0.1</b> Ejercicios</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apéndice</b></span></li>
 <li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
@@ -201,11 +224,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="producto-escalar" class="section level1">
-<h1><span class="header-section-number">Capítulo 11</span> Producto escalar</h1>
+<h1><span class="header-section-number">Capítulo 17</span> Producto escalar</h1>
 <p>En este capítulo estaremos considerando espacios vectoriales reales y complejos, por lo tanto cada vez que se mencione un cuerpo se estará haciendo referencia al cuerpo de los números reales, <span class="math inline">\(\mathbb{R}\)</span>, o al cuerpo de los números complejos, <span class="math inline">\(\mathbf{C}\)</span>. Y se hará una abstracción de lo que en el capítulo 2 se presentó como el producto punto entre vectores.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-511" class="definition"><strong>Definición 11.1  </strong></span>Sea <span class="math inline">\(\mathbb{F}\)</span> un cuerpo (<span class="math inline">\(\mathbb{R}\)</span> o <span class="math inline">\(\mathbf{C}\)</span>), y <span class="math inline">\(V\)</span> un espacio vectorial sobre <span class="math inline">\(\mathbb{F}\)</span>. Un <em>producto interno</em> (o <em>producto interior</em>) sobre <span class="math inline">\(V\)</span> es una operación binaria de <span class="math inline">\(V\times V\)</span> en <span class="math inline">\(\mathbb{F}\)</span>, <span class="math inline">\((\alpha,\beta)\mapsto (\alpha|\beta)\)</span> tal que para todo <span class="math inline">\(\alpha,\beta,\gamma\in V\)</span> y <span class="math inline">\(c,d\in\mathbb{F}\)</span>: [a] <span class="math inline">\((\alpha|\beta)=\bar{(\beta|\alpha)}\)</span>, donde la barra indica la conjugación compleja; [b] <span class="math inline">\((c\alpha+d\beta|\gamma)=c(\alpha|\gamma)+d(\beta|\gamma)\)</span> y [c] <span class="math inline">\((\alpha|\alpha)&gt;0\)</span> si <span class="math inline">\(\alpha\neq 0\)</span>.</p>
+<p><span id="def:unnamed-chunk-669" class="definition"><strong>Definición 17.1  </strong></span>Sea <span class="math inline">\(\mathbb{F}\)</span> un cuerpo (<span class="math inline">\(\mathbb{R}\)</span> o <span class="math inline">\(\mathbf{C}\)</span>), y <span class="math inline">\(V\)</span> un espacio vectorial sobre <span class="math inline">\(\mathbb{F}\)</span>. Un <em>producto interno</em> (o <em>producto interior</em>) sobre <span class="math inline">\(V\)</span> es una operación binaria de <span class="math inline">\(V\times V\)</span> en <span class="math inline">\(\mathbb{F}\)</span>, <span class="math inline">\((\alpha,\beta)\mapsto (\alpha|\beta)\)</span> tal que para todo <span class="math inline">\(\alpha,\beta,\gamma\in V\)</span> y <span class="math inline">\(c,d\in\mathbb{F}\)</span>: [a] <span class="math inline">\((\alpha|\beta)=\bar{(\beta|\alpha)}\)</span>, donde la barra indica la conjugación compleja; [b] <span class="math inline">\((c\alpha+d\beta|\gamma)=c(\alpha|\gamma)+d(\beta|\gamma)\)</span> y [c] <span class="math inline">\((\alpha|\alpha)&gt;0\)</span> si <span class="math inline">\(\alpha\neq 0\)</span>.</p>
 <p>En el caso que tal operación exista, decimos que <span class="math inline">\(V\)</span> es un <em>espacio vectorial con producto interno</em>.</p>
 </div>
 
@@ -216,42 +239,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-513" class="example"><strong>Ejemplo 11.1  </strong></span>En el espacio vectorial <span class="math inline">\(\mathbf{C}^{n}\)</span>, la operación <span class="math inline">\((\alpha|\beta)=\sum_{i=1}^{n} x_{i}\bar{y_{i}}\)</span>, donde <span class="math inline">\(\alpha=(x_{1},x_{2},\cdots,x_{n})\)</span> y <span class="math inline">\(\beta=(y_{1},y_{2},\cdots,y_{n})\)</span>; es un producto interno, llamado el <em>producto interno canónico en</em> <span class="math inline">\(\mathbf{C}^{n}\)</span>. Por otro lado, si consideramos esta misma operación sobre <span class="math inline">\(\mathbb{R}\)</span>, la conjugación queda sin efecto y así el <em>producto interno canónico en</em> <span class="math inline">\(\mathbb{R}\)</span> es la operación <span class="math inline">\((\alpha|\beta)=\sum_{i=1}^{n} x_{i}y_{i}\)</span>.</p>
+<p><span id="exm:unnamed-chunk-671" class="example"><strong>Ejemplo 17.1  </strong></span>En el espacio vectorial <span class="math inline">\(\mathbf{C}^{n}\)</span>, la operación <span class="math inline">\((\alpha|\beta)=\sum_{i=1}^{n} x_{i}\bar{y_{i}}\)</span>, donde <span class="math inline">\(\alpha=(x_{1},x_{2},\cdots,x_{n})\)</span> y <span class="math inline">\(\beta=(y_{1},y_{2},\cdots,y_{n})\)</span>; es un producto interno, llamado el <em>producto interno canónico en</em> <span class="math inline">\(\mathbf{C}^{n}\)</span>. Por otro lado, si consideramos esta misma operación sobre <span class="math inline">\(\mathbb{R}\)</span>, la conjugación queda sin efecto y así el <em>producto interno canónico en</em> <span class="math inline">\(\mathbb{R}\)</span> es la operación <span class="math inline">\((\alpha|\beta)=\sum_{i=1}^{n} x_{i}y_{i}\)</span>.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:ejemplo84" class="example"><strong>Ejemplo 11.2  </strong></span>En <span class="math inline">\(\mathbb{C}^{2}\)</span> definimos la operación <span class="math inline">\(((x,y)|(z,w))=2x\bar{z}+x\bar{w}+y\bar{z}+y\bar{w}\)</span> es un producto interno.</p>
+<p><span id="exm:ejemplo84" class="example"><strong>Ejemplo 17.2  </strong></span>En <span class="math inline">\(\mathbb{C}^{2}\)</span> definimos la operación <span class="math inline">\(((x,y)|(z,w))=2x\bar{z}+x\bar{w}+y\bar{z}+y\bar{w}\)</span> es un producto interno.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:ejemplo85" class="example"><strong>Ejemplo 11.3  </strong></span>Sea <span class="math inline">\(V=\mathbb{F}^{n\times n}\)</span>, el espacio de todas las matrices <span class="math inline">\(n\times n\)</span> sobre <span class="math inline">\(\mathbb{F}\)</span>. Entonces <span class="math inline">\(V\)</span> es isomorfo de forma natural al espacio <span class="math inline">\(\mathbb{F}^{n^{2}}\)</span>, entonces se sigue: <span class="math display">\[(A|B)=\sum_{i,j}A_{ij}\bar{B}_{ij}\]</span> define un producto interno sobre <span class="math inline">\(V\)</span>. Si definimos <span class="math inline">\([B^{\ast}]_{kj}=\bar{B}_{jk}\)</span>, entonces <span class="math inline">\((A|B)=tr(AB^{\ast})=tr(B^{\ast}A)\)</span>.</p>
+<p><span id="exm:ejemplo85" class="example"><strong>Ejemplo 17.3  </strong></span>Sea <span class="math inline">\(V=\mathbb{F}^{n\times n}\)</span>, el espacio de todas las matrices <span class="math inline">\(n\times n\)</span> sobre <span class="math inline">\(\mathbb{F}\)</span>. Entonces <span class="math inline">\(V\)</span> es isomorfo de forma natural al espacio <span class="math inline">\(\mathbb{F}^{n^{2}}\)</span>, entonces se sigue: <span class="math display">\[(A|B)=\sum_{i,j}A_{ij}\bar{B}_{ij}\]</span> define un producto interno sobre <span class="math inline">\(V\)</span>. Si definimos <span class="math inline">\([B^{\ast}]_{kj}=\bar{B}_{jk}\)</span>, entonces <span class="math inline">\((A|B)=tr(AB^{\ast})=tr(B^{\ast}A)\)</span>.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:ejemplo86" class="example"><strong>Ejemplo 11.4  </strong></span>Sea <span class="math inline">\(V\)</span> el espacio vectorial de las funciones continuas de valores complejos definidas en el intervalo <span class="math inline">\([0,1]\)</span>. La operación <span class="math display">\[(f|g)=\int_{0}^{1} f(t)\bar{g(t)}dt\]</span> es un producto interno en <span class="math inline">\(V\)</span>. Para funciones a valores reales, la misma operación omitiendo el conjugado, es un producto interno sobre el espacio respectivo.</p>
+<p><span id="exm:ejemplo86" class="example"><strong>Ejemplo 17.4  </strong></span>Sea <span class="math inline">\(V\)</span> el espacio vectorial de las funciones continuas de valores complejos definidas en el intervalo <span class="math inline">\([0,1]\)</span>. La operación <span class="math display">\[(f|g)=\int_{0}^{1} f(t)\bar{g(t)}dt\]</span> es un producto interno en <span class="math inline">\(V\)</span>. Para funciones a valores reales, la misma operación omitiendo el conjugado, es un producto interno sobre el espacio respectivo.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-514" class="example"><strong>Ejemplo 11.5  </strong></span>Se pueden construír productos internos a partir de un producto interno dado. Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales sobre <span class="math inline">\(\mathbb{F}\)</span>. Sea <span class="math inline">\((|)\)</span> es un producto interno en <span class="math inline">\(W\)</span>. Sea <span class="math inline">\(T\)</span> una transformación lineal inyectiva de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, entonces la operación <span class="math display">\[p_{T}(\alpha|\beta)=(T\alpha|T\beta)\]</span> define un producto interno en <span class="math inline">\(V\)</span>.</p>
+<p><span id="exm:unnamed-chunk-672" class="example"><strong>Ejemplo 17.5  </strong></span>Se pueden construír productos internos a partir de un producto interno dado. Sean <span class="math inline">\(V\)</span> y <span class="math inline">\(W\)</span> espacios vectoriales sobre <span class="math inline">\(\mathbb{F}\)</span>. Sea <span class="math inline">\((|)\)</span> es un producto interno en <span class="math inline">\(W\)</span>. Sea <span class="math inline">\(T\)</span> una transformación lineal inyectiva de <span class="math inline">\(V\)</span> en <span class="math inline">\(W\)</span>, entonces la operación <span class="math display">\[p_{T}(\alpha|\beta)=(T\alpha|T\beta)\]</span> define un producto interno en <span class="math inline">\(V\)</span>.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-515" class="example"><strong>Ejemplo 11.6  </strong></span>Sea <span class="math inline">\(\mathbb{F}^{n\times 1}\)</span> el espacio de las matrices columnas <span class="math inline">\(n\times 1\)</span> sobre <span class="math inline">\(\mathbb{F}\)</span> y sea <span class="math inline">\(P\)</span> una matriz <span class="math inline">\(n\times n\)</span> invertible. Definimos la operación <span class="math display">\[(A|B)=B^{\ast}P^{\ast}PA\]</span> para <span class="math inline">\(A,B\in \mathbb{F}^{n\times 1}\)</span>. Si identificamos la matriz <span class="math inline">\(1\times 1\)</span> con el único elemento que la conforma, tenemos una operación de <span class="math inline">\(\mathbb{F}^{n\times 1}\times \mathbb{F}^{n\times 1}\)</span> en el campo <span class="math inline">\(\mathbb{F}\)</span> que resulta ser un producto interno. Note que si <span class="math inline">\(P\)</span> es la matriz unidad, entonces la operación es la misma (esencialmente) que la del ejemplo @ref{ejemplo85}. También es un caso particular del ejemplo anterior.</p>
+<p><span id="exm:unnamed-chunk-673" class="example"><strong>Ejemplo 17.6  </strong></span>Sea <span class="math inline">\(\mathbb{F}^{n\times 1}\)</span> el espacio de las matrices columnas <span class="math inline">\(n\times 1\)</span> sobre <span class="math inline">\(\mathbb{F}\)</span> y sea <span class="math inline">\(P\)</span> una matriz <span class="math inline">\(n\times n\)</span> invertible. Definimos la operación <span class="math display">\[(A|B)=B^{\ast}P^{\ast}PA\]</span> para <span class="math inline">\(A,B\in \mathbb{F}^{n\times 1}\)</span>. Si identificamos la matriz <span class="math inline">\(1\times 1\)</span> con el único elemento que la conforma, tenemos una operación de <span class="math inline">\(\mathbb{F}^{n\times 1}\times \mathbb{F}^{n\times 1}\)</span> en el campo <span class="math inline">\(\mathbb{F}\)</span> que resulta ser un producto interno. Note que si <span class="math inline">\(P\)</span> es la matriz unidad, entonces la operación es la misma (esencialmente) que la del ejemplo @ref{ejemplo85}. También es un caso particular del ejemplo anterior.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-516" class="example"><strong>Ejemplo 11.7  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita y sea <span class="math inline">\(\mathcal{B}=\{\beta_{1},\beta_{2},\cdots,\beta_{n}\}\)</span> una base ordenada de <span class="math inline">\(V\)</span>. Sean <span class="math inline">\(\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n}\)</span> la base canónica en <span class="math inline">\(\mathbb{F}^{n}\)</span>. Sea <span class="math inline">\(T\)</span> la transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(\mathbb{F}^{n}\)</span> definida por <span class="math inline">\(T\beta_{j}=\epsilon_{j}\)</span>, para cada <span class="math inline">\(1\leq j\leq n\)</span>. Entonces <span class="math display">\[p_{T}(\sum_{i=1}^{n}x_{i}\beta_{i}\sum_{j=1}^{n}y_{j}\beta_{j})=\sum_{i=1}^{n} x_{i}\bar{y_{i}}\]</span> es un producto interno en vista del ejemplo anterior. De este modo, para cada base de <span class="math inline">\(V\)</span>, existe un producto interno sobre <span class="math inline">\(V\)</span> con la propiedad <span class="math inline">\((\beta_{i}|\beta_{j})=\delta_{ij}\)</span>.</p>
+<p><span id="exm:unnamed-chunk-674" class="example"><strong>Ejemplo 17.7  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio vectorial de dimensión finita y sea <span class="math inline">\(\mathcal{B}=\{\beta_{1},\beta_{2},\cdots,\beta_{n}\}\)</span> una base ordenada de <span class="math inline">\(V\)</span>. Sean <span class="math inline">\(\epsilon_{1},\epsilon_{2},\cdots,\epsilon_{n}\)</span> la base canónica en <span class="math inline">\(\mathbb{F}^{n}\)</span>. Sea <span class="math inline">\(T\)</span> la transformación lineal de <span class="math inline">\(V\)</span> en <span class="math inline">\(\mathbb{F}^{n}\)</span> definida por <span class="math inline">\(T\beta_{j}=\epsilon_{j}\)</span>, para cada <span class="math inline">\(1\leq j\leq n\)</span>. Entonces <span class="math display">\[p_{T}(\sum_{i=1}^{n}x_{i}\beta_{i}\sum_{j=1}^{n}y_{j}\beta_{j})=\sum_{i=1}^{n} x_{i}\bar{y_{i}}\]</span> es un producto interno en vista del ejemplo anterior. De este modo, para cada base de <span class="math inline">\(V\)</span>, existe un producto interno sobre <span class="math inline">\(V\)</span> con la propiedad <span class="math inline">\((\beta_{i}|\beta_{j})=\delta_{ij}\)</span>.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-517" class="example"><strong>Ejemplo 11.8  </strong></span>Sea <span class="math inline">\(V\)</span> el espacio de las funciones continuas en el intervalo <span class="math inline">\([0,1]\)</span> y <span class="math inline">\(W=V\)</span>. Sean <span class="math inline">\(T\)</span> el operador <span class="math inline">\((Tf)(t)=tf(t)\)</span> para <span class="math inline">\(0\leq t\leq 1\)</span>. Es fácil ver que <span class="math inline">\(T\)</span> es lineal, además que <span class="math inline">\(T\)</span> es no singular, en efecto, <span class="math inline">\(Tf=0\)</span> si y solo si <span class="math inline">\(tf(t)=0\)</span> para todo <span class="math inline">\(0\leq t\leq 1\)</span>, si y solo si <span class="math inline">\(f(t)=0\)</span> para todo <span class="math inline">\(0&lt; t\leq 1\)</span>. Pero en <span class="math inline">\(t=0\)</span>, como <span class="math inline">\(f\)</span> es continua, <span class="math inline">\(f(0)=0\)</span>. Usando el producto interno del ejemplo @ref{exp=ejemplo86}, se define el producto interno <span class="math display">\[p_{T}(f,g)=\int_{0}^{1} (Tf)(t)\bar{(Tg)(t)}dt=\int_{0}^{1} t^{2}f(t)\overline{g(t)}dt.\]</span></p>
+<p><span id="exm:unnamed-chunk-675" class="example"><strong>Ejemplo 17.8  </strong></span>Sea <span class="math inline">\(V\)</span> el espacio de las funciones continuas en el intervalo <span class="math inline">\([0,1]\)</span> y <span class="math inline">\(W=V\)</span>. Sean <span class="math inline">\(T\)</span> el operador <span class="math inline">\((Tf)(t)=tf(t)\)</span> para <span class="math inline">\(0\leq t\leq 1\)</span>. Es fácil ver que <span class="math inline">\(T\)</span> es lineal, además que <span class="math inline">\(T\)</span> es no singular, en efecto, <span class="math inline">\(Tf=0\)</span> si y solo si <span class="math inline">\(tf(t)=0\)</span> para todo <span class="math inline">\(0\leq t\leq 1\)</span>, si y solo si <span class="math inline">\(f(t)=0\)</span> para todo <span class="math inline">\(0&lt; t\leq 1\)</span>. Pero en <span class="math inline">\(t=0\)</span>, como <span class="math inline">\(f\)</span> es continua, <span class="math inline">\(f(0)=0\)</span>. Usando el producto interno del ejemplo @ref{exp=ejemplo86}, se define el producto interno <span class="math display">\[p_{T}(f,g)=\int_{0}^{1} (Tf)(t)\bar{(Tg)(t)}dt=\int_{0}^{1} t^{2}f(t)\overline{g(t)}dt.\]</span></p>
 </div>
 <p> Veamos algunos hechos generales sobre el producto interno. Supongamos que <span class="math inline">\(V\)</span> es un espacio vectorial complejo con producto interno. Sean <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> vectores cualesquiera en <span class="math inline">\(V\)</span>, entonces <span class="math display">\[(\alpha|\beta)=Re(\alpha|\beta)+iIm(\alpha|\beta)\]</span> donde <span class="math inline">\(Re(\alpha|\beta)\)</span> y <span class="math inline">\(Im(\alpha|\beta)\)</span> representan la parte real y la parte imaginaria del número <span class="math inline">\((\alpha|\beta)\)</span>, respectivamente. Como para todo número complejo <span class="math inline">\(z\)</span>, <span class="math inline">\(Im(z)=Re(-iz)\)</span>, se tiene que <span class="math inline">\(Im(\alpha|\beta)=Re(-i(\alpha|\beta))\)</span>, por las propiedades del producto interno tenemos que <span class="math inline">\(Im(\alpha|\beta)=Re(\alpha|i\beta))\)</span>. Luego, el producto interno se expresa en términos de la parte real de los números <span class="math inline">\((\alpha|\beta)\)</span> <span class="math inline">\((\alpha|i\beta)\)</span>, esto es <span class="math display">\[(\alpha|\beta)=Re(\alpha|\beta)+Re(\alpha|i\beta).\]</span> También es útil expresar el producto interno en términos de la forma cuadrática. Definimos <span class="math inline">\(||\alpha||:=\sqrt{(\alpha|\alpha)}\)</span>, la <em>función norma</em> de <span class="math inline">\(\alpha\)</span>. Esta función es la que en los espacios <span class="math inline">\(\mathbb{R}\)</span> y <span class="math inline">\(\mathbf{C}\)</span> conocemos como longitud de un vector. La <em>forma cuadrática</em> determinada por el producto interno es la función <span class="math inline">\(\alpha\mapsto||\alpha||^{2}\)</span>. De las propiedades del producto interno, se tiene que <span class="math display">\[||\alpha\pm\beta||^{2}=||\alpha||^{2}\pm 2Re(\alpha|\beta)+||\beta||^{2}.\]</span> En el caso que real <span class="math display">\[(\alpha|\beta)=\frac{1}{4}||\alpha+\beta||-\frac{1}{4}||\alpha-\beta||\]</span> y en el caso complejo, sabiendo que <span class="math inline">\((\alpha|\beta)=Re(\alpha|\beta)+Re(\alpha|i\beta)\)</span>, tenemos que <span class="math display">\[\begin{array}{rl}
  (\alpha|\beta)=&amp;\frac{1}{4}||\alpha+\beta||-\frac{1}{4}||\alpha-\beta||+\frac{i}{4}||\alpha+i\beta||-\frac{i}{4}||\alpha-i\beta||\\
@@ -270,12 +293,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>siempre que <span class="math inline">\(X\neq 0\)</span>. Además, <span class="math inline">\(G\)</span> es invertible; en efecto, si <span class="math inline">\(G\)</span> no es invertible, existe <span class="math inline">\(X\neq 0\)</span> tal que <span class="math inline">\(GX=0\)</span> y as'i <span class="math inline">\(X^{\ast}GX=0\)</span>, lo que es una contradicción. Interpretando @ref{eq=ec81}, nos dice que existen escalares <span class="math inline">\(x_{1},\cdots,x_{n}\)</span> no todos nulos, tales que <span class="math display">\[\sum_{k,j} \bar{x_{j}}G_{jk}x_{k}&gt;0\]</span> Esto último implica que los elementos de la diagonal de <span class="math inline">\(G\)</span> son positivos. De forma recíproca, si <span class="math inline">\(G\)</span> es una matriz <span class="math inline">\(n\times n\)</span> sobre <span class="math inline">\(\mathbb{F}\)</span> que satisface @ref{eq=ec81} y la condición <span class="math inline">\(G^{\ast}=G\)</span>, entonces existe una función producto interno en <span class="math inline">\(V\)</span> y una base ordenada <span class="math inline">\(\mathcal{B}\)</span> tal que <span class="math inline">\(G\)</span> es la matriz del producto interno en la base <span class="math inline">\(\mathcal{B}\)</span>. Más específicamente, la función dada por <span class="math inline">\((\alpha|\beta)=Y^{\ast}GX\)</span> donde <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son las matrices de coordenadas de <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> en la base <span class="math inline">\(\mathcal{B}\)</span>.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-518" class="definition"><strong>Definición 11.2  </strong></span> Un espacio <span class="math inline">\(V\)</span> con un producto interno definido sobre él, lo llamaremos <em>espacio (con) producto interno</em>. Un espacio producto interno real de dimensión finita, se suele llamar <em>espacio euclideano</em>. Llamaremos <em>espacio unitario</em> a los espacios producto interno complejos.</p>
+<p><span id="def:unnamed-chunk-676" class="definition"><strong>Definición 17.2  </strong></span> Un espacio <span class="math inline">\(V\)</span> con un producto interno definido sobre él, lo llamaremos <em>espacio (con) producto interno</em>. Un espacio producto interno real de dimensión finita, se suele llamar <em>espacio euclideano</em>. Llamaremos <em>espacio unitario</em> a los espacios producto interno complejos.</p>
 </div>
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-519" class="theorem"><strong>Teorema 11.1  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio producto interno. Entonces para cuales quiera vectores <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\in V\)</span> y todo escalar <span class="math inline">\(c\)</span>, se cumple que: (i.) <span class="math inline">\(||c\alpha||=|c|\,||\alpha||\)</span>, (ii.) Si <span class="math inline">\(\alpha\neq 0\)</span>, <span class="math inline">\(||\alpha||&gt;0\)</span>, (iii.) <span class="math inline">\(|(\alpha|\beta)|\leq ||\alpha||\,||\beta||\)</span>, (iv.) <span class="math inline">\(||\alpha+\beta||\leq||\alpha||+||\beta||\)</span>.</p>
+<p><span id="thm:unnamed-chunk-677" class="theorem"><strong>Teorema 17.1  </strong></span>Sea <span class="math inline">\(V\)</span> un espacio producto interno. Entonces para cuales quiera vectores <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\in V\)</span> y todo escalar <span class="math inline">\(c\)</span>, se cumple que: (i.) <span class="math inline">\(||c\alpha||=|c|\,||\alpha||\)</span>, (ii.) Si <span class="math inline">\(\alpha\neq 0\)</span>, <span class="math inline">\(||\alpha||&gt;0\)</span>, (iii.) <span class="math inline">\(|(\alpha|\beta)|\leq ||\alpha||\,||\beta||\)</span>, (iv.) <span class="math inline">\(||\alpha+\beta||\leq||\alpha||+||\beta||\)</span>.</p>
 </div>
 
 
@@ -294,11 +317,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>La desigualdad (iii.) del teorema anterior se llama <em>desigualdad de Cauchy-Schwarz</em>. De la demostración se puede ver que la igualdad en (iii.) se tiene si y solo si los vectores <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> son linealmente dependientes.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-521" class="example"><strong>Ejemplo 11.9  </strong></span>Aplicando la desigualdad de Cauchy-Schwarz al producto interno canónico se obteiren <span class="math display">\[|\sum x_{j}\bar{y_{j}}|\leq \left( \sum |x_{j}|^{2} \right)^{\frac{1}{2}} \left( \sum |y_{j}|^{2} \right)^{\frac{1}{2}} \]</span></p>
+<p><span id="exm:unnamed-chunk-679" class="example"><strong>Ejemplo 17.9  </strong></span>Aplicando la desigualdad de Cauchy-Schwarz al producto interno canónico se obteiren <span class="math display">\[|\sum x_{j}\bar{y_{j}}|\leq \left( \sum |x_{j}|^{2} \right)^{\frac{1}{2}} \left( \sum |y_{j}|^{2} \right)^{\frac{1}{2}} \]</span></p>
 </div>
 
-<div id="ejercicios-7" class="section level3">
-<h3><span class="header-section-number">11.0.1</span> Ejercicios</h3>
+<div id="ejercicios-4" class="section level3">
+<h3><span class="header-section-number">17.0.1</span> Ejercicios</h3>
 <p>[1] Sea <span class="math inline">\((|)\)</span> un producto interno sobre el espacio vectorial <span class="math inline">\(V\)</span>. Demuestre que: (a) <span class="math inline">\((0|\beta)=0\)</span> para todo vector <span class="math inline">\(\beta\in V\)</span>. (b) Si <span class="math inline">\((\alpha|\beta)=0\)</span> para todo <span class="math inline">\(\beta\in V\)</span>, entonces <span class="math inline">\(\alpha=0\)</span>.</p>
 <p>Respuesta: (a) De las propiedades del producto interno, se tiene que <span class="math inline">\((0|\beta)=(\alpha-\alpha|\beta)=(\alpha|\beta)-(\alpha|\beta)\)</span> para cualquier <span class="math inline">\(\beta\in V\)</span>. (b) Se sigue de la última condición de la definición de producto interno.</p>
 <p>[2] Sea <span class="math inline">\(V\)</span> un espacio vectorial sobre el cuerpo <span class="math inline">\(\mathbb{F}\)</span>. Muestre que la suma y los múltiplos positivos de productos internos sobre <span class="math inline">\(V\)</span>, es un producto interno sobre <span class="math inline">\(V\)</span>.</p>
@@ -343,11 +366,13 @@ ga('send', 'pageview');
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
 <script src="libs/gitbook/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -355,12 +380,11 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -372,6 +396,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -390,8 +418,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

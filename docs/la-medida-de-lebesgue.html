@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 LA MEDIDA DE LEBESGUE | Medida</title>
+  <meta name="description" content="Capítulo 3 LA MEDIDA DE LEBESGUE | Medida" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 LA MEDIDA DE LEBESGUE | Medida" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://synergy.vision/Medida/" />
+  <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
+  
+  <meta name="github-repo" content="synergyvision/Medida/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 LA MEDIDA DE LEBESGUE | Medida" />
+  
+  
+  <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
+
+<meta name="author" content="Synergy Vision" />
+
+
+<meta name="date" content="2020-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="construyendo-una-medida.html"/>
+<link rel="next" href="funciones-medibles.html"/>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="images/logovision-black.png" width="160"></img></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-qué-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prácticas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a><ul>
+<li class="chapter" data-level="2.1" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a></li>
+<li class="chapter" data-level="2.2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#colecciones-de-conjuntos"><i class="fa fa-check"></i><b>2.2</b> Colecciones de Conjuntos</a></li>
+<li class="chapter" data-level="2.3" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#el-conjunto-de-cantor"><i class="fa fa-check"></i><b>2.3</b> El conjunto de Cantor</a></li>
+<li class="chapter" data-level="2.4" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#medida"><i class="fa fa-check"></i><b>2.4</b> Medida</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html"><i class="fa fa-check"></i><b>3</b> LA MEDIDA DE LEBESGUE</a><ul>
+<li class="chapter" data-level="3.1" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#construyendo-la-medida-de-lebesgue"><i class="fa fa-check"></i><b>3.1</b> Construyendo la Medida de Lebesgue</a></li>
+<li class="chapter" data-level="3.2" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#unicidad-de-la-medida-de-lebesgue-y-otras-propiedades"><i class="fa fa-check"></i><b>3.2</b> Unicidad de la medida de Lebesgue y otras propiedades</a></li>
+<li class="chapter" data-level="3.3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#consideraciones"><i class="fa fa-check"></i><b>3.3</b> Consideraciones</a></li>
+<li class="chapter" data-level="3.4" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#la-medida-de-stieltjes"><i class="fa fa-check"></i><b>3.4</b> La Medida de Stieltjes</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="funciones-medibles.html"><a href="funciones-medibles.html"><i class="fa fa-check"></i><b>4</b> FUNCIONES MEDIBLES</a><ul>
+<li class="chapter" data-level="4.1" data-path="funciones-medibles.html"><a href="funciones-medibles.html#conceptos-básicos"><i class="fa fa-check"></i><b>4.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="4.2" data-path="funciones-medibles.html"><a href="funciones-medibles.html#aproximaciones-de-funciones-medibles"><i class="fa fa-check"></i><b>4.2</b> Aproximaciones de funciones medibles</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html"><i class="fa fa-check"></i><b>5</b> LA INTEGRAL DE LEBESGUE</a><ul>
+<li class="chapter" data-level="5.1" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#conceptos-básicos-1"><i class="fa fa-check"></i><b>5.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="5.2" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#intercambio-de-límites-con-la-integral"><i class="fa fa-check"></i><b>5.2</b> Intercambio de límites con la integral</a></li>
+<li class="chapter" data-level="5.3" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#teoremas-de-aproximación"><i class="fa fa-check"></i><b>5.3</b> Teoremas de Aproximación</a></li>
+<li class="chapter" data-level="5.4" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#más-sobre-la-integral-de-lebesgue"><i class="fa fa-check"></i><b>5.4</b> Más sobre la Integral de Lebesgue</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="convergencia.html"><a href="convergencia.html"><i class="fa fa-check"></i><b>6</b> CONVERGENCIA</a><ul>
+<li class="chapter" data-level="6.1" data-path="convergencia.html"><a href="convergencia.html#tipos-de-convergencia"><i class="fa fa-check"></i><b>6.1</b> Tipos de convergencia</a></li>
+<li class="chapter" data-level="6.2" data-path="convergencia.html"><a href="convergencia.html#espacios-lp"><i class="fa fa-check"></i><b>6.2</b> Espacios <span class="math inline">\(L^{p}\)</span></a></li>
+<li class="chapter" data-level="6.3" data-path="convergencia.html"><a href="convergencia.html#espacios-linfty"><i class="fa fa-check"></i><b>6.3</b> Espacios <span class="math inline">\(L^{\infty}\)</span></a></li>
+<li class="chapter" data-level="6.4" data-path="convergencia.html"><a href="convergencia.html#espacios-de-hilbert"><i class="fa fa-check"></i><b>6.4</b> Espacios de Hilbert</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html"><i class="fa fa-check"></i><b>7</b> DIFERENCIACION E INTEGRACIÓN</a><ul>
+<li class="chapter" data-level="7.1" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-monótonas"><i class="fa fa-check"></i><b>7.1</b> Funciones monótonas</a></li>
+<li class="chapter" data-level="7.2" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-de-variación-acotada"><i class="fa fa-check"></i><b>7.2</b> Funciones de variación acotada</a></li>
+<li class="chapter" data-level="7.3" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#de-la-integral-indefinida.-continuidad-absoluta"><i class="fa fa-check"></i><b>7.3</b> De la Integral indefinida. Continuidad Absoluta</a></li>
+<li class="chapter" data-level="7.4" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#cambio-de-variables"><i class="fa fa-check"></i><b>7.4</b> Cambio de variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html"><i class="fa fa-check"></i><b>8</b> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></a><ul>
+<li class="chapter" data-level="8.1" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#espacio-producto"><i class="fa fa-check"></i><b>8.1</b> Espacio Producto</a></li>
+<li class="chapter" data-level="8.2" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#medida-de-lebesgue-en-mathbbrn"><i class="fa fa-check"></i><b>8.2</b> Medida de Lebesgue en <span class="math inline">\(\mathbb{R}^{n}\)</span></a></li>
+<li class="chapter" data-level="8.3" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#teorema-de-fibini.-teorema-de-tonelli"><i class="fa fa-check"></i><b>8.3</b> Teorema de Fibini. Teorema de Tonelli</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apéndice</b></span></li>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A.1" data-path="software-tools.html"><a href="software-tools.html#r-and-r-packages"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
+<li class="chapter" data-level="A.2" data-path="software-tools.html"><a href="software-tools.html#pandoc"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
+<li class="chapter" data-level="A.3" data-path="software-tools.html"><a href="software-tools.html#latex"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Medida</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="la-medida-de-lebesgue" class="section level1">
+<h1><span class="header-section-number">Capítulo 3</span> LA MEDIDA DE LEBESGUE</h1>
+<div id="construyendo-la-medida-de-lebesgue" class="section level2">
+<h2><span class="header-section-number">3.1</span> Construyendo la Medida de Lebesgue</h2>
+<p>En esta parte construiremos la medida de Lebesgue usando el método de Carathéodory.</p>
+<p>Partiremos de la familia de conjuntos <span class="math inline">\(\mathcal{I}=\{&lt;a,b&gt;: a\leq a\in\mathbb{R}\}\)</span> la cual tiene estructura de semianillo. Definamos la función longitud en esta clase de conjuntos: <span class="math display">\[l:\mathcal{I}\longrightarrow\mathbb{R}: &lt;a,b&gt;\mapsto b-a\]</span> Para esta función se tiene lo siguiente:</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-80" class="proposition"><strong>Proposición 3.1  </strong></span>La función <span class="math inline">\(l\)</span> es finitamente aditiva en <span class="math inline">\(\mathcal{I}\)</span>. Es decir, para <span class="math inline">\(I\in\mathcal{I}\)</span>, si <span class="math inline">\(I=\bigcup_{k=1}^{n} I_{k}\)</span> con cada <span class="math inline">\(I_{k}\in\mathcal{I}\)</span> y <span class="math inline">\(I_{k}\cap I_{m}=\emptyset\)</span> si <span class="math inline">\(k\neq m\)</span>, entonces <span class="math inline">\(l(I)=\sum_{k=1}^{n} l(I_{k})\)</span>.</p>
+</div>
+
+<p>Consideremos el anillo generado por <span class="math inline">\(\mathcal{I}\)</span>, es decir <span class="math inline">\(\mathcal{R}(\mathcal{I})\)</span>. Se puede probar que <span class="math inline">\(\mathcal{R}(\mathcal{I})\)</span> está formado por las uniones finitas y disjuntas de elementos de <span class="math inline">\(\mathcal{I}\)</span>. Definamos la extensi'on natural de <span class="math inline">\(l\)</span> al anillo <span class="math inline">\(\mathcal{R}(\mathcal{I})\)</span>, de la siguinte manera: <span class="math display">\[\overline{l}:\mathcal{R}(\mathcal{I})\longrightarrow\mathbb{R}^{+}:I\mapsto \sum_{k=1}^{n} I_{k}, \mbox{ donde } I=\bigcup_{k=1}^{n} I_{k}\]</span></p>
+<p>Veamos a continuación algunas de las propiedades de la extensión de <span class="math inline">\(l\)</span>.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-81" class="proposition"><strong>Proposición 3.2  </strong></span>La extensión <span class="math inline">\(\overline{l}\)</span>, está bien definida en <span class="math inline">\(\mathcal{R}(\mathcal{I})\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Supongamos que <span class="math inline">\(I\in\mathbb{R}(\mathcal{I})\)</span> se escribe como <span class="math inline">\(I=\bigcup_{r=1}^{n} I_{r}\)</span> y <span class="math inline">\(I=\bigcup_{s=1}^{m} J_{s}\)</span>, con <span class="math inline">\((I_{r})_{r=1}^{n}\)</span> y <span class="math inline">\((I_{r})_{r=1}^{n}\)</span> familias disjuntas de <span class="math inline">\(\mathcal{I}\)</span>. Queremos ver que <span class="math inline">\(\sum_{r=1}^{n} l(I_{r})=\sum_{s=1}^{m} l(J_{s})\)</span>. Sea <span class="math inline">\(H_{rs}=I_{r}\cup J_{s}\)</span> para todo <span class="math inline">\(r\leq n\)</span> y <span class="math inline">\(s\leq m\)</span>. Note que la colección <span class="math inline">\((H_{rs})\)</span> es disjunta. Por otro lado, se tiene que <span class="math display">\[I_{r}=I_{r}\cap A=I_{r}\cap\left( \bigcup_{s=1}^{m} J_{s}\right) =\bigcup_{s=1}^{m} H_{rs}\]</span> y <span class="math display">\[J_{s}=J_{s}\cap A=J_{s}\cap\left( \bigcup_{r=1}^{n} I_{r}\right) =\bigcup_{r=1}^{n} H_{rs}\]</span> por lo tanto, <span class="math display">\[\sum_{r=1}^{n} l(I_{r})=\sum_{r=1}^{n} \sum_{s=1}^{m} l(H_{rs})=\sum_{s=1}^{m} \sum_{r=1}^{n} l(H_{rs})=\sum_{s=1}^{m} l(J_{s})\]</span>.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-83" class="proposition"><strong>Proposición 3.3  </strong></span> <span class="math inline">\(\overline{l}\)</span> es finitamente aditiva.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Note que <span class="math inline">\(\emptyset=(a,a]\)</span>, por lo tanto, <span class="math inline">\(\overline{l}(\emptyset)=a-a=0\)</span>. Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> subconjuntos en <span class="math inline">\(\mathcal{R}(\mathcal{I})\)</span> disjuntos. Entonces, <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> se escriben como uniones disjuntas de intervalos de <span class="math inline">\(\mathcal{I}\)</span>, es decir, <span class="math inline">\(A=\bigcup_{r=1}^{n} I_{r}\)</span> con <span class="math inline">\(I_{1},\cdots, I_{n}\in\mathcal{I}\)</span> y <span class="math inline">\(B=\bigcup_{s=1}^{m} J_{s}\)</span> con <span class="math inline">\(J_{1},\cdots, J_{m}\in\mathcal{I}\)</span>. Como <span class="math inline">\(A\cap B=\emptyset\)</span>, la colección <span class="math inline">\(\{I_{1},\cdots,I_{n},J_{1},\cdots,J_{m}\}\)</span> es disjunta. Además se tiene que $AB=( <em>{r=1}^{n} I</em>{r}) ( <em>{s=1}^{m} J</em>{s}) $. De donde se tiene que <span class="math inline">\(\overline{l}(A\cup B)=\sum_{r=1}^{n} l(I_{r})+\sum_{s=1}^{m} l(J_{s})\)</span>.</p>
+</div>
+
+<p>Es importante notar que <span class="math inline">\(\overline{l}\)</span> es la única extensión finitamente aditiva de <span class="math inline">\(l\)</span> en <span class="math inline">\(\mathcal{R}(\mathcal{I})\)</span>. Además, sean <span class="math inline">\(A, B\in\mathcal{R}(\mathcal{I})\)</span> tales que <span class="math inline">\(A\subseteq B\)</span>. Como <span class="math inline">\(B=(B\backslash A)\cup A\)</span>, <span class="math inline">\(\overline{l}(B)=\overline{l}(B\backslash A)+\overline{l}(A)\)</span> y <span class="math inline">\(\overline{l}\)</span> es una función no negativa, se tiene que <span class="math inline">\(\overline{l}(A)\leq \overline{l}(B)\)</span>. Esto es el siguiente resultado:</p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-85" class="corollary"><strong>Corolario 3.1  </strong></span><span class="math inline">\(\overline{l}\)</span> es una función monótona en <span class="math inline">\(\mathcal{R}(\mathcal{I})\)</span>.</p>
+</div>
+
+<p>De igual forma se tiene que</p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-86" class="corollary"><strong>Corolario 3.2  </strong></span><span class="math inline">\(\overline{l}\left( \bigcup_{k=1}^{n}\right) \leq \sum_{k=1}^{n}l(J_{k})\)</span>, donde <span class="math inline">\((J_{k})_{k=1}^{n}\)</span> es un subconjunto finito de intervalos cualesquiera de <span class="math inline">\(\mathcal{I}\)</span>.</p>
+</div>
+
+<p>Para ver que <span class="math inline">\(\overline{l}\)</span> es <span class="math inline">\(\sigma\)</span>-aditiva, usaremos el teorema de Heine-Borel.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-87" class="proposition"><strong>Proposición 3.4  </strong></span><span class="math inline">\(\overline{l}\)</span> es <span class="math inline">\(\sigma\)</span>-aditiva.</p>
+</div>
+
+
+<div class="proof">
+ <span class="proof"><em>Demostración. </em></span> Veamos la demostración para dos casos, primero para unión numerables disjuntas de conjuntos en <span class="math inline">\(\mathcal{I}\)</span> y luego para unión numerables disjuntas de conjuntos cualesquiera en <span class="math inline">\(\mathcal{R}(\mathcal{I})\)</span>. Sea <span class="math inline">\(I=\bigcup_{n\in\mathbb{N}} I_{n}\)</span> con <span class="math inline">\(I_{n}\in\mathbb{N}\)</span> disjuntos <span class="math inline">\(I_{i}\cap I_{j}=\emptyset\)</span> siempre que <span class="math inline">\(i\neq j\)</span>. Para cada <span class="math inline">\(N\in\mathbb{N}\)</span>, <span class="math inline">\(\bigcup_{n=1}^{N} I_{n}\subseteq I\)</span>, por lo tanto, para todo <span class="math inline">\(N\in\mathbb{N}\)</span> <span class="math inline">\(\overline{l}\left( \bigcup_{n=1}^{N} I_{n}\right) \leq \overline{l}(I)\)</span>; como <span class="math inline">\(\overline{l}\)</span> es finitamente aditiva, se tiene que <span class="math inline">\(\sum_{n=1}^{N} \overline{l}(I_{n})\leq \overline{l}(I)\)</span>. Si <span class="math inline">\(N\)</span> tiende a infinito, se tiene que: <span class="math display">\[\sum_{n=1}^{\infty} \overline{l}(I_{n})=\lim_{N\to\infty} \sum_{n=1}^{N} \overline{l}(I_{n})\leq \overline{l}(I).\]</span> Supongamos que <span class="math inline">\(I\)</span> es un intervalo de extremos <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>, esto es <span class="math inline">\(I=&lt;a,b&gt;\)</span>. Sea <span class="math inline">\(\epsilon&gt;0\)</span> y consideremos <span class="math inline">\(I_{\epsilon}=[a+\epsilon, b-\epsilon]\subseteq I\)</span>. Construyamos un cubrimiento por abiertos para el intervalo <span class="math inline">\(I_{\epsilon}\)</span> como sigue\ Llamemos <span class="math inline">\(&lt;a_{n}^{\epsilon}, b_{n}^{\epsilon}&gt;\)</span> al intervalo que resulta de la interseccón <span class="math inline">\(I_{n}\cap I_{\epsilon}\)</span> para cada <span class="math inline">\(n\in\mathbb{N}\)</span> y sea <span class="math display">\[J_{n}^{\epsilon}=\left( a_{n}^{\epsilon}-\frac{\epsilon}{2^{n}}, b_{n}^{\epsilon}+\frac{\epsilon}{2^{n}}\right)\]</span> entonces, <span class="math display">\[I_{\epsilon}=I_{\epsilon}\cap\left( \bigcup_{n=1}^{\infty} I_{n}\right) =\bigcup_{n=1}^{\infty} I_{\epsilon}\cap I_{\epsilon}\subseteq\bigcup_{n=1}^{\infty} J_{n}^{\epsilon}.\]</span> Como <span class="math inline">\(I_{\epsilon}\)</span> es compacto (por ser cerrado y acotado) y <span class="math inline">\((J_{n}^{\epsilon})\)</span> es un cubrimiento por abiertos de <span class="math inline">\(I_{\epsilon}\)</span>, existe un subcubrimiento finito de <span class="math inline">\(I_{\epsilon}\)</span>, esto es, existe <span class="math inline">\(N\in\mathbb{N}\)</span> tal que <span class="math inline">\(I_{\epsilon}\subseteq \bigcup_{n=1}^{N} J_{n}^{\epsilon}\)</span>. Por lo tanto <span class="math inline">\(I_{\epsilon}\subseteq \bigcup_{n=1}^{k} J_{n}^{\epsilon}\)</span> para todo <span class="math inline">\(k\geq N\)</span>. Por monotonía y aditividad finita, se tiene que <span class="math display">\[\overline{l}(I_{\epsilon})\leq \overline{l}\left(\bigcup_{n=1}^{k} J_{n}^{k} \right)\leq \sum_{n=1}^{k} \overline{l}(J_{n}^{\epsilon})\mbox{ para todo } k\geq N\]</span> Ahora, como <span class="math inline">\(\overline{l}(J_{n}^{\epsilon})=l(&lt;a_{n}^{\epsilon},b_{n}^{\epsilon}&gt;)+\frac{\epsilon}{2^{n}}\)</span>, se tiene que <span class="math display">\[\overline{l}(I_{\epsilon})\leq \sum_{n=1}^{k}l(&lt;a_{n}^{\epsilon},b_{n}^{\epsilon}&gt;)+\frac{\epsilon}{2^{n-1}}=\sum_{n=1}^{k} l(I_{n}\cap I_{\epsilon})+\frac{\epsilon}{2^{n-1}}\]</span> Como <span class="math inline">\(I_{n}\cap I_{\epsilon}\subseteq I_{n}\)</span>, <span class="math inline">\(l(I_{n}\cap I_{\epsilon})\leq l(I_{n})\)</span>, entonces: <span class="math display">\[\overline{l}(I_{\epsilon})\leq \sum_{n=1}^{k} l(I_{n})\frac{\epsilon}{2^{n-1}}.\]</span> Cuando <span class="math inline">\(k \to \infty\)</span>, <span class="math display">\[l(I_{\epsilon})\leq \sum_{n=1}^{\infty}l(I_{n})+\sum_{n=1}^{\infty} \frac{\epsilon}{2^{n-1}}=\sum_{n=1}^{\infty}l(I_{n})+ 2\epsilon.\]</span> Ahora bien, como <span class="math inline">\(l(I_{\epsilon})=l(I)-2\epsilon\)</span>, entonces <span class="math display">\[l(I)\leq \sum_{n=1}^{\infty}l(I_{n})+ 4\epsilon\]</span> por lo tanto, <span class="math display">\[\overline{l}(I)\leq \sum_{n=1}^{\infty}\overline{l}(I_{n}).\]</span> Con lo que se concluye que <span class="math display">\[\overline{l}(I)=\sum_{n=1}^{\infty}\overline{l}(I_{n}).\]</span>
+</div>
+
+<p>Ahora, consideremos un conjunto cualquiera <span class="math inline">\(E\in\mathcal{R}(\mathcal{I})\)</span> tal que <span class="math inline">\(E=\bigcup_{k=1}^{\infty} E_{k}\)</span> donde cada <span class="math inline">\((E_{k})_{k\in\mathbb{N}}\in\mathcal{R}(\mathcal{I})\)</span> una colección disjunta. Supongamos que cada <span class="math inline">\(E_{k}=\bigcup_{j=1}^{n_{k}} J_{j}^{k}\)</span> con <span class="math inline">\(J_{j}^{k}\in\mathcal{I}\)</span> disjuntos. Por otro lado, como <span class="math inline">\(E\in\mathcal{R}(\mathcal{I})\)</span>, se tiene que es unión finita de intervalos, es decir, <span class="math inline">\(E=\bigcup_{i=1}^{n}I_{n}\)</span>, para <span class="math inline">\(I_{n}\in\mathcal{I}\)</span><br />
+De este modo, tenemos que <span class="math inline">\(\overline{l}(E)=\sum_{i=1}^{n} l(I-{i})=\)</span>. Por otro lado <span class="math inline">\(\sum_{k=1}^{\infty} \overline{l}(E_{k})=\sum_{k=1}^{\infty}\sum_{j=1}^{n_{k}} l(J_{j}^{k})\)</span>. Como <span class="math inline">\((I_{i})_{i=1}^{n}\)</span> y <span class="math inline">\((E_{k})_{k\in\mathbb{N}}\)</span> son particiones del mismo conjunto, se tiene que <span class="math display">\[I_{i}=\bigcup_{k\geq 1} I_{i}\cap E_{k}=\bigcup_{k\geq 1}\bigcup_{j=1}^{n_{k}} I_{i}\cap J_{j}^{k}\mbox{ para todo }i=1,\cdots, n.\]</span></p>
+<p>Llamemos, <span class="math inline">\(L_{ijk}=I_{i}\cap J_{j}^{k}\in\mathcal{I}\)</span>. Luego <span class="math inline">\((L_{ijk})_{j\leq n_{k}, k\geq 1}\)</span> es una colección disjuntas de intervalos de <span class="math inline">\(\mathcal{I}\)</span>. Como <span class="math inline">\(\overline{l}\)</span> es <span class="math inline">\(\sigma\)</span>-aditiva en <span class="math inline">\(\mathcal{I}\)</span>, se tiene que <span class="math display">\[\overline{l}(I_{i})=\sum_{k\geq 1}\sum_{j=1}^{n_{k}} \overline{l}(L_{ijk})\]</span> Finalmente, <span class="math display">\[\overline{l}(E)=\sum_{i=1}^{n} l(I_{i})=\sum_{i=1}^{n}\sum_{k\geq 1}\sum_{j=1}^{n_{k}}l(L_{ijk})=\sum_{k\geq 1}\sum_{j=1}^{n_{k}}l(J_{jk})=\sum_{k\geq 1}\overline{l}(E_{k}).\]</span></p>
+<p>```</p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-89" class="corollary"><strong>Corolario 3.3  </strong></span>Sea <span class="math inline">\(E\subseteq\bigcap_{k\geq 1} E_{n}\)</span>, con <span class="math inline">\(E_{n}\in\mathcal{R}(\mathcal{I})\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>. Entonces <span class="math inline">\(\overline{l}(E)\leq \sum_{n\geq 1}\overline{l}(E_{n})\)</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Construyamos una unión disjunta: <span class="math inline">\(F_{1}=E_{1}\)</span> y <span class="math inline">\(F_{n}=E_{n}\backslash \bigcup_{k=1}^{n-1} E_{k}\)</span> para todo <span class="math inline">\(n&gt;1\)</span>. Se tiene que <span class="math inline">\(\bigcup_{n\geq 1} E_{n}=\bigcup_{n\geq 1} F_{n}\)</span>. Entonces <span class="math inline">\(E\subseteq \bigcup_{n\geq 1} F_{n}\)</span>. Además, por construcción, <span class="math inline">\(F_{n}\subseteq E_{n}\)</span>. Por monotonía y <span class="math inline">\(\sigma\)</span>-aditividad de <span class="math inline">\(\overline{l}\)</span>, se sigue que <span class="math display">\[\overline{l}(E)\leq \overline{l}\left( \bigcup_{k\geq 1} E_{n}\right) =\overline{l}\left( \bigcup_{k\geq 1} F_{n}\right) =\sum_{k\geq 1}\overline{l}(F_{n})\leq\sum_{k\geq 1}\overline{l}(E_{n}).\]</span></p>
+</div>
+
+<p>Ahora, extenderemos la función <span class="math inline">\(\overline{l}\)</span> a la <span class="math inline">\(\sigma\)</span>-álgebra de Borel usando el método de Carathéodory. A partir de <span class="math inline">\(\overline{l}\)</span>, definiremos la función medida exterior, <span class="math inline">\(m^{\ast}\)</span>. Primero definamos para cada <span class="math inline">\(A\in\wp(\mathbb{R})\)</span>, el conjunto <span class="math display">\[\iota(A)=\left\lbrace (I_{n})_{n\geq 1}:\mbox{ cada } I_{n}\mbox{ es un intervalo finito y } A\subseteq \bigcup_{n\geq 1} I_{n}\right\rbrace ;\]</span> note que <span class="math inline">\(\iota(A)\neq\emptyset\)</span> para cualquier <span class="math inline">\(A\in\wp\)</span>, ya que <span class="math inline">\(A\subseteq\mathbb{R}=\bigcup_{n\geq 1}[-n,n]\)</span>.</p>
+<p>Sea <span class="math inline">\(m^{\ast}:\wp(\mathbb{R})\longrightarrow \overline{\mathbb{R}^{+}}\)</span> definida por $m^{}(A)=<em>{(I</em>{n})(A)} <em>{n1} l(I</em>{n})=<em>{n1} l(I</em>{n}): (I_{n})_{n}(A) $</p>
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> <span class="math inline">\(m^{\ast}\)</span> no es una medida en <span class="math inline">\(\wp(\mathbb{R})\)</span> (no es <span class="math inline">\(\sigma\)</span>-aditiva en <span class="math inline">\(\wp(\mathbb{R})\)</span>). Aunque tiene algunas propiedades importantes, similares a las medidas.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-92" class="proposition"><strong>Proposición 3.5  </strong></span>La función <span class="math inline">\(m^{\ast}\)</span> tiene las siguientes propiedades:</p>
+<p>(i.) <span class="math inline">\(m^{\ast}(\emptyset)=0\)</span>.</p>
+<p>(ii.) <span class="math inline">\(m^{\ast}\)</span> es monótona, esto es, si <span class="math inline">\(A\subseteq B\)</span>, entonces <span class="math inline">\(m^{\ast}(A)\leq m^{\ast}(B)\)</span>.</p>
+<p>(iii.) <span class="math inline">\(m^{\ast}\)</span> coincide con la longitud en el conjunto de los intervalos finitos, es decir, si <span class="math inline">\(I\)</span> es un intervalo finito, <span class="math inline">\(m^{\ast}(I)=l(I)\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> (i.) Como <span class="math inline">\(\emptyset\subseteq(a,a)\)</span> para cualquier número real <span class="math inline">\(a\)</span>, entonces <span class="math inline">\(m^{\ast}(\emptyset)\)</span>.</p>
+<p>(ii.) Sean <span class="math inline">\(A, B\in\mathbb{R}\)</span>, tales que <span class="math inline">\(A\subseteq B\)</span>. Es claro que <span class="math inline">\(\iota(B)\subseteq \iota(A)\)</span>, de donde se sigue que <span class="math display">\[m^{\ast}(A)=\inf_{(I_{n})\in\iota(A)} \sum_{n\geq 1} l(I_{n})\leq \inf_{(I_{n})\in\iota(A)} \sum_{n\geq 1} l(I_{n})=m^{\ast}(B)\]</span>.</p>
+<p>(iii.) Sea <span class="math inline">\(I\)</span> un intervalo finto. <span class="math display">\[m^{\ast}(I)=\inf_{(I_{n})\in\iota(I)} \sum_{n\geq 1} l(I_{n})\leq l(I)\]</span> por otro lado, si <span class="math inline">\(I\subseteq \bigcup_{n\geq 1} I_{n}\)</span> para una familia <span class="math inline">\((I_{n})_{n}\)</span> de intervalos finitos, entonces <span class="math display">\[l(I)\leq \sum_{n=1} l(I_{n})\leq \inf_{(I_{n})\in\iota(I)} \sum_{n\geq 1} l(I_{n})\leq m^{\ast}(I).\]</span> Por lo tanto <span class="math inline">\(m^{\ast}(I)=l(I)\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-94" class="definition"><strong>Definición 3.1  </strong></span>Una función <span class="math inline">\(\mu:\mathcal{C}\longrightarrow\mathbb{R}\)</span> es <span class="math inline">\(\sigma\)</span>-subaditiva si para todo <span class="math inline">\((A_{n})_{n\in\mathbb{N}}\subseteq\mathcal{C}\)</span> se tiene que <span class="math inline">\(\mu\left( \bigcup_{n\geq 1} A_{n}\right) \leq \sum_{n\geq 1} \mu(A_{n})\)</span>.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-95" class="proposition"><strong>Proposición 3.6  </strong></span><span class="math inline">\(m^{\ast}\)</span> es <span class="math inline">\(\sigma\)</span>-subaditiva.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\((A_{n})_{n\in\mathbb{N}}\)</span> una colección de subconjuntos de <span class="math inline">\(\mathbb{R}\)</span>. Si <span class="math inline">\(m^{\ast}(A_{n})=\infty\)</span> para algún <span class="math inline">\(n\in\mathbb{N}\)</span>, es claro que <span class="math inline">\(m^{\ast}\left( \bigcup_{n\geq 1} A_{n}\right) \leq \sum_{n\geq 1} m^{\ast}(A_{n})\)</span>. Supongamos que <span class="math inline">\(m^{\ast}(A_{n})&lt;\infty\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>. Dado <span class="math inline">\(\epsilon&gt;0\)</span>, para cada <span class="math inline">\(n\in\mathbb{N}\)</span>, existe una colección de intervalos <span class="math inline">\((I_{i}^{n})_{i\geq 1}\)</span> tal que <span class="math inline">\(A_{n}\subseteq \bigcup_{i\geq 1} I_{i}^{n}\)</span> tal que <span class="math display">\[\sum_{i\geq 1}l(I_{i}^{n})&lt; m^{\ast}(A_{n})+\frac{\epsilon}{2^{n}}.\]</span> Consideremos la colección <span class="math inline">\((I_{i}^{n})_{i,n\geq 1}\)</span> que resulta de unir las colecciones de intervalos hallados para cada <span class="math inline">\(n\)</span>. Entonces, <span class="math display">\[\bigcup_{n\geq 1} A_{n}\subseteq\bigcup_{i,n\geq 1} I_{i}^{n};\]</span> por lo tanto <span class="math display">\[m^{\ast}\left(\bigcup_{n\geq 1} A_{n}\right)\leq \sum_{n\geq 1}\sum_{i\geq 1} l(I_{i}^{n})&lt; \sum_{n\geq 1} \left( m^{\ast}(A_{n})+\frac{\epsilon}{2^{n}}\right) =\sum_{n\geq 1} m^{\ast}(A_{n})+ \epsilon.\]</span> De donde se sigue que <span class="math display">\[m^{\ast}\left(\bigcup_{n\geq 1} A_{n}\right)\leq \sum_{n\geq 1} m^{\ast}(A_{n}).\]</span></p>
+</div>
+
+<p>El siguiente teorema nos permite aproximar la medida de un conjunto cualquiera de números reales, por la medida de un conjunto abierto en <span class="math inline">\(\mathbb{R}\)</span>, tan cercano como se quiera (en términos de medida). Más aún, permite asegurar que existe un conjunto <span class="math inline">\(G_{\delta}\)</span> que contiene al conjunto en cuestión, con idéntica medida.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-97" class="theorem"><strong>Teorema 3.1  </strong></span>Dado <span class="math inline">\(A\subseteq\mathbb{R}\)</span> y <span class="math inline">\(\epsilon&gt;0\)</span>, existe un conjunto abierto <span class="math inline">\(O\subseteq\mathbb{R}\)</span> tal que <span class="math inline">\(A\subseteq O\)</span> y <span class="math inline">\(m^{\ast}(A)\leq m^{\ast}(O)\leq m^{\ast}(A)+\epsilon\)</span>. Además, existe un conjunto <span class="math inline">\(G_{\delta}\)</span>, <span class="math inline">\(G\)</span>, tal que <span class="math inline">\(A\subseteq G\)</span> y <span class="math inline">\(m^{\ast}(A)=m^{\ast}(G)\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(\epsilon&gt;0\)</span>, existe una colección <span class="math inline">\((I_{n})_{n\geq 1}\)</span> tal que <span class="math inline">\(A\subseteq\bigcup_{n\geq 1} I_{n}\)</span> y <span class="math inline">\(\sum_{n\geq 1}l(I_{n})&lt; m^{\ast}(A)+\frac{\epsilon}{2}\)</span>. Definamos una colección de intervalos abiertos a partir de la colección <span class="math inline">\((I_{n})_{n\geq 1}\)</span>, así: si <span class="math inline">\(I_{n}=&lt;a_{n}, b_{n}&gt;\)</span>, definamos <span class="math inline">\(J_{n}=(a_{n}-\frac{\epsilon}{2^{n+2}}, b_{n}+\frac{\epsilon}{2^{n+2}})\)</span> y sea <span class="math inline">\(O=\bigcup_{n\geq} J_{n}\)</span>. Claramente <span class="math inline">\(O\)</span> es un conjunto abierto que contiene al conjunto <span class="math inline">\(A\)</span>. Además, <span class="math display">\[m^{\ast}(O)\leq \sum_{n\geq 1} J_{n}=\sum_{n\geq 1} l(J_{n})+\frac{\epsilon}{2}\leq m^{\ast}+\frac{\epsilon}{2}=m^{\ast}+\epsilon.\]</span> Ahora, considerando <span class="math inline">\(\epsilon=\frac{1}{n}\)</span>, para cada <span class="math inline">\(n\in\mathbb{N}\)</span>, por lo anterior, existe <span class="math inline">\(O_{n}\)</span> tal que <span class="math inline">\(A\subseteq O_{n}\)</span> y <span class="math inline">\(m^{\ast}(A)\leq m^{\ast}(O_{n})\leq m^{\ast}(A)+\frac{1}{n}\)</span>. Tomando la intersección de todos estos conjuntos abiertos, obtenemos un conjunto <span class="math inline">\(G_{\delta}\)</span>, <span class="math inline">\(G=\bigcap_{n\geq 1} O_{n}\)</span>, tal que <span class="math inline">\(A\subseteq G=\bigcap_{n\geq 1} O_{n}\)</span> por lo que <span class="math inline">\(m^{\ast}(A)\leq m^{\ast}(G)\)</span>. Por otro lado, como <span class="math inline">\(G\subseteq O_{n}\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>, entonces <span class="math display">\[m^{\ast}(A)\leq m^{\ast}(G)\leq m^{O_{n}}\leq m^{\ast}(A)+\frac{1}{n}\mbox{ para todo } n\in\mathbb{N}.\]</span> De donde se sigue que <span class="math display">\[m^{\ast}(A)=m^{\ast}(G).\]</span></p>
+</div>
+
+<p>Como la función longitud es invariante bajo traslaciones, es fácil ver que <span class="math inline">\(m^{\ast}\)</span> es invariante bajo traslaciones.</p>
+<p>Como ya dijimos, <span class="math inline">\(m^{\ast}\)</span> no es una medida, ya que esta no es <span class="math inline">\(\sigma\)</span>-aditiva. Pero podemos considerar un clase donde si lo sea. Para ello, daremos la definición de conjuntos medibles bajo la función <span class="math inline">\(m^{\ast}\)</span>, debida a <em>Carathéodory</em>.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-99" class="definition"><strong>Definición 3.2  </strong></span>Un conjunto <span class="math inline">\(E\subseteq \mathbb{R}\)</span> es <span class="math inline">\(m^{\ast}\)</span> medible si y solo si para todo subconjunto de números reales, <span class="math inline">\(A\subseteq\mathbb{R}\)</span> se tiene que <span class="math display">\[m^{\ast}(A)=m^{\ast}(A\cap E)+ m^{\ast}(A\cap E^{c}).\]</span>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Es claro que si <span class="math inline">\(m^{\ast}\)</span> fuese finitamente aditiva, todo conjunto <span class="math inline">\(E\subseteq\mathbb{R}\)</span> sería un conjunto <span class="math inline">\(m^{\ast}\)</span> medible. De la <span class="math inline">\(\sigma\)</span>-subaditividad, se tiene que <span class="math inline">\(m^{\ast}(A)\leq m^{\ast}(A\cap E)+m^{\ast}(A\cap E^{c})\)</span>. Por lo tanto, para verificar que un conjunto es <span class="math inline">\(m^{\ast}\)</span> medible, basta verificar la otra desigualdad, esto es <span class="math inline">\(m^{\ast}(A)\geq m^{\ast}(A\cap E)+m^{\ast}(A\cap E^{c})\)</span>. La definición de conjuntos <span class="math inline">\(m^{\ast}\)</span> medibles es simétrica bajo complementación, esto es, <span class="math inline">\(E\)</span> es <span class="math inline">\(m^{\ast}\)</span> medible si y solo si <span class="math inline">\(E^{c}\)</span> lo es. Es fácil verificar que el conjunto vaciío es <span class="math inline">\(m^{\ast}\)</span> medible. Por lo anterior, <span class="math inline">\(\mathbb{R}=\emptyset^{c}\)</span> lo es.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-101" class="proposition"><strong>Proposición 3.7  </strong></span>Sea un conjunto <span class="math inline">\(E\subseteq\mathbb{R}\)</span>. Si <span class="math inline">\(m^{\ast}=0\)</span>, entonces <span class="math inline">\(E\)</span> es <span class="math inline">\(m^{\ast}\)</span> medible.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(A\subseteq\mathbb{R}\)</span>. Como <span class="math inline">\(A\cap E\subseteq E\)</span>, se tiene que <span class="math inline">\(m^{\ast}(A\cap E)\leq m^{\ast}(E)\leq 0\)</span>. Además, como <span class="math inline">\(A\cap E^{c}\subseteq A\)</span>, se tiene que <span class="math inline">\(m^{\ast}(A\cap E^{c})\leq m^{\ast}(A)\)</span>. De donde se sigue que <span class="math display">\[m^{\ast}(A)\geq m^{\ast}(A\cap E^{c})=0+ m^{\ast}(A\cap E^{c})\geq m^{\ast}(A\cap E^{c})+m^{\ast}(A\cap E)\]</span> entonces, <span class="math inline">\(E\)</span> es <span class="math inline">\(m^{\ast}\)</span> medible.</p>
+</div>
+
+<p>Denotemos la familia de conjuntos <span class="math inline">\(m^{\ast}\)</span> medibles, por <span class="math inline">\(\mathcal{M}\)</span>. Se puede demostrar que esta colección es una <span class="math inline">\(\sigma\)</span>-álgebra, más aún, que la función <span class="math inline">\(m^{\ast}\)</span> restringida a los conjuntos <span class="math inline">\(m^{\ast}\)</span> medibles, es <span class="math inline">\(\sigma\)</span>-aditiva.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-103" class="theorem"><strong>Teorema 3.2  </strong></span><span class="math inline">\(\mathcal{M}\)</span> es una <span class="math inline">\(\sigma\)</span>-álgebra y <span class="math inline">\(m^{\ast}\upharpoonright \mathcal{M}\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Demostremos primero que <span class="math inline">\(\mathcal{M}\)</span> es una <span class="math inline">\(\sigma\)</span>-álgebra. En las observaciones anteriores, ya vimos que <span class="math inline">\(\mathcal{M}\)</span> es cerrada bajo complementación. Veamos que <span class="math inline">\(\mathcal{M}\)</span> es cerrado bajo uniones finitas (luego veremos que es cerrado bajo uniones numerables). Sean <span class="math inline">\(E_{1}, E_{2}\)</span> dos conjuntos <span class="math inline">\(m^{\ast}\)</span> medibles. Sea <span class="math inline">\(A\subseteq\mathbb{R}\)</span>, entonces, <span class="math display">\[\begin{array}{rl}
+    m^{\ast}(A)=&amp; m^{\ast}(A\cap E_{1})+m^{\ast}(A\cap E_{1}^{c})\\
+    =&amp; m^{\ast}(A\cap E_{1})+[m^{\ast}(A\cap E_{1}^{c}\cap E_{2})+m^{\ast}(A\cap E_{1}^{c}\cap E_{2}^{c})]\\
+    \geq&amp; m^{\ast} ( (A\cap E_{1})\cup (A\cap E_{1}^{c}\cap E_{2})\cup (A\cap E_{1}^{c}\cap E_{2}^{c}))\\
+    =&amp; m^{\ast} (A\cap (E_{1}\cup E_{2}))+  m^{\ast} (A\cap (E_{1}\cup E_{2})^{c})
+    \end{array}\]</span> Por lo discutido en la observación, <span class="math inline">\(m^{\ast}(A)=m^{\ast} (A\cap (E_{1}\cup E_{2}))+ m^{\ast} (A\cap (E_{1}\cup E_{2})^{c})\)</span>, luego, <span class="math inline">\(E_{1}\cup E_{2}\in\mathcal{M}\)</span>. Ahora demostremos que <span class="math inline">\(m^{\ast}\upharpoonright\)</span> es finitamente aditiva. Sean <span class="math inline">\(E_{1}, E_{2}\in\mathcal{M}\)</span>, entonces <span class="math display">\[m^{\ast}(A\cap(E_{1}\cup E_{2}))=m^{\ast}(A\cap(E_{1}\cup E_{2})\cap E_{1})+m^{\ast}(A\cap(E_{1}\cup E_{2})\cap E_{1}^{c})=m^{\ast}(A\cap E_{1})+m^{\ast}(A\cap E_{2})\]</span> Por inducción se sigue que <span class="math display">\[m^{\ast}\left(A\cap \bigcup_{i=1}^{n} E_{i}\right)=\sum_{i=1}^{n} m^{\ast}(A\cap E_{i}).\]</span> Ahora, considerando <span class="math inline">\(A=\bigcup_{i=1}^{n} E_{i}\)</span> se tiene la aditividad finita. Con una idea análoga, demostremos la <span class="math inline">\(\sigma\)</span>-aditividad. Sea <span class="math inline">\(E=\bigcup_{i\geq 1} E_{i}\)</span> y sea <span class="math inline">\(F_{n}=\bigcup_{i=1}^{n} E_{i}\)</span>. Por lo demostrado antes, se tiene que <span class="math display">\[m^{\ast}(A\cap F_{n})=\sum_{i=1}^{n} m^{\ast}(A\cap E_{i})\]</span> así, por monotonía de <span class="math inline">\(m^{\ast}\)</span>, se tiene que <span class="math display">\[m^{\ast}(A\cap E)\geq m^{\ast}(A\cap F_{n})=\sum_{i=1}^{n} m^{\ast}(A\cap E_{i})\]</span> Por lo tanto <span class="math display">\[m^{\ast}(A\cap E)\geq\sum_{i\geq 1} m^{\ast}(A\cap E_{i}).\]</span> La desigualdad <span class="math display">\[m^{\ast}(A\cap E)\leq\sum_{i\geq 1} m^{\ast}(A\cap E_{i})\]</span>, se obtiene por monotonía. Ahora veamos que <span class="math inline">\(\mathcal{M}\)</span> es cerrado bajo uniones numerables, esto permitiría concluír que <span class="math inline">\(\mathcal{M}\)</span> es una <span class="math inline">\(\sigma\)</span>-álgebra. Consideremos una colección disjunta y numerable de subconjuntos en <span class="math inline">\(\mathcal{M}\)</span>, <span class="math inline">\((E_{n})_{n\geq 1}\)</span>. Sea <span class="math inline">\(E=\bigcup_{n\geq 1} E_{n}\)</span> y <span class="math inline">\(F_{n}=\bigcup_{i=1}^{n} E_{i}\)</span>. Ya vimos que para cada <span class="math inline">\(n\)</span>, <span class="math inline">\(F_{n}\)</span> es <span class="math inline">\(m^{\ast}\)</span> medible, por lo tanto para todo <span class="math inline">\(A\subseteq\mathbb{R}\)</span>, se tiene que <span class="math display">\[m^{\ast}(A)=m^{\ast}(A\cap F_{n})+m^{\ast}(A\cap F_{n}^{c}).\]</span> Además, como <span class="math inline">\(E\supseteq F_{n}\)</span>, <span class="math inline">\(E^{c}\subseteq F_{n}^{c}\)</span>, luego <span class="math display">\[m^{\ast}(A\cap E^{c})\leq m^{\ast}(A\cap F_{n}^{c}).\]</span> Haciendo <span class="math inline">\(n\mapsto \infty\)</span>, por la <span class="math inline">\(\sigma\)</span>-aditividad, se tiene que para todo <span class="math inline">\(A\subseteq\mathbb{R}\)</span> <span class="math display">\[m^{\ast}(A)=m^{\ast}(A\cap E)+m^{\ast}(A\cap E^{c})\]</span> Lo que demuestra que <span class="math inline">\(E=\bigcup_{n\geq 1} E_{n}\in\mathcal{M}\)</span>. Todo lo anterior demuestra que <span class="math inline">\(m^{\ast}\upharpoonright\mathcal{M}\)</span> es una medida en <span class="math inline">\(\mathcal{M}\)</span>.</p>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-105" class="theorem"><strong>Teorema 3.3  </strong></span>La <span class="math inline">\(\sigma\)</span>-álgebra de Borel, está contenida en <span class="math inline">\(\mathcal{M}\)</span>, esto es <span class="math inline">\(\mathcal{B}(\mathbb{R})\subseteq\mathcal{M}\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Veamos que el conjunto de los intervalos finitos es un subconjunto de <span class="math inline">\(\mathcal{M}\)</span>. Sea <span class="math inline">\(I\in\mathcal{I}\)</span> y <span class="math inline">\(A\in\mathbb{R}\)</span>. Si <span class="math inline">\(m^{\ast}(A)=\infty\)</span> es claro que <span class="math inline">\(m^{\ast}\geq m^{\ast}(A\cap I)+m^{\ast}(A\cap I^{c})\)</span>. Supongamos que <span class="math inline">\(m^{\ast}\leq \infty\)</span>. Dado <span class="math inline">\(\epsilon\)</span>, existe <span class="math inline">\((J_{n})_{n\geq 1}\)</span> de intervalos finitos tales que <span class="math inline">\(A\subseteq \bigcup_{n\geq 1}\)</span> tal que <span class="math inline">\(A\subseteq\bigcup_{i\geq 1} J_{n}\)</span> y <span class="math inline">\(m^{\ast}(A)+\epsilon \geq \sum_{n\geq 1} \overline{l}(J_{n})\)</span>. Por la aditividad finita de <span class="math inline">\(\overline{l}\)</span>, se tiene que <span class="math display">\[\begin{array}{rl}
+m^{\ast}(A)+\epsilon \geq&amp; \sum_{n\geq 1} (\overline{l}(J_{n}\cap I)+\overline{l}(J_{n}\cap I^{c}))\\
+=&amp; \sum_{n\geq 1} \overline{l}(J_{n}\cap I)+\sum_{n\geq 1}\overline{l}(J_{n}\cap I^{c})\\
+\geq&amp; m^{\ast}(A\cap I)+m^{\ast}(A\cap I^{c})
+\end{array}\]</span></p>
+</div>
+
+</div>
+<div id="unicidad-de-la-medida-de-lebesgue-y-otras-propiedades" class="section level2">
+<h2><span class="header-section-number">3.2</span> Unicidad de la medida de Lebesgue y otras propiedades</h2>
+<p>Desde este punto denotaremos por <span class="math inline">\(m\)</span> a la medida en <span class="math inline">\(m^{\ast}\upharpoonright\mathcal{M}\)</span> (y <span class="math inline">\(m^{\ast}\upharpoonright\mathcal{B}(\mathbb{R})\)</span>). Diremos que un conjunto <span class="math inline">\(A\in\mathbb{R}\)</span> es <em>medible Lebesgue</em> si es <span class="math inline">\(m^{\ast}\)</span> medible.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-107" class="theorem"><strong>Teorema 3.4  </strong></span><span class="math inline">\(m\)</span> es la única medida en <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span> que coincide con la función <span class="math inline">\(l\)</span> en el anillo de los intervalos.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(\mu\)</span> una medida que coincide con la función <span class="math inline">\(l\)</span> en <span class="math inline">\(\mathcal{I}\)</span>. Del teorema <a href="construyendo-una-medida.html#thm:teorema158">2.4</a> se sigue el resultado.</p>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-109" class="theorem"><strong>Teorema 3.5  </strong></span>Sea <span class="math inline">\(E\subseteq\mathbb{R}\)</span>. Las siguientes son equivalentes:</p>
+<p>(i). <span class="math inline">\(E\)</span> es medible Lebesgue.</p>
+<p>(ii.) Dado <span class="math inline">\(\epsilon&gt;0\)</span>, existe un conjunto abierto <span class="math inline">\(O\)</span> tal que <span class="math inline">\(E\subseteq O\)</span> y <span class="math inline">\(m^{\ast}(O\backslash E)&lt;\epsilon\)</span>.</p>
+<p>(iii.) Dado <span class="math inline">\(\epsilon&gt;0\)</span>, existe un conjunto cerrado <span class="math inline">\(C\)</span> tal que <span class="math inline">\(C\subseteq E\)</span> y <span class="math inline">\(m^{\ast}(E\backslash C)&lt;\epsilon\)</span>.</p>
+<p>(iv.) Existe un conjunto <span class="math inline">\(G_{\delta}\)</span>, <span class="math inline">\(G\)</span>, tal que <span class="math inline">\(E\subseteq G\)</span> y <span class="math inline">\(m^{\ast}(G\backslash E)=0\)</span>.</p>
+<p>(v.) Existe un conjunto <span class="math inline">\(F_{\sigma}\)</span>, <span class="math inline">\(F\)</span>, tal que <span class="math inline">\(F\subseteq E\)</span> y <span class="math inline">\(m^{\ast}(E\backslash F)=0\)</span>.</p>
+<p>Si <span class="math inline">\(m^{\ast}(E)\leq\infty\)</span>, entonces las afirmaciones anteriores son equivalentes a:</p>
+<p>(vi.) Dado <span class="math inline">\(\epsilon&gt;0\)</span>, existe un conjunto <span class="math inline">\(U\)</span> que puede representarse como unión finita de intervalos abiertos, tal que <span class="math inline">\(m^{\ast}(U \triangle E)&lt;\epsilon\)</span>.</p>
+</div>
+
+</div>
+<div id="consideraciones" class="section level2">
+<h2><span class="header-section-number">3.3</span> Consideraciones</h2>
+<p>Es importante notar que <span class="math inline">\(\mathcal{B}(\mathbb{R})\subsetneq\mathcal{M}\)</span>. De hecho, <span class="math inline">\(|\mathcal{B}(\mathbb{R})|=c\)</span> y <span class="math inline">\(\mathcal{M}=2^{c}\)</span>. Entonces, existen conjuntos medibles Lebesgue, que no son medibles Borel. Un ejemplo se puede hallar en <em>Counterexample in Analysis</em> de <em>Gelbaum, Olmsted</em>. Aunque los conjuntos medibles Lebesgue que no son Borel medibles, son conjuntos de medida cero. Si consideramos la sigma álgebra generada por la unión de la clase de los conjuntos de medida cero con <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>, coincide con <span class="math inline">\(\mathcal{M}\)</span>.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-110" class="proposition"><strong>Proposición 3.8  </strong></span>Sea <span class="math inline">\(A\subseteq\mathbb{R}\)</span>. <span class="math inline">\(A\in\mathcal{B}(\mathbb{R})^{m}\)</span> si y solo si existen <span class="math inline">\(B_{1}, B_{2}\in\mathcal{B}(\mathbb{R})\)</span> tal que <span class="math inline">\(B_{1}\subseteq A\subseteq B_{2}\)</span> y <span class="math inline">\(m(B_{2}-B_{1})=0\)</span>.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-111" class="proposition"><strong>Proposición 3.9  </strong></span><span class="math inline">\(\mathcal{M}=\mathcal{B}(\mathbb{R})\)</span>.</p>
+</div>
+
+<p>A continuación daremos un ejemplo clásico de conjunto no medible Lebesgue. La construcción supone el axioma de la elección.</p>
+<p>Sean <span class="math inline">\(x,y\in\mathbb{R}\)</span>, diremos que <span class="math inline">\(x\sim y\)</span> si y solo si <span class="math inline">\(x-y\)</span> es un número racional. Es claro que <span class="math inline">\(\sim\)</span> es una relación de equivalencia. Note que para todo <span class="math inline">\(x\in\mathbb{R}\)</span>, existe <span class="math inline">\(x_{0}\in(0,1)\)</span> tal que <span class="math inline">\(x\sim x_{0}\)</span>. Sea <span class="math inline">\(P\subseteq (0,1)\)</span>, el conjunto que tiene exactamente un elemento de cada clase. Además, podemos asegurar que para todo <span class="math inline">\(x\in(0,1)\)</span>, existe <span class="math inline">\(x_{p}\in P\)</span>, tal que <span class="math inline">\(x\sim x_{p}\)</span>. Esto es, existe un número racional <span class="math inline">\(-1\leq r\leq 1\)</span>, tal que <span class="math inline">\(x\in P+r\)</span>, donde <span class="math inline">\(P+r=\{p+r: p\in P\}\)</span>, el conjunto de traslaciones de los elementos del conjunto <span class="math inline">\(P\)</span>. Ahora definamos el conjunto <span class="math display">\[S=\bigcup_{r\in\mathbb{Q}\cap (0,1)} P+r.\]</span> Afirmamos que la unión que la anterior es una unión disjunta. Efectivamente, sean <span class="math inline">\(r_{1},r_{2}\in \mathbb{Q}\cap (0,1)\)</span> distintos. Supongamos que existe <span class="math inline">\(x\in (P+r_{1})\cap (P+r_{2})\)</span>, entonces existen <span class="math inline">\(p_{1}, p_{2}\in P\)</span> tales que <span class="math inline">\(x=p_{1}+r_{1}\)</span> y <span class="math inline">\(x=p_{2}+r_{2}\)</span>, luego <span class="math inline">\(p_{1}-p_{2}=r_{2}-r_{1}\in\mathbb{Q}\)</span>, lo que implica que <span class="math inline">\(p_{1}\sim p_{2}\)</span>, lo que contradice la definición de <span class="math inline">\(P\)</span>, por lo tanto <span class="math inline">\(S\)</span> es una unión disjunta. Ahora bien, se tiene que <span class="math inline">\((0,1)\subseteq S\subseteq (-1,2)\)</span>, por lo tanto <span class="math inline">\(1=m((0,1))\leq m^{\ast}(S)\leq m((-1,2))=3\)</span>. Y por otro lado, como <span class="math inline">\(m^{\ast}\)</span> es invariante por traslaciones, se tiene que <span class="math display">\[m^{\ast}(S)=\sum_{r\in\mathbb{Q}\cap (0,1)} m^{\ast}(P+r)=\sum_{r\in\mathbb{Q}\cap (0,1)} m^{\ast}(P).\]</span> Si suponemos que <span class="math inline">\(P\)</span> es medible Lebesgue, se tiene que <span class="math inline">\(P+r\)</span> es medible Lebesgue para todo <span class="math inline">\(r\in\mathbb{Q}\cap(-1,1)\)</span>, por lo que <span class="math inline">\(S\)</span> sería medible Lebesgue y <span class="math inline">\(m(S)=m^{\ast}(S)\geq 1\)</span>. Además, <span class="math display">\[m^{\ast}(S)=\sum_{r\in\mathbb{Q}\cap (0,1)} m^{\ast}(P)\leq 3\]</span> por lo que <span class="math inline">\(\sum_{r\in\mathbb{Q}\cap (0,1)} m^{\ast}(P)\)</span> converge. Como <span class="math inline">\(m^{\ast}(P)=m(P)\)</span> es una constante no negativa en la suma, debe ser que <span class="math display">\[\sum_{r\in\mathbb{Q}\cap (0,1)} m^{\ast}(P)=0.\]</span> Pero esto contradice que <span class="math inline">\(m(S)\geq 1\)</span>. De donde se deduce que <span class="math inline">\(P\)</span> no es medible.</p>
+</div>
+<div id="la-medida-de-stieltjes" class="section level2">
+<h2><span class="header-section-number">3.4</span> La Medida de Stieltjes</h2>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-112" class="definition"><strong>Definición 3.3  </strong></span>Una función <span class="math inline">\(F:\mathbb{R}\longrightarrow\mathbb{R}\)</span> es una <em>función de Stieltjes</em> si satisface:</p>
+<p>(i.) <span class="math inline">\(F\)</span> es monótona creciente, es decir, si <span class="math inline">\(x\leq Y\)</span>, entonces <span class="math inline">\(F(x)\leq F(y)\)</span>. (ii.) <span class="math inline">\(F\)</span> es continua a la derecha.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-113" class="example"><strong>Ejemplo 3.1  </strong></span>La función <em>parte entera</em> es una función de Stieltjes.</p>
+</div>
+
+<p>Las funciones de Stieltjes <span class="math inline">\(F\)</span> es una función de Stieltjes, entonces:</p>
+<p>(i.) <span class="math inline">\(F\)</span> tiene límite a la izquierda en todo punto.</p>
+<p>(ii.) <span class="math inline">\(F\)</span> tiene solo discontinuidades de salto.</p>
+<p>(iii.) El conjunto de puntos de discontinuidad, es numerable.</p>
+<p>Sea <span class="math inline">\(S\)</span> la colección de intervalos del tipo <span class="math inline">\((a,b]\)</span>. Sea <span class="math inline">\(F:\mathbb{R}\longrightarrow\mathbb{R}\)</span> una función de Stieltjes. La función definida por: <span class="math display">\[\mu_{F}:S\longrightarrow\overline{\mathbb{R}^{+}}: (a,b]=F(b)-F(a)\]</span> se conoce como <em>medida de Stieltje asociada a <span class="math inline">\(F\)</span></em>.</p>
+<p>Esta función se puede extender a los borelianos, <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>. Damos un esquema de esta construcción.</p>
+<p>(1.) La función <span class="math inline">\(\mu_{F}\)</span>, se puede extender a una función <span class="math inline">\(\overset{\circ}{\mu_{F}}\)</span> sobre el anillo generado por <span class="math inline">\(S\)</span>, <span class="math inline">\(\mathcal{R}(S)\)</span>, de forma análoga a como se extendió la función longitud.</p>
+<p>(2.) Se demuestra que <span class="math inline">\(\mathcal{R}(S)\)</span> es <span class="math inline">\(\sigma\)</span>-aditiva en <span class="math inline">\(\mathbb{R}(S)\)</span>.</p>
+<p>(3.) Se define una función análoga a la medida exterior <span class="math inline">\(m^{\ast}\)</span>. Para esto, definimos para cada subconjunto <span class="math inline">\(A\in\mathbb{R}\)</span>, el conjunto <span class="math display">\[I(A)=\{(I_{n})_{n\geq 1}: I_{n}\in S \mbox{ y } A\subseteq \bigcup_{n\geq 1} I_{n}\}\]</span> y se define <span class="math display">\[\overset{\ast}{\mu_{F}}(A)=\underset{(I_{n})_{n}\in I(A)}{inf}\sum_{n\geq 1}\overset{\circ}{\mu_{F}}(I_{n}).\]</span></p>
+<p>(4.) Se demuestra que el conjunto <span class="math display">\[\mathcal{M}_{F}=\{E\subseteq\mathbb{R}: \forall A\subseteq\mathbb{R} (\overset{\circ}{\mu_{F}}(A)=\overset{\circ}{\mu_{F}}(A\cap E)+\overset{\circ}{\mu_{F}}(A\cap E^{c}))\}\]</span> es una <span class="math inline">\(\sigma\)</span>-álgebra y que <span class="math inline">\(\overset{\circ}{\mu_{F}}\upharpoonright \mathcal{M}_{F}\)</span> es una medida que coincide con <span class="math inline">\(\mu_{F}\)</span> en <span class="math inline">\(S\)</span>.</p>
+<p>Es importante notar que muchas medidas en <span class="math inline">\(\mathbb{R}\)</span>, son medidas que provienen de una función de Stieljes. De hecho, se tiene que:</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-114" class="proposition"><strong>Proposición 3.10  </strong></span>Sea <span class="math inline">\(\mu: \mathcal{B}(\mathbb{R})\longrightarrow \overline{\mathbb{R}^{+}}\)</span> una medida con la propiedad <span class="math inline">\(\mu(A)\infty\)</span> siempre que <span class="math inline">\(A\)</span> sea un conjunto acotado. Sea <span class="math inline">\(F:\mathbb{R}\rightarrow \mathbb{R}\)</span> definida por <span class="math display">\[F(t)=\left\lbrace \begin{array}{ll}
+    \mu(0,t]&amp;\mbox{ si } t&gt;0,\\
+    0&amp;\mbox{ si } t=0,\\
+    -\mu(t,0] &amp;\mbox{ si } t&lt;0.
+    \end{array}\right. \]</span> Entonces <span class="math inline">\(F\)</span> es una función de Stieltjes y se cumple que <span class="math display">\[\forall A\in\mathcal{B}(\mathbb{R})\mbox{, } \mu_{F}(A)=\mu(A)\]</span></p>
+</div>
+
+
+</div>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-78759535-1', 'auto');
+ga('send', 'pageview');  
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="construyendo-una-medida.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="funciones-medibles.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/synergyvision/Medida/edit/master/bookdown/030-La-medida-de-Lebesgue.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Medida.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

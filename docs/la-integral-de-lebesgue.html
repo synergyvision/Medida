@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 5 LA INTEGRAL DE LEBESGUE | Medida</title>
+  <meta name="description" content="Capítulo 5 LA INTEGRAL DE LEBESGUE | Medida" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 5 LA INTEGRAL DE LEBESGUE | Medida" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://synergy.vision/Medida/" />
+  <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
+  
+  <meta name="github-repo" content="synergyvision/Medida/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 5 LA INTEGRAL DE LEBESGUE | Medida" />
+  
+  
+  <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
+
+<meta name="author" content="Synergy Vision" />
+
+
+<meta name="date" content="2020-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="funciones-medibles.html"/>
+<link rel="next" href="convergencia.html"/>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="images/logovision-black.png" width="160"></img></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-qué-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prácticas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a><ul>
+<li class="chapter" data-level="2.1" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a></li>
+<li class="chapter" data-level="2.2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#colecciones-de-conjuntos"><i class="fa fa-check"></i><b>2.2</b> Colecciones de Conjuntos</a></li>
+<li class="chapter" data-level="2.3" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#el-conjunto-de-cantor"><i class="fa fa-check"></i><b>2.3</b> El conjunto de Cantor</a></li>
+<li class="chapter" data-level="2.4" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#medida"><i class="fa fa-check"></i><b>2.4</b> Medida</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html"><i class="fa fa-check"></i><b>3</b> LA MEDIDA DE LEBESGUE</a><ul>
+<li class="chapter" data-level="3.1" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#construyendo-la-medida-de-lebesgue"><i class="fa fa-check"></i><b>3.1</b> Construyendo la Medida de Lebesgue</a></li>
+<li class="chapter" data-level="3.2" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#unicidad-de-la-medida-de-lebesgue-y-otras-propiedades"><i class="fa fa-check"></i><b>3.2</b> Unicidad de la medida de Lebesgue y otras propiedades</a></li>
+<li class="chapter" data-level="3.3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#consideraciones"><i class="fa fa-check"></i><b>3.3</b> Consideraciones</a></li>
+<li class="chapter" data-level="3.4" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#la-medida-de-stieltjes"><i class="fa fa-check"></i><b>3.4</b> La Medida de Stieltjes</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="funciones-medibles.html"><a href="funciones-medibles.html"><i class="fa fa-check"></i><b>4</b> FUNCIONES MEDIBLES</a><ul>
+<li class="chapter" data-level="4.1" data-path="funciones-medibles.html"><a href="funciones-medibles.html#conceptos-básicos"><i class="fa fa-check"></i><b>4.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="4.2" data-path="funciones-medibles.html"><a href="funciones-medibles.html#aproximaciones-de-funciones-medibles"><i class="fa fa-check"></i><b>4.2</b> Aproximaciones de funciones medibles</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html"><i class="fa fa-check"></i><b>5</b> LA INTEGRAL DE LEBESGUE</a><ul>
+<li class="chapter" data-level="5.1" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#conceptos-básicos-1"><i class="fa fa-check"></i><b>5.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="5.2" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#intercambio-de-límites-con-la-integral"><i class="fa fa-check"></i><b>5.2</b> Intercambio de límites con la integral</a></li>
+<li class="chapter" data-level="5.3" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#teoremas-de-aproximación"><i class="fa fa-check"></i><b>5.3</b> Teoremas de Aproximación</a></li>
+<li class="chapter" data-level="5.4" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#más-sobre-la-integral-de-lebesgue"><i class="fa fa-check"></i><b>5.4</b> Más sobre la Integral de Lebesgue</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="convergencia.html"><a href="convergencia.html"><i class="fa fa-check"></i><b>6</b> CONVERGENCIA</a><ul>
+<li class="chapter" data-level="6.1" data-path="convergencia.html"><a href="convergencia.html#tipos-de-convergencia"><i class="fa fa-check"></i><b>6.1</b> Tipos de convergencia</a></li>
+<li class="chapter" data-level="6.2" data-path="convergencia.html"><a href="convergencia.html#espacios-lp"><i class="fa fa-check"></i><b>6.2</b> Espacios <span class="math inline">\(L^{p}\)</span></a></li>
+<li class="chapter" data-level="6.3" data-path="convergencia.html"><a href="convergencia.html#espacios-linfty"><i class="fa fa-check"></i><b>6.3</b> Espacios <span class="math inline">\(L^{\infty}\)</span></a></li>
+<li class="chapter" data-level="6.4" data-path="convergencia.html"><a href="convergencia.html#espacios-de-hilbert"><i class="fa fa-check"></i><b>6.4</b> Espacios de Hilbert</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html"><i class="fa fa-check"></i><b>7</b> DIFERENCIACION E INTEGRACIÓN</a><ul>
+<li class="chapter" data-level="7.1" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-monótonas"><i class="fa fa-check"></i><b>7.1</b> Funciones monótonas</a></li>
+<li class="chapter" data-level="7.2" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-de-variación-acotada"><i class="fa fa-check"></i><b>7.2</b> Funciones de variación acotada</a></li>
+<li class="chapter" data-level="7.3" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#de-la-integral-indefinida.-continuidad-absoluta"><i class="fa fa-check"></i><b>7.3</b> De la Integral indefinida. Continuidad Absoluta</a></li>
+<li class="chapter" data-level="7.4" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#cambio-de-variables"><i class="fa fa-check"></i><b>7.4</b> Cambio de variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html"><i class="fa fa-check"></i><b>8</b> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></a><ul>
+<li class="chapter" data-level="8.1" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#espacio-producto"><i class="fa fa-check"></i><b>8.1</b> Espacio Producto</a></li>
+<li class="chapter" data-level="8.2" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#medida-de-lebesgue-en-mathbbrn"><i class="fa fa-check"></i><b>8.2</b> Medida de Lebesgue en <span class="math inline">\(\mathbb{R}^{n}\)</span></a></li>
+<li class="chapter" data-level="8.3" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#teorema-de-fibini.-teorema-de-tonelli"><i class="fa fa-check"></i><b>8.3</b> Teorema de Fibini. Teorema de Tonelli</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apéndice</b></span></li>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A.1" data-path="software-tools.html"><a href="software-tools.html#r-and-r-packages"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
+<li class="chapter" data-level="A.2" data-path="software-tools.html"><a href="software-tools.html#pandoc"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
+<li class="chapter" data-level="A.3" data-path="software-tools.html"><a href="software-tools.html#latex"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Medida</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="la-integral-de-lebesgue" class="section level1">
+<h1><span class="header-section-number">Capítulo 5</span> LA INTEGRAL DE LEBESGUE</h1>
+<p>En este capítulo definiremos la integral de Lebesgue para funciones medibles y función integrable. Lo haremos definiendo la integral de forma natural para las funciones mas sencillas (las funciones escalera y simples) hasta llegar a funciones mas generales. Luego mostraremos algunos resultados importantes de intercambio entre integral y límite así como teoremas de aproximaciones de funciones integrables por funciones simples y continuas.</p>
+<div id="conceptos-básicos-1" class="section level2">
+<h2><span class="header-section-number">5.1</span> Conceptos básicos</h2>
+<p>Para una función escalera no negativa <span class="math display">\[f(x)=\sum_{i=1}^{n} k_{i} \chi_{I_{i}}, \mbox{ donde } I_{i} \mbox{ son intervalos y } k_{i}\geq 0\mbox{ escalares }\]</span> es de esperar que la integral sea la suma de las áreas de los rectángulos de base <span class="math inline">\(l(I_{i})\)</span> y alto <span class="math inline">\(k_{i}\)</span>. Con esta misma idea es que definiremos la integral de Lebesgue para funciones simples. En este caso no tenemos necesariamente rectángulos, recuerde que las funciones simples son combinaciones lineales de indicatrices de conjuntos medibles. Por analogía, podemos considerar la medida de los conjuntos, que en el caso de ser intervalos, coincide con la longitud de estos.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-142" class="definition"><strong>Definición 5.1  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\mathbb{R}^{+}\)</span> una función simple no negativa, <span class="math display">\[f=\sum_{i=1}^{n} k_{i}\chi_{A_{i}}\mbox{ con } A_{i}\in\mathcal{M} \mbox{ disjuntos dos a dos y } k_{i}\geq 0\mbox{ escalares }\]</span> definimos la <em>integral de Lebesgue</em> como <span class="math display">\[\int_{\mathbb{R}} f(x)dx=\sum_{i=1}^{n} k_{i}m(A_{i}).\]</span> También se denota <span class="math inline">\(\int_{\mathbb{R}} f\)</span>.</p>
+</div>
+
+<p>Note que la suma anterior siempre tiene sentido ya que <span class="math inline">\(k_{i}\geq 0\)</span> y <span class="math inline">\(m(A_{i})\geq 0\)</span>. Cuando ocurra que <span class="math inline">\(k_{i}=0\)</span> y <span class="math inline">\(m(A_{i})=\infty\)</span>, convenimos en que el producto <span class="math inline">\(k_{i}m(A_{i})=0\)</span>.</p>
+<p>Es importante notar que la integral esta bien definida. Si una función simple admite dos representaciones distintas, digamos <span class="math display">\[f=\sum_{i=1}^{n} c_{i}\chi_{A_{i}}\]</span> y <span class="math display">\[f=\sum_{ij=1}^{m} d_{j}\chi_{B_{j}}\]</span> donde <span class="math inline">\(\{A_{i}\}\)</span> y <span class="math inline">\(\{B_{j}\}\)</span> son dos familias de conjuntos medibles disjuntos dos a dos y donde <span class="math inline">\(c_{i}\)</span> y <span class="math inline">\(d_{j}\)</span> son esclares para cada <span class="math inline">\(i\)</span> y cada <span class="math inline">\(j\)</span>. Entonces las sumas <span class="math display">\[\sum_{i=1}^{n} c_{i}m(A_{i})=\sum_{j=1}^{m} d_{j}m(B_{j}).\]</span> En efecto, podemos suponer que <span class="math inline">\(\bigcup E_{i}=\mathbb{R}=\bigcup_{j}F_{j}\)</span>. Así se tiene que <span class="math display">\[\begin{array}{rl}
+E_{i}=&amp;\bigcup_{j=1}^{m} E_{i}\cap F_{j} \mbox{ para cada } i, \mbox{  y }\\
+F_{j}=&amp;\bigcup_{i=1}^{n} F_{j}\cap E_{i} \mbox{ para cada } j
+\end{array}\]</span></p>
+<p>Si <span class="math inline">\(x\in E_{i}\cap F_{j}\)</span>, entonces <span class="math inline">\(c_{i}=d_{j}\)</span>. Por lo tanto</p>
+<p><span class="math display">\[\begin{array}{rl}
+\sum_{i=1}^{n}c_{i}m(E_{i})=&amp;\sum_{i=1}^{n}c_{i}m(\bigcup_{j=1}^{m} E_{i}\cap F_{j})\\
+=&amp;\sum_{i=1}^{n}\sum_{j=1}^{m}c_{i}m(E_{i}\cap F_{j})\\
+=&amp;\sum_{j=1}^{m}\sum_{i=1}^{n}d_{j}m(E_{i}\cap F_{j})\\
+=&amp;\sum_{j=1}^{m}d_{j}m(\bigcup_{i=1}^{n} E_{i}\cap F_{j})\\
+=&amp;\sum_{j=1}^{m}d_{j}m(F_{j})
+\end{array}\]</span></p>
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Dado un conjunto medible <span class="math inline">\(A\)</span>, se tiene que <span class="math inline">\(\int_{\mathbb{R}} \chi_{A}=m(A)\)</span>.</p>
+<p>La integral de la función indicadora de un intervalo es igual a la longitud del intervalo, esto es <span class="math inline">\(\int_{\mathbb{R}} \chi_{[a,b]}=m([a,b])=l([a,b])=b-a\)</span>.\ La integral de una función escalera <span class="math inline">\(f=\sum_{i=1}^{n} c_{i}\chi_{I_{i}}\)</span>, es <span class="math inline">\(\int_{\mathbb{R}} f=\sum_{i=1}^{n}c_{i}l([a,b])\)</span></p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-144" class="definition"><strong>Definición 5.2  </strong></span>Diremos que una función simple no negativa <span class="math inline">\(f\)</span> es <em>integrable-Lebesgue</em> cuando <span class="math inline">\(\int_{\mathbb{R}} f\)</span> sea finita.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-145" class="example"><strong>Ejemplo 5.1  </strong></span>La función indicatriz del conjunto de los racionales del intervalo <span class="math inline">\([0,1]\)</span>, es integrable-Lebesgue. Efectivamente, <span class="math display">\[\int_{\mathbb{R}} \chi_{\mathbb{Q}\cap[0,1]}=m(\mathbb{Q}\cap[0,1])=0.\]</span> Como también lo es <span class="math inline">\(\chi_{[0,1]\backslash\mathbb{Q}}\)</span>.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-146" class="example"><strong>Ejemplo 5.2  </strong></span>La función <span class="math inline">\(\chi_{\mathbb{R}}\)</span> no es integrable-Lebesgue, ya que <span class="math inline">\(m(\mathbb{R})=\infty\)</span>. Así como tampoco lo es <span class="math inline">\(\chi_{[0,\infty)}\)</span>.</p>
+</div>
+
+<p>Note que si <span class="math inline">\(f\)</span> es una función simple no negativa y <span class="math inline">\(\lambda&gt; 0\)</span>, entonces <span class="math inline">\(\lambda f\)</span> también lo es. En efecto, <span class="math inline">\(\lambda \sum_{i=1}^{n} c_{i}\chi_{A_{i}}=\sum_{i=1}^{n} \lambda c_{i}\chi_{A_{i}}\)</span>. Por lo que es inmediato ver que <span class="math display">\[\int_{\mathbb{R}} \lambda f=\lambda \int_{\mathbb{R}} f\]</span> Otra propiedad fácil de ver es que si <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> son una funciones simples no negativas, <span class="math inline">\(f=\sum_{i=1}^{n} c_{i}\chi_{A_{i}}\)</span> y <span class="math inline">\(g=\sum_{j=1}^{m} d_{j}\chi_{B_{j}}\)</span> entonces <span class="math display">\[\int_{\mathbb{R}} f+g=\int_{\mathbb{R}} f+\int_{\mathbb{R}} g.\]</span> Para mostrar esto, basta notar que se puede considerar la familia disjunta <span class="math inline">\(\{C_{ij}\}\)</span> definida a partir de las familias disjuntas <span class="math inline">\(\{A_{i}\}\)</span> y <span class="math inline">\(\{B_{j}\}\)</span> como <span class="math inline">\(C_{ij}=A_{i}\cap B_{j}\)</span> y <span class="math inline">\(C_{i0}=A_{i}\backslash\bigcup B_{j}\)</span> y <span class="math inline">\(C_{0j}=B_{j}\backslash\bigcup A_{i}\)</span>. Definimos los escalares <span class="math inline">\(r_{ij}=c_{i}\)</span> para <span class="math inline">\(i=1,\cdots, n\)</span> y <span class="math inline">\(r_{0j}=0\)</span>, y <span class="math inline">\(s_{ij}=d_{j}\)</span> <span class="math inline">\(s_{i0}=0\)</span>. Luego <span class="math inline">\(f=\sum_{i=0}^{n}\sum_{j=0}^{m} r_{ij}\chi_{C_{ij}}\)</span> y <span class="math inline">\(g=\sum_{i=0}^{n}\sum_{j=0}^{m} s_{ij}\chi_{C_{ij}}\)</span>, por lo tanto <span class="math display">\[\begin{array}{rl}
+\int_{\mathbb{R}} f + \int_{\mathbb{R}} g=&amp;\sum_{i=0}^{n}\sum_{j=0}^{m} r_{ij}m(C_{ij}) +\sum_{i=0}^{n}\sum_{j=0}^{m} s_{ij}m(C_{ij})\\
+=&amp;\sum_{i=0}^{n}\sum_{j=0}^{m} (r_{ij}+s_{ij})m(C_{ij})\\
+=&amp;\int_{\mathbb{R}} f+g
+\end{array}\]</span> Esto demuestra lo siguiente</p>
+
+<div class="proposition">
+<p><span id="prp:prop36" class="proposition"><strong>Proposición 5.1  </strong></span>Sean <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> funciones simples no negativas y <span class="math inline">\(\lambda\in\mathbb{R}\)</span> un escalar no negativo. Entonces</p>
+<p>(i.) <span class="math inline">\(\int_{\mathbb{R}} \lambda f=\lambda\int_{\mathbb{R}} f\)</span>,</p>
+<p>(ii.) <span class="math inline">\(\int_{\mathbb{R}} (f+g)=\int_{\mathbb{R}} f + \int_{\mathbb{R}} g.\)</span></p>
+</div>
+
+<p>También se puede probar que la integral de Lebesgue tiene la propiedad de monotonía.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-147" class="proposition"><strong>Proposición 5.2  </strong></span>Sean <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> funciones no negativas, entonces</p>
+<p>(i.) <span class="math inline">\(\int_{\mathbb{R}} f\geq 0\)</span>,</p>
+<p>(ii.) si <span class="math inline">\(f\geq g\)</span>, entonces <span class="math inline">\(\int_{\mathbb{R}} f\geq \int_{\mathbb{R}} g\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> De la definición de integral de Lebesgue, se tiene directamente que <span class="math inline">\(\int_{\mathbb{R}} f\geq 0\)</span>. Considerando <span class="math inline">\(g-f\)</span>, se sigue el resultado ii.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-149" class="definition"><strong>Definición 5.3  </strong></span>Dados <span class="math inline">\(f:\mathbb{R}\longrightarrow\mathbb{R}\)</span> una función simple no negativa y un conjunto medible <span class="math inline">\(A\in\mathbb{M}\)</span>, definimos  como sigue: <span class="math display">\[\int_{A} f=\int_{\mathbb{R}} f \chi_{A}.\]</span></p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-150" class="proposition"><strong>Proposición 5.3  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\mathbb{R}\)</span> una función simple no negativa, se tiene <span class="math display">\[\int_{A} f\leq \int_{\mathbb{R}} f.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Basta notar que <span class="math inline">\(f \chi_{A}\leq f\)</span>.</p>
+</div>
+
+<p>En lugar de escribir <span class="math inline">\(\int_{&lt;a,b&gt;} f\)</span>, cuando <span class="math inline">\(&lt;a,b&gt;\)</span> es un intervalo, escribiremos <span class="math inline">\(\int_{a}^{b} f\)</span>.</p>
+<p>Recuerde que para una función medible Lebesgue y no negativa existe una sucesión creciente <span class="math inline">\(\{f_{n}\}_{n}\)</span> de funciones simples no negativas tales que <span class="math inline">\(\lim\limits_{n} f_{n}(x)=f(x)\)</span> (este límite es puntual en casi todo punto y puede valer <span class="math inline">\(+\infty\)</span>). De este hecho definiremos la integral de Lebesgue de funciones medibles no negativas.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-152" class="definition"><strong>Definición 5.4  </strong></span>Dadas una función medible no negativa <span class="math inline">\(f\)</span> y una sucesión creciente de funciones simples no negativas que la aproximan, esto es, <span class="math inline">\(\lim\limits_{n} f_{n}(x)=f(x)\)</span>. La <em>integral de Lebesgue de la función <span class="math inline">\(f\)</span></em> es <span class="math display">\[\int_{\mathbb{R}} f=\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}.\]</span></p>
+</div>
+
+<p>También se denota la integral de Lebesgue con <span class="math inline">\(\int_{\mathbb{R}} f(x)d(x)\)</span> o <span class="math inline">\(\int_{\mathbb{R}} f dm\)</span>.</p>
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Se puede probar que si <span class="math inline">\(\{g_{n}\}\)</span> es otra sucesión creciente de funciones simples no negativas, tal que <span class="math inline">\(\lim\limits_{n} g_{n}(x)=f(x)\)</span> (puntual en casi todo punto) entonces <span class="math inline">\(\lim\limits_{n\to\infty} \int_{\mathbb{R}} g_{n}=\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}\)</span>.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-154" class="proposition"><strong>Proposición 5.4  </strong></span>Si <span class="math inline">\(f:\mathbb{R}\longrightarrow \overline{\mathbb{R}}\)</span> es medible Lebesgue no negativa, entonces <span class="math display">\[\int_{\mathbb{R}} f=\sup_{\substack{\phi\mbox{ simple }\\0\leq\phi\leq f}} \int_{\mathbb{R}} \phi.\]</span></p>
+</div>
+
+<p>Es sencillo ver que la integral de Lebesgue de una función medible no negativa, es lineal. Esto se sigue de la linealidad del límite y de la proposición <a href="#thm:prop36"><strong>??</strong></a>. De igual forma se puede probar que la integral de Lebesgue es monótona.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-155" class="proposition"><strong>Proposición 5.5  </strong></span>Sean <span class="math inline">\(f, g:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medibles Lebesgue no negativas. Sea <span class="math inline">\(\lambda\geq 0\)</span> un escalar, entonces</p>
+<p>(i.) <span class="math inline">\(\int_{\mathbb{R}} \lambda f + g=\lambda\int_{\mathbb{R}} f + \int_{\mathbb{R}} g\)</span>, y (ii.) Si <span class="math inline">\(f\leq g\)</span>, entonces <span class="math inline">\(\int_{\mathbb{R}} f\leq \int_{\mathbb{R}} g\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-156" class="definition"><strong>Definición 5.5  </strong></span>Decimos que una función <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medible Lebesgue no negativa, es <em>integrable Lebesgue en <span class="math inline">\(\mathbb{R}\)</span></em> cuando <span class="math inline">\(\int_{\mathbb{R}} f\)</span> es finita.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-157" class="proposition"><strong>Proposición 5.6  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> una función medible Lebesgue no negativa. Si <span class="math inline">\(f\)</span> es integrable Lebesgue en <span class="math inline">\(\mathbb{R}\)</span>, entonces <span class="math inline">\(f\)</span> es finita en casi todo punto.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(A=\{x\in\mathbb{R}: f(x)=+\infty \}\)</span>. Para cualquier <span class="math inline">\(n\in\mathbb{N}\)</span>, se tiene que <span class="math inline">\(f(x)\geq n\)</span> siempre que <span class="math inline">\(x\in A\)</span>. Entonces, <span class="math display">\[n m(A)=n\int_{\mathbb{R}} \chi_{A}=\int_{\mathbb{R}} n\chi_{A}\leq\int_{\mathbb{R}} f.\]</span> De donde se tiene que <span class="math display">\[0\leq m(A)\leq\frac{1}{n}\int_{\mathbb{R}} f\]</span> para todo <span class="math inline">\(n\in\mathbb{R}\)</span>. Por lo tanto se tiene que <span class="math inline">\(m(A)=0\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-159" class="definition"><strong>Definición 5.6  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> una función medible Lebesgue no negativa y sea <span class="math inline">\(A\in\mathcal{M}\)</span> un conjunto medible Lebesgue. Definimos <em>la integral de Lebesgue de <span class="math inline">\(f\)</span> en <span class="math inline">\(A\)</span></em> como <span class="math display">\[\int_{A} f=\int_{\mathbb{R}} f \chi_{A}.\]</span> Y decimos que  cuando <span class="math inline">\(\int_{A} f\)</span> es finita.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Se puede demostrar que si <span class="math inline">\(f\)</span> es una función medible Lebesgue no negativa, entonces <span class="math inline">\(\int_{A} f\leq \int_{\mathbb{R}} f\)</span>.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-161" class="proposition"><strong>Proposición 5.7  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medible Lebesgue no negativa. Si <span class="math inline">\(A\in\mathcal{M}\)</span> es un conjunto de medida nula, entonces <span class="math inline">\(\int_{A} f=0\)</span>.</p>
+</div>
+
+<p>Cuando <span class="math inline">\(f\)</span> es una función simple no negativa, el resultado se sigue inmediatamente. El caso general, se sigue de la definición de integral.</p>
+
+<div class="lemma">
+<p><span id="lem:unnamed-chunk-162" class="lemma"><strong>Lema 5.1  </strong></span>Si <span class="math inline">\(\{f_{n}\}\)</span> es una sucesión creciente de funciones simples no negativas y <span class="math inline">\(f=\lim\limits_{n\to\infty} f_{n}\geq g\)</span>, donde <span class="math inline">\(g\)</span> es una función simple no negativa. Entonces <span class="math display">\[\lim\limits_{n\to\infty}\int_{\mathbb{R}} f_{n}\geq g.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Como <span class="math inline">\(\{f_{n}\}\)</span> tiende puntualmente a <span class="math inline">\(f\)</span>, se tiene que para todo <span class="math inline">\(\epsilon&gt; 0\)</span> y para todo <span class="math inline">\(x\in X\)</span> existe <span class="math inline">\(N(\epsilon, x)\)</span> tal que si <span class="math inline">\(n&gt;N(\epsilon,x)\)</span>, entonces <span class="math inline">\(f_{n}(x)&gt;g(x)-\epsilon\)</span>. Así, considerando <span class="math inline">\(A_{n}=\{x: f_{n}(x)&gt;g(x)-\epsilon \}\)</span>, se tiene que para todo <span class="math inline">\(\epsilon&gt;0\)</span>, <span class="math inline">\(\{A_{n}\}\uparrow\mathbb{R}\)</span>. Supongamos que <span class="math inline">\(g(x)=\sum_{i=1}^{k} c_{i} \chi_{E_{i}}\)</span>. En el caso que <span class="math inline">\(\int_{\mathbb{R}} g=\infty\)</span>, existe <span class="math inline">\(i\)</span> tal que <span class="math inline">\(c_{i}&gt; 0\)</span> y <span class="math inline">\(m(E_{i})=\infty\)</span>. Sea <span class="math inline">\(0&lt;\epsilon&lt;c_{i}\)</span>, entonces <span class="math inline">\(A_{n}\cap E_{i}\uparrow E_{i}\)</span> por lo tanto <span class="math inline">\(m(A_{n}\cap E_{i})\uparrow m(E_{i})=\infty\)</span>. Por monotonía <span class="math inline">\(\int_{\mathbb{R}} f_{n}\geq \int_{\mathbb{R}} f_{n}\chi_{A_{n}\cap E_{i}}\geq \int_{\mathbb{R}} (c_{i}-\epsilon)m(A_{n}\cap E_{i})\to\infty\)</span> cuando <span class="math inline">\(n\to\infty\)</span>. Si <span class="math inline">\(\int_{\mathbb{R}} g&lt;\infty\)</span>, el conjunto <span class="math inline">\(A=\{x\in X: g(x)&gt; 0\}=\bigcup_{c_{i}&gt;0} E_{i}\)</span>, tiene medida finita, es decir, <span class="math inline">\(m(A)&lt;\infty\)</span>. Además <span class="math inline">\(A_{n}\cap A\uparrow A\)</span>, por lo tanto <span class="math inline">\(m(A_{n}\cap A)\uparrow m(A)\)</span>. Para todo <span class="math inline">\(i\)</span> se tiene que <span class="math inline">\(E_{i}\cap A_{i}\cap A\uparrow E_{i}A\)</span> por lo tanto <span class="math inline">\(m(E_{i}\cap A_{i}\cap A)\uparrow m(E_{i}\cap A)\)</span>. Sea <span class="math inline">\(0&lt;\epsilon&lt;\min_{c_{i}&gt;0} c_{i}\)</span>, así <span class="math inline">\(g-\epsilon&gt;0\)</span>. Por monotonía de la integral, <span class="math display">\[\begin{array}{rl}
+    \int_{\mathbb{R}} f_{n}\geq&amp;\int_{\mathbb{R}} f_{n}\chi_{A_{n}\cap A}\\
+    \geq&amp;\int_{\mathbb{R}} (g-\epsilon)\chi_{A_{n}\cap A}\\
+    =&amp;\int_{\mathbb{R}} g\chi_{A_{n}\cap A}-\epsilon\int_{\mathbb{R}} \chi_{A_{n}\cap A}\\
+    =&amp;\int_{\mathbb{R}} g\chi_{A_{n}\cap A}-\epsilon m(A_{n}\cap A)\\
+    \geq&amp;\int_{\mathbb{R}} g\chi_{A_{n}\cap A}-\epsilon m(A)\\
+    =&amp;\sum_{i=1}^{k} c_{i}m(A_{n}\cap A\cap E_{i}) -\epsilon m(A)
+\end{array}\]</span> Entonces, cuando <span class="math inline">\(n\to\infty\)</span>, se tiene que <span class="math display">\[\int_{\mathbb{R}} f_{n}\rightarrow\sum_{i=1}^{k} c_{i}m(A\cap E_{i}) -\epsilon m(A)=\int_{\mathbb{R}} g\chi_{A} -\epsilon m(A)=\int_{\mathbb{R}} g -\epsilon m(A)\]</span> por lo tanto, <span class="math inline">\(\lim\limits_{n\to\infty}\int_{\mathbb{R}} f_{n}\geq \int_{\mathbb{R}} g\)</span>.</p>
+</div>
+
+<p>La integral de Lebesgue está bien definida. Sea <span class="math inline">\(f\)</span> una función medible Lebesgue no negativa. Supongamos que <span class="math inline">\(f\)</span> se aproxima por dos sucesiones crecientes de funciones simples no negativas, esto es, <span class="math inline">\(\{f_{n}\}_{n}\uparrow f\)</span> y <span class="math inline">\(\{g_{n}\}_{n}\uparrow f\)</span>. Tenemos entonces que para cada <span class="math inline">\(m\)</span> fijo, <span class="math inline">\(\lim\limits_{n\to\infty} f_{n}\geq g_{m}\)</span>. Por el lema anterior, <span class="math display">\[\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}\geq \int_{\mathbb{R}} g_{m} \forall m\in\mathbb{N}\]</span> por lo tanto <span class="math display">\[\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}\geq\lim\limits_{m\to\infty} \int_{\mathbb{R}} g_{m}.\]</span> De forma análoga se demuestra la desigualdad contraria <span class="math display">\[\lim\limits_{m\to\infty} \int_{\mathbb{R}} g_{m}\geq\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}\]</span>.</p>
+<p>Para concluír con esta sección, presentaremos la siguiente propiedad de la integral de Lebesgue:</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-164" class="proposition"><strong>Proposición 5.8  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> una función medible Lebesgue. <span class="math inline">\(f\)</span> es integrable Lebesgue si y solo si <span class="math inline">\(|f|\)</span> es integrable Lebesgue. Además, <span class="math display">\[|\int_{\mathbb{R}} f|\leq \int_{\mathbb{R}} |f|.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Por la linealidad de la integral y como <span class="math inline">\(f=f^{+}-f^{-}\)</span>, se tiene que <span class="math inline">\(f\)</span> es integrable Lebesgue si y solo si <span class="math inline">\(f^{+}\)</span> y <span class="math inline">\(f^{-}\)</span> lo son. Como <span class="math inline">\(|f|=f^{+}+f^{-}\)</span>, se tiene que <span class="math inline">\(|f|\)</span> es integrable Lebesgue si y solo si <span class="math inline">\(f^{+}\)</span> y <span class="math inline">\(f^{-}\)</span> lo son. De donde se sigue que <span class="math inline">\(f\)</span> es integrable Lebesgue si y solo si <span class="math inline">\(|f|\)</span> es integrable Lebesgue. Además, <span class="math display">\[\left| \int_{\mathbb{R}} f\right| =\left| \int_{\mathbb{R}} f^{+} - \int_{\mathbb{R}} f^{-}\right| \leq \left| \int_{\mathbb{R}} f^{+}\right| + \left| \int_{\mathbb{R}} f^{-}\right|=\int_{\mathbb{R}} f^{+} + \int_{\mathbb{R}} f^{-}=\int_{\mathbb{R}} |f|\]</span></p>
+</div>
+
+</div>
+<div id="intercambio-de-límites-con-la-integral" class="section level2">
+<h2><span class="header-section-number">5.2</span> Intercambio de límites con la integral</h2>
+<p>Es importante notar que no siempre conmutan la integral y el límite, como lo muestran los siguientes ejemplos.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-166" class="example"><strong>Ejemplo 5.3  </strong></span>Sea <span class="math inline">\(f_{n}=n\chi(0,\frac{1}{n})\)</span>, para cada <span class="math inline">\(n\in\mathbb{N}\)</span>. Es claro que <span class="math inline">\(f_{n}\rightarrow 0\)</span> cuando <span class="math inline">\(n\to\infty\)</span>. Por lo tanto <span class="math inline">\(\int_{\mathbb{R}} \lim\limits_{n\to\infty} f_{n}=0\)</span>. Pero <span class="math inline">\(\int_{\mathbb{R}} f_{n}=1\)</span> por lo que <span class="math inline">\(\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}=1\)</span>.</p>
+</div>
+
+<p>En el ejemplo anterior, la convergencia no es uniforme y la sucesión no es monótona. Veamos un ejemplo donde la convergencia si es uniforme.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-167" class="example"><strong>Ejemplo 5.4  </strong></span>Sea <span class="math inline">\(f_{n}=\frac{1}{n}\chi[0,n]\)</span>, para cada <span class="math inline">\(n\in\mathbb{N}\)</span>. En este caso <span class="math inline">\(f_{n}\rightarrow 0\)</span> cuando <span class="math inline">\(n\to\infty\)</span>. Por lo tanto <span class="math inline">\(\int_{\mathbb{R}} \lim\limits_{n\to\infty} f_{n}=0\)</span>. Pero <span class="math inline">\(\int_{\mathbb{R}} f_{n}=1\)</span> por lo que <span class="math inline">\(\lim\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}=1\)</span>.</p>
+</div>
+
+<p>Presentaremos a continuación el <em>teorema de convergencia monótona</em> o <em>teorema de Beppo-Levy</em>, el cual muestra condiciones para el intercambio de integral y límite.</p>
+
+<div class="theorem">
+<p><span id="thm:BeppoLevy" class="theorem"><strong>Teorema 5.1  (Beppo-Levy)  </strong></span>Sea <span class="math inline">\(\{f_{n}\}\)</span> una sucesión creciente de funciones medibles Lebesgue no negativas, <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span>. Entonces <span class="math display">\[\lim\limits_{n\to\infty}\int_{\mathbb{R}} f_{n}=\int_{\mathbb{R}}\lim\limits_{n\to\infty} f_{n}.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(f(x)=\lim\limits_{n\to\infty} f_{n}(x)\)</span>, el límite puntual en casi todo punto. Como cada <span class="math inline">\(f_{n}\)</span> es una función medible Lebesgue y no negativa, para cada <span class="math inline">\(n\in\mathbb{N}\)</span>, existe una sucesión creciente de funciones simples <span class="math inline">\(\{f^{n}_{k}\}_{k}\)</span> que converge puntualmente a <span class="math inline">\(f_{n}\)</span>, es decir, <span class="math inline">\(\lim\limits_{k\to\infty} f^{n}_{k}=f_{n}\)</span>. Tenemos esta situación <span class="math display">\[\begin{array}{lllll}
+  f^{1}_{1}\leq&amp; f{1}^{2}\leq&amp;\cdots&amp;\rightarrow&amp; f_{1}\mbox{ cuando } n=1\\
+    f^{2}_{1}\leq&amp; f^{2}_{2}\leq&amp;\cdots&amp;\rightarrow&amp; f_{2}\mbox{ cuando } n=2\\
+    \vdots&amp;&amp;&amp;&amp;\\
+    f^{n}_{1}\leq&amp; f^{n}_{2}\leq&amp;\cdots&amp;\rightarrow&amp; f_{n}\mbox{ para } n\\
+    \vdots&amp;&amp;&amp;&amp;\downarrow\\
+    &amp;&amp;&amp;&amp;f   
+\end{array}\]</span> Definimos la sucesión <span class="math inline">\(g_{k}=\max\limits_{\substack{i\leq k\\ j\leq k}} f^{i}_{j}=\max\limits_{n\leq k} f^{n}_{k}\)</span>. Note que esta sucesión es creciente, por lo que es una sucesión que converge puntualmente. Además, se tiene que <span class="math inline">\(f^{n}_{k}\leq g_{k}\leq f\)</span> para todo <span class="math inline">\(k\)</span> y para todo <span class="math inline">\(n\leq k\)</span>. Haciendo <span class="math inline">\(k\)</span> tender a <span class="math inline">\(\infty\)</span>, se tiene que <span class="math inline">\(f_{n}\leq \lim\limits_{k\to\infty} g_{k}\leq f\)</span>. Y si ahora <span class="math inline">\(n\)</span> tiende a <span class="math inline">\(\infty\)</span>, se tiene que <span class="math inline">\(f\leq \lim\limits_{k\to\infty} g_{k}\leq f\)</span>, por lo tanto <span class="math display">\[\lim\limits_{k\to\infty} g_{k}=f \mbox{ puntualmente}.\]</span> Como <span class="math inline">\(\{g:{k}\}_{k}\)</span> es una sucesión de funciones simples que aproxima a la función <span class="math inline">\(f\)</span>, por definición de integral de Lebesgue, se tiene que <span class="math display">\[\int_{\mathbb{R}} f =\lim\limits_{k\to\infty}\int_{\mathbb{R}} g_{k}.\]</span> Como <span class="math inline">\(f^{n}_{k}\leq g_{k}\leq f_{k}\)</span>, se tiene que <span class="math display">\[\int_{\mathbb{R}}f^{n}_{k}\leq\int_{\mathbb{R}} g_{k}\leq\int_{\mathbb{R}} f_{k}\]</span> si <span class="math inline">\(k\)</span> tiende a <span class="math inline">\(\infty\)</span>, <span class="math display">\[\int_{\mathbb{R}}f_{n}\leq\int_{\mathbb{R}} f\leq\lim\limits_{k\to\infty}\int_{\mathbb{R}} f_{k}\]</span> si <span class="math inline">\(n\)</span> tiende a <span class="math inline">\(\infty\)</span>, entonces <span class="math display">\[\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}\leq\int_{\mathbb{R}} f\leq\lim\limits_{k\to\infty}\int_{\mathbb{R}} f_{k}\]</span> de donde se sigue que <span class="math display">\[\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}=\int_{\mathbb{R}} f.\]</span></p>
+</div>
+
+<p>En este teorema es fundamental la hipótesis de que <span class="math inline">\(\{f_{n}\}_{n}\)</span> es una sucesión creciente, tal como lo muestra el siguiente ejemplo.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-169" class="example"><strong>Ejemplo 5.5  </strong></span>Sea <span class="math inline">\(f_{n}=\chi_{[n,\infty)}\)</span>. <span class="math inline">\(f_{n}\)</span> tiende a <span class="math inline">\(0\)</span> puntualmente y es una sucesión decreciente. Para cada <span class="math inline">\(n\)</span>, <span class="math inline">\(\int_{\mathbb{R}} f_{n}=m([n,\infty))=\infty\)</span> por lo tanto, <span class="math inline">\(\lim\limits_{n\to\infty}\int_{\mathbb{R}} f_{n}=\infty\)</span> pero <span class="math inline">\(\int_{\mathbb{R}}\lim\limits_{n\to\infty} f_{n}=0\)</span>.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> Bajo las hipótesis del teorema de Beppo-Levy, se puede deducir lo siguiente:</p>
+<p>(1.) Si <span class="math inline">\(f_{n}\)</span> es integrable Lebesgue para cada <span class="math inline">\(n\)</span> y <span class="math inline">\(\lim\limits_{n\to\infty}\int_{\mathbb{R}} f_{n}\)</span> existe y es finito; entonces <span class="math inline">\(f\)</span> es integrable Lebesgue y <span class="math inline">\(\int_{\mathbb{R}} f=\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}\)</span>.</p>
+<p>(2.) Si <span class="math inline">\(f\)</span> es integrable Lebesgue, entonces cada <span class="math inline">\(f_{n}\)</span> lo es. Además, <span class="math inline">\(\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}&lt;\infty\)</span>.</p>
+<p>(3.) Si <span class="math inline">\(f\)</span> no es integrable Lebesgue, entonces se tiene alguna de las dos siguientes afirmaciones:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>existe <span class="math inline">\(N\)</span> tal que <span class="math inline">\(f_{N}\)</span> no es integrable Lebesgue, por lo tanto, tampoco <span class="math inline">\(f_{n}\)</span> para todo <span class="math inline">\(n\geq N\)</span>, o</p></li>
+<li>todas las <span class="math inline">\(f_{n}\)</span> son integrables Lebesgue, pero <span class="math inline">\(\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}=\infty\)</span>.
+</div>
+</li>
+</ol>
+<p>Dada una sucesión de funciones medibles Lebesgue no negativas, <span class="math inline">\(\{f_{n}\}_{n}\)</span>,considereando la sucesión de sumas parciales <span class="math display">\[\sum_{n=1}^{k} f_{n}\]</span> se tiene que <span class="math display">\[\int_{\mathbb{R}} \sum_{n=1}^{\infty}=\sum_{n=1}^{\infty}\int_{\mathbb{R}} f_{n}.\]</span> Esto demuestra el siguiente corolario</p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-171" class="corollary"><strong>Corolario 5.1  </strong></span>Sea <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones medibles Lebesgue no negativas, <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span>. Sea <span class="math inline">\(f(x)=\sum_{n=1}^{\infty} f_{n}(x)\)</span>. Entonces <span class="math inline">\(\int_{\mathbb{R}}f=\sum_{n=1}^{\infty}\int_{\mathbb{R}} f_{n}\)</span>.</p>
+</div>
+
+
+<div class="lemma">
+<p><span id="lem:unnamed-chunk-172" class="lemma"><strong>Lema 5.2  (Fatou)  </strong></span>Sea <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones medibles Lebesgue no negativas, <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span>. Entonces <span class="math display">\[\int_{\mathbb{R}}\liminf_{n\to\infty} f_{n}\leq \liminf_{n\to\infty} \int_{\mathbb{R}} f_{n}.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Para cada <span class="math inline">\(n\in\mathbb{N}\)</span>, sea <span class="math inline">\(g_{n}=\inf\limits_{k\geq n} f_{k}\)</span>. Entonces para cada <span class="math inline">\(n\)</span>, <span class="math inline">\(0\geq g_{n}\geq f_{n}\)</span>, <span class="math inline">\(\{g_{n}\}_{n}\)</span> es una sucesión creciente de funciones medibles Lebesgue y <span class="math inline">\(\lim\limits_{n\to\infty} g_{n}=\liminf\limits_{n\to\infty} f_{n}\)</span>. Por el teorema de Beppo-Levy <span class="citation">@ref</span>{thm:BeppoLevy} (convergencia monótona) se tiene que <span class="math display">\[\int_{\mathbb{R}} \liminf\limits_{n\to\infty} f_{n}=\int_{\mathbb{R}} \lim\limits_{n\to\infty} g_{n}=\lim\limits_{n\to\infty}\int_{\mathbb{R}} g_{n}=\liminf\limits_{n\to\infty}\int_{\mathbb{R}} f_{n}.\]</span></p>
+</div>
+
+<p>La desigualdad del lema de Fatou puede, en algunos casos, ser estricta tal como lo muestra el siguiente ejemplo.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-174" class="example"><strong>Ejemplo 5.6  </strong></span>Consideremos la siguiente sucesión, para cada <span class="math inline">\(n\)</span>, sea <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span>, definida así <span class="math display">\[f_{n}(x)=\left\lbrace \begin{array}{ll}
+    4n^{2}x&amp;\mbox{ si } 0\leq x\leq\frac{1}{2n}\\
+    -4n^{2}x+4n&amp;\mbox{ si } \frac{1}{2n}&lt; x\leq\frac{1}{n}\\
+    0&amp;\mbox{ en otro caso}
+\end{array}\right. \]</span> Para la sucesión <span class="math inline">\(\{f_{n}\}\)</span>, se tiene que <span class="math inline">\(\liminf\limits_{n\to\infty} f_{n}=\lim\limits_{n\to\infty} f_{n}=0\)</span> en casi todo punto, por lo tanto, <span class="math inline">\(\int_{\mathbb{R}}\liminf\limits_{n\to\infty} f_{n}=0\)</span>. Pero <span class="math inline">\(\int_{\mathbb{R}} f_{n}=1\)</span>, por lo tanto <span class="math inline">\(\liminf\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}=1\)</span>.</p>
+</div>
+
+<p>Hasta ahora hemos definido la integral de Lebesgue para funciones simples (y funciones escalera) de la forma mas natural, y para funciones medibles no negativas, vía la aproximaciónn por funciones simples, echando mano del teorema de aproximación. Ahora definamos la integral de Lebesgue para una función medible cualquiera.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-175" class="definition"><strong>Definición 5.7  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> una función medible Lebesgue. Decimos que <em><span class="math inline">\(f\)</span> es integrable Lebesgue en <span class="math inline">\(\mathbb{R}\)</span></em> si y solo si <span class="math inline">\(f^{+}\)</span> y <span class="math inline">\(f^{-}\)</span> son integrables Lebesgue en <span class="math inline">\(\mathbb{R}\)</span> y definimos <span class="math display">\[\int_{\mathbb{R}} f=\int_{\mathbb{R}} f^{+}-\int_{\mathbb{R}} f^{-}.\]</span> Si <span class="math inline">\(A\in\mathcal{M}\)</span>, decimos que  si <span class="math inline">\(f \chi_{A}\)</span> es integrable Lebesgue en <span class="math inline">\(\mathbb{R}\)</span> y definimos <span class="math display">\[\int_{\mathbb{A}} f=\int_{\mathbb{R}} f \chi_{A}.\]</span></p>
+</div>
+
+<p>Ya se han demostrado varias propiedades de la integral de Lebesgue para funciones medibles no negativas. Es fácil, a partir de las propiedades ya demostradas, ver que</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-176" class="proposition"><strong>Proposición 5.9  </strong></span>Sean <span class="math inline">\(f,g:\mathbb{R}\longleftrightarrow\overline{\mathbb{R}}\)</span> funciones integrables Lebesgue en <span class="math inline">\(\mathbb{R}\)</span> y <span class="math inline">\(\lambda\in\mathbb{R}\)</span>, entonces:</p>
+<p>(i.) <span class="math inline">\(\lambda f\)</span> es integrable Lebesgue en <span class="math inline">\(\mathbb{R}\)</span> y <span class="math inline">\(\int_{\mathbb{R}} \lambda f=\lambda\int_{\mathbb{R}} f\)</span>,</p>
+<p>(ii.) <span class="math inline">\(f+g\)</span> es integrable Lebesgue en <span class="math inline">\(\mathbb{R}\)</span> y <span class="math inline">\(\int_{\mathbb{R}} f+g=\int_{\mathbb{R}} f+\int_{\mathbb{R}} g\)</span>,</p>
+<p>(iii.) si <span class="math inline">\(f\geq 0\)</span> c.s. Entonces, <span class="math inline">\(\int_{\mathbb{\mathbb{R}}} f\geq 0\)</span>,</p>
+<p>(iv.) si <span class="math inline">\(f\leq g\)</span> c.s. Entonces, <span class="math inline">\(\int_{\mathbb{\mathbb{R}}} f\leq \int_{\mathbb{\mathbb{R}}} g\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Las parte <span class="math inline">\(i\)</span>, <span class="math inline">\(iii\)</span> y <span class="math inline">\(iv\)</span> siguen derectamente de las propiedades de la integral de Lebesgue para funciones no negativas. Para la parte <span class="math inline">\(ii\)</span> basta notar que <span class="math inline">\(f^{+}=\frac{|f|+f}{2}\)</span>, de este modo <span class="math display">\[(f+g)^{+}\geq f^{+} +g^{+},\]</span> como <span class="math inline">\(f^{-}=(-f)^{+}\)</span>, de forma análoga a la anterior, <span class="math display">\[(f+g)^{-}\geq f^{-} +g^{-}.\]</span> De donde se concluye que <span class="math inline">\(f+g\)</span> es integrable Lebesgue, siempre que <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> lo sean. Ahora bien, como <span class="math inline">\(f+g=f^{+}-f^{-}+g^{+}-g^{-}\)</span> y <span class="math inline">\(f+g=(f+g)^{+}-(f+g)^{-}\)</span>, se tiene que <span class="math display">\[f^{+}+g^{+}+(f+g)^{-}=(f+g)^{+}+f^{-}+g^{-}\]</span> integrando, <span class="math display">\[\int_{\mathbb{R}} f^{+}+g^{+}+(f+g)^{-}=\int_{\mathbb{R}} (f+g)^{+}+f^{-}+g^{-}\]</span> usando la linealidad de la integral de Lebesgue para funciones no negativas, se tiene que <span class="math display">\[\begin{array}{rl}
+  \int_{\mathbb{R}} (f+g)^{+}+\int_{\mathbb{R}}f^{-}+\int_{\mathbb{R}} g^{-}=&amp;\int_{\mathbb{R}} (f+g)^{-}+\int_{\mathbb{R}} f^{+}+\int_{\mathbb{R}}g^{+}\Leftrightarrow\\
+    \int_{\mathbb{R}} (f+g)^{+}-\int_{\mathbb{R}}(f+g)^{-}=&amp;\int_{\mathbb{R}} f^{+}-\int_{\mathbb{R}} f^{-}+\int_{\mathbb{R}}g^{+}-\int_{\mathbb{R}}g^{-}\\
+    =&amp;\int_{\mathbb{R}} f + \int_{\mathbb{R}}g.
+\end{array}\]</span></p>
+</div>
+
+<p>De las propiedades anteriores se siguen los siguientes resultados. Los detalle de las demostraciones se dejan al lector.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-178" class="proposition"><strong>Proposición 5.10  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medible Lebesgue. Se tiene que <span class="math inline">\(f\)</span> es integrable Lebesgue en <span class="math inline">\(\mathbb{R}\)</span> si y solo si <span class="math inline">\(|f|\)</span> es integrable Lebesgue en <span class="math inline">\(\mathbb{R}\)</span>, además <span class="math display">\[\left| \int_{\mathbb{R}} f\right| \leq\int_{\mathbb{R}} |f|.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span>  Como <span class="math inline">\(f=f^{+}-f^{-}\)</span>, de la desigualdad triangular y la linealidad de la integral, se sigue el resultado. \end{proof}</p>
+<p>\begin{proposition} Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medible Lebesgue. Si <span class="math inline">\(f\)</span> es integrable Lebesgue en <span class="math inline">\(\mathbb{R}\)</span> y <span class="math inline">\(A,B\)</span> son conjuntos medibles Lebesgue, entonces:</p>
+<p>(i.) <span class="math inline">\(f\)</span> es integrable en <span class="math inline">\(A\)</span>.</p>
+<p>(ii.) <span class="math inline">\(\int_{A\cup B} f=\int_{A} f + \int_{B} f\)</span> siempre que <span class="math inline">\(A\cap B=\emptyset\)</span>.</p>
+(iii.) <span class="math inline">\(|f|\)</span> es finita en casi todo punto.
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> La parte <span class="math inline">\(i\)</span> se deduce inmediantamente de la monotonía de la integral, ya que <span class="math inline">\(f\chi_{A}\leq f\)</span>. Para demostrar <span class="math inline">\(ii\)</span> solo basta notar que si <span class="math inline">\(A\cap B=\emptyset\)</span> entonces <span class="math inline">\(\chi_{A\cup B}=\chi_{A}+\chi_{B}\)</span>. Por último, sea <span class="math inline">\(N=\{x\in\mathbb{R}: |f|=\infty\}\)</span>, entonces para todo <span class="math inline">\(n\in\mathbb{N}\)</span> y todo <span class="math inline">\(x\in N\)</span>, se tiene que <span class="math inline">\(|f(x)|&gt;n\)</span>. Por otro lado, por la parte anterior, se tiene que <span class="math display">\[\int_{\mathbb{R}}|f|=\int_{N} |f| +\int_{N^{C}} |f|\]</span> entonces <span class="math inline">\(n m(N)\leq\int_{N} |f|\leq \int_{\mathbb{R}} |f|\)</span>, para todo <span class="math inline">\(n\)</span>. Entonces, <span class="math display">\[m(N)\leq\frac{1}{n}\int_{\mathbb{R}} |f|\mbox{ para todo } n\]</span> de donde se sigue que <span class="math inline">\(m(N)=0\)</span>.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:prop434" class="proposition"><strong>Proposición 5.11  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medible Lebesgue. Si <span class="math inline">\(A\in\mathcal{M}\)</span> es un conjunto de medida cero. Entonces <span class="math inline">\(f\)</span> es integrable Lebesgue en <span class="math inline">\(A\)</span> y <span class="math display">\[\int_{A} f=0.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Por monotonía de la medida de Lebesgue, cualquier subconjunto de <span class="math inline">\(A\)</span> tiene medida nula. De donde se tiene que <span class="math inline">\(f=0\)</span> en casi todo punto de <span class="math inline">\(A\)</span>, de donde se sigue fácilmente el resultado.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-182" class="proposition"><strong>Proposición 5.12  (Desigualdad de Chebychov)  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medible Lebesgue. Si <span class="math inline">\(|f|\geq\lambda&gt; 0\)</span> en <span class="math inline">\(A\in\mathcal{M}\)</span>. Entonces <span class="math display">\[\lambda m(A)\geq\int_{\mathbb{R}} |f|.\]</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Como <span class="math display">\[\int_{\mathbb{R}}|f|\geq \int_{A}|f|\geq \lambda m(A).\]</span></p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-184" class="proposition"><strong>Proposición 5.13  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medible Lebesgue. Entonces:</p>
+<p>(i.) Si <span class="math inline">\(f\geq 0\)</span> c. s. y <span class="math inline">\(\int_{\mathbb{R}} f=0\)</span>, entonces <span class="math inline">\(f=0\)</span> c.s.</p>
+<p>(ii.) Si <span class="math inline">\(f=g\)</span> c.s. entonces <span class="math inline">\(\int_{\mathbb{R}} f=\int_{\mathbb{R}} g\)</span>.</p>
+<p>(iii.) Si <span class="math inline">\(f\)</span> es integrable Lebesgue y <span class="math inline">\(g\)</span> es una función medible Lebesgue y <span class="math inline">\(|g|\leq f\)</span> c.s. entonces <span class="math inline">\(g\)</span> es integrable.</p>
+<p>(iv.) Si <span class="math inline">\(f\)</span> es acotada y <span class="math inline">\(E\in\mathcal{M}\)</span> es un conjunto de medida finita, entonces <span class="math inline">\(f\)</span> es integrable en <span class="math inline">\(E\)</span>. Además, si <span class="math inline">\(c\leq f(x)\leq d\)</span> c.s. entonces <span class="math inline">\(cm(E)\leq \int_{\mathbb{R}} f\leq dm(E)\)</span>.</p>
+<p>(v.) Sea <span class="math inline">\(g\)</span> una función medible Lebesgue. Si <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> son integrables Lebesgue. Entonces <span class="math inline">\(\int_{\mathbb{R}} \min\{f,g\}\leq\min\{\int_{\mathbb{R}} f,\int_{\mathbb{R}} g\}\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Supongamos que <span class="math inline">\(f\geq 0\)</span> y que <span class="math inline">\(\int_{\mathbb{R}}=0\)</span>. Sea <span class="math inline">\(A=\{x\in\mathbb{R}: |f|\geq n\}\)</span> para cualquier <span class="math inline">\(n\in\mathbb{N}\)</span>. De la desigualdad de Chebychov, se tiene que <span class="math display">\[m(A)\geq \frac{1}{n}\int_{\mathbb{R}} |f|=\frac{1}{n} \int_{\mathbb{R}} f\]</span> por lo tanto <span class="math inline">\(m(A)=0\)</span>. Para demostar la parte <span class="math inline">\(ii\)</span>, consideremos el conjunto <span class="math inline">\(A=\{x\in\mathbb{R}: f(x)\neq g(x) \}\)</span>, entonces <span class="math inline">\(m(A)=0\)</span>. Entonces, por la proposición @ref{prp:prop434} <span class="math display">\[\int_{\mathbb{R}} f=\int_{A} f+\int_{A^{C}} f=\int_{A^{C}} f=\int_{A^{C}} g=\int_{A} g+\int_{A^{C}} g=\int_{\mathbb{R}} g.\]</span> Para demostar la parte <span class="math inline">\(iii\)</span> usamos nuevamente la proposición @ref{prp:prop434}, para el conjunto <span class="math inline">\(A=\{x\in\mathbb{R}: |g(x)|&gt; f(x) \}\)</span>, el cual tiene medida cero. Así, <span class="math display">\[\int_{\mathbb{R}}|g|=\int_{A}|g|+\int_{A^{C}}|g|\leq\int_{A^{C}} f&lt;\infty\]</span> de donde se sigue que <span class="math inline">\(g\)</span> es integrable. Ahora, veamos que <span class="math inline">\(iv\)</span> se tiene fácilmente de la monotonía de la integral y del hecho que <span class="math inline">\(m(A)=\int_{\mathbb{R}}\chi_{A}\)</span>. Finalmente, <span class="math inline">\(v\)</span> se obtiene del hecho que la función <span class="math inline">\(\min\{f,g\}\)</span> está acotada por <span class="math inline">\(f\)</span> y por <span class="math inline">\(g\)</span> y de la monotonía de la integral.</p>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-186" class="theorem"><strong>Teorema 5.2  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> integrable Lebesgue y sea <span class="math inline">\(\epsilon&gt;0\)</span>, entonces existe <span class="math inline">\(\delta&gt;0\)</span> tal que <span class="math display">\[m(A)\leq\delta\Rightarrow \left| \int_{A} f\right| \leq \int_{A}|f|&lt;\epsilon.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Si <span class="math inline">\(f\)</span> es acotada, digamos por <span class="math inline">\(M\in\mathbb{R}\)</span>, entonces <span class="math inline">\(\int_{A}|f|\leq \int_{A} M=M m(A)\leq M\delta\)</span>. Luego, tomando <span class="math inline">\(\epsilon\geq M\delta\)</span>, se tiene el resultado. Supongamos que <span class="math inline">\(f\)</span> no es acotada. Entonces, construiremos una sucesión de funciones acotadas que aproximacimen a <span class="math inline">\(f\)</span>. Para cada <span class="math inline">\(n\in\mathbb{N}\)</span>, definimos <span class="math display">\[f_{n}(x)=\left\lbrace \begin{array}{ll}
+    f(x)&amp;\mbox{ si } |f(x)|\leq n\\
+    n&amp;\mbox{ si }f(x)&lt; n\\
+    -n&amp;\mbox{ si }f(x)&lt; -n
+\end{array} \right. \]</span> Se tiene que <span class="math inline">\(f_{n}\xrightarrow[n\to\infty]{} f\)</span>. Más aún, <span class="math inline">\(\{|f_{n}|\}_{n}\)</span> es creciente y tiende a <span class="math inline">\(|f|\)</span>. Como <span class="math inline">\(|f|\)</span> es integrable, por el teorema de convergencia monótona @ref{thm:BeppoLevy}, <span class="math display">\[\lim\limits_{n\to\infty} \int_{\mathbb{R}} |f_{n}|=\int_{\mathbb{R}}\lim\limits_{n\to\infty}|f_{n}|=\int_{\mathbb{R}}|f|\]</span> es decir, cada <span class="math inline">\(|f_{n}|\)</span> es integrable Lebesgue. Así, dado <span class="math inline">\(\epsilon&gt;0\)</span>, existe <span class="math inline">\(N\in\mathbb{N}\)</span>, tal que <span class="math display">\[\int_{\mathbb{R}} |f|-|f_{n}|&lt;\frac{\epsilon}{2}\mbox{ para todo } n&gt;N.\]</span> Sea <span class="math inline">\(\delta=\frac{\epsilon}{2N}\)</span> y sea <span class="math inline">\(A\in\mathcal{M}\)</span> tal que <span class="math inline">\(m(A)&lt;\delta\)</span>, entonces <span class="math display">\[\begin{array}{rl}
+    \int_{A} f=&amp;\int_{A}|f|-|f_{N}|+|f_{N}|\\
+    =&amp;\int_{A}|f|-|f_{N}|+\int_{A}|f_{N}|\\
+    &lt;&amp;\frac{\epsilon}{2} + \int_{A}N\\
+    =&amp;\frac{\epsilon}{2} + N m(A)\\
+    &lt;&amp;\frac{\epsilon}{2} + \delta N\\
+    =&amp;\epsilon
+\end{array}.\]</span></p>
+</div>
+
+<p>Ahora veamos un corolario del Lema de Fatou.</p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-188" class="corollary"><strong>Corolario 5.2  </strong></span>Sean <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medibles Lebesgue. Sea <span class="math inline">\(g:\longrightarrow\mathbb{R}\)</span> una función integrable Lebesgue tal que <span class="math inline">\(f_{n}\geq g\)</span> casi siempre. Entonces <span class="math display">\[\int_{\mathbb{R}} \liminf\limits_{n\to\infty} f_{n}\leq \liminf\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Definamos <span class="math inline">\(h_{n}=f_{n}-g\)</span>, entonces <span class="math inline">\(h_{n}\geq 0\)</span> c.s. Por el teorema de Fatou, <span class="math display">\[\int_{\mathbb{R}}\lim\limits_{n\to\infty} f_{n}-\int_{\mathbb{R}} g=\int_{\mathbb{R}}\liminf\limits_{n\to\infty} h_{n}\leq \liminf\limits_{n\to\infty}\int_{\mathbb{R}} h_{n}=\liminf\limitṣ_{n\to\infty}\int_{\mathbb{R}} f_{n}-\int_{\mathbb{R}} g\]</span> como <span class="math inline">\(g\)</span> es integrable, podemos cancelar a ambos lado, obteniendo el resultado.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> El Lema de Fatou es falso si la sucesión <span class="math inline">\(\{f_{n}\}_{n}\)</span> no está dominada inferiormente. Veamos esto con un ejemplo.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-191" class="example"><strong>Ejemplo 5.7  </strong></span>Consideremos la siguiente sucesión de funciones integrables Lebesgue, <span class="math display">\[f_{n}(x)=\left\lbrace\begin{array}{ll}
+    -4n^{2}x&amp;\mbox{ si } x\in[0,\frac{1}{2n}]\\
+    4n^{2}x-4n&amp;\mbox{ si } x\in(\frac{1}{2n},\frac{1}{n}]\\
+    0&amp;\mbox{ en otro caso}
+\end{array} \right. \mbox{ para cada } n\in\mathbb{N}.\]</span> En este caso se tiene que <span class="math inline">\(\lim\limits_{n\to\infty} f_{n}=0\)</span>, pero <span class="math inline">\(\int_{\mathbb{R}} f_{n}=-1\)</span> por lo que <span class="math inline">\(\lim\limits_{n\to\infty} \int_{\mathbb{R}}f_{n}=1\neq\int_{\mathbb{R}}\lim\limits_{n\to\infty} f_{n}\)</span>. Es de hacer notar que no existe función alguna que domine inferiormente a la sucesión. Es decir, no existe uan función <span class="math inline">\(h\)</span> tal que <span class="math inline">\(f_{n}\geq h\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>.</p>
+</div>
+
+<p>Con un argumente análogo al usado en el corolario anterior, tomando <span class="math inline">\(g_{n}=h-f_{n}\)</span>, se tiene el siguiente corolario.</p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-192" class="corollary"><strong>Corolario 5.3  </strong></span>Sean <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medibles Lebesgue dominada superiormente por una función integrable Lebesgue <span class="math inline">\(g:\longrightarrow\mathbb{R}\)</span>, es decir,<span class="math inline">\(f_{n}\leq g\)</span>. Entonces <span class="math display">\[\int_{\mathbb{R}} \limsup\limits_{n\to\infty} f_{n}\geq \limsup\limits_{n\to\infty} \int_{\mathbb{R}} f_{n}.\]</span></p>
+</div>
+
+</div>
+<div id="teoremas-de-aproximación" class="section level2">
+<h2><span class="header-section-number">5.3</span> Teoremas de Aproximación</h2>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-193" class="theorem"><strong>Teorema 5.3  (Convergencia dominada de Lebesgue)  </strong></span> Sea <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medibles Lebesgue, tales que <span class="math inline">\(\lim\limits_{n\to\infty} f_{n}(x)=f(x)\)</span> c.s. Sea <span class="math inline">\(h:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> integrable Lebesgue tal que para todo <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(|f_{n}(x)|\leq h(x)\)</span> c.s. Entonces:</p>
+<p>(i.) Cada <span class="math inline">\(f_{n}\)</span> es integrable Lebesgue.</p>
+<p>(ii.) <span class="math inline">\(f\)</span> es integrable Lebesgue.</p>
+<p>(iii.) <span class="math inline">\(\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}=\int_{\mathbb{R}}\lim\limits_{n\to\infty} f_{n}=\int_{\mathbb{R}} f\)</span>.</p>
+<p>(iv.) <span class="math inline">\(\lim\limits_{n\to\infty}\int_{\mathbb{R}}|f_{n}-f|=0\)</span>.</p>
+</div>
+ 
+<div class="proof">
+ <span class="proof"><em>Demostración. </em></span> Como <span class="math inline">\(|f_{n}|\leq h\)</span>, para todo <span class="math inline">\(n\)</span>, se tiene que cada <span class="math inline">\(|f_{n}|\)</span> es integrable Lebesgue y por lo tanto, cada <span class="math inline">\(f_{n}\)</span> también lo es. De forma análoga, como <span class="math inline">\(|f|=\lim\limits_{n\to\infty}|f_{n}|\)</span>, <span class="math inline">\(|f|\)</span> y <span class="math inline">\(f\)</span> son integrables Lebesgue. Como <span class="math inline">\(-h\leq f_{n}\leq h\)</span>, por el lema de Fatou y su corolario, se tiene que <span class="math display">\[\int_{\mathbb{R}} f=\int_{\mathbb{R}}\liminf\limits_{n}f_{n}\leq\liminf\limits_{n}\int_{\mathbb{R}} f_{n}\leq\limsup\limits_{n}\int_{\mathbb{R}} f_{n}\leq\int_{\mathbb{R}}\limsup\limits_{n}f_{n}=\int_{\mathbb{R}} f\]</span> por lo tanto <span class="math display">\[\int_{\mathbb{R}} f\leq\liminf\limits_{n}\int_{\mathbb{R}} f_{n}\leq\int_{\mathbb{R}} f\mbox{ y }\int_{\mathbb{R}} f\leq\limsup\limits_{n}\int_{\mathbb{R}} f_{n}\leq\int_{\mathbb{R}} f\]</span> esto implica que <span class="math inline">\(\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}\)</span> existe y es exactamente <span class="math inline">\(\int_{\mathbb{R}} f\)</span>. Ahora, definamos <span class="math inline">\(g_{n}=|f_{n}-f|\)</span>, note que <span class="math inline">\(g_{n}\xrightarrow[n\to\infty]{} 0\)</span> y <span class="math inline">\(|g_{n}|\leq|f|+|f_{n}|\leq 2h\)</span>. Aplicando lo anterior, se tiene que <span class="math display">\[\int_{\mathbb{R}} g_{n}=\int_{\mathbb{R}} |f_{n}-f|\xrightarrow[n\to\infty]{}0.\]</span>
+</div>
+
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-195" class="corollary"><strong>Corolario 5.4  </strong></span>Sea <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medibles Lebesgue, tales que <span class="math inline">\(\lim\limits_{n\to\infty} f_{n}(x)=f(x)\)</span>. Sea <span class="math inline">\(A\in\mathcal{M}\)</span> un conjunto de medida finita y supongamos que existe <span class="math inline">\(M\in\mathbb{R}\)</span> tal que <span class="math inline">\(|f_{n}(x)|\leq M\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span> y todo <span class="math inline">\(x\in A\)</span>. Entonces <span class="math display">\[\lim\limits_{n\to\infty}\int_{A} f_{n}=\int_{A} f.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(g=M\chi_{A}\)</span>. Como <span class="math inline">\(m(A)&lt;\infty\)</span>, <span class="math inline">\(g\)</span> es integrable. Ahora, <span class="math inline">\(\{f_{n}\chi_{A}\}_{n}\)</span> y <span class="math inline">\(g\)</span> cumplen con las hipótesis del teorema de convergencia dominada de Lebesgue, por lo tanto <span class="math display">\[\lim\limits_{n\to\infty}\int_{\mathbb{R}} f_{n}\chi_{A}=\int_{\mathbb{R}} f\chi_{A}.\]</span></p>
+</div>
+
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-197" class="corollary"><strong>Corolario 5.5  </strong></span>Sea <span class="math inline">\(&lt;a,b&gt;\)</span> un intervalo finito cualquiera de <span class="math inline">\(\mathbb{R}\)</span>. Y sea <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones <span class="math inline">\(f_{n}:&lt;a,b&gt;\longrightarrow\mathbb{R}\)</span> medibles Lebesgue. Supongamos que <span class="math inline">\(f_{n}\xrightarrow[n\to\infty]{} f(x)\)</span> en <span class="math inline">\(&lt;a,b&gt;\)</span>. Entonces <span class="math display">\[\int_{a}^{b} |f_{n}-f|\xrightarrow[n\to\infty]{} 0.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Dado <span class="math inline">\(\epsilon&gt;0\)</span>, por la convergencia uniforme, existe <span class="math inline">\(N\in\mathbb{N}\)</span> tal que si <span class="math inline">\(n\geq N\)</span> entonces <span class="math inline">\(|f_{n}(x)-f(x)|&lt;\epsilon\)</span> para todo <span class="math inline">\(x\in&lt;a,b&gt;\)</span>. Por lo tanto <span class="math inline">\(|f_{n}-f|&lt;\epsilon\chi_{&lt;a,b&gt;}\)</span>. Como <span class="math inline">\(\epsilon\chi_{&lt;a,b&gt;}\)</span> es integrable Lebesgue, del teorema de CDL se concluye que <span class="math display">\[\lim\limits_{n\to\infty}\int_{a}^{b}|f_{n}-f|=0.\]</span></p>
+</div>
+
+</div>
+<div id="más-sobre-la-integral-de-lebesgue" class="section level2">
+<h2><span class="header-section-number">5.4</span> Más sobre la Integral de Lebesgue</h2>
+<p>Presentamos dos teoremas que son consecuencia inmedianta del teorema de convergencia dominada de Lebesgue. Son una formulación del teorema de convergencia dominada de Lebesgue para familias no numerables de funciones.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-199" class="theorem"><strong>Teorema 5.4  </strong></span>Sea <span class="math inline">\(&lt;a,b&gt;\)</span> un intervalo finito cualquiera de números reales. Sea <span class="math inline">\(f(x,t)\)</span>, con <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(t\in&lt;a,b&gt;\)</span>, una función de dos variables tal que para cada <span class="math inline">\(t\)</span> fijo, la función <span class="math inline">\(x\mapsto f(x,t)\)</span> es medible Lebesgue. Supongamos que <span class="math display">\[\lim\limits_{t\to b^{-}} f(x,t)=f(x) \mbox{ o } \lim\limits_{t\to a^{+}} f(x,t)=f(x)\]</span> y que para todo <span class="math inline">\(t\in&lt;a,b&gt;\)</span>, <span class="math inline">\(|f(x,t)|\leq g(x)\)</span> para todo <span class="math inline">\(x\in\mathbb{R}\)</span>, donde <span class="math inline">\(g\)</span> es una función integrable. Entonces, <span class="math inline">\(f\)</span> es integrable y <span class="math display">\[\int_{\mathbb{R}} f(x,t)dx\rightarrow \int_{\mathbb{R}} f(x)dx\mbox{ cuando } t\to b^{-} \mbox{ o }t\to a^{+}.\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Supongamos que <span class="math inline">\(\lim\limits_{t\to b^{-}} f(x,t)=f(x)\)</span>. Sea <span class="math inline">\((t_{n})_{n}\)</span> una sucesión de números reales en <span class="math inline">\((a,b)\)</span> tal que <span class="math inline">\(t_{n}\longrightarrow\)</span>. Consideremos la sucesión de funciones <span class="math inline">\(f_{n}=f(x,t_{n})\)</span>, por el teorema de convergencia dominada de Lebesgue, se sigue que <span class="math display">\[\lim\limits_{n\to\infty}\int_{\mathbb{R}}f_{n}(x)dx=\lim\limits_{t_{n}\to b}\int_{\mathbb{\mathbb{R}}} f(x,t_{n})dx=\int_{\mathbb{R}}f(x)dx.\]</span></p>
+</div>
+
+<p>Si en lugar de <span class="math inline">\(f(x,t)\)</span> se considera la familia <span class="math inline">\(\{f_{t}(x)\}_{t\in(a,b)}\)</span>, se tiene la versión del teorema de convergencia dominada de Lebesgue, como sigue:</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-201" class="theorem"><strong>Teorema 5.5  </strong></span>Sean <span class="math inline">\(-\infty\leq a&lt;b\leq +\infty\)</span>. Para cada <span class="math inline">\(t\in(a,b)\)</span>, sea <span class="math inline">\(f_{t}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> una función medible Lebesgue. Entonces, si para todo <span class="math inline">\(t\in(a,b)\)</span>, <span class="math inline">\(|f_{t}|\leq g\)</span>, donde <span class="math inline">\(g\)</span> es una función integrable Lebesgue y <span class="math inline">\(f_{t}\to f\)</span> cuando <span class="math inline">\(t\to a^{+}\)</span> o <span class="math inline">\(t\to b^{-}\)</span>. Entonces <span class="math inline">\(f\)</span> es integrable Lebesgue y <span class="math display">\[\int_{\mathbb{R}} f_{t}dx=\int_{\mathbb{R}} f dx.\]</span></p>
+</div>
+
+
+</div>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-78759535-1', 'auto');
+ga('send', 'pageview');  
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="funciones-medibles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="convergencia.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/synergyvision/Medida/edit/master/bookdown/050-la-integral-de-lebesgue.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Medida.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

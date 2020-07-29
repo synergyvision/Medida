@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 8 INTEGRACIÓN EN \(\mathbb{R}^{n}\) | Medida</title>
+  <meta name="description" content="Capítulo 8 INTEGRACIÓN EN \(\mathbb{R}^{n}\) | Medida" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 8 INTEGRACIÓN EN \(\mathbb{R}^{n}\) | Medida" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://synergy.vision/Medida/" />
+  <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
+  
+  <meta name="github-repo" content="synergyvision/Medida/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 8 INTEGRACIÓN EN \(\mathbb{R}^{n}\) | Medida" />
+  
+  
+  <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
+
+<meta name="author" content="Synergy Vision" />
+
+
+<meta name="date" content="2020-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="diferenciacion-e-integración.html"/>
+<link rel="next" href="software-tools.html"/>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="images/logovision-black.png" width="160"></img></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-qué-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prácticas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a><ul>
+<li class="chapter" data-level="2.1" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a></li>
+<li class="chapter" data-level="2.2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#colecciones-de-conjuntos"><i class="fa fa-check"></i><b>2.2</b> Colecciones de Conjuntos</a></li>
+<li class="chapter" data-level="2.3" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#el-conjunto-de-cantor"><i class="fa fa-check"></i><b>2.3</b> El conjunto de Cantor</a></li>
+<li class="chapter" data-level="2.4" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#medida"><i class="fa fa-check"></i><b>2.4</b> Medida</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html"><i class="fa fa-check"></i><b>3</b> LA MEDIDA DE LEBESGUE</a><ul>
+<li class="chapter" data-level="3.1" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#construyendo-la-medida-de-lebesgue"><i class="fa fa-check"></i><b>3.1</b> Construyendo la Medida de Lebesgue</a></li>
+<li class="chapter" data-level="3.2" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#unicidad-de-la-medida-de-lebesgue-y-otras-propiedades"><i class="fa fa-check"></i><b>3.2</b> Unicidad de la medida de Lebesgue y otras propiedades</a></li>
+<li class="chapter" data-level="3.3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#consideraciones"><i class="fa fa-check"></i><b>3.3</b> Consideraciones</a></li>
+<li class="chapter" data-level="3.4" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#la-medida-de-stieltjes"><i class="fa fa-check"></i><b>3.4</b> La Medida de Stieltjes</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="funciones-medibles.html"><a href="funciones-medibles.html"><i class="fa fa-check"></i><b>4</b> FUNCIONES MEDIBLES</a><ul>
+<li class="chapter" data-level="4.1" data-path="funciones-medibles.html"><a href="funciones-medibles.html#conceptos-básicos"><i class="fa fa-check"></i><b>4.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="4.2" data-path="funciones-medibles.html"><a href="funciones-medibles.html#aproximaciones-de-funciones-medibles"><i class="fa fa-check"></i><b>4.2</b> Aproximaciones de funciones medibles</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html"><i class="fa fa-check"></i><b>5</b> LA INTEGRAL DE LEBESGUE</a><ul>
+<li class="chapter" data-level="5.1" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#conceptos-básicos-1"><i class="fa fa-check"></i><b>5.1</b> Conceptos básicos</a></li>
+<li class="chapter" data-level="5.2" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#intercambio-de-límites-con-la-integral"><i class="fa fa-check"></i><b>5.2</b> Intercambio de límites con la integral</a></li>
+<li class="chapter" data-level="5.3" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#teoremas-de-aproximación"><i class="fa fa-check"></i><b>5.3</b> Teoremas de Aproximación</a></li>
+<li class="chapter" data-level="5.4" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#más-sobre-la-integral-de-lebesgue"><i class="fa fa-check"></i><b>5.4</b> Más sobre la Integral de Lebesgue</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="convergencia.html"><a href="convergencia.html"><i class="fa fa-check"></i><b>6</b> CONVERGENCIA</a><ul>
+<li class="chapter" data-level="6.1" data-path="convergencia.html"><a href="convergencia.html#tipos-de-convergencia"><i class="fa fa-check"></i><b>6.1</b> Tipos de convergencia</a></li>
+<li class="chapter" data-level="6.2" data-path="convergencia.html"><a href="convergencia.html#espacios-lp"><i class="fa fa-check"></i><b>6.2</b> Espacios <span class="math inline">\(L^{p}\)</span></a></li>
+<li class="chapter" data-level="6.3" data-path="convergencia.html"><a href="convergencia.html#espacios-linfty"><i class="fa fa-check"></i><b>6.3</b> Espacios <span class="math inline">\(L^{\infty}\)</span></a></li>
+<li class="chapter" data-level="6.4" data-path="convergencia.html"><a href="convergencia.html#espacios-de-hilbert"><i class="fa fa-check"></i><b>6.4</b> Espacios de Hilbert</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html"><i class="fa fa-check"></i><b>7</b> DIFERENCIACION E INTEGRACIÓN</a><ul>
+<li class="chapter" data-level="7.1" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-monótonas"><i class="fa fa-check"></i><b>7.1</b> Funciones monótonas</a></li>
+<li class="chapter" data-level="7.2" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-de-variación-acotada"><i class="fa fa-check"></i><b>7.2</b> Funciones de variación acotada</a></li>
+<li class="chapter" data-level="7.3" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#de-la-integral-indefinida.-continuidad-absoluta"><i class="fa fa-check"></i><b>7.3</b> De la Integral indefinida. Continuidad Absoluta</a></li>
+<li class="chapter" data-level="7.4" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#cambio-de-variables"><i class="fa fa-check"></i><b>7.4</b> Cambio de variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html"><i class="fa fa-check"></i><b>8</b> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></a><ul>
+<li class="chapter" data-level="8.1" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#espacio-producto"><i class="fa fa-check"></i><b>8.1</b> Espacio Producto</a></li>
+<li class="chapter" data-level="8.2" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#medida-de-lebesgue-en-mathbbrn"><i class="fa fa-check"></i><b>8.2</b> Medida de Lebesgue en <span class="math inline">\(\mathbb{R}^{n}\)</span></a></li>
+<li class="chapter" data-level="8.3" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#teorema-de-fibini.-teorema-de-tonelli"><i class="fa fa-check"></i><b>8.3</b> Teorema de Fibini. Teorema de Tonelli</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apéndice</b></span></li>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A.1" data-path="software-tools.html"><a href="software-tools.html#r-and-r-packages"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
+<li class="chapter" data-level="A.2" data-path="software-tools.html"><a href="software-tools.html#pandoc"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
+<li class="chapter" data-level="A.3" data-path="software-tools.html"><a href="software-tools.html#latex"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Medida</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="integración-en-mathbbrn" class="section level1">
+<h1><span class="header-section-number">Capítulo 8</span> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></h1>
+<p>En este capítulo estudiaremos primero los conceptos básicos necesarios para construír la medida de Lebesgue en espacio producto <span class="math inline">\(\mathbb{R}^{n}\)</span>. Esta construcción es análoga a lo hecho para construír la medida de Lebesgue en <span class="math inline">\(\mathbb{R}\)</span>, razón por la cual se dejarán los detalles al lector. Luego estudiaremos las funciones medibles, las funciones integrables y el teorema de Fubini.</p>
+<div id="espacio-producto" class="section level2">
+<h2><span class="header-section-number">8.1</span> Espacio Producto</h2>
+<p>En esta sección daremos un esquema de la construcción de la medida de Lebesgue en el espacio producto <span class="math inline">\(\mathbb{R}^{n}\)</span>. Definiremos una medida en <span class="math inline">\(\mathbb{R}^{n}\)</span> que esxtienda la noción de área en el plano <span class="math inline">\(\mathbb{R}^{2}\)</span> y volumen en <span class="math inline">\(\mathbb{R}^{3}\)</span> (en <span class="math inline">\(\mathbb{R}\)</span>, la medida extiende la nociónn de longitud) Para ello comenzaremos definiendo rectángulos en <span class="math inline">\(\mathbb{R}^{n}\)</span>, conjunto que coinciden con los conocidos rectángulos del plano <span class="math inline">\(\mathbb{R}^{2}\)</span> y con los paralelepipedos en <span class="math inline">\(\mathbb{R}^{3}\)</span>.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-312" class="definition"><strong>Definición 8.1  </strong></span>Un <em>rectángulo</em> en <span class="math inline">\(\mathbb{R}^{n}\)</span> es un subconjunto <span class="math inline">\(A\subseteq\mathbb{R}^{n}\)</span> que es el producto cartesiano de intervalos de cualquier tipo <span class="math inline">\(I_{1},\cdots, I_{n}\)</span> de <span class="math inline">\(\mathbb{R}\)</span>, es decir, <span class="math inline">\(A=\prod_{i=1}^{n} I_{i}\)</span>.</p>
+</div>
+
+<p>El conjunto de rectángulos de <span class="math inline">\(\mathbb{R}^{n}\)</span>, que denotaremos por <span class="math inline">\(\mathfrak{R}^{n}\)</span>, es una semiálgebra. Y el conjunto de rectángulos acotados de <span class="math inline">\(\mathbb{R}^{n}\)</span>, que denotaremos por <span class="math inline">\(\mathfrak{R}_{a}^{n}\)</span>, es una semianillo. Con cualquiera de estas clases podemos generar una <span class="math inline">\(\sigma\)</span>-álgebra, la <span class="math inline">\(\sigma\)</span>-álgebra de Borel de <span class="math inline">\(\mathbb{R}^{n}\)</span>, que denotaremos por <span class="math inline">\(\mathcal{B}(\mathbb{R}^{n})\)</span>.</p>
+<p>Dados <span class="math inline">\(p,q\in\mathbb{R}\)</span>, sea <span class="math inline">\(n=p+q\)</span>. Sean <span class="math inline">\(\mathcal{F}\)</span> y <span class="math inline">\(\mathcal{G}\)</span> <span class="math inline">\(\sigma\)</span>-álgebras en <span class="math inline">\(\mathbb{R}^{p}\)</span> y <span class="math inline">\(\mathbb{R}^{q}\)</span> respectivamente. Llamaremos <em>conjunto elemental</em> a los conjuntos de la forma <span class="math inline">\(F\times G\)</span>, donde <span class="math inline">\(F\in\mathcal{F}\)</span> y <span class="math inline">\(G\in\mathcal{G}\)</span>, es decir, a los elementos del conjunto <span class="math inline">\(\mathcal{F}\times\mathcal{G}=\{H\subseteq\mathbb{R}^{n}:H=F\times G\mbox{ con } F\in\mathcal{F} \mbox{ y } G\in\mathcal{G} \}\)</span>.</p>
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> <span class="math inline">\(\mathcal{F}\times\mathcal{G}\)</span> no es una <span class="math inline">\(\sigma\)</span>-álgebra, más si un sistema <span class="math inline">\(\pi\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-314" class="definition"><strong>Definición 8.2  </strong></span>La <span class="math inline">\(\sigma\)</span>-álgebra producto, denotada <span class="math inline">\(\mathcal{F}\otimes\mathcal{G}\)</span>, es la generada por <span class="math inline">\(\mathcal{F}\times\mathcal{G}\)</span>, esto es <span class="math display">\[\mathcal{F}\otimes\mathcal{G}=\sigma(\mathcal{F}\times\mathcal{G}).\]</span></p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> <span class="math inline">\(\mathcal{B}(\mathbb{R}^{n})=\mathcal{B}(\mathbb{R}^{p})\otimes\mathcal{B}(\mathbb{R}^{q})\)</span>, con <span class="math inline">\(n=p+q\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-316" class="definition"><strong>Definición 8.3  </strong></span>Sea <span class="math inline">\(R\in\mathcal{R}_{a}^{n}\)</span> un rectántugo acotado de <span class="math inline">\(\mathbb{R}^{n}\)</span>, tal que <span class="math inline">\(R=\prod_{i=1}^{n} I_{i}\)</span>. Definimos el área de <span class="math inline">\(R\)</span> como <span class="math display">\[l_{n}(R)=\prod_{i=1}^{n} l(I_{i})\]</span> donde <span class="math inline">\(l\)</span> es la longitud en <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> La función área, <span class="math inline">\(l_{n}\)</span>, se puede extender al anillo generado por <span class="math inline">\(\mathcal{R}_{a}^{n}\)</span>. Si <span class="math inline">\(R=R_{p}\times R_{q}\)</span>, con <span class="math inline">\(R_{p}\in\mathcal{R}_{a}^{p}\)</span> y <span class="math inline">\(R_{q}\in\mathcal{R}_{a}^{q}\)</span>, entonces <span class="math inline">\(l_{p+q}(R)=l_{p}(R_{p})l_{q}(R_{q})\)</span>.</p>
+</div>
+
+</div>
+<div id="medida-de-lebesgue-en-mathbbrn" class="section level2">
+<h2><span class="header-section-number">8.2</span> Medida de Lebesgue en <span class="math inline">\(\mathbb{R}^{n}\)</span></h2>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-318" class="definition"><strong>Definición 8.4  </strong></span>Sea <span class="math inline">\(A\subseteq\mathbb{R}^{n}\)</span>. Definimos <span class="math display">\[\mathfrak{R}_{a}^{n}(A)=\left\lbrace (R_{k})_{k}\subseteq\mathcal{R}_{a}^{n}: A\subseteq\bigcup_{k\in\mathbb{N}} R_{k}\right\rbrace \]</span> la familia de todas las sucesiones de rectángulos cuya unión contiene al conjunto <span class="math inline">\(A\)</span>. Y <em>la medida exterior de <span class="math inline">\(A\)</span></em> la definimos como: <span class="math display">\[l^{\ast}_{n}(A)=\inf\left\lbrace\sum_{k}^{\inf}l_{n}(R_{k}): (R_{k})_{k}\in\mathfrak{R}_{a}^{n}(A) \right\rbrace .\]</span></p>
+</div>
+
+<p>Denotemos <span class="math inline">\(\mathcal{M}_{n}\)</span> a los conjuntos <span class="math inline">\(l^{\ast}_{n}\)</span>-medibles, esto es, <span class="math display">\[A\in\mathcal{M}_{n}\mbox{ si y solo si } \forall B\subseteq\mathbb{R}^{n}[l^{\ast}(B)=l^{\ast}(B\cap A)+l^{\ast}(B\cap A^{c})].\]</span> La función <span class="math inline">\(l^{\ast}_{n}\)</span> resulta ser una medida en <span class="math inline">\(\mathcal{M}_{n}\)</span>, la llamaremos la medida de Lebesgue en <span class="math inline">\(\mathcal{M}_{n}\)</span>. Para simplicidad, podemos denotar <span class="math inline">\(l_{n}=l^{\ast}_{n}\upharpoonright \mathcal{M}_{n}\)</span>.</p>
+
+<div class="remark">
+<p> <span class="remark"><em>Nota. </em></span> De forma análoga a lo hecho en <span class="math inline">\(\mathbb{R}\)</span>, se tiene que:</p>
+<p>(i.) <span class="math inline">\(\mathcal{B}(\mathbb{R}^{n})\subseteq \mathcal{M}_{n}\)</span>.</p>
+<p>(ii.) <span class="math inline">\(\mathcal{M}_{n}=\sigma(\mathbb{R}^{n}, \mathcal{N})\)</span>, donde <span class="math inline">\(\mathcal{N}\)</span> es la colección de subconjuntos nulos.</p>
+<p>(iii.) <span class="math inline">\(M\in\mathcal{M}_{n}\)</span> si y solo si <span class="math inline">\(\exists B_{1}, B_{2}\in\mathcal{B}(\mathbb{R}^{n})\)</span> tales que <span class="math inline">\(B_{1}\subseteq M\subseteq B_{2}\)</span> y <span class="math inline">\(l_{n}(B_{2}\backslash B_{1})=0\)</span>.</p>
+</div>
+
+<p>También se pueden demostrar los teoremas de aproximaciÓn:</p>
+<p>(1.) Si <span class="math inline">\(E\in\mathcal{M}_{n}\)</span>, dado <span class="math inline">\(\epsilon&gt;0\)</span>, existe un conjunto abierto <span class="math inline">\(G\in\mathbb{R}^{n}\)</span> tal que <span class="math inline">\(E\subseteq G\)</span> y <span class="math inline">\(l_{n}(G\backslash E)&lt;\epsilon\)</span>.</p>
+<p>(2.) Si <span class="math inline">\(E\in\mathcal{M}_{n}\)</span>, dado <span class="math inline">\(\epsilon&gt;0\)</span>, existe un conjunto cerrado <span class="math inline">\(F\in\mathbb{R}^{n}\)</span> tal que <span class="math inline">\(F\subseteq E\)</span> y <span class="math inline">\(l_{n}(E\backslash F)&lt;\epsilon\)</span>.</p>
+<p>(3.) Si <span class="math inline">\(E\in\mathcal{M}_{n}\)</span>, entonces existen conjuntos <span class="math inline">\(F, G\in\mathbb{R}^{n}\)</span>, <span class="math inline">\(F_{\sigma}\)</span> y <span class="math inline">\(G_{\delta}\)</span> respectivamente, tales que <span class="math inline">\(F\subseteq E\subseteq G\)</span> y <span class="math inline">\(l_{n}(G\backslash F)=0\)</span>.</p>
+
+<div class="proposition">
+<p><span id="prp:proposicion79" class="proposition"><strong>Proposición 8.1  </strong></span>Sean <span class="math inline">\(E\in\mathcal{B}(\mathbb{R}^{p})\)</span> y <span class="math inline">\(F\in\mathcal{B}(\mathbb{R}^{q})\)</span>. Se tiene que <span class="math inline">\(l_{p+q}(E\times F)=l_{p}(E)l_{q}(F)\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Si <span class="math inline">\(E\)</span> y <span class="math inline">\(F\)</span> son conjuntos acotados, existen rectángulo acotados <span class="math inline">\(J\in\mathcal{R}_{a}^{p}\)</span> y <span class="math inline">\(K\in\mathcal{R}_{a}^{q}\)</span>, tales que <span class="math inline">\(E\subseteq J\)</span> y <span class="math inline">\(F\subseteq K\)</span>. Luego, existen sucesiones <span class="math inline">\((S_{i})_{i\in\mathbb{N}}\subseteq\mathcal{R}_{a}^{p}\)</span> y <span class="math inline">\((T_{i})_{i\in\mathbb{N}}\subseteq\mathcal{R}_{a}^{q}\)</span>, tales que <span class="math display">\[E\subseteq \bigcap S_{i}\subseteq J\mbox{ y }F\subseteq \bigcap T_{i}\subseteq K\]</span> y además <span class="math display">\[\sum l_{p}(S_{i})&lt; l_{p}(E)+\epsilon \mbox{ y }\sum l_{q}(T_{i})&lt; l_{q}(F)+\epsilon\mbox{ para todo } \epsilon&gt;0.\]</span> Como <span class="math inline">\(E\times F\subseteq\underset{i,j\in\mathbb{N}}{\bigcup}l_{p+q}(S_{i}\times T_{j})\)</span>, luego <span class="math display">\[\begin{array}{ll}
+    l_{p+q}(E\times F)&amp;\leq \underset{i,j\in\mathbb{N}}{\sum}l_{p+q}(S_{i}\times T_{j})\\
+    &amp;=\underset{i,j\in\mathbb{N}}{\sum}l_{p}(S_{i})l_{q}(T_{j})\\
+    &amp;=\underset{i\in\mathbb{N}}{\sum}l_{p}(S_{i})\underset{j\in\mathbb{N}}{\sum}l_{q}(T_{j})\\
+    &amp;&lt; (l_{p}(E)+\epsilon)(l_{q}(F)+\epsilon)\mbox{ para todo } \epsilon&gt;0
+\end{array}\]</span> por lo tanto <span class="math inline">\(l_{p+q}(E\times F)\leq l_{p}(E)l_{q}(F)\)</span>. Como se tiene que <span class="math display">\[J\times K=(E\times F) \cup [(J\backslash E)\times F]\cup [E\times(K\backslash F)]\cup [(J\backslash E)\times (K\backslash F)]\]</span> se sigue que <span class="math display">\[l_{p+q}(J\times K)\leq l_{p}(E)l_{q}(F)+l_{p}(J\backslash E)l_{q}(F)+l_{p}(E)l_{q}(K\backslash F)+l_{p}(J\backslash E)l_{q}(K\backslash F).\]</span> Pero <span class="math inline">\(J\times K\)</span> es un rectángulo, por lo tanto <span class="math display">\[l_{p+q}(J\times K)=l_{p}(J)l_{q}(K)=[l_{p}(E)+l_{p}(J\backslash E)][l_{q}(F)+l_{q}(K\backslash F)]\]</span> Lo que implica que la desigualdad anterior debe ser una igualdad, así como todas las anteriores, es decir, <span class="math display">\[l_{p+q}(E\times F)=l_{p}(E)\times l_{q}(F).\]</span> En el caso de que <span class="math inline">\(E\)</span> o <span class="math inline">\(F\)</span> no sean acotados, consideramos sucesiones disjunta y crecientes de rectángulos acotados <span class="math inline">\((I_{n})\subseteq \mathbb{R}^{p}\)</span> y <span class="math inline">\((H_{n})\subseteq \mathbb{R}^{q}\)</span> tales que <span class="math inline">\(\bigcup_{i\in\mathbb{N}} I_{i}=\mathbb{R}^{p}\)</span> y <span class="math inline">\(\bigcup_{j\in\mathbb{N}} H_{j}=\mathbb{R}^{q}\)</span> y se escribe <span class="math display">\[E\times F=\bigcup_{i,j\in\mathbb{N}} (E\cap I_{i})\times(F\cap H_{j}).\]</span></p>
+</div>
+
+<p>También se puede probar una proposición análoga para conjuntos medibles Lebesgue.</p>
+</div>
+<div id="teorema-de-fibini.-teorema-de-tonelli" class="section level2">
+<h2><span class="header-section-number">8.3</span> Teorema de Fibini. Teorema de Tonelli</h2>
+<p>Si queremos integrar de forma iterada funciones en <span class="math inline">\(\mathbb{R}^{n}=\mathbb{R}^{p}\times \mathbb{R}^{q}\)</span>, nos preguntamos cuáles son las condiciones para que se tenga la igualdad: <span class="math display">\[\int_{\mathbb{R}^{n}} f(x,y) dl_{n}=\int_{\mathbb{R}^{p}}\left(\int_{\mathbb{R}^{q}} f(x,y) dl_{p}(x)\right) dl_{q}(y)=\int_{\mathbb{R}^{q}}\left(\int_{\mathbb{R}^{p}} f(x,y) dl_{q}(y)\right) dl_{p}(x)\]</span> o más general <span class="math display">\[\int_{\mathbb{R}^{n}} f(x,y) dl_{n}=\int_{\mathbb{R}}\cdots\int_{\mathbb{R}} f(x_{1},\cdots,x_{n}) d_{x_{1}}\cdots d_{x_{n}}=\int_{\mathbb{R}}\cdots\int_{\mathbb{R}} f(x_{k_{1}},\cdots,x_{k_{n}}) d_{x_{k_{1}}}\cdots d_{x_{k_{n}}}\]</span> donde <span class="math inline">\(k_{1},\cdots, k_{n}\)</span> es una permutación de <span class="math inline">\(1,\cdots,n\)</span>.</p>
+<p>Pero la igualdad anterior puede escribirse en término de las secciones de una función <span class="math inline">\(f\)</span> de <span class="math inline">\(\mathbb{R}^{n}\)</span> en <span class="math inline">\(\mathbb{R}\)</span>. Esto es:</p>
+<p><span class="math display">\[\int_{\mathbb{R}^{n}} f dl_{n}=\int_{\mathbb{R}^{q}}\left(\int_{\mathbb{R}^{p}}f_{y}(x) dl_{q}\right) dl_{q}=\int_{\mathbb{R}^{p}}\left(\int_{\mathbb{R}^{q}}f_{x}(y) dl_{p}\right) dl_{p}.\]</span></p>
+<p>Entonces debemos estudiar la medibilidad (sobre los espacios <span class="math inline">\(\mathbb{R}^{p}\)</span> y <span class="math inline">\(\mathbb{R}^{q}\)</span>) de las secciones de la función medible <span class="math inline">\(f\)</span>.</p>
+<p>Comencemos por estudiar la medibilidad de las funciones indicatrices.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-321" class="proposition"><strong>Proposición 8.2  </strong></span>Si <span class="math inline">\(E\in\mathcal{B}(\mathbb{R}^{n})\)</span>, con <span class="math inline">\(n=p+q\)</span>. Entonces para todo <span class="math inline">\(x\in\mathbb{R}^{p}\)</span>, <span class="math inline">\(E_{x}\in\mathcal{B}(\mathbb{R}^{q})\)</span> y para todo <span class="math inline">\(x\in\mathbb{R}^{q}\)</span>, <span class="math inline">\(E_{y}\in\mathcal{B}(\mathbb{R}^{p})\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(H=\{E\in\mathcal{B}(\mathbb{R}):\forall x\in\mathbb{R}^{p}(E_{x}\in \mathcal{B}(\mathbb{R}^{q}))\wedge\forall y\in\mathbb{R}^{q}(E_{y}\in \mathcal{B}(\mathbb{R}^{p}))\}\)</span>. Claramente <span class="math inline">\(\mathcal{B}(\mathbb{R}^{p})\times\mathcal{B}(\mathbb{R}^{q})\subseteq H\)</span>. Además se puede ver que <span class="math inline">\(H\)</span> es una <span class="math inline">\(\sigma\)</span>-álgebra. Por lo tanto <span class="math inline">\(\mathcal{B}(\mathbb{R}^{n})=\sigma(\mathcal{B}(\mathbb{R}^{p})\times\mathcal{B}(\mathbb{R}^{q}))\subseteq H\)</span>.</p>
+</div>
+
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-323" class="proposition"><strong>Proposición 8.3  </strong></span>Sea <span class="math inline">\(A\)</span> un conjunto Boreliano de <span class="math inline">\(\mathcal{B}(\mathbb{R}^{p})\otimes\mathcal{B}(\mathbb{R}^{q})\)</span>. Entonces:</p>
+<p>(i.) La función <span class="math inline">\(x\mapsto l_{q}(A_{x})=\int \chi_{A_{x}}(y) dl_{q}(y)\)</span> es <span class="math inline">\(\mathcal{B}(\mathbb{R}^{p})\)</span>-medible.</p>
+<p>(ii.) La función <span class="math inline">\(y\mapsto l_{p}(A_{y})=\int \chi_{A_{y}}(x) dl_{q}(x)\)</span> es <span class="math inline">\(\mathcal{B}(\mathbb{R}^{q})\)</span>-medible.</p>
+<p>(iii.) Se tiene que <span class="math inline">\(l_{n}(A)=\int l_{q}(A_{x})dl_{p}(x)=\int l_{p}(A_{y})dl_{q}(y)\)</span>.</p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Consideremos dos casos. El primero, cuando <span class="math inline">\(A\)</span> es subconjunto de un conjunto de medida finita, es decir, si <span class="math inline">\(A\subseteq H=F\times G\)</span> y <span class="math inline">\(l_{n}(H)&lt;\infty\)</span>. Definimos el conjunto, <span class="math display">\[M_{H}=\{A\subseteq H: \mbox{ se cumplen las condiciones $i$, $ii$ y $iii$} \}.\]</span> Veamos que <span class="math inline">\(\mathcal{B}(H)\subseteq M_{H}\)</span>. La clase <span class="math inline">\([\mathcal{B}(\mathbb{R}^{p})\times\mathcal{B}(\mathbb{R}^{q})]\cap H\)</span> es un sistema <span class="math inline">\(\pi\)</span> y genera a <span class="math inline">\(\mathcal{B}(H)\)</span>. Sea <span class="math inline">\(B=C\times D\)</span>, entonces <span class="math display">\[\forall x\in C, B_{x}=D\mbox{ y }\forall x\notin C, B_{x}=\emptyset\]</span> y <span class="math display">\[\forall y\in D, B_{y}=C\mbox{ y }\forall y\notin D, B_{y}=\emptyset\]</span> por lo tanto, <span class="math display">\[x\mapsto l_{q}(B_{x})=l_{q}(D)\chi_{C}(x)\mbox{ y }\]</span> <span class="math display">\[y\mapsto l_{p}(B_{y})=l_{p}(C)\chi_{D}(y)\]</span> son funciones simples, por lo tanto medibles. Por la proposición <a href="integración-en-mathbbrn.html#prp:proposicion79">8.1</a>, se tiene que <span class="math inline">\(l_{n}(B)=l_{p}(C)l_{q}(D)\)</span>, de donde: <span class="math display">\[\begin{array}{lll}
+    l_{n}(A)&amp;=\int l_{q}(D)\chi_{C}(x)dl_{p}(x)&amp;=\int l_{q}(A_{x})dl_{p}(x)\\
+    &amp;=\int l_{p}(C)\chi_{D}(y)dl_{q}(y)&amp;=\int l_{p}(A_{y})dl_{q}(y)
+\end{array}\]</span> Además, <span class="math inline">\(M_{H}\)</span> es una clase monótona. Por el teorema de la clase monótona, <span class="math inline">\(\mathcal{B}(H)\subseteq M_{H}\)</span>. En el caso que que <span class="math inline">\(A\)</span> sea un conjunto cualquiera. Tomando <span class="math inline">\((E_{n})\subseteq\mathcal{B}(\mathbb{R}^{p})\)</span> tal que <span class="math inline">\(l_{p}(E_{n})&lt;\infty\)</span> para cada <span class="math inline">\(n\)</span> y <span class="math inline">\(E_{n}\uparrow \mathbb{R}^{p}\)</span> y <span class="math inline">\((F_{n})\subseteq\mathcal{B}(\mathbb{R}^{q})\)</span> tal que <span class="math inline">\(l_{q}(F_{n})&lt;\infty\)</span> para cada <span class="math inline">\(n\)</span> y <span class="math inline">\(F_{n}\uparrow \mathbb{R}^{q}\)</span>. Y <span class="math inline">\(H_{n}=E_{n}\times F_{n}\)</span>, entonces, <span class="math inline">\(A\cap H_{n}\uparrow A\)</span>. Por lo tanto, por el caso anterior, se tiene que <span class="math inline">\(i\)</span>, <span class="math inline">\(ii\)</span> y <span class="math inline">\(iii\)</span> valen para cada <span class="math inline">\(A\cap H_{n}\)</span>, por lo tanto para <span class="math inline">\(A\)</span>.</p>
+</div>
+
+<p>Una aplicación inmediata es que para hallar la medida de un conjunto boreliano en <span class="math inline">\(\mathbb{R}^{p}\times \mathbb{R}^{q}\)</span> se puede integrar sobre todas las secciones <span class="math inline">\(x\)</span>, la medida de todas estas. Además, <span class="math display">\[\int l_{q}(A_{x})dl_{p}(x)=\int l_{p}(A_{y})dl_{q}(y)=0\mbox{ si y solo si } l_{q}(A_{x})=0\mbox{ c.s. y } l_{p}(A_{y}) \mbox{ c.s.}\]</span> Esto es el siguiente resultado.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-325" class="proposition"><strong>Proposición 8.4  </strong></span>Sea <span class="math inline">\(A\in\mathcal{B}(\mathbb{R}^{n})\)</span>. Entonces, <span class="math inline">\(l_{n}(A)=0\)</span> si y solo si <span class="math inline">\(l_{p}(A_{y})=0\)</span> en c.t.p. de <span class="math inline">\(\mathbb{R}^{q}\)</span> si y solo si <span class="math inline">\(l_{q}(A_{x})=0\)</span> en c.t.p. de <span class="math inline">\(\mathbb{R}^{p}\)</span>.</p>
+</div>
+
+<p>Para los conjuntos medibles Lebesgue se tiene un resultado análogo a los visto hasta ahora para los conjuntos borelianos.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-326" class="proposition"><strong>Proposición 8.5  </strong></span>Sea <span class="math inline">\(E\)</span> un conjunto medible Lebesgue de <span class="math inline">\(\mathbb{R}^{n}\)</span>. Entonces:</p>
+<p>(i.) <span class="math inline">\(E_{x}\in\mathcal{M}_{q}\)</span> en c.t.p. <span class="math inline">\(x\in\mathbb{R}^{p}\)</span>.</p>
+<p>(ii.) <span class="math inline">\(E_{y}\in\mathcal{M}_{p}\)</span> en c.t.p. <span class="math inline">\(x\in\mathbb{R}^{q}\)</span>.</p>
+<p>(iii.) Las funciones <span class="math inline">\(x\mapsto l_{q}(E_{x})\)</span> y <span class="math inline">\(y\mapsto l_{p}(E_{y})\)</span> son funciones <span class="math inline">\(\mathcal{M}_{p}\)</span>-medible y <span class="math inline">\(\mathcal{M}_{q}\)</span>-medible, respectivamente. Además, <span class="math display">\[l_{n}=\int l_{q}(E_{x})dl_{p}(x)=\int l_{p}(E_{y})dl_{q}(y).\]</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(E\)</span> un conjunto medible Lebesgue, entonces existen conjuntos borelianos <span class="math inline">\(B_{1}\)</span> y <span class="math inline">\(B_{2}\)</span>, tales que <span class="math inline">\(B_{1}\subseteq E\subseteq B_{2}\)</span> y <span class="math inline">\(l_{n}(B_{2}\backslash B_{1})\)</span>. Para todo, <span class="math inline">\(x\in\mathbb{R}^{p}\)</span>, <span class="math inline">\(B_{1_{x}}\subseteq E\subseteq B_{2_{x}}\)</span> y <span class="math inline">\(B_{1_{x}}, B_{2_{x}}\in\mathcal{B}(\mathbb{R}^{q})\)</span>. Por el corolario anterior, <span class="math inline">\(l_{q}(B_{2_{x}}\backslash B_{1_{x}})=0\)</span> en c.t.p. <span class="math inline">\(x\in\mathbb{R}^{p}\)</span>. Por lo que <span class="math inline">\(E_{x}\in\mathcal{M}_{q}\)</span>. La parte <span class="math inline">\(ii.\)</span> es análoga. Ahora, como <span class="math inline">\(B_{1_{x}}\subseteq E_{x}\subseteq B_{2_{x}}\)</span> y <span class="math inline">\(l_{n}(B_{2}\backslash B_{1_{x}})=0\)</span>, las funciones <span class="math inline">\(x\mapsto l_{q}(E_{x})\)</span> y <span class="math inline">\(x\mapsto l_{q}(B_{2_{x}})\)</span> son iguales c.s. Además, <span class="math inline">\(l_{n}(E)=l_{n}(B_{2})\)</span>, por lo tanto <span class="math display">\[l_{n}(E)=l_{n}(B_{2})=\int l_{q}(B_{2_{x}})dl_{p}(x)=\int l_{q}(E_{x})dl_{p}(x).\]</span> Análogamente, <span class="math display">\[l_{n}(E)=\int l_{p}(E_{y})dl_{q}(y).\]</span></p>
+</div>
+
+<p>Estudiemos la medibilidad de las secciones de una función medible con siguiente teorema:</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-328" class="proposition"><strong>Proposición 8.6  </strong></span>Sea <span class="math inline">\(f:\mathbb{R}^{n}\longrightarrow \mathbb{R}\)</span>.</p>
+<p>(i.)Si <span class="math inline">\(f\)</span> es medible Borel en <span class="math inline">\(\mathbb{R}^{n}\)</span>, con <span class="math inline">\(\mathcal{B}^{n}=\mathcal{B}(\mathbb{R}^{p})\otimes\mathcal{B}(\mathbb{R}^{q})\)</span>, entonces <span class="math display">\[f_{x}\mbox{ es } \mathcal{B}(\mathbb{R}^{q})\mbox{ medible, para todo }x\in\mathbb{R}^{p}\mbox{ y }\]</span> <span class="math display">\[f_{y}\mbox{ es } \mathcal{B}(\mathbb{R}^{p})\mbox{ medible, para todo }y\in\mathbb{R}^{q}\mbox{   }\]</span></p>
+(ii.) Si <span class="math inline">\(f\)</span> es medible Lebesgue en <span class="math inline">\(\mathbb{R}^{n}\)</span>, entonces <span class="math display">\[f_{x}\mbox{ es } \mathcal{M}_{q}\mbox{ medible, en c.t.p. }x\in\mathbb{R}^{p}\mbox{ y }\]</span> <span class="math display">\[f_{y}\mbox{ es } \mathcal{M}_{p}\mbox{ medible, en c.t.p. }y\in\mathbb{R}^{q}\mbox{   }\]</span>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(A\in\mathcal{B}(\mathbb{R})\)</span>;</p>
+<p>(i.) <span class="math inline">\(f^{-1}_{x}(A)=\{y\in\mathbb{R}^{q}:f_{x}(y)\in A \}=\{y\in\mathbb{R}^{q}:f(x,y)\in A \}=(f^{-1}(A))_{x}\)</span>. Si <span class="math inline">\(f\)</span> es medible Borel, <span class="math inline">\(f^{-1}(A)\in\mathcal{B}(\mathbb{R}^{n})\)</span>, por lo tanto <span class="math inline">\(f^{-1}_{x}(A)=(f^{-1}(A))_{x}\in\mathcal{B}(\mathbb{R}^{q})\)</span>. De forma análoga, <span class="math inline">\(f^{-1}_{y}(A)=(f^{-1}(A))_{y}\in\mathcal{B}(\mathbb{R}^{p})\)</span> siempre que <span class="math inline">\(f\)</span> sea medible Borel.</p>
+<p>(ii.) Si <span class="math inline">\(f\)</span> es medible Lebesgue, <span class="math inline">\(f^{-1}(A)\in\mathcal{M}_{n}\)</span>, entonces <span class="math inline">\((f^{-1}(A))_{x}\in\mathcal{M}_{q}\)</span> en c.t.p. <span class="math inline">\(x\in\mathbb{R}^{p}\)</span>, por lo tanto <span class="math inline">\(f^{-1}_{x}\)</span> es <span class="math inline">\(\mathcal{M}_{q}\)</span> medible. Análogamente, <span class="math inline">\(f^{-1}_{y}\)</span> es <span class="math inline">\(\mathcal{M}_{p}\)</span> medible, siempre que <span class="math inline">\(f\)</span> <span class="math inline">\(\mathcal{M}_{n}\)</span> medible.</p>
+</div>
+
+<p>Culminaremos presentando el teorema de Tonelli y el teorema de Fubini.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-330" class="theorem"><strong>Teorema 8.1  (Fubini)  </strong></span>Sea <span class="math inline">\(\mathbb{R}^{n}=\mathbb{R}^{p}\times\mathbb{R}^{q}\)</span>.</p>
+<p>(i.) Si <span class="math inline">\(h:\mathbb{R}^{n}\longrightarrow\mathbb{R}^{+}\)</span> es una función no negativa medible Lebesgue, entonces <span class="math display">\[\int_{\mathbb{R}} h dl_{n}=\int_{\mathbb{R}^{p}}\left(\int_{\mathbb{R}^{q}} h_{x}(y)dl_{q}(y) \right)dl_{p}(x)=\int_{\mathbb{R}^{q}}\left(\int_{\mathbb{R}^{p}} h_{y}(x)dl_{p}(x) \right)dl_{q}(y)\]</span> Estas integrales pueden valer infinito.</p>
+<p>(ii.) Si <span class="math inline">\(h:\mathbb{R}^{n}\longrightarrow\mathbb{R}\)</span> es medible Lebesgue e integrable respecto a la medida <span class="math inline">\(l_{n}\)</span>, entonces <span class="math display">\[h_{x}: \mathbb{R}^{q}\longrightarrow\mathbb{R} \mbox{ es } l_{q}\mbox{ integrable para c.t.p. } x\in\mathbb{R}^{p}\mbox{ y }\]</span> <span class="math display">\[h_{y}: \mathbb{R}^{p}\longrightarrow\mathbb{R} \mbox{ es } l_{p}\mbox{ integrable para c.t.p. } y\in\mathbb{R}^{q}\]</span> y vale la igualdad <span class="math inline">\(i.\)</span></p>
+<p>(iii.) Si <span class="math inline">\(h:\mathbb{R}^{n}\longrightarrow\mathbb{R}\)</span> es medible Lebesgue y algunas de las siguientes afirmaciones se simple: <span class="math display">\[ \int\left(\int |h_{x}(y)|dl_{q}(y) \right)dl_{p}(x)&lt;\infty\mbox{ o }\]</span> <span class="math display">\[ \int\left(\int |h_{y}(x)|dl_{p}(x) \right)dl_{q}(y)&lt;\infty.\]</span> Entonces <span class="math inline">\(h\)</span> es integrable respecto de <span class="math inline">\(l_{n}\)</span> y se cumple la igualdad <span class="math inline">\(i.\)</span></p>
+</div>
+ 
+<div class="proof">
+<p> <span class="proof"><em>Demostración. </em></span> Si <span class="math inline">\(h\)</span> es una función indicatriz, el resultado se obtiene de la proposición anterior. Si <span class="math inline">\(h\)</span> es simple no negativa, la linealidad de la integral y lo anterior permiten concluír el resultado. Si <span class="math inline">\(h\geq 0\)</span>, <span class="math inline">\(\mathcal{M}_{n}\)</span> medible, existe una sucesión <span class="math inline">\((h_{n})_{n\in\mathbb{N}}\)</span> de funciones simples no negativas tales que <span class="math inline">\(h_{n}\uparrow h\)</span>. Entonces las sucesiones <span class="math inline">\([(h_{x})_{n}]_{n\in\mathbb{N}}\)</span> y <span class="math inline">\([(h_{y})_{n}]_{n\in\mathbb{N}}\)</span> crecen a <span class="math inline">\(h_{x}\)</span> y <span class="math inline">\(h_{y}\)</span> respectivamente. Por el teorema de convergencia monótona <span class="math display">\[\begin{array}{ll}
+\int h dl_{n}&amp;=\lim\limits_{n\in\mathbb{N}}\int h_{n}dl_{n}\\
+&amp;=\lim\limits_{n\in\mathbb{N}}\int\left(\int h_{x_{n}}dl_{q} \right) dl_{p}\\
+&amp;=\int\left(\int \lim\limits_{n\in\mathbb{N}}h_{x_{n}}dl_{q}  \right) dl_{p}\\
+&amp;=\int\left(\int h_{x}dl_{q}  \right) dl_{p}\\
+\end{array}\]</span> De forma análoga, <span class="math display">\[\int h dl_{n}=\int \left(h_{y}dl_{p} \right) dl_{q}\]</span> lo que demuestra la parte <span class="math inline">\(i\)</span>. Supongamos que <span class="math inline">\(h\)</span> es <span class="math inline">\(l_{n}\)</span>-integrable, entonces <span class="math inline">\(\int h^{+}dl_{n}\)</span> y <span class="math inline">\(\int h^{-}dl_{n}\)</span> son finitas. Sea <span class="math inline">\(f^{+}(x)=\int h^{+}dl_{q}\)</span> y <span class="math inline">\(f^{-}(x)=\int h^{-}dl_{q}\)</span>. Entonces, <span class="math inline">\(l_{p}\{x:f^{+}=\infty \}=l_{p}\{x:f^{-+}=\infty \}=0\)</span>, por lo tanto <span class="math inline">\(h_{x}\)</span> es <span class="math inline">\(l_{q}\)</span>-integrable en c.t.p. Por la parte <span class="math inline">\(i.\)</span> se tiene que <span class="math display">\[\begin{array}{ll}
+\int hdl_{n}&amp;=\int h^{+}dl_{n}-\int h^{-}dl_{n}\\
+&amp;=\int\left(\int h^{+}_{x} dl_{q} \right)dl_{p}-\int\left(\int h^{-}_{x} dl_{q} \right)dl_{p}\\
+&amp;=\int\left(\int h^{+}_{x}-h^{-}_{x}dl_{q} \right)dl_{p}\\
+&amp;=\int\left(\int h_{x}dl_{q} \right)dl_{p}
+\end{array}\]</span> Análogamente, <span class="math display">\[\int hdl_{n}=\int\left(\int h_{y}dl_{p} \right)dl_{q}\]</span> lo que demuestra <span class="math inline">\(ii.\)</span> Por último, supongamos que <span class="math inline">\(\int\left(\int |h_{x}|dl_{q} \right)dl_{p}&lt;\infty\)</span>. Por <span class="math inline">\(i.\)</span> se tiene que <span class="math display">\[\int|h|dl_{n}=\int\left(\int |h_{x}|dl_{q} \right)dl_{p}&lt;\infty\]</span> por lo tanto <span class="math inline">\(h\)</span> es integrable. De <span class="math inline">\(ii.\)</span> se sigue el resultado.</p>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-78759535-1', 'auto');
+ga('send', 'pageview');  
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="diferenciacion-e-integración.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="software-tools.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/synergyvision/Medida/edit/master/bookdown/080-integracion-en-espacio-producto.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Medida.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
