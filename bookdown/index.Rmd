@@ -38,10 +38,6 @@ library(grid)
 library(gridExtra)
 ```
 
-```{r include=FALSE}
-tutorial::go_interactive(greedy=FALSE)
-```
-
 # Prefacio {-}
 
 ```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), fig.link='https://synergy.vision/LibrosInteractivos/'}
@@ -67,37 +63,6 @@ Lo dejamos público ya que las herramientas que usamos para ensamblarlo son abie
 ## Información sobre los programas y convenciones {-}
 
 Este libro es posible gracias a una gran cantidad de desarrolladores que contribuyen en la construcción de herramientas para generar documentos enriquecidos e interactivos. En particular al autor de los paquetes Yihui Xie xie2015.
-
-## Prácticas interactivas con R {-}
-
-Vamos a utilizar el paquete [Datacamp Tutorial](https://github.com/datacamp/tutorial) que utiliza la librería en JavaScript [Datacamp Light](https://github.com/datacamp/datacamp-light) para crear ejercicios y prácticas con `R`. De esta forma el libro es completamente interactivo y con prácticas incluidas. De esta forma estamos creando una experiencia única de aprendizaje en línea.
-
-```{r tut=TRUE,ex="create_a", type="pre-exercise-code"}
-b <- 5
-```
-
-```{r tut=TRUE,ex="create_a", type="sample-code"}
-# Crea una variable a, igual a 5
-
-
-# Muestra el valor de a
-
-
-```
-
-```{r tut=TRUE,ex="create_a", type="solution"}
-# Crea una variable a, igual a 5
-a <- 5
-
-# Muestra el valor de a
-a
-```
-
-```{r tut=TRUE,ex="create_a", type="sct"}
-test_object("a")
-test_output_contains("a", incorrect_msg = "Aseg&uacute;rate de mostrar el valor de `a`.")
-success_msg("Excelente!")
-```
 
 ## Agradecimientos {-}
 

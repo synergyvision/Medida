@@ -1,3 +1,75 @@
+--- 
+title: "Medida"
+subtitle: "Ciencia de los Datos Financieros"
+author: "Synergy Vision"
+date: "2022-11-13"
+knit: "bookdown::render_book"
+documentclass: krantz
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+colorlinks: yes
+lot: yes
+lof: yes
+fontsize: 12pt
+monofontoptions: "Scale=0.8"
+keep_md: yes
+site: bookdown::bookdown_site
+description: ""
+url: 'http\://synergy.vision/Medida/'
+github-repo: synergyvision/Medida/
+cover-image: images/cover.png
+---
+
+# Prefacio {-}
+
+Placeholder
+
+
+## ¿Por qué  leer este libro? {-}
+## Estructura del libro {-}
+## Información sobre los programas y convenciones {-}
+## Agradecimientos {-}
+
+<!--chapter:end:index.Rmd-->
+
+
+# Acerca del Autor {-}
+
+Este material es un esfuerzo de equipo en Synergy Vision, (<http://synergy.vision/nosotros/>).		 
+
+El propósito de este material es ofrecer una experiencia de aprendizaje distinta y enfocada en el estudiante. El propósito es que realmente aprenda y practique con mucha intensidad. La idea es cambiar el modelo de clases magistrales y ofrecer una experiencia más centrada en el estudiante y menos centrado en el profesor. Para los temas más técnicos y avanzados es necesario trabajar de la mano con el estudiante y asistirlo en el proceso de aprendizaje con prácticas guiadas, material en línea e interactivo, videos, evaluación contínua de brechas y entendimiento, entre otros, para procurar el dominio de la materia.
+  		  
+Nuestro foco es la Ciencia de los Datos Financieros y para ello se desarrollará material sobre: **Probabilidad y Estadística Matemática en R**, **Programación Científica en R**, **Mercados**, **Inversiones y Trading**, **Datos y Modelos Financieros en R**, **Renta Fija**, **Inmunización de Carteras de Renta Fija**, **Teoría de Riesgo en R**, **Finanzas Cuantitativas**, **Ingeniería Financiera**, **Procesos Estocásticos en R**, **Series de Tiempo en R**, **Ciencia de los Datos**, **Ciencia de los Datos Financieros**, **Simulación en R**, **Desarrollo de Aplicaciones Interactivas en R**, **Minería de Datos**, **Aprendizaje Estadístico**, **Estadística Multivariante**, **Riesgo de Crédito**, **Riesgo de Liquidez**, **Riesgo de Mercado**, **Riesgo Operacional**, **Riesgo de Cambio**, **Análisis Técnico**, **Inversión Visual**, **Finanzas**, **Finanzas Corporativas**, **Valoración**, **Teoría de Portafolio**, entre otros.
+
+Nuestra cuenta de Twitter es (https://twitter.com/bysynergyvision) y nuestros repositorios están en GitHub (https://github.com/synergyvision).
+  		  
+ **Somos Científicos de Datos Financieros**
+
+<!--chapter:end:000-author.Rmd-->
+
+\mainmatter
+
+# Introducción 
+
+
+
+
+<!--chapter:end:010-introduction.Rmd-->
+
+
+# CONSTRUYENDO UNA MEDIDA
+
+Placeholder
+
+
+## Preliminares
+## Colecciones de Conjuntos
+## El conjunto de Cantor
+## Medida
+
+<!--chapter:end:020-preliminares.Rmd-->
+
 # LA MEDIDA DE LEBESGUE
 
 ## Construyendo la Medida de Lebesgue
@@ -8,56 +80,58 @@ Partiremos de la familia de conjuntos $\mathcal{I}=\{<a,b>: a\leq a\in\mathbb{R}
 $$l:\mathcal{I}\longrightarrow\mathbb{R}: <a,b>\mapsto b-a$$
 Para esta función se tiene lo siguiente:
 
-```{proposition}
+::: {.proposition #unnamed-chunk-1}
 La función $l$ es finitamente aditiva en $\mathcal{I}$. Es decir, para $I\in\mathcal{I}$, si $I=\bigcup_{k=1}^{n} I_{k}$ con cada $I_{k}\in\mathcal{I}$ y $I_{k}\cap I_{m}=\emptyset$ si $k\neq m$, entonces $l(I)=\sum_{k=1}^{n} l(I_{k})$.
-```
+
+:::
 
 Consideremos el anillo generado por $\mathcal{I}$, es decir $\mathcal{R}(\mathcal{I})$. Se puede probar que $\mathcal{R}(\mathcal{I})$ está formado por las uniones finitas y disjuntas de elementos de $\mathcal{I}$. Definamos la extensi\'on natural de $l$ al anillo $\mathcal{R}(\mathcal{I})$, de la siguinte manera:
 $$\overline{l}:\mathcal{R}(\mathcal{I})\longrightarrow\mathbb{R}^{+}:I\mapsto \sum_{k=1}^{n} I_{k}, \mbox{ donde } I=\bigcup_{k=1}^{n} I_{k}$$
 
 Veamos a continuación algunas de las propiedades de la extensión de $l$. 
 
-```{proposition}
+::: {.proposition #unnamed-chunk-2}
 La extensión $\overline{l}$, está bien definida en $\mathcal{R}(\mathcal{I})$.
-```
 
-```{proof}
+:::
+::: {.proof}
 Supongamos que $I\in\mathbb{R}(\mathcal{I})$ se escribe como $I=\bigcup_{r=1}^{n} I_{r}$ y $I=\bigcup_{s=1}^{m} J_{s}$, con $(I_{r})_{r=1}^{n}$ y $(I_{r})_{r=1}^{n}$ familias disjuntas de $\mathcal{I}$. Queremos ver que $\sum_{r=1}^{n} l(I_{r})=\sum_{s=1}^{m} l(J_{s})$. Sea $H_{rs}=I_{r}\cup J_{s}$ para todo $r\leq n$ y $s\leq m$. Note que la colección $(H_{rs})$ es disjunta. Por otro lado, se tiene que 
 	$$I_{r}=I_{r}\cap A=I_{r}\cap\left( \bigcup_{s=1}^{m} J_{s}\right) =\bigcup_{s=1}^{m} H_{rs}$$
 	y 
 	$$J_{s}=J_{s}\cap A=J_{s}\cap\left( \bigcup_{r=1}^{n} I_{r}\right) =\bigcup_{r=1}^{n} H_{rs}$$
 	por lo tanto,
 	$$\sum_{r=1}^{n} l(I_{r})=\sum_{r=1}^{n} \sum_{s=1}^{m} l(H_{rs})=\sum_{s=1}^{m} \sum_{r=1}^{n} l(H_{rs})=\sum_{s=1}^{m} l(J_{s})$$.
-```
 
+:::
 
-```{proposition}
-$\overline{l}$ es finitamente aditiva.
-```
+::: {.proposition #unnamed-chunk-4}
+	$\overline{l}$ es finitamente aditiva.
 
-```{proof}
+:::
+::: {.proof}
 Note que $\emptyset=(a,a]$, por lo tanto, $\overline{l}(\emptyset)=a-a=0$. Sean $A$ y $B$ subconjuntos en $\mathcal{R}(\mathcal{I})$ disjuntos. Entonces, $A$ y $B$ se escriben como uniones disjuntas de intervalos de $\mathcal{I}$, es decir, $A=\bigcup_{r=1}^{n} I_{r}$ con $I_{1},\cdots, I_{n}\in\mathcal{I}$ y $B=\bigcup_{s=1}^{m} J_{s}$ con $J_{1},\cdots, J_{m}\in\mathcal{I}$. Como $A\cap B=\emptyset$, la colección $\{I_{1},\cdots,I_{n},J_{1},\cdots,J_{m}\}$ es disjunta. Además se tiene que $A\cup B=\left( \bigcup_{r=1}^{n} I_{r}\right) \cup\left( \bigcup_{s=1}^{m} J_{s}\right) $. De donde se tiene que $\overline{l}(A\cup B)=\sum_{r=1}^{n} l(I_{r})+\sum_{s=1}^{m} l(J_{s})$.
-```
+
+:::
 
 Es importante notar que $\overline{l}$ es la única extensión finitamente aditiva de $l$ en $\mathcal{R}(\mathcal{I})$. Además, sean $A, B\in\mathcal{R}(\mathcal{I})$ tales que $A\subseteq B$. Como $B=(B\backslash A)\cup A$, $\overline{l}(B)=\overline{l}(B\backslash A)+\overline{l}(A)$ y $\overline{l}$ es una función no negativa, se tiene que $\overline{l}(A)\leq \overline{l}(B)$. Esto es el siguiente resultado:
 
-```{corollary}
+::: {.corollary #unnamed-chunk-6}
 $\overline{l}$ es una función monótona en $\mathcal{R}(\mathcal{I})$.
-``` 
+:::
 
 De igual forma se tiene que 
 
-```{corollary}
+::: {.corollary #unnamed-chunk-7}
 $\overline{l}\left( \bigcup_{k=1}^{n}\right) \leq \sum_{k=1}^{n}l(J_{k})$, donde $(J_{k})_{k=1}^{n}$ es un subconjunto finito de intervalos cualesquiera de $\mathcal{I}$. 
-```
+:::
 
 Para ver que $\overline{l}$ es $\sigma$-aditiva, usaremos el teorema de Heine-Borel.
 
-```{proposition}
+::: {.proposition #unnamed-chunk-8}
 $\overline{l}$ es $\sigma$-aditiva.
-```
+:::
 
-```{proof}
+::: {.proof}
 Veamos la demostración para dos casos, primero para unión numerables disjuntas de conjuntos en $\mathcal{I}$ y luego para unión numerables disjuntas de conjuntos cualesquiera en $\mathcal{R}(\mathcal{I})$.
 Sea $I=\bigcup_{n\in\mathbb{N}} I_{n}$ con $I_{n}\in\mathbb{N}$ disjuntos $I_{i}\cap I_{j}=\emptyset$ siempre que $i\neq j$. Para cada $N\in\mathbb{N}$, $\bigcup_{n=1}^{N} I_{n}\subseteq I$, por lo tanto, para todo $N\in\mathbb{N}$ $\overline{l}\left( \bigcup_{n=1}^{N} I_{n}\right) \leq \overline{l}(I)$; como $\overline{l}$ es finitamente aditiva, se tiene que $\sum_{n=1}^{N} \overline{l}(I_{n})\leq \overline{l}(I)$. Si $N$ tiende a infinito, se tiene que:
 	$$\sum_{n=1}^{\infty} \overline{l}(I_{n})=\lim_{N\to\infty} \sum_{n=1}^{N} \overline{l}(I_{n})\leq \overline{l}(I).$$ Supongamos que $I$ es un intervalo de extremos $a$ y $b$, esto es $I=<a,b>$. Sea $\epsilon>0$ y consideremos $I_{\epsilon}=[a+\epsilon, b-\epsilon]\subseteq I$. Construyamos un cubrimiento por abiertos para el intervalo $I_{\epsilon}$ como sigue\\
@@ -71,7 +145,7 @@ $$\overline{l}(I_{\epsilon})\leq \sum_{n=1}^{k}l(<a_{n}^{\epsilon},b_{n}^{\epsil
 	$$l(I)\leq \sum_{n=1}^{\infty}l(I_{n})+ 4\epsilon$$
 	por lo tanto, $$\overline{l}(I)\leq \sum_{n=1}^{\infty}\overline{l}(I_{n}).$$
 	Con lo que se concluye que $$\overline{l}(I)=\sum_{n=1}^{\infty}\overline{l}(I_{n}).$$
-```
+:::
 
 Ahora, consideremos un conjunto cualquiera $E\in\mathcal{R}(\mathcal{I})$ tal que $E=\bigcup_{k=1}^{\infty} E_{k}$ donde cada $(E_{k})_{k\in\mathbb{N}}\in\mathcal{R}(\mathcal{I})$ una colección disjunta. Supongamos que cada $E_{k}=\bigcup_{j=1}^{n_{k}} J_{j}^{k}$ con $J_{j}^{k}\in\mathcal{I}$ disjuntos.
 Por otro lado, como $E\in\mathcal{R}(\mathcal{I})$, se tiene que es unión finita de intervalos, es decir, $E=\bigcup_{i=1}^{n}I_{n}$, para $I_{n}\in\mathcal{I}$	
@@ -82,26 +156,28 @@ Llamemos, $L_{ijk}=I_{i}\cap J_{j}^{k}\in\mathcal{I}$. Luego $(L_{ijk})_{j\leq n
 Finalmente, 
 $$\overline{l}(E)=\sum_{i=1}^{n} l(I_{i})=\sum_{i=1}^{n}\sum_{k\geq 1}\sum_{j=1}^{n_{k}}l(L_{ijk})=\sum_{k\geq 1}\sum_{j=1}^{n_{k}}l(J_{jk})=\sum_{k\geq 1}\overline{l}(E_{k}).$$
 
-```{corollary}
-Sea $E\subseteq\bigcap_{k\geq 1} E_{n}$, con $E_{n}\in\mathcal{R}(\mathcal{I})$ para todo $n\in\mathbb{N}$. Entonces $\overline{l}(E)\leq \sum_{n\geq 1}\overline{l}(E_{n})$
 ```
 
-```{proof}
+::: {.corollary #unnamed-chunk-10}
+Sea $E\subseteq\bigcap_{k\geq 1} E_{n}$, con $E_{n}\in\mathcal{R}(\mathcal{I})$ para todo $n\in\mathbb{N}$. Entonces $\overline{l}(E)\leq \sum_{n\geq 1}\overline{l}(E_{n})$
+
+:::
+::: {.proof}
 Construyamos una unión disjunta: $F_{1}=E_{1}$ y $F_{n}=E_{n}\backslash \bigcup_{k=1}^{n-1} E_{k}$ para todo $n>1$. Se tiene que $\bigcup_{n\geq 1} E_{n}=\bigcup_{n\geq 1} F_{n}$. Entonces $E\subseteq \bigcup_{n\geq 1} F_{n}$. Además, por construcción, $F_{n}\subseteq E_{n}$. Por monotonía y $\sigma$-aditividad de $\overline{l}$, se sigue que $$\overline{l}(E)\leq \overline{l}\left( \bigcup_{k\geq 1} E_{n}\right) =\overline{l}\left( \bigcup_{k\geq 1} F_{n}\right) =\sum_{k\geq 1}\overline{l}(F_{n})\leq\sum_{k\geq 1}\overline{l}(E_{n}).$$
-```
+
+:::
 
 Ahora, extenderemos la función $\overline{l}$ a la $\sigma$-álgebra de Borel usando el método de Carathéodory. A partir de $\overline{l}$, definiremos la función medida exterior, $m^{\ast}$.
 Primero definamos para cada $A\in\wp(\mathbb{R})$, el conjunto  $$\iota(A)=\left\lbrace (I_{n})_{n\geq 1}:\mbox{ cada } I_{n}\mbox{ es un intervalo finito y } A\subseteq \bigcup_{n\geq 1} I_{n}\right\rbrace ;$$ note que $\iota(A)\neq\emptyset$ para cualquier $A\in\wp$, ya que $A\subseteq\mathbb{R}=\bigcup_{n\geq 1}[-n,n]$.
 
-Sea $m^{\ast}:\wp(\mathbb{R})\longrightarrow \overline{\mathbb{R}^{+}}$ definida por $m^{\ast}(A)=\inf_{(I_{n})\in\iota(A)} \sum_{n\geq 1} l(I_{n})=\inf \left\lbrace \sum_{n\geq 1} l(z_{n}): (I_{n})_{n\in\mathbb{N}}\in\iota(A) \right\rbrace$
+Sea $m^{\ast}:\wp(\mathbb{R})\longrightarrow \overline{\mathbb{R}^{+}}$ definida por $m^{\ast}(A)=\inf_{(I_{n})\in\iota(A)} \sum_{n\geq 1} l(I_{n})=\inf \left\lbrace \sum_{n\geq 1} l(I_{n}): (I_{n})_{n\in\mathbb{N}}\in\iota(A) \right\rbrace $
 
-
-```{remark}
+::: {.remark}
 $m^{\ast}$ no es una medida en $\wp(\mathbb{R})$ (no es $\sigma$-aditiva en $\wp(\mathbb{R})$). Aunque tiene algunas propiedades importantes, similares a las medidas.
 
-```
+:::
 
-```{proposition}
+::: {.proposition #unnamed-chunk-13}
 La función $m^{\ast}$ tiene las siguientes propiedades:
 
 (i.) $m^{\ast}(\emptyset)=0$.
@@ -109,9 +185,9 @@ La función $m^{\ast}$ tiene las siguientes propiedades:
 (ii.) $m^{\ast}$ es monótona, esto es, si $A\subseteq B$, entonces $m^{\ast}(A)\leq m^{\ast}(B)$.
 
 (iii.) $m^{\ast}$ coincide con la longitud en el conjunto de los intervalos finitos, es decir, si $I$ es un intervalo finito, $m^{\ast}(I)=l(I)$.
-```
 
-```{proof}
+:::
+::: {.proof}
 (i.) Como $\emptyset\subseteq(a,a)$ para cualquier número real $a$, entonces $m^{\ast}(\emptyset)$.
 
 (ii.) Sean $A, B\in\mathbb{R}$, tales que $A\subseteq B$. Es claro que $\iota(B)\subseteq \iota(A)$, de donde se sigue que $$m^{\ast}(A)=\inf_{(I_{n})\in\iota(A)} \sum_{n\geq 1} l(I_{n})\leq \inf_{(I_{n})\in\iota(A)} \sum_{n\geq 1} l(I_{n})=m^{\ast}(B)$$.
@@ -119,70 +195,71 @@ La función $m^{\ast}$ tiene las siguientes propiedades:
 (iii.) Sea $I$ un intervalo finto. $$m^{\ast}(I)=\inf_{(I_{n})\in\iota(I)} \sum_{n\geq 1} l(I_{n})\leq l(I)$$
 por otro lado, si $I\subseteq \bigcup_{n\geq 1} I_{n}$ para una familia $(I_{n})_{n}$ de intervalos finitos, entonces $$l(I)\leq \sum_{n=1} l(I_{n})\leq \inf_{(I_{n})\in\iota(I)} \sum_{n\geq 1} l(I_{n})\leq m^{\ast}(I).$$
 		Por lo tanto $m^{\ast}(I)=l(I)$.
-```
 
-```{definition}
+:::
+
+::: {.definition #unnamed-chunk-15}
 Una función $\mu:\mathcal{C}\longrightarrow\mathbb{R}$ es $\sigma$-subaditiva si para todo $(A_{n})_{n\in\mathbb{N}}\subseteq\mathcal{C}$ se tiene que $\mu\left( \bigcup_{n\geq 1} A_{n}\right) \leq \sum_{n\geq 1} \mu(A_{n})$.
-```
+:::
 
-```{proposition}
+::: {.proposition #unnamed-chunk-16}
 $m^{\ast}$ es $\sigma$-subaditiva.
-```
+:::
 
-```{proof}
+::: {.proof}
 Sea $(A_{n})_{n\in\mathbb{N}}$ una colección de subconjuntos de $\mathbb{R}$. 
 Si $m^{\ast}(A_{n})=\infty$ para algún $n\in\mathbb{N}$, es claro que $m^{\ast}\left( \bigcup_{n\geq 1} A_{n}\right) \leq \sum_{n\geq 1} m^{\ast}(A_{n})$.
 Supongamos que $m^{\ast}(A_{n})<\infty$ para todo $n\in\mathbb{N}$. Dado $\epsilon>0$, para cada $n\in\mathbb{N}$, existe una colección de intervalos $(I_{i}^{n})_{i\geq 1}$ tal que $A_{n}\subseteq \bigcup_{i\geq 1} I_{i}^{n}$ tal que $$\sum_{i\geq 1}l(I_{i}^{n})< m^{\ast}(A_{n})+\frac{\epsilon}{2^{n}}.$$
 Consideremos la colección $(I_{i}^{n})_{i,n\geq 1}$ que resulta de unir las colecciones de intervalos hallados para cada $n$. Entonces, $$\bigcup_{n\geq 1} A_{n}\subseteq\bigcup_{i,n\geq 1} I_{i}^{n};$$ por lo tanto
 	$$m^{\ast}\left(\bigcup_{n\geq 1} A_{n}\right)\leq \sum_{n\geq 1}\sum_{i\geq 1} l(I_{i}^{n})< \sum_{n\geq 1} \left( m^{\ast}(A_{n})+\frac{\epsilon}{2^{n}}\right) =\sum_{n\geq 1} m^{\ast}(A_{n})+ \epsilon.$$
 	De donde se sigue que $$m^{\ast}\left(\bigcup_{n\geq 1} A_{n}\right)\leq \sum_{n\geq 1} m^{\ast}(A_{n}).$$
-```
+:::
 
 El siguiente teorema nos permite aproximar la medida de un conjunto cualquiera de números reales, por la medida de un conjunto abierto en $\mathbb{R}$, tan cercano como se quiera (en términos de medida). Más aún, permite asegurar que existe un conjunto $G_{\delta}$ que contiene al conjunto en cuestión, con idéntica medida.
 
-```{theorem}
+::: {.theorem #unnamed-chunk-18}
 Dado $A\subseteq\mathbb{R}$ y $\epsilon>0$, existe un conjunto abierto $O\subseteq\mathbb{R}$ tal que $A\subseteq O$ y $m^{\ast}(A)\leq m^{\ast}(O)\leq m^{\ast}(A)+\epsilon$. Además, existe un conjunto $G_{\delta}$, $G$, tal que $A\subseteq G$ y $m^{\ast}(A)=m^{\ast}(G)$.
-```
+:::
 
-```{proof}
+::: {.proof}
 Sea $\epsilon>0$, existe una colección $(I_{n})_{n\geq 1}$ tal que $A\subseteq\bigcup_{n\geq 1} I_{n}$ y $\sum_{n\geq 1}l(I_{n})< m^{\ast}(A)+\frac{\epsilon}{2}$. Definamos una colección de intervalos abiertos a partir de la colección $(I_{n})_{n\geq 1}$, así: si $I_{n}=<a_{n}, b_{n}>$, definamos $J_{n}=(a_{n}-\frac{\epsilon}{2^{n+2}}, b_{n}+\frac{\epsilon}{2^{n+2}})$ y sea $O=\bigcup_{n\geq} J_{n}$. Claramente $O$ es un conjunto abierto que contiene al conjunto $A$. Además, $$m^{\ast}(O)\leq \sum_{n\geq 1} J_{n}=\sum_{n\geq 1} l(J_{n})+\frac{\epsilon}{2}\leq m^{\ast}+\frac{\epsilon}{2}=m^{\ast}+\epsilon.$$
 	Ahora, considerando $\epsilon=\frac{1}{n}$, para cada $n\in\mathbb{N}$, por lo anterior, existe $O_{n}$ tal que $A\subseteq O_{n}$ y $m^{\ast}(A)\leq m^{\ast}(O_{n})\leq m^{\ast}(A)+\frac{1}{n}$. Tomando la intersección de todos estos conjuntos abiertos, obtenemos un conjunto $G_{\delta}$, $G=\bigcap_{n\geq 1} O_{n}$, tal que $A\subseteq G=\bigcap_{n\geq 1} O_{n}$ por lo que $m^{\ast}(A)\leq m^{\ast}(G)$. Por otro lado, como $G\subseteq O_{n}$ para todo $n\in\mathbb{N}$, entonces $$m^{\ast}(A)\leq m^{\ast}(G)\leq m^{O_{n}}\leq m^{\ast}(A)+\frac{1}{n}\mbox{ para todo } n\in\mathbb{N}.$$
 	De donde se sigue que $$m^{\ast}(A)=m^{\ast}(G).$$
-```
+:::
 
 Como la función longitud es invariante bajo traslaciones, es fácil ver que $m^{\ast}$ es invariante bajo traslaciones.
 
 Como ya dijimos, $m^{\ast}$ no es una medida, ya que esta no es $\sigma$-aditiva. Pero podemos considerar un clase donde si lo sea. Para ello, daremos la definición de conjuntos medibles bajo la función $m^{\ast}$, debida a *Carathéodory*.
 
-```{definition}
+::: {.definition #unnamed-chunk-20}
 Un conjunto $E\subseteq \mathbb{R}$ es $m^{\ast}$ medible si y solo si para todo subconjunto de números reales, $A\subseteq\mathbb{R}$ se tiene que $$m^{\ast}(A)=m^{\ast}(A\cap E)+ m^{\ast}(A\cap E^{c}).$$
-```
+:::
 
 
-```{remark}
+::: {.remark}
 Es claro que si $m^{\ast}$ fuese finitamente aditiva, todo conjunto $E\subseteq\mathbb{R}$ sería un conjunto $m^{\ast}$ medible.
 De la $\sigma$-subaditividad, se tiene que $m^{\ast}(A)\leq m^{\ast}(A\cap E)+m^{\ast}(A\cap E^{c})$. Por lo tanto, para verificar que un conjunto es $m^{\ast}$ medible, basta verificar la otra desigualdad, esto es $m^{\ast}(A)\geq m^{\ast}(A\cap E)+m^{\ast}(A\cap E^{c})$.
 La definición de conjuntos $m^{\ast}$ medibles es simétrica bajo complementación, esto es, $E$ es $m^{\ast}$ medible si y solo si $E^{c}$ lo es.
 Es fácil verificar que el conjunto vaciío es $m^{\ast}$ medible. Por lo anterior, $\mathbb{R}=\emptyset^{c}$ lo es.
 
-```
+:::
 
-```{proposition}
+::: {.proposition #unnamed-chunk-22}
 Sea un conjunto $E\subseteq\mathbb{R}$. Si $m^{\ast}=0$, entonces $E$ es $m^{\ast}$ medible.
-```
+:::
 
-```{proof}
+::: {.proof}
 Sea $A\subseteq\mathbb{R}$. Como $A\cap E\subseteq E$, se tiene que $m^{\ast}(A\cap E)\leq m^{\ast}(E)\leq 0$. Además, como $A\cap E^{c}\subseteq A$, se tiene que $m^{\ast}(A\cap E^{c})\leq m^{\ast}(A)$. De donde se sigue que 
 	$$m^{\ast}(A)\geq m^{\ast}(A\cap E^{c})=0+ m^{\ast}(A\cap E^{c})\geq m^{\ast}(A\cap E^{c})+m^{\ast}(A\cap E)$$ entonces, $E$ es $m^{\ast}$ medible.
-```
+:::
 
 Denotemos la familia de conjuntos $m^{\ast}$ medibles, por $\mathcal{M}$. Se puede demostrar que esta colección es una $\sigma$-álgebra, más aún, que la función $m^{\ast}$ restringida a los conjuntos $m^{\ast}$ medibles, es $\sigma$-aditiva.
 
-```{theorem}
+::: {.theorem #unnamed-chunk-24}
 $\mathcal{M}$ es una $\sigma$-álgebra y $m^{\ast}\upharpoonright \mathcal{M}$.
-```
+:::
 
-```{proof}
+::: {.proof}
 Demostremos primero que $\mathcal{M}$ es una $\sigma$-álgebra. En las observaciones anteriores, ya vimos que $\mathcal{M}$ es cerrada bajo complementación. Veamos que $\mathcal{M}$ es cerrado bajo uniones finitas (luego veremos que es cerrado bajo uniones numerables). Sean $E_{1}, E_{2}$ dos conjuntos $m^{\ast}$ medibles. Sea $A\subseteq\mathbb{R}$, entonces,
 	$$\begin{array}{rl}
 	m^{\ast}(A)=& m^{\ast}(A\cap E_{1})+m^{\ast}(A\cap E_{1}^{c})\\
@@ -205,37 +282,37 @@ Haciendo $n\mapsto \infty$, por la $\sigma$-aditividad, se tiene que para todo $
 	$$m^{\ast}(A)=m^{\ast}(A\cap E)+m^{\ast}(A\cap E^{c})$$
 Lo que demuestra que $E=\bigcup_{n\geq 1} E_{n}\in\mathcal{M}$.
 Todo lo anterior demuestra que $m^{\ast}\upharpoonright\mathcal{M}$ es una medida en $\mathcal{M}$.
-```
+:::
 
 
-```{theorem}
+::: {.theorem #unnamed-chunk-26}
 La $\sigma$-álgebra de Borel, está contenida en $\mathcal{M}$, esto es $\mathcal{B}(\mathbb{R})\subseteq\mathcal{M}$.
-```
+:::
 
-```{proof}
+::: {.proof}
 Veamos que el conjunto de los intervalos finitos es un subconjunto de $\mathcal{M}$. Sea $I\in\mathcal{I}$ y $A\in\mathbb{R}$. Si $m^{\ast}(A)=\infty$ es claro que $m^{\ast}\geq m^{\ast}(A\cap I)+m^{\ast}(A\cap I^{c})$. Supongamos que $m^{\ast}\leq \infty$. Dado $\epsilon$, existe $(J_{n})_{n\geq 1}$ de intervalos finitos tales que $A\subseteq \bigcup_{n\geq 1}$ tal que $A\subseteq\bigcup_{i\geq 1} J_{n}$ y $m^{\ast}(A)+\epsilon \geq \sum_{n\geq 1} \overline{l}(J_{n})$. Por la aditividad finita de $\overline{l}$, se tiene que 
 $$\begin{array}{rl}
 m^{\ast}(A)+\epsilon \geq& \sum_{n\geq 1} (\overline{l}(J_{n}\cap I)+\overline{l}(J_{n}\cap I^{c}))\\
 =& \sum_{n\geq 1} \overline{l}(J_{n}\cap I)+\sum_{n\geq 1}\overline{l}(J_{n}\cap I^{c})\\
 \geq& m^{\ast}(A\cap I)+m^{\ast}(A\cap I^{c})
 \end{array}$$
-```
+:::
 
 
 ## Unicidad de la medida de Lebesgue y otras propiedades
 
 Desde este punto denotaremos por $m$ a la medida en $m^{\ast}\upharpoonright\mathcal{M}$ (y  $m^{\ast}\upharpoonright\mathcal{B}(\mathbb{R})$). Diremos que un conjunto $A\in\mathbb{R}$ es *medible Lebesgue* si es $m^{\ast}$ medible.
 
-```{theorem}
+::: {.theorem #unnamed-chunk-28}
 $m$ es la única medida en $\mathcal{B}(\mathbb{R})$ que coincide con la función $l$ en el anillo de los intervalos.
-```
+:::
 
-```{proof}
+::: {.proof}
 Sea $\mu$ una medida que coincide con la función $l$ en $\mathcal{I}$. Del teorema \@ref(thm:teorema158)  se sigue el resultado.
 
-```
+:::
 
-```{theorem}
+::: {.theorem #unnamed-chunk-30}
 Sea $E\subseteq\mathbb{R}$. Las siguientes son equivalentes:
 
 (i). $E$ es medible Lebesgue.
@@ -252,19 +329,21 @@ Si $m^{\ast}(E)\leq\infty$, entonces las afirmaciones anteriores son equivalente
 
 (vi.) Dado $\epsilon>0$, existe un conjunto $U$ que puede representarse como unión finita de intervalos abiertos, tal que $m^{\ast}(U \triangle E)<\epsilon$.
 
-```
+:::
 
 ## Consideraciones
 
 Es importante notar que $\mathcal{B}(\mathbb{R})\subsetneq\mathcal{M}$. De hecho, $|\mathcal{B}(\mathbb{R})|=c$ y $\mathcal{M}=2^{c}$. Entonces, existen conjuntos medibles Lebesgue, que no son medibles Borel. Un ejemplo se puede hallar en *Counterexample in Analysis* de *Gelbaum, Olmsted*. Aunque los conjuntos medibles Lebesgue que no son Borel medibles, son conjuntos de medida cero. Si consideramos la sigma álgebra generada por la unión de la clase de los conjuntos de medida cero con $\mathcal{B}(\mathbb{R})$, coincide con $\mathcal{M}$.
 
-```{proposition}
+::: {.proposition #unnamed-chunk-31}
 Sea $A\subseteq\mathbb{R}$. $A\in\mathcal{B}(\mathbb{R})^{m}$ si y solo si existen $B_{1}, B_{2}\in\mathcal{B}(\mathbb{R})$ tal que $B_{1}\subseteq A\subseteq B_{2}$ y $m(B_{2}-B_{1})=0$.
-```
 
-```{proposition}
+:::
+
+::: {.proposition #unnamed-chunk-32}
 $\mathcal{M}=\mathcal{B}(\mathbb{R})$.
-```
+
+:::
 
 A continuación daremos un ejemplo clásico de conjunto no medible Lebesgue. La construcción supone el axioma de la elección.
 
@@ -278,16 +357,18 @@ por lo que $\sum_{r\in\mathbb{Q}\cap (0,1)} m^{\ast}(P)$ converge. Como $m^{\ast
 
 ## La Medida de Stieltjes
 
-```{definition}
+::: {.definition #unnamed-chunk-33}
 Una función $F:\mathbb{R}\longrightarrow\mathbb{R}$ es una *función de Stieltjes* si satisface:
 
 (i.) $F$ es monótona creciente, es decir, si $x\leq Y$, entonces $F(x)\leq F(y)$.
 (ii.) $F$ es continua a la derecha.
-```
 
-```{example}
+:::
+
+::: {.example #unnamed-chunk-34}
 La función *parte entera* es una función de Stieltjes.
-```
+
+:::
 
 Las funciones de Stieltjes $F$ es una función de Stieltjes, entonces: 
 
@@ -315,7 +396,7 @@ Esta función se puede extender a los borelianos, $\mathcal{B}(\mathbb{R})$. Dam
 
 Es importante notar que muchas medidas en $\mathbb{R}$, son medidas que provienen de una función de Stieljes. De hecho, se tiene que:
 
-```{proposition}
+::: {.proposition #unnamed-chunk-35}
 Sea $\mu: \mathcal{B}(\mathbb{R})\longrightarrow \overline{\mathbb{R}^{+}}$ una medida con la propiedad $\mu(A)\infty$ siempre que $A$ sea un conjunto acotado. Sea $F:\mathbb{R}\rightarrow \mathbb{R}$ definida por 
 	$$F(t)=\left\lbrace \begin{array}{ll}
 	\mu(0,t]&\mbox{ si } t>0,\\
@@ -324,4 +405,90 @@ Sea $\mu: \mathcal{B}(\mathbb{R})\longrightarrow \overline{\mathbb{R}^{+}}$ una 
 	\end{array}\right. $$
 	Entonces $F$ es una función de Stieltjes y se cumple que 
 	$$\forall A\in\mathcal{B}(\mathbb{R})\mbox{, } \mu_{F}(A)=\mu(A)$$
-```
+
+:::
+
+<!--chapter:end:030-La-medida-de-Lebesgue.Rmd-->
+
+
+# FUNCIONES MEDIBLES
+
+Placeholder
+
+
+## Conceptos básicos
+## Aproximaciones de funciones medibles
+
+<!--chapter:end:040-funciones-medibles.Rmd-->
+
+
+# LA INTEGRAL DE LEBESGUE
+
+Placeholder
+
+
+## Conceptos básicos
+## Intercambio de límites con la integral
+## Teoremas de Aproximación
+## Más sobre la Integral de Lebesgue
+
+<!--chapter:end:050-la-integral-de-lebesgue.Rmd-->
+
+
+# CONVERGENCIA
+
+Placeholder
+
+
+## Tipos de convergencia
+## Espacios $L^{p}$
+## Espacios $L^{\infty}$
+## Espacios de Hilbert
+
+<!--chapter:end:051-tipos-de-convergencia.Rmd-->
+
+
+# DIFERENCIACION E INTEGRACIÓN
+
+Placeholder
+
+
+## Funciones monótonas
+## Funciones de variación acotada
+## De la Integral indefinida.  Continuidad Absoluta
+## Cambio de variables
+
+<!--chapter:end:070-diferenciacion-e-integracion.Rmd-->
+
+
+# INTEGRACIÓN EN $\mathbb{R}^{n}$
+
+Placeholder
+
+
+## Espacio Producto
+## Medida de Lebesgue en $\mathbb{R}^{n}$
+## Teorema de Fibini. Teorema de Tonelli
+
+<!--chapter:end:080-integracion-en-espacio-producto.Rmd-->
+
+
+# (APPENDIX) Apéndice {-}
+# Software Tools
+
+Placeholder
+
+
+## R and R packages
+## Pandoc
+## LaTeX
+
+<!--chapter:end:400-apendice.Rmd-->
+
+# Referencias {-}
+
+
+
+
+<!--chapter:end:500-references.Rmd-->
+

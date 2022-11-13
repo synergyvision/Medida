@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Software Tools | Medida</title>
-  <meta name="description" content="A Software Tools | Medida" />
+  <title>Page not found | Medida</title>
+  <meta name="description" content="Page not found | Medida" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Software Tools | Medida" />
+  <meta property="og:title" content="Page not found | Medida" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="http://synergy.vision/Medida//images/cover.png" />
   
   <meta name="github-repo" content="synergyvision/Medida/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Software Tools | Medida" />
+  <meta name="twitter:title" content="Page not found | Medida" />
   
   
   <meta name="twitter:image" content="http://synergy.vision/Medida//images/cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="integración-en-mathbbrn.html"/>
-<link rel="next" href="referencias.html"/>
+
+
 <script src="libs/jquery/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
@@ -220,71 +220,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="software-tools" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">A</span> Software Tools<a href="software-tools.html#software-tools" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>For those who are not familiar with software packages required for using R Markdown, we give a brief introduction to the installation and maintenance of these packages.</p>
-<div id="r-and-r-packages" class="section level2 hasAnchor" number="9.1">
-<h2><span class="header-section-number">A.1</span> R and R packages<a href="software-tools.html#r-and-r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R can be downloaded and installed from any CRAN (the Comprehensive R Archive Network) mirrors, e.g., <a href="https://cran.rstudio.com" class="uri">https://cran.rstudio.com</a>. Please note that there will be a few new releases of R every year, and you may want to upgrade R occasionally.</p>
-<p>To install the <strong>bookdown</strong> package, you can type this in R:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="software-tools.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span></code></pre></div>
-<p>This installs all required R packages. You can also choose to install all optional packages as well, if you do not care too much about whether these packages will actually be used to compile your book (such as <strong>htmlwidgets</strong>):</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="software-tools.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>If you want to test the development version of <strong>bookdown</strong> on GitHub, you need to install <strong>devtools</strong> first:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="software-tools.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&#39;devtools&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</span>
-<span id="cb12-2"><a href="software-tools.html#cb12-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;rstudio/bookdown&#39;</span>)</span></code></pre></div>
-<p>R packages are also often constantly updated on CRAN or GitHub, so you may want to update them once in a while:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="software-tools.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="at">ask =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p>Although it is not required, the RStudio IDE can make a lot of things much easier when you work on R-related projects. The RStudio IDE can be downloaded from <a href="https://www.rstudio.com" class="uri">https://www.rstudio.com</a>.</p>
-</div>
-<div id="pandoc" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">A.2</span> Pandoc<a href="software-tools.html#pandoc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>An R Markdown document (<code>*.Rmd</code>) is first compiled to Markdown (<code>*.md</code>) through the <strong>knitr</strong> package, and then Markdown is compiled to other output formats (such as LaTeX or HTML) through Pandoc. This process is automated by the <strong>rmarkdown</strong> package. You do not need to install <strong>knitr</strong> or <strong>rmarkdown</strong> separately, because they are the required packages of <strong>bookdown</strong> and will be automatically installed when you install <strong>bookdown</strong>. However, Pandoc is not an R package, so it will not be automatically installed when you install <strong>bookdown</strong>. You can follow the installation instructions on the Pandoc homepage (<a href="http://pandoc.org" class="uri">http://pandoc.org</a>) to install Pandoc, but if you use the RStudio IDE, you do not really need to install Pandoc separately, because RStudio includes a copy of Pandoc. The Pandoc version number can be obtained via:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="software-tools.html#cb14-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">pandoc_version</span>()</span>
-<span id="cb14-2"><a href="software-tools.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &#39;2.19.2&#39;</span></span></code></pre></div>
-<p>If you find this version too low and there are Pandoc features only in a later version, you can install the later version of Pandoc, and <strong>rmarkdown</strong> will call the newer version instead of its built-in version.</p>
-</div>
-<div id="latex" class="section level2 hasAnchor" number="9.3">
-<h2><span class="header-section-number">A.3</span> LaTeX<a href="software-tools.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>LaTeX is required only if you want to convert your book to PDF. The typical choice of the LaTeX distribution depends on your operating system. Windows users may consider MiKTeX (<a href="http://miktex.org" class="uri">http://miktex.org</a>), Mac OS X users can install MacTeX (<a href="http://www.tug.org/mactex/" class="uri">http://www.tug.org/mactex/</a>), and Linux users can install TeXLive (<a href="http://www.tug.org/texlive" class="uri">http://www.tug.org/texlive</a>). See <a href="https://www.latex-project.org/get/" class="uri">https://www.latex-project.org/get/</a> for more information about LaTeX and its installation.</p>
-<p>Most LaTeX distributions provide a minimal/basic package and a full package. You can install the basic package if you have limited disk space and know how to install LaTeX packages later. The full package is often significantly larger in size, since it contains all LaTeX packages, and you are unlikely to run into the problem of missing packages in LaTeX.</p>
-<p>LaTeX error messages may be obscure to beginners, but you may find solutions by searching for the error message online (you have good chances of ending up on <a href="http://tex.stackexchange.com">StackExchange</a>). In fact, the LaTeX code converted from R Markdown should be safe enough and you should not frequently run into LaTeX problems unless you introduced raw LaTeX content in your Rmd documents. The most common LaTeX problem should be missing LaTeX packages, and the error may look like this:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb15-1"><a href="software-tools.html#cb15-1" aria-hidden="true" tabindex="-1"></a>! LaTeX Error: File `titling.sty&#39; not found.</span>
-<span id="cb15-2"><a href="software-tools.html#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="software-tools.html#cb15-3" aria-hidden="true" tabindex="-1"></a>Type X to quit or &lt;RETURN&gt; to proceed,</span>
-<span id="cb15-4"><a href="software-tools.html#cb15-4" aria-hidden="true" tabindex="-1"></a>or enter new name. (Default extension: sty)</span>
-<span id="cb15-5"><a href="software-tools.html#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="software-tools.html#cb15-6" aria-hidden="true" tabindex="-1"></a>Enter file name: </span>
-<span id="cb15-7"><a href="software-tools.html#cb15-7" aria-hidden="true" tabindex="-1"></a>! Emergency stop.</span>
-<span id="cb15-8"><a href="software-tools.html#cb15-8" aria-hidden="true" tabindex="-1"></a>&lt;read *&gt; </span>
-<span id="cb15-9"><a href="software-tools.html#cb15-9" aria-hidden="true" tabindex="-1"></a>         </span>
-<span id="cb15-10"><a href="software-tools.html#cb15-10" aria-hidden="true" tabindex="-1"></a>l.107 ^^M</span>
-<span id="cb15-11"><a href="software-tools.html#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="software-tools.html#cb15-12" aria-hidden="true" tabindex="-1"></a>pandoc: Error producing PDF</span>
-<span id="cb15-13"><a href="software-tools.html#cb15-13" aria-hidden="true" tabindex="-1"></a>Error: pandoc document conversion failed with error 43</span>
-<span id="cb15-14"><a href="software-tools.html#cb15-14" aria-hidden="true" tabindex="-1"></a>Execution halted</span></code></pre></div>
-<p>This means you used a package that contains <code>titling.sty</code>, but it was not installed. LaTeX package names are often the same as the <code>*.sty</code> filenames, so in this case, you can try to install the <code>titling</code> package. Both MiKTeX and MacTeX provide a graphical user interface to manage packages. You can find the MiKTeX package manager from the start menu, and MacTeX’s package manager from the application “TeX Live Utility”. Type the name of the package, or the filename to search for the package and install it. TeXLive may be a little trickier: if you use the pre-built TeXLive packages of your Linux distribution, you need to search in the package repository and your keywords may match other non-LaTeX packages. Personally, I find it frustrating to use the pre-built collections of packages on Linux, and much easier to install TeXLive from source, in which case you can manage packages using the <code>tlmgr</code> command. For example, you can search for <code>titling.sty</code> from the TeXLive package repository:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="software-tools.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> search <span class="at">--global</span> <span class="at">--file</span> titling.sty</span>
-<span id="cb16-2"><a href="software-tools.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># titling:</span></span>
-<span id="cb16-3"><a href="software-tools.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    texmf-dist/tex/latex/titling/titling.sty</span></span></code></pre></div>
-<p>Once you have figured out the package name, you can install it by:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="software-tools.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> install titling  <span class="co"># may require sudo</span></span></code></pre></div>
-<p>LaTeX distributions and packages are also updated from time to time, and you may consider updating them especially when you run into LaTeX problems. You can find out the version of your LaTeX distribution by:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="software-tools.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&#39;pdflatex --version&#39;</span>)</span>
-<span id="cb18-2"><a href="software-tools.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="do">## pdfTeX 3.14159265-2.6-1.40.18 (TeX Live 2017)</span></span>
-<span id="cb18-3"><a href="software-tools.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="do">## kpathsea version 6.2.3</span></span>
-<span id="cb18-4"><a href="software-tools.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Copyright 2017 Han The Thanh (pdfTeX) et al.</span></span>
-<span id="cb18-5"><a href="software-tools.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="do">## There is NO warranty.  Redistribution of this software is</span></span>
-<span id="cb18-6"><a href="software-tools.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="do">## covered by the terms of both the pdfTeX copyright and</span></span>
-<span id="cb18-7"><a href="software-tools.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="do">## the Lesser GNU General Public License.</span></span>
-<span id="cb18-8"><a href="software-tools.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="do">## For more information about these matters, see the file</span></span>
-<span id="cb18-9"><a href="software-tools.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="do">## named COPYING and the pdfTeX source.</span></span>
-<span id="cb18-10"><a href="software-tools.html#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.</span></span>
-<span id="cb18-11"><a href="software-tools.html#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Compiled with libpng 1.6.29; using libpng 1.6.29</span></span>
-<span id="cb18-12"><a href="software-tools.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Compiled with zlib 1.2.11; using zlib 1.2.11</span></span>
-<span id="cb18-13"><a href="software-tools.html#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Compiled with xpdf version 3.04</span></span></code></pre></div>
-
-</div>
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
 </div>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -297,8 +237,8 @@ ga('send', 'pageview');
           </div>
         </div>
       </div>
-<a href="integración-en-mathbbrn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
@@ -329,7 +269,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/synergyvision/Medida/edit/master/bookdown/400-apendice.Rmd",
+"link": "https://github.com/synergyvision/Medida/edit/master/bookdown/%s",
 "text": "Edit"
 },
 "history": {

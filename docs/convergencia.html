@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 6 CONVERGENCIA | Medida</title>
   <meta name="description" content="Capítulo 6 CONVERGENCIA | Medida" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 6 CONVERGENCIA | Medida" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="http://synergy.vision/Medida/" />
-  <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
+  <meta property="og:image" content="http://synergy.vision/Medida//images/cover.png" />
   
   <meta name="github-repo" content="synergyvision/Medida/" />
 
@@ -19,12 +18,12 @@
   <meta name="twitter:title" content="Capítulo 6 CONVERGENCIA | Medida" />
   
   
-  <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
+  <meta name="twitter:image" content="http://synergy.vision/Medida//images/cover.png" />
 
 <meta name="author" content="Synergy Vision" />
 
 
-<meta name="date" content="2020-07-29" />
+<meta name="date" content="2022-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,8 @@
   
 <link rel="prev" href="la-integral-de-lebesgue.html"/>
 <link rel="next" href="diferenciacion-e-integración.html"/>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,47 +49,77 @@
 
 
 
-
+<link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections/anchor-sections.js"></script>
 <script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -107,56 +137,64 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./"><img src="images/logovision-black.png" width="160"></img></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-qué-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prácticas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
 <li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
-<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a><ul>
+<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a></li>
 <li class="chapter" data-level="2.2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#colecciones-de-conjuntos"><i class="fa fa-check"></i><b>2.2</b> Colecciones de Conjuntos</a></li>
 <li class="chapter" data-level="2.3" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#el-conjunto-de-cantor"><i class="fa fa-check"></i><b>2.3</b> El conjunto de Cantor</a></li>
 <li class="chapter" data-level="2.4" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#medida"><i class="fa fa-check"></i><b>2.4</b> Medida</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html"><i class="fa fa-check"></i><b>3</b> LA MEDIDA DE LEBESGUE</a><ul>
+<li class="chapter" data-level="3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html"><i class="fa fa-check"></i><b>3</b> LA MEDIDA DE LEBESGUE</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#construyendo-la-medida-de-lebesgue"><i class="fa fa-check"></i><b>3.1</b> Construyendo la Medida de Lebesgue</a></li>
 <li class="chapter" data-level="3.2" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#unicidad-de-la-medida-de-lebesgue-y-otras-propiedades"><i class="fa fa-check"></i><b>3.2</b> Unicidad de la medida de Lebesgue y otras propiedades</a></li>
 <li class="chapter" data-level="3.3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#consideraciones"><i class="fa fa-check"></i><b>3.3</b> Consideraciones</a></li>
 <li class="chapter" data-level="3.4" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#la-medida-de-stieltjes"><i class="fa fa-check"></i><b>3.4</b> La Medida de Stieltjes</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="funciones-medibles.html"><a href="funciones-medibles.html"><i class="fa fa-check"></i><b>4</b> FUNCIONES MEDIBLES</a><ul>
+<li class="chapter" data-level="4" data-path="funciones-medibles.html"><a href="funciones-medibles.html"><i class="fa fa-check"></i><b>4</b> FUNCIONES MEDIBLES</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="funciones-medibles.html"><a href="funciones-medibles.html#conceptos-básicos"><i class="fa fa-check"></i><b>4.1</b> Conceptos básicos</a></li>
 <li class="chapter" data-level="4.2" data-path="funciones-medibles.html"><a href="funciones-medibles.html#aproximaciones-de-funciones-medibles"><i class="fa fa-check"></i><b>4.2</b> Aproximaciones de funciones medibles</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html"><i class="fa fa-check"></i><b>5</b> LA INTEGRAL DE LEBESGUE</a><ul>
+<li class="chapter" data-level="5" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html"><i class="fa fa-check"></i><b>5</b> LA INTEGRAL DE LEBESGUE</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#conceptos-básicos-1"><i class="fa fa-check"></i><b>5.1</b> Conceptos básicos</a></li>
 <li class="chapter" data-level="5.2" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#intercambio-de-límites-con-la-integral"><i class="fa fa-check"></i><b>5.2</b> Intercambio de límites con la integral</a></li>
 <li class="chapter" data-level="5.3" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#teoremas-de-aproximación"><i class="fa fa-check"></i><b>5.3</b> Teoremas de Aproximación</a></li>
 <li class="chapter" data-level="5.4" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#más-sobre-la-integral-de-lebesgue"><i class="fa fa-check"></i><b>5.4</b> Más sobre la Integral de Lebesgue</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="convergencia.html"><a href="convergencia.html"><i class="fa fa-check"></i><b>6</b> CONVERGENCIA</a><ul>
+<li class="chapter" data-level="6" data-path="convergencia.html"><a href="convergencia.html"><i class="fa fa-check"></i><b>6</b> CONVERGENCIA</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="convergencia.html"><a href="convergencia.html#tipos-de-convergencia"><i class="fa fa-check"></i><b>6.1</b> Tipos de convergencia</a></li>
 <li class="chapter" data-level="6.2" data-path="convergencia.html"><a href="convergencia.html#espacios-lp"><i class="fa fa-check"></i><b>6.2</b> Espacios <span class="math inline">\(L^{p}\)</span></a></li>
 <li class="chapter" data-level="6.3" data-path="convergencia.html"><a href="convergencia.html#espacios-linfty"><i class="fa fa-check"></i><b>6.3</b> Espacios <span class="math inline">\(L^{\infty}\)</span></a></li>
 <li class="chapter" data-level="6.4" data-path="convergencia.html"><a href="convergencia.html#espacios-de-hilbert"><i class="fa fa-check"></i><b>6.4</b> Espacios de Hilbert</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html"><i class="fa fa-check"></i><b>7</b> DIFERENCIACION E INTEGRACIÓN</a><ul>
+<li class="chapter" data-level="7" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html"><i class="fa fa-check"></i><b>7</b> DIFERENCIACION E INTEGRACIÓN</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-monótonas"><i class="fa fa-check"></i><b>7.1</b> Funciones monótonas</a></li>
 <li class="chapter" data-level="7.2" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-de-variación-acotada"><i class="fa fa-check"></i><b>7.2</b> Funciones de variación acotada</a></li>
 <li class="chapter" data-level="7.3" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#de-la-integral-indefinida.-continuidad-absoluta"><i class="fa fa-check"></i><b>7.3</b> De la Integral indefinida. Continuidad Absoluta</a></li>
 <li class="chapter" data-level="7.4" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#cambio-de-variables"><i class="fa fa-check"></i><b>7.4</b> Cambio de variables</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html"><i class="fa fa-check"></i><b>8</b> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></a><ul>
+<li class="chapter" data-level="8" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html"><i class="fa fa-check"></i><b>8</b> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#espacio-producto"><i class="fa fa-check"></i><b>8.1</b> Espacio Producto</a></li>
 <li class="chapter" data-level="8.2" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#medida-de-lebesgue-en-mathbbrn"><i class="fa fa-check"></i><b>8.2</b> Medida de Lebesgue en <span class="math inline">\(\mathbb{R}^{n}\)</span></a></li>
 <li class="chapter" data-level="8.3" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#teorema-de-fibini.-teorema-de-tonelli"><i class="fa fa-check"></i><b>8.3</b> Teorema de Fibini. Teorema de Tonelli</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apéndice</b></span></li>
-<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a>
+<ul>
 <li class="chapter" data-level="A.1" data-path="software-tools.html"><a href="software-tools.html#r-and-r-packages"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
 <li class="chapter" data-level="A.2" data-path="software-tools.html"><a href="software-tools.html#pandoc"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
 <li class="chapter" data-level="A.3" data-path="software-tools.html"><a href="software-tools.html#latex"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
@@ -182,474 +220,461 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="convergencia" class="section level1">
-<h1><span class="header-section-number">Capítulo 6</span> CONVERGENCIA</h1>
+<div id="convergencia" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Capítulo 6</span> CONVERGENCIA<a href="convergencia.html#convergencia" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Ya conocemos la convergencia puntual y la convergencia uniforme de sucesiones de funciones, pero se pueden definir otros tipos de convergencia. En este capítulo estuadiaremos los distintos tipos de convergencia, así como la relación entre ellas. Definiremos espacios <span class="math inline">\(L^{p}\)</span> y estudiaremos la convergencia en ellos. Finalmente estudiaremos someramente los espacios de Hilbert.</p>
-<div id="tipos-de-convergencia" class="section level2">
-<h2><span class="header-section-number">6.1</span> Tipos de convergencia</h2>
+<div id="tipos-de-convergencia" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Tipos de convergencia<a href="convergencia.html#tipos-de-convergencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Recordaremos las definiciones ya conocidas de convergencia puntual y uniforme y añadiremos a la lista otras definiciones de convergencia. La definición de sucesión de Cauchy depende de la convergencia, mas adelante veremos como se redefine según el tipo de convergencia.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-202" class="definition"><strong>Definición 6.1  </strong></span>Sea <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medibles Lebesgue. Sea <span class="math inline">\(E\in\mathcal{M}\)</span>.</p>
+<p><span id="def:unnamed-chunk-197" class="definition"><strong>Definición 6.1  </strong></span>Sea <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medibles Lebesgue. Sea <span class="math inline">\(E\in\mathcal{M}\)</span>.</p>
 <p>(1.) Decimos que <span class="math inline">\(\{f_{n}\}_{n}\)</span> <em>converge puntualmente a una función <span class="math inline">\(f\)</span></em> en <span class="math inline">\(E\)</span>, si y solo si para todo <span class="math inline">\(x\in E\)</span>, <span class="math inline">\(\lim\limits_{n\to\infty} f_{n}(x)=f(x)\)</span>. Es decir <span class="math inline">\(\forall x\in E\forall\epsilon&gt;0\exists N\in\mathbb{N}[n&gt;N\Rightarrow |f_{n}(x)-f(x)|&lt;\epsilon]\)</span>. Se suele escribir <span class="math inline">\(f_{n}\to f\)</span> puntualmente.</p>
 <p>(2.) Decimos que <span class="math inline">\(\{f_{n}\}_{n}\)</span> <em>converge uniformemente</em> a una función <span class="math inline">\(f\)</span> en <span class="math inline">\(E\)</span>, si y solo si para todo <span class="math inline">\(\epsilon&gt;0\)</span>, existe <span class="math inline">\(N\in\mathbb{N}\)</span> tal que para todo <span class="math inline">\(x\in E\)</span>, si <span class="math inline">\(n&gt;N\)</span> entonces <span class="math inline">\(|f_{n}(x)-f(x)|&lt;\epsilon\)</span>. Es decir <span class="math inline">\(\forall\epsilon&gt;0\exists N\in\mathbb{N}[\forall x\in E(n&gt;N\Rightarrow |f_{n}(x)-f(x)|&lt;\epsilon)]\)</span>. Se escribe <span class="math inline">\(f_{n}\to f\)</span> uniformemente.</p>
 <p>(3.) Decimos que <span class="math inline">\(\{f_{n}\}_{n}\)</span> <em>converge puntualmente</em> a una función <span class="math inline">\(f\)</span> <em>en casi todo punto de</em> <span class="math inline">\(E\)</span>, si y solo si <span class="math inline">\(\{f_{n}\}_{n}\)</span> converge puntualmente a <span class="math inline">\(f\)</span> en un conjunto <span class="math inline">\(F\subseteq E\)</span> y <span class="math inline">\(m(E\backslash F)=0\)</span>. Es decir <span class="math inline">\(m\{x\in E: \{f_{n}(x)\}_{n} \mbox{ no converge a } f(x) \}=0\)</span>. Se escribe <span class="math inline">\(f_{n}\to f\)</span> en c.t.p (casi todo punto) de <span class="math inline">\(E\)</span>.</p>
-<p>(4.) Decimos que <span class="math inline">\(\{f_{n}\}_{n}\)</span> <em>converge uniformemente</em> a una función <span class="math inline">\(f\)</span> <em>en casi todo punto de</em> <span class="math inline">\(E\)</span>, si y solo si <span class="math inline">\(\{f_{n}\}_{n}\)</span> converge uniformemente a <span class="math inline">\(f\)</span> en <span class="math inline">\(F\subseteq E\)</span> y <span class="math inline">\(m(E\backslash F)=0\)</span>. Se escribe <span class="math inline">\(f_{n}\to f\)</span> uniformemente en c.t.p. de <span class="math inline">\(E\)</span>.</p>
+<p>(4.) Decimos que <span class="math inline">\(\{f_{n}\}_{n}\)</span> <em>converge uniformemente</em> a una función <span class="math inline">\(f\)</span> <em>en casi todo punto de</em> <span class="math inline">\(E\)</span>, si y solo si <span class="math inline">\(\{f_{n}\}_{n}\)</span> converge uniformemente a <span class="math inline">\(f\)</span> en <span class="math inline">\(F\subseteq E\)</span> y <span class="math inline">\(m(E\backslash F)=0\)</span>. Se escribe <span class="math inline">\(f_{n}\to f\)</span> uniformemente en c.t.p. de <span class="math inline">\(E\)</span>.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-203" class="example"><strong>Ejemplo 6.1  </strong></span>La sucesión de las funciones <span class="math inline">\(f_{n}(x)=x^{n}\chi_{[0,1]}\)</span> converge puntualmente a la función <span class="math display">\[f(x)=\left\lbrace\begin{array}{ll}
+<p><span id="exm:unnamed-chunk-198" class="example"><strong>Ejemplo 6.1  </strong></span>La sucesión de las funciones <span class="math inline">\(f_{n}(x)=x^{n}\chi_{[0,1]}\)</span> converge puntualmente a la función <span class="math display">\[f(x)=\left\lbrace\begin{array}{ll}
     0&amp;\mbox{ si } 0\leq x&lt;1\\
     1&amp;\mbox{ si } x=1
 \end{array}\right.\]</span> en el intervalo <span class="math inline">\([0,1]\)</span>. Por lo tanto, converge en casi todo punto de <span class="math inline">\([0,1]\)</span>. Pero no converge uniformemente en <span class="math inline">\([0,1]\)</span>. Tampoco se puede decir que converge uniformemente en casi todo punto de <span class="math inline">\([0,1]\)</span> aunque el conjunto donde falla la convergencia se puede hacer tan pequeño como se quiera.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-204" class="definition"><strong>Definición 6.2  </strong></span>Decimos que <span class="math inline">\(\{f_{n}\}_{n}\)</span> <em>converge casi uniformemente</em> a una función <span class="math inline">\(f\)</span> en un conjunto medible <span class="math inline">\(E\)</span>, si y solo si <span class="math inline">\(\forall\epsilon&gt;0\)</span>, existe <span class="math inline">\(F\subseteq E\)</span> tal que <span class="math inline">\(\{f_{n}\}_{n}\)</span> converge uniformemente a <span class="math inline">\(f\)</span> en <span class="math inline">\(F\)</span> y <span class="math inline">\(m(E\backslash F)=0\)</span>. Se escribe <span class="math inline">\(f_{n}\to f\)</span> c.u. en <span class="math inline">\(E\)</span>.</p>
+<p><span id="def:unnamed-chunk-199" class="definition"><strong>Definición 6.2  </strong></span>Decimos que <span class="math inline">\(\{f_{n}\}_{n}\)</span> <em>converge casi uniformemente</em> a una función <span class="math inline">\(f\)</span> en un conjunto medible <span class="math inline">\(E\)</span>, si y solo si <span class="math inline">\(\forall\epsilon&gt;0\)</span>, existe <span class="math inline">\(F\subseteq E\)</span> tal que <span class="math inline">\(\{f_{n}\}_{n}\)</span> converge uniformemente a <span class="math inline">\(f\)</span> en <span class="math inline">\(F\)</span> y <span class="math inline">\(m(E\backslash F)=0\)</span>. Se escribe <span class="math inline">\(f_{n}\to f\)</span> c.u. en <span class="math inline">\(E\)</span>.</p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Es claro que la convergencia uniforme implica la convergencia casi uniforme. Pero el recíproco no es cierto.</p>
+<p><span id="unlabeled-div-68" class="remark"><em>Nota</em>. </span>Es claro que la convergencia uniforme implica la convergencia casi uniforme. Pero el recíproco no es cierto.</p>
 </div>
-
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-206" class="proposition"><strong>Proposición 6.1  </strong></span>Sea <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medibles Lebesgue. Si <span class="math inline">\(f_{n}\to f\)</span> casi uniformemente en un conjunto medible <span class="math inline">\(E\)</span>, entonces <span class="math inline">\(f_{n}\to f\)</span> en casi todo punto de <span class="math inline">\(E\)</span>.</p>
+<p><span id="prp:unnamed-chunk-201" class="proposition"><strong>Proposición 6.1  </strong></span>Sea <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medibles Lebesgue. Si <span class="math inline">\(f_{n}\to f\)</span> casi uniformemente en un conjunto medible <span class="math inline">\(E\)</span>, entonces <span class="math inline">\(f_{n}\to f\)</span> en casi todo punto de <span class="math inline">\(E\)</span>.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(F_{n}\subseteq E\)</span> tal que <span class="math inline">\(f_{n}\to f\)</span> uniformemente en <span class="math inline">\(E\backslash F_{n}\)</span> y <span class="math inline">\(m(F_{n})&lt;\frac{1}{n}\)</span>. Tomando <span class="math inline">\(F=\bigcap F_{n}\)</span>, se tiene que <span class="math inline">\(m(F)=0\)</span> y <span class="math inline">\(f_{n}(x)\to f(x)\)</span> en c.t.p de <span class="math inline">\(E\)</span>.</p>
+<p><span id="unlabeled-div-69" class="proof"><em>Demostración</em>. </span>Sea <span class="math inline">\(F_{n}\subseteq E\)</span> tal que <span class="math inline">\(f_{n}\to f\)</span> uniformemente en <span class="math inline">\(E\backslash F_{n}\)</span> y <span class="math inline">\(m(F_{n})&lt;\frac{1}{n}\)</span>. Tomando <span class="math inline">\(F=\bigcap F_{n}\)</span>, se tiene que <span class="math inline">\(m(F)=0\)</span> y <span class="math inline">\(f_{n}(x)\to f(x)\)</span> en c.t.p de <span class="math inline">\(E\)</span>.</p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> El recíproco de la proposición anterior, es falso tal como lo muestra el siguiente ejemplo.</p>
+<p><span id="unlabeled-div-70" class="remark"><em>Nota</em>. </span>El recíproco de la proposición anterior, es falso tal como lo muestra el siguiente ejemplo.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-209" class="example"><strong>Ejemplo 6.2  </strong></span>Sea <span class="math inline">\(f_{n}=\chi_{[n,\infty)}\)</span>. Es claro que <span class="math inline">\(f_{n}\to 0\)</span> para todo <span class="math inline">\(x\in\mathbb{R}\)</span> pero <span class="math inline">\(f_{n}\)</span> no converge c.u. a <span class="math inline">\(0\)</span> en <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p><span id="exm:unnamed-chunk-204" class="example"><strong>Ejemplo 6.2  </strong></span>Sea <span class="math inline">\(f_{n}=\chi_{[n,\infty)}\)</span>. Es claro que <span class="math inline">\(f_{n}\to 0\)</span> para todo <span class="math inline">\(x\in\mathbb{R}\)</span> pero <span class="math inline">\(f_{n}\)</span> no converge c.u. a <span class="math inline">\(0\)</span> en <span class="math inline">\(\mathbb{R}\)</span>.</p>
 </div>
-
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-210" class="theorem"><strong>Teorema 6.1  (Egorov´s)  </strong></span>Sea <span class="math inline">\(E\in\mathcal{M}\)</span> un conjunto de medida finita y sea <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones medibles <span class="math inline">\(f_{n}:E\longrightarrow\overline{\mathbb{R}}\)</span> tales que, para cada <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(|f_{n}|&lt;\infty\)</span> en c.t.p de <span class="math inline">\(E\)</span>. Sea <span class="math inline">\(f:E\longrightarrow\overline{\mathbb{R}}\)</span> una función finita en c.t.p. de <span class="math inline">\(E\)</span>. Supongamos que <span class="math inline">\(f_{n}\to f\)</span> en c.t.p. de <span class="math inline">\(E\)</span>. Entonces <span class="math inline">\(f_{n}\to f\)</span> c.u. en <span class="math inline">\(E\)</span>.</p>
+<p><span id="thm:unnamed-chunk-205" class="theorem"><strong>Teorema 6.1  (Egorov´s) </strong></span>Sea <span class="math inline">\(E\in\mathcal{M}\)</span> un conjunto de medida finita y sea <span class="math inline">\(\{f_{n}\}_{n}\)</span> una sucesión de funciones medibles <span class="math inline">\(f_{n}:E\longrightarrow\overline{\mathbb{R}}\)</span> tales que, para cada <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(|f_{n}|&lt;\infty\)</span> en c.t.p de <span class="math inline">\(E\)</span>. Sea <span class="math inline">\(f:E\longrightarrow\overline{\mathbb{R}}\)</span> una función finita en c.t.p. de <span class="math inline">\(E\)</span>. Supongamos que <span class="math inline">\(f_{n}\to f\)</span> en c.t.p. de <span class="math inline">\(E\)</span>. Entonces <span class="math inline">\(f_{n}\to f\)</span> c.u. en <span class="math inline">\(E\)</span>.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Sean <span class="math inline">\(A_{n}=\{x\in\mathbb{R}:|f_{n}(x)|=\infty \}\)</span> para cada <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(B=\{x\in\mathbb{R}:|f(x)|=\infty \}\)</span> y <span class="math inline">\(C=\{x\in\mathbb{R}: f_{n}(c)\mbox{ no converge a } f(x) \}\)</span>. Llamemos <span class="math inline">\(F=\left( \bigcup_{n\in\mathbb{N}}A_{n}\right) \cup B\cup C\)</span>, entonces <span class="math inline">\(m(F)=0\)</span>. Sea <span class="math inline">\(\overline{E}=E\backslash F\)</span>. Si demostramos que <span class="math inline">\(f_{n}\to f\)</span> c.u. en <span class="math inline">\(\overline{E}\)</span>, entonces se tiene que <span class="math inline">\(f_{n}\to f\)</span> c.u. en <span class="math inline">\(E\)</span>. Entonces podemos suponer sin pérdida de generalidad que para todo <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(|f_{n}|\)</span> es finita en <span class="math inline">\(E\)</span>, que <span class="math inline">\(|f|\)</span> es finita y que <span class="math inline">\(f_{n}\to f\)</span> en <span class="math inline">\(E\)</span>. Fijemos <span class="math inline">\(\epsilon&gt;0\)</span>. Sea <span class="math display">\[E_{n}^{m}=\bigcap_{k\geq n}\left\lbrace x\in\mathbb{R}: |f_{k}(x)-f(x)|&lt;\frac{1}{m} \right\rbrace \]</span> para <span class="math inline">\(m\)</span> fijo, la sucesión <span class="math inline">\((E_{n}^{m})_{n\in\mathbb{N}}\)</span>, es una sucesión creciente; además, como <span class="math inline">\(f_{n}(x)\to f(x)\)</span> en <span class="math inline">\(E\)</span>, se tiene que <span class="math inline">\(E=\bigcup_{n\in\mathbb{N}} E_{n}^{m}\)</span>. Entonces, <span class="math inline">\((E\backslash E_{n}^{m})_{n\in\mathbb{N}}\)</span> es una sucesión decreciente que tiende a vacío, es decir, <span class="math inline">\(E\backslash E_{n}^{m}\to\emptyset\)</span>, para cada <span class="math inline">\(m\in\mathbb{N}\)</span>. Como <span class="math inline">\(E\)</span> tiene medida finita, para cada <span class="math inline">\(m\)</span>, existe <span class="math inline">\(N_{m}\)</span> tal que <span class="math inline">\(m(E\backslash E_{n}^{m})&lt;\frac{\epsilon}{2^{m}}\)</span> para todo <span class="math inline">\(n\geq N_{m}\)</span>. Sea <span class="math inline">\(F_{\epsilon}=\bigcup_{m\in\mathbb{N}} E\backslash E_{N_{m}}^{m}\)</span>, entonces <span class="math inline">\(m(F_{\epsilon})&lt;\epsilon\)</span>. Se tiene que <span class="math inline">\(f_{n}\to f\)</span> en $EF_{}=(<em>{m} E</em>{N_{m}}^{m} ) $. Sea <span class="math inline">\(\xi&gt;0\)</span>, tomemos <span class="math inline">\(m\in\mathbb{N}\)</span> tal que <span class="math inline">\(\frac{1}{n}&lt;\xi\)</span>, entonces para todo <span class="math inline">\(k\geq N_{m}\)</span> y para todo <span class="math inline">\(x\in E\backslash F_{\epsilon}\)</span> se tiene que <span class="math display">\[|f_{k}(x)-f(x)&lt;\xi.\]</span></p>
+<p><span id="unlabeled-div-71" class="proof"><em>Demostración</em>. </span>Sean <span class="math inline">\(A_{n}=\{x\in\mathbb{R}:|f_{n}(x)|=\infty \}\)</span> para cada <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(B=\{x\in\mathbb{R}:|f(x)|=\infty \}\)</span> y <span class="math inline">\(C=\{x\in\mathbb{R}: f_{n}(c)\mbox{ no converge a } f(x) \}\)</span>. Llamemos <span class="math inline">\(F=\left( \bigcup_{n\in\mathbb{N}}A_{n}\right) \cup B\cup C\)</span>, entonces <span class="math inline">\(m(F)=0\)</span>. Sea <span class="math inline">\(\overline{E}=E\backslash F\)</span>. Si demostramos que <span class="math inline">\(f_{n}\to f\)</span> c.u. en <span class="math inline">\(\overline{E}\)</span>, entonces se tiene que <span class="math inline">\(f_{n}\to f\)</span> c.u. en <span class="math inline">\(E\)</span>. Entonces podemos suponer sin pérdida de generalidad que para todo <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(|f_{n}|\)</span> es finita en <span class="math inline">\(E\)</span>, que <span class="math inline">\(|f|\)</span> es finita y que <span class="math inline">\(f_{n}\to f\)</span> en <span class="math inline">\(E\)</span>.
+Fijemos <span class="math inline">\(\epsilon&gt;0\)</span>. Sea <span class="math display">\[E_{n}^{m}=\bigcap_{k\geq n}\left\lbrace x\in\mathbb{R}: |f_{k}(x)-f(x)|&lt;\frac{1}{m} \right\rbrace \]</span>
+para <span class="math inline">\(m\)</span> fijo, la sucesión <span class="math inline">\((E_{n}^{m})_{n\in\mathbb{N}}\)</span>, es una sucesión creciente; además, como <span class="math inline">\(f_{n}(x)\to f(x)\)</span> en <span class="math inline">\(E\)</span>, se tiene que <span class="math inline">\(E=\bigcup_{n\in\mathbb{N}} E_{n}^{m}\)</span>. Entonces, <span class="math inline">\((E\backslash E_{n}^{m})_{n\in\mathbb{N}}\)</span> es una sucesión decreciente que tiende a vacío, es decir, <span class="math inline">\(E\backslash E_{n}^{m}\to\emptyset\)</span>, para cada <span class="math inline">\(m\in\mathbb{N}\)</span>. Como <span class="math inline">\(E\)</span> tiene medida finita, para cada <span class="math inline">\(m\)</span>, existe <span class="math inline">\(N_{m}\)</span> tal que <span class="math inline">\(m(E\backslash E_{n}^{m})&lt;\frac{\epsilon}{2^{m}}\)</span> para todo <span class="math inline">\(n\geq N_{m}\)</span>. Sea <span class="math inline">\(F_{\epsilon}=\bigcup_{m\in\mathbb{N}} E\backslash E_{N_{m}}^{m}\)</span>, entonces <span class="math inline">\(m(F_{\epsilon})&lt;\epsilon\)</span>. Se tiene que <span class="math inline">\(f_{n}\to f\)</span> en $EF_{}=(<em>{m} E</em>{N_{m}}^{m} ) $. Sea <span class="math inline">\(\xi&gt;0\)</span>, tomemos <span class="math inline">\(m\in\mathbb{N}\)</span> tal que <span class="math inline">\(\frac{1}{n}&lt;\xi\)</span>, entonces para todo <span class="math inline">\(k\geq N_{m}\)</span> y para todo <span class="math inline">\(x\in E\backslash F_{\epsilon}\)</span> se tiene que <span class="math display">\[|f_{k}(x)-f(x)&lt;\xi.\]</span></p>
 </div>
-
 <p>Definamos ahora otro tipo de convergencia y su respectiva definición de sucesión de Cauchy en medida.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-212" class="definition"><strong>Definición 6.3  </strong></span>Sea <span class="math inline">\((f_{n})_{n\in\mathbb{N}}\)</span> una sucesión de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{R}\)</span> medibles y finitas en c.t.p. Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{R}\)</span> una función medible finita en c.t.p. Decimos que <em><span class="math inline">\(f_{n}\)</span> converge a <span class="math inline">\(f\)</span> en medida</em> (y lo denotamos por <span class="math inline">\(f_{n}\xrightarrow{m} f\)</span>) si para todo <span class="math inline">\(\epsilon&gt;0\)</span> se tiene que <span class="math display">\[\lim\limits_{n\to\infty} m\{x\in\mathbb{R}:|f_{n}(x)-f(x)|\geq\epsilon \}=0.\]</span></p>
+<p><span id="def:unnamed-chunk-207" class="definition"><strong>Definición 6.3  </strong></span>Sea <span class="math inline">\((f_{n})_{n\in\mathbb{N}}\)</span> una sucesión de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{R}\)</span> medibles y finitas en c.t.p. Sea <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{R}\)</span> una función medible finita en c.t.p. Decimos que <em><span class="math inline">\(f_{n}\)</span> converge a <span class="math inline">\(f\)</span> en medida</em> (y lo denotamos por <span class="math inline">\(f_{n}\xrightarrow{m} f\)</span>) si para todo <span class="math inline">\(\epsilon&gt;0\)</span> se tiene que <span class="math display">\[\lim\limits_{n\to\infty} m\{x\in\mathbb{R}:|f_{n}(x)-f(x)|\geq\epsilon \}=0.\]</span></p>
 </div>
-<p> Otra forma de expresarlo es: <span class="math inline">\(f_{n}\xrightarrow{m} f\)</span> si y solo si <span class="math display">\[\forall\epsilon&gt;0\forall\xi&gt;0\exists N\in\mathbb{N}(n\geq N \Rightarrow m\{x\in\mathbb{R}:|f_{n}(x)-f(x)|\geq\epsilon\}&lt;\xi).\]</span></p>
-
+<p>Otra forma de expresarlo es: <span class="math inline">\(f_{n}\xrightarrow{m} f\)</span> si y solo si
+<span class="math display">\[\forall\epsilon&gt;0\forall\xi&gt;0\exists N\in\mathbb{N}(n\geq N \Rightarrow m\{x\in\mathbb{R}:|f_{n}(x)-f(x)|\geq\epsilon\}&lt;\xi).\]</span></p>
 <div class="definition">
-<p><span id="def:unnamed-chunk-213" class="definition"><strong>Definición 6.4  </strong></span>Una sucesión <span class="math inline">\((f_{n})_{n\in\mathbb{N}}\)</span> de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{R}\)</span> medibles es <em>de Cauchy en medida</em> si y solo si para todo <span class="math inline">\(\epsilon&gt;0\)</span> y todo <span class="math inline">\(\xi&gt;0\)</span>, existe <span class="math inline">\(N\in\mathbb{N}\)</span> tal que si <span class="math inline">\(n,m&gt;N\)</span>, entonces <span class="math inline">\(m\{x\in\mathbb{R}:|f_{n}(x)-f_{m}(x)|\geq\epsilon\}&lt;\xi.\)</span></p>
+<p><span id="def:unnamed-chunk-208" class="definition"><strong>Definición 6.4  </strong></span>Una sucesión <span class="math inline">\((f_{n})_{n\in\mathbb{N}}\)</span> de funciones <span class="math inline">\(f_{n}:\mathbb{R}\longrightarrow\overline{R}\)</span> medibles es <em>de Cauchy en medida</em> si y solo si para todo <span class="math inline">\(\epsilon&gt;0\)</span> y todo <span class="math inline">\(\xi&gt;0\)</span>, existe <span class="math inline">\(N\in\mathbb{N}\)</span> tal que si <span class="math inline">\(n,m&gt;N\)</span>, entonces <span class="math inline">\(m\{x\in\mathbb{R}:|f_{n}(x)-f_{m}(x)|\geq\epsilon\}&lt;\xi.\)</span></p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> La convergencia en casi todo punto no implica, en general, la convergencia en medida, salvo que la convergencia en c.t.p. esté dada en un conjunto de medida finita. El recíproco tampoco es cierto, es decir, la convergencia en medida no implica la convergencia en c.t.p.</p>
+<p><span id="unlabeled-div-72" class="remark"><em>Nota</em>. </span>La convergencia en casi todo punto no implica, en general, la convergencia en medida, salvo que la convergencia en c.t.p. esté dada en un conjunto de medida finita. El recíproco tampoco es cierto, es decir, la convergencia en medida no implica la convergencia en c.t.p.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-215" class="example"><strong>Ejemplo 6.3  </strong></span>La sucesión <span class="math inline">\(\chi_{[n,\infty)}(x)\)</span> converge puntualmente (por lo tanto, en casi todo punto) a la función <span class="math inline">\(f=0\)</span>. Pero <span class="math display">\[m\{x\in\mathbb{R}:|f_{n}(x)-f(x)|\geq \epsilon \}=m[n,\infty)=\infty\mbox{, para cualquier } \epsilon&lt;1\]</span> por lo tanto, la sucesión no converge en medida.</p>
+<p><span id="exm:unnamed-chunk-210" class="example"><strong>Ejemplo 6.3  </strong></span>La sucesión <span class="math inline">\(\chi_{[n,\infty)}(x)\)</span> converge puntualmente (por lo tanto, en casi todo punto) a la función <span class="math inline">\(f=0\)</span>. Pero <span class="math display">\[m\{x\in\mathbb{R}:|f_{n}(x)-f(x)|\geq \epsilon \}=m[n,\infty)=\infty\mbox{, para cualquier } \epsilon&lt;1\]</span> por lo tanto, la sucesión no converge en medida.</p>
 <p>Ahora, si consideramos la misma sucesión pero esta vez relativa a un conjunto de medida finita, esto es, <span class="math inline">\(\chi_{[n,\infty)\cap A}(x)\)</span>, donde <span class="math inline">\(A\)</span> es un conjunto de medida finita, entonces se tiene que la sucesión converge en c.t.p de <span class="math inline">\(A\)</span> y converge en medida.</p>
 <p>Por otro lado, consideremos <em>la sucesión que camina</em>. Está definida como <span class="math display">\[f_{2^{p}+q}(x)\left\lbrace \begin{array}{ll}
     1&amp;\mbox{ si } x\in\left( \frac{q}{2^{p}},\frac{q+1}{2^{p}}\right) \\
     0&amp;\mbox{ en otro caso }
-    \end{array}\right. \mbox{ para } p\in\mathbb{N}\mbox{ y } q=0,1,\cdots, 2^{p}-1.\]</span> Para ilustrar mejor, estas son las primeras cinco funciones de la sucesión: <span class="math display">\[f_{1}=\chi_{(0,1]},\; f_{2}=\chi_{\left( 0,\frac{1}{2}\right] },\; f_{3}=\chi_{\left( \frac{1}{2},1\right] },\; f_{4}=\chi_{\left( 0,\frac{1}{4}\right] },\; f_{5}=\chi_{\left( \frac{1}{4},\frac{1}{2}\right] } \]</span> Es claro que <span class="math inline">\(f_{n}\xrightarrow{m} 0\)</span>, ya que para todo <span class="math inline">\(0&lt;\epsilon&lt;1\)</span>, <span class="math inline">\(m(\{x\in\mathbb{R}:|f_{n}(x)|\geq\epsilon \})=\frac{1}{p}\)</span> (con <span class="math inline">\(n=2^{p}+q\)</span>). Pero <span class="math inline">\(f_{n}\)</span> no converge a <span class="math inline">\(f=0\)</span> en ningún punto de <span class="math inline">\([0,1]\)</span>.</p>
+    \end{array}\right. \mbox{ para } p\in\mathbb{N}\mbox{ y } q=0,1,\cdots, 2^{p}-1.\]</span>
+Para ilustrar mejor, estas son las primeras cinco funciones de la sucesión:
+<span class="math display">\[f_{1}=\chi_{(0,1]},\; f_{2}=\chi_{\left( 0,\frac{1}{2}\right] },\; f_{3}=\chi_{\left( \frac{1}{2},1\right] },\; f_{4}=\chi_{\left( 0,\frac{1}{4}\right] },\; f_{5}=\chi_{\left( \frac{1}{4},\frac{1}{2}\right] } \]</span>
+Es claro que <span class="math inline">\(f_{n}\xrightarrow{m} 0\)</span>, ya que para todo <span class="math inline">\(0&lt;\epsilon&lt;1\)</span>, <span class="math inline">\(m(\{x\in\mathbb{R}:|f_{n}(x)|\geq\epsilon \})=\frac{1}{p}\)</span> (con <span class="math inline">\(n=2^{p}+q\)</span>). Pero <span class="math inline">\(f_{n}\)</span> no converge a <span class="math inline">\(f=0\)</span> en ningún punto de <span class="math inline">\([0,1]\)</span>.</p>
 </div>
-
 <p>Note que, aunque <em>la sucesión que camina</em> no converge a <span class="math inline">\(f=0\)</span>, en casi todo punto de <span class="math inline">\([0,1]\)</span>, se puede hallar una subsucesión que si lo hace; a saber <span class="math inline">\(f_{2^{p}+q}\)</span>, con <span class="math inline">\(p\in\mathbb{N}\)</span> y <span class="math inline">\(q=0\)</span>.</p>
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-216" class="proposition"><strong>Proposición 6.2  </strong></span>Sea <span class="math inline">\((f_{n})_{n\in\mathbb{N}}\)</span> una sucesión de funciones medibles finitas en c.t.p. que converge en medida a una función medible <span class="math inline">\(f\)</span>. Entonces, existe una subsucesión <span class="math inline">\((f_{n_{k}})_{k\in\mathbb{N}}\)</span> tal que <span class="math inline">\(f_{n_{k}}\xrightarrow{k\to\infty} f\)</span> en c.t.p.</p>
+<p><span id="prp:unnamed-chunk-211" class="proposition"><strong>Proposición 6.2  </strong></span>Sea <span class="math inline">\((f_{n})_{n\in\mathbb{N}}\)</span> una sucesión de funciones medibles finitas en c.t.p. que converge en medida a una función medible <span class="math inline">\(f\)</span>. Entonces, existe una subsucesión <span class="math inline">\((f_{n_{k}})_{k\in\mathbb{N}}\)</span> tal que <span class="math inline">\(f_{n_{k}}\xrightarrow{k\to\infty} f\)</span> en c.t.p.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Como <span class="math inline">\(f_{n}\xrightarrow{m} f\)</span>, para todo <span class="math inline">\(k\in\mathbb{N}\)</span>, existe <span class="math inline">\(n_{k}\)</span> tal que si <span class="math inline">\(n\geq n_{k}\)</span>, entonces <span class="math display">\[m\{x\in\mathbb{R}: |f_{n}(x)-f(x)|\geq \frac{1}{2^{k}} \}&lt;\frac{1}{2^{k}}.\]</span> Siempre puede tomarse <span class="math inline">\(n_{k+1}&gt;n_{k}\)</span>. Así, la subsucesión <span class="math inline">\((f_{n_{k}})_{k}\)</span> es la buscada. En efecto, <span class="math inline">\((f_{n_{k}})_{k}\)</span> converge a <span class="math inline">\(f\)</span> salvo en el conjunto <span class="math inline">\(E=\bigcup_{k\in\mathbb{N}} E_{k}\)</span>, donde <span class="math inline">\(E_{k}=\{x\in\mathbb{R}: |f_{n}(x)-f(x)|\geq \frac{1}{2^{k}} \}\)</span> para cada <span class="math inline">\(k\in\mathbb{N}\)</span>.</p>
+<p><span id="unlabeled-div-73" class="proof"><em>Demostración</em>. </span>Como <span class="math inline">\(f_{n}\xrightarrow{m} f\)</span>, para todo <span class="math inline">\(k\in\mathbb{N}\)</span>, existe <span class="math inline">\(n_{k}\)</span> tal que si <span class="math inline">\(n\geq n_{k}\)</span>, entonces <span class="math display">\[m\{x\in\mathbb{R}: |f_{n}(x)-f(x)|\geq \frac{1}{2^{k}} \}&lt;\frac{1}{2^{k}}.\]</span>
+Siempre puede tomarse <span class="math inline">\(n_{k+1}&gt;n_{k}\)</span>. Así, la subsucesión <span class="math inline">\((f_{n_{k}})_{k}\)</span> es la buscada. En efecto, <span class="math inline">\((f_{n_{k}})_{k}\)</span> converge a <span class="math inline">\(f\)</span> salvo en el conjunto <span class="math inline">\(E=\bigcup_{k\in\mathbb{N}} E_{k}\)</span>, donde <span class="math inline">\(E_{k}=\{x\in\mathbb{R}: |f_{n}(x)-f(x)|\geq \frac{1}{2^{k}} \}\)</span> para cada <span class="math inline">\(k\in\mathbb{N}\)</span>.</p>
 </div>
-
 </div>
-<div id="espacios-lp" class="section level2">
-<h2><span class="header-section-number">6.2</span> Espacios <span class="math inline">\(L^{p}\)</span></h2>
+<div id="espacios-lp" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Espacios <span class="math inline">\(L^{p}\)</span><a href="convergencia.html#espacios-lp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En esta sección estudiaremos un clase de espacios de funciones muy importantes, estas familias son los espacios <span class="math inline">\(L^{p}\)</span>. Para esto vamos a denotar por <span class="math inline">\(\mathfrak{M}\)</span> al conjunto de funciones <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> medibles Lebesgue, definidas en <span class="math inline">\(\mathbb{R}\)</span> y <span class="math inline">\(\mathfrak{M}(A)\)</span> al conjunto de funciones medibles Lebesgue definidas en un conjunto medible <span class="math inline">\(A\)</span>, es decir, <span class="math inline">\(f:A\longrightarrow\overline{\mathbb{R}}\)</span> medibles Lebesgue.</p>
 <p>Sea <span class="math inline">\(1\leq p&lt;\infty\)</span> un número real. Definimos el conjunto <span class="math inline">\(L^{p}=\{f\in\mathfrak{M}: \int|f|^{p}&lt;\infty \}\)</span>. Si <span class="math inline">\(p=1\)</span>, <span class="math inline">\(L^{1}\)</span> es el conjunto de funciones integrables Lebesgue (en <span class="math inline">\(\mathbb{R}\)</span>). Si <span class="math inline">\(A\in\mathcal{M}\)</span>, <span class="math inline">\(L^{p}(A)=\{f\in\mathfrak{M}: \int_{A}|f|^{p}&lt;\infty \}\)</span>.</p>
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-218" class="proposition"><strong>Proposición 6.3  </strong></span><span class="math inline">\(L^{p}\)</span> es un espacio vectorial.</p>
+<p><span id="prp:unnamed-chunk-213" class="proposition"><strong>Proposición 6.3  </strong></span><span class="math inline">\(L^{p}\)</span> es un espacio vectorial.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Basta notar que <span class="math inline">\(|f+g|^{p}\leq 2^{p}\max(|f|^{p},|g|^{p})\leq 2^{p}(|f|^{p}+|g|^{p})\)</span>. De las propiedades de la integral se obtiene el resultado.</p>
+<p><span id="unlabeled-div-74" class="proof"><em>Demostración</em>. </span>Basta notar que <span class="math inline">\(|f+g|^{p}\leq 2^{p}\max(|f|^{p},|g|^{p})\leq 2^{p}(|f|^{p}+|g|^{p})\)</span>. De las propiedades de la integral se obtiene el resultado.</p>
 </div>
-
 <p>Sea <span class="math inline">\(f\in L^{p}\)</span>, definimos <span class="math inline">\(\|f\|_{p}=\left(\int |f|^{p} \right)^{\frac{1}{p}}\)</span>. Si esta función resulta ser una norma, el espacio <span class="math inline">\(L^{p}\)</span> sería un espacio normado; pero no es cierto en general que <span class="math inline">\(\|f\|_{p}=0 \Leftrightarrow f=0\)</span>. Lo que si se puede demostrar es que <span class="math inline">\(\|f\|_{p}=0 \Leftrightarrow f=0\)</span> c.s.</p>
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-220" class="proposition"><strong>Proposición 6.4  </strong></span><span class="math inline">\(\|f\|_{p}\)</span> es una pseudo-norma en el espacio <span class="math inline">\(L^{p}\)</span>, esto es:</p>
+<p><span id="prp:unnamed-chunk-215" class="proposition"><strong>Proposición 6.4  </strong></span><span class="math inline">\(\|f\|_{p}\)</span> es una pseudo-norma en el espacio <span class="math inline">\(L^{p}\)</span>, esto es:</p>
 <p>(i.) <span class="math inline">\(\|f\|_{p}\geq 0\)</span> para todo <span class="math inline">\(f\in L^{p}\)</span>,</p>
 <p>(ii.) <span class="math inline">\(\|f\|_{p}=0\)</span> si y solo si <span class="math inline">\(f=0\)</span> casi siempre,</p>
 <p>(iii.) <span class="math inline">\(\|kf\|_{p}=|k|\|f\|_{p}\)</span> para todo <span class="math inline">\(k\in\mathbb{R}\)</span> y todo <span class="math inline">\(f\in L^{p}\)</span>,</p>
 <p>(iv.) <span class="math inline">\(\|f+g\|_{p}\leq \|f\|_{p}+\|g\|_{p}\)</span> para todo <span class="math inline">\(f, g\in L^{p}\)</span> (Desigualdad de Minkowski).</p>
 </div>
-
 <p>Las demostraciones de las primeras tres partes de esta proposición son sencillas. La desigualdad de Minkowski se demostrará como consecuencia de la Desigualdad de Hölder que demostraremos en lo que sigue.</p>
 <p>Primero veamos el siguiente lema que será útil para demostrar el teorema.</p>
-
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-221" class="lemma"><strong>Lema 6.1  </strong></span>Sean <span class="math inline">\(a, b\geq 0\)</span> números reales y <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>, con <span class="math inline">\(p,q\in\mathbb{N}\)</span> no núlos. Entonces <span class="math inline">\(ab\leq\frac{a^{p}}{p}+\frac{b^{q}}{q}\)</span>. Además, si <span class="math inline">\(b=a^{p-1}\)</span>, se tiene la igualdad.</p>
+<p><span id="lem:unnamed-chunk-216" class="lemma"><strong>Lema 6.1  </strong></span>Sean <span class="math inline">\(a, b\geq 0\)</span> números reales y <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>, con <span class="math inline">\(p,q\in\mathbb{N}\)</span> no núlos. Entonces <span class="math inline">\(ab\leq\frac{a^{p}}{p}+\frac{b^{q}}{q}\)</span>. Además, si <span class="math inline">\(b=a^{p-1}\)</span>, se tiene la igualdad.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(\phi(t)\)</span> una función continua estrictamente creciente en <span class="math inline">\([0,\infty)\)</span> que toma valor cero en cero, es decir, <span class="math inline">\(\phi(0)=0\)</span>. Sea <span class="math inline">\((a,b)\)</span> un punto del plano ( con <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> como en las hipótesis). Entonces <span class="math display">\[ab\leq\int_{0}^{a} \phi(t)dt+\int_{0}^{b} \phi^{-1}(s)ds\]</span> y en el caso que <span class="math inline">\(\phi(a)=b\)</span> se tiene la igualdad, es decir, <span class="math display">\[ab=\int_{0}^{a} \phi(t)dt+\int_{0}^{b} \phi^{-1}(s)ds.\]</span> Tomando <span class="math inline">\(\phi(t)=t^{p-1}\)</span>, entonces <span class="math inline">\(\phi^{-1}(s)=s^{q-1}\)</span>, ya que <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>. Entonces <span class="math display">\[ab\leq\int_{0}^{a} t^{p-1}dt+\int_{0}^{b} s^{q-1}ds=\frac{a^{p}}{p}+\frac{b^{q}}{q},\]</span> y en el caso que <span class="math inline">\(b=a^{p-1}\)</span> se tiene <span class="math display">\[ab=\frac{a^{p}}{p}+\frac{b^{q}}{q}.\]</span></p>
+<p><span id="unlabeled-div-75" class="proof"><em>Demostración</em>. </span>Sea <span class="math inline">\(\phi(t)\)</span> una función continua estrictamente creciente en <span class="math inline">\([0,\infty)\)</span> que toma valor cero en cero, es decir, <span class="math inline">\(\phi(0)=0\)</span>. Sea <span class="math inline">\((a,b)\)</span> un punto del plano ( con <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> como en las hipótesis). Entonces
+<span class="math display">\[ab\leq\int_{0}^{a} \phi(t)dt+\int_{0}^{b} \phi^{-1}(s)ds\]</span>
+y en el caso que <span class="math inline">\(\phi(a)=b\)</span> se tiene la igualdad, es decir,
+<span class="math display">\[ab=\int_{0}^{a} \phi(t)dt+\int_{0}^{b} \phi^{-1}(s)ds.\]</span>
+Tomando <span class="math inline">\(\phi(t)=t^{p-1}\)</span>, entonces <span class="math inline">\(\phi^{-1}(s)=s^{q-1}\)</span>, ya que <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>. Entonces
+<span class="math display">\[ab\leq\int_{0}^{a} t^{p-1}dt+\int_{0}^{b} s^{q-1}ds=\frac{a^{p}}{p}+\frac{b^{q}}{q},\]</span>
+y en el caso que <span class="math inline">\(b=a^{p-1}\)</span> se tiene <span class="math display">\[ab=\frac{a^{p}}{p}+\frac{b^{q}}{q}.\]</span></p>
 </div>
-
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-223" class="theorem"><strong>Teorema 6.2  (Desigualdad de Hölder)  </strong></span>Sean <span class="math inline">\(1&lt;p,q&lt;\infty\)</span> tales que <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>. Entonces, si <span class="math inline">\(f\in L^{p}\)</span> y <span class="math inline">\(g\in L^{q}\)</span>, se tiene que <span class="math inline">\(fg\in L^{1}\)</span> y <span class="math display">\[\int|fg|\leq \|f\|_{p}\|g\|_{q}.\]</span> Además, <span class="math display">\[\int|fg|=\|f\|_{p}+\|g\|_{q}\mbox{ si y solo si existen constantes } c,d\in\mathbb{R}\mbox{ tales que } c|f|^{p}=d|g|^{q}.\]</span></p>
+<p><span id="thm:unnamed-chunk-218" class="theorem"><strong>Teorema 6.2  (Desigualdad de Hölder) </strong></span>Sean <span class="math inline">\(1&lt;p,q&lt;\infty\)</span> tales que <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>. Entonces, si <span class="math inline">\(f\in L^{p}\)</span> y <span class="math inline">\(g\in L^{q}\)</span>, se tiene que <span class="math inline">\(fg\in L^{1}\)</span> y <span class="math display">\[\int|fg|\leq \|f\|_{p}\|g\|_{q}.\]</span>
+Además, <span class="math display">\[\int|fg|=\|f\|_{p}+\|g\|_{q}\mbox{ si y solo si existen constantes } c,d\in\mathbb{R}\mbox{ tales que } c|f|^{p}=d|g|^{q}.\]</span></p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Podemos suponer que <span class="math inline">\(\|f\|_{p}&gt;0\)</span> y <span class="math inline">\(\|g\|_{q}&gt;0\)</span>, ya que en ese caso, <span class="math inline">\(f=0\)</span> c.s y <span class="math inline">\(g=0\)</span> c.s. de donde se obtiene el resultado fácilmente. Más aún, podemos suponer que <span class="math inline">\(\|f\|_{p}=1\)</span> y <span class="math inline">\(\|g\|_{q}=1\)</span>, pues en otro caso, tomando <span class="math inline">\(\hat{f}=\frac{f}{\|f\|_{p}}\)</span> y <span class="math inline">\(\hat{g}=\frac{g}{\|g\|_{q}}\)</span>, se obtiene el resultado. Sabemos, por el lema anterior, que <span class="math display">\[|f(x)g(x)|\leq \frac{|f|^{p}}{p}+\frac{|g|^{q}}{q}.\]</span> Integrando, obtenemos <span class="math display">\[\int |f(x)g(x)|dx\leq \frac{1}{p}\|f\|_{p}^{p}+\frac{1}{q}\|g\|_{q}^{q}=\frac{1}{p}+\frac{1}{q}=1=\|f\|_{p}\|g\|_{q}.\]</span></p>
+<p><span id="unlabeled-div-76" class="proof"><em>Demostración</em>. </span>Podemos suponer que <span class="math inline">\(\|f\|_{p}&gt;0\)</span> y <span class="math inline">\(\|g\|_{q}&gt;0\)</span>, ya que en ese caso, <span class="math inline">\(f=0\)</span> c.s y <span class="math inline">\(g=0\)</span> c.s. de donde se obtiene el resultado fácilmente. Más aún, podemos suponer que <span class="math inline">\(\|f\|_{p}=1\)</span> y <span class="math inline">\(\|g\|_{q}=1\)</span>, pues en otro caso, tomando <span class="math inline">\(\hat{f}=\frac{f}{\|f\|_{p}}\)</span> y <span class="math inline">\(\hat{g}=\frac{g}{\|g\|_{q}}\)</span>, se obtiene el resultado.
+Sabemos, por el lema anterior, que <span class="math display">\[|f(x)g(x)|\leq \frac{|f|^{p}}{p}+\frac{|g|^{q}}{q}.\]</span>
+Integrando, obtenemos
+<span class="math display">\[\int |f(x)g(x)|dx\leq \frac{1}{p}\|f\|_{p}^{p}+\frac{1}{q}\|g\|_{q}^{q}=\frac{1}{p}+\frac{1}{q}=1=\|f\|_{p}\|g\|_{q}.\]</span></p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Si <span class="math inline">\(p=q=2\)</span>, la desigualdad anterior es la llamada <em>desigualdad de Cauchy-Schwarz</em>, esta es <span class="math display">\[|u\cdot v|^{2}\leq (u\cdot u)(v\cdot v)\]</span> donde <span class="math inline">\(u\cdot v\)</span> representa el producto escalar entre los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>. Otra manera de representarla, suponiendo que los vectores <span class="math inline">\(u=(a_{1},\cdots, a_{n})\)</span> y <span class="math inline">\(v=(b_{1},\cdots, b_{n})\)</span> están en <span class="math inline">\(\mathbb{R}^{n}\)</span>, es <span class="math display">\[\sum_{k=1}^{n} |a_{k}b_{k}|\leq (\sum_{k=1}^{n} |a_{k}|^{2})^{\frac{1}{2}}(\sum_{k=1}^{n} |b_{k}|^{2})^{\frac{1}{2}}.\]</span></p>
+<p><span id="unlabeled-div-77" class="remark"><em>Nota</em>. </span>Si <span class="math inline">\(p=q=2\)</span>, la desigualdad anterior es la llamada <em>desigualdad de Cauchy-Schwarz</em>, esta es
+<span class="math display">\[|u\cdot v|^{2}\leq (u\cdot u)(v\cdot v)\]</span>
+donde <span class="math inline">\(u\cdot v\)</span> representa el producto escalar entre los vectores <span class="math inline">\(u\)</span> y <span class="math inline">\(v\)</span>.
+Otra manera de representarla, suponiendo que los vectores <span class="math inline">\(u=(a_{1},\cdots, a_{n})\)</span> y <span class="math inline">\(v=(b_{1},\cdots, b_{n})\)</span> están en <span class="math inline">\(\mathbb{R}^{n}\)</span>, es
+<span class="math display">\[\sum_{k=1}^{n} |a_{k}b_{k}|\leq (\sum_{k=1}^{n} |a_{k}|^{2})^{\frac{1}{2}}(\sum_{k=1}^{n} |b_{k}|^{2})^{\frac{1}{2}}.\]</span></p>
 </div>
-<p> Dado un número real <span class="math inline">\(p\geq 1\)</span>, decimos que <span class="math inline">\(q\in\mathbb{R}\)</span> es el <em>índice conjugado de <span class="math inline">\(p\)</span></em> si <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>. Estas son algunas propiedades de los índices conjugados que resultan muy útiles:</p>
-
+<p>Dado un número real <span class="math inline">\(p\geq 1\)</span>, decimos que <span class="math inline">\(q\in\mathbb{R}\)</span> es el <em>índice conjugado de <span class="math inline">\(p\)</span></em> si <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>. Estas son algunas propiedades de los índices conjugados que resultan muy útiles:</p>
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-226" class="proposition"><strong>Proposición 6.5  </strong></span>Sean <span class="math inline">\(p\)</span> y <span class="math inline">\(q\)</span> índices conjugados. Entonces:</p>
+<p><span id="prp:unnamed-chunk-221" class="proposition"><strong>Proposición 6.5  </strong></span>Sean <span class="math inline">\(p\)</span> y <span class="math inline">\(q\)</span> índices conjugados. Entonces:</p>
 <p>(i.) <span class="math inline">\(q=\frac{p}{p-1}\)</span>.</p>
 <p>(ii.) <span class="math inline">\(\frac{1}{p-1}=q-1\)</span>.</p>
 <p>(iii.) <span class="math inline">\(pq=p+q\)</span>.</p>
 <p>(iv.) <span class="math inline">\((p-1)q=p\)</span>.</p>
 </div>
-<p> La demostración es sencilla, solo requiere de manipulación algebraica de la igualdad <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>.</p>
+<p>La demostración es sencilla, solo requiere de manipulación algebraica de la igualdad <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>.</p>
 <p>Ahora podemos demostrar la desigualdad de Minkowski.</p>
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-227" class="theorem"><strong>Teorema 6.3  (Desigualdad de Minkowski)  </strong></span>Si <span class="math inline">\(f,g\in L^{p}\)</span> (con <span class="math inline">\(p\geq 1\)</span>) entonces <span class="math inline">\(\|f+g\|_{p}\leq \|f\|_{p}+\|g\|_{p}.\)</span></p>
+<p><span id="thm:unnamed-chunk-222" class="theorem"><strong>Teorema 6.3  (Desigualdad de Minkowski) </strong></span>Si <span class="math inline">\(f,g\in L^{p}\)</span> (con <span class="math inline">\(p\geq 1\)</span>) entonces <span class="math inline">\(\|f+g\|_{p}\leq \|f\|_{p}+\|g\|_{p}.\)</span></p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Si <span class="math inline">\(p=1\)</span>, de la desigualdad triangular se sigue que <span class="math inline">\(\int |f+g|\leq \int |f| +\int |g|\)</span>. Supongamos que <span class="math inline">\(p&gt;1\)</span>. Entonces <span class="math display">\[\|f+g\|_{p}^{p}=\int |f+g|^{p}=\int |f+g||f+g|^{p-1}\leq \int |f||f+g|^{p-1}\int |g||f+g|^{p-1}\]</span> Sea <span class="math inline">\(q\in\mathbb{R}\)</span> tal que <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>. Como <span class="math inline">\(p=q(p-1)\)</span>, se tiene que <span class="math display">\[\int (|f+g|^{p-1})^{q}=\int |f+g|^{p}&lt;\infty.\]</span> Luego, se tiene que si <span class="math inline">\(f+g\in L^{p}\)</span>, entonces <span class="math inline">\(|f+g|^{p-1}\in L^{q}\)</span>. Por la desigualdad de Hölder, se tiene que <span class="math display">\[\|f+g\|^{p}_{p}\leq (\|f\|_{p}+\|g\|_{p})\|(f+g)^{p-1}\|_{q}.\]</span> Como se tiene que <span class="math display">\[  \begin{array}{rl}
+<p><span id="unlabeled-div-78" class="proof"><em>Demostración</em>. </span>Si <span class="math inline">\(p=1\)</span>, de la desigualdad triangular se sigue que <span class="math inline">\(\int |f+g|\leq \int |f| +\int |g|\)</span>.
+Supongamos que <span class="math inline">\(p&gt;1\)</span>. Entonces
+<span class="math display">\[\|f+g\|_{p}^{p}=\int |f+g|^{p}=\int |f+g||f+g|^{p-1}\leq \int |f||f+g|^{p-1}\int |g||f+g|^{p-1}\]</span>
+Sea <span class="math inline">\(q\in\mathbb{R}\)</span> tal que <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>. Como <span class="math inline">\(p=q(p-1)\)</span>, se tiene que
+<span class="math display">\[\int (|f+g|^{p-1})^{q}=\int |f+g|^{p}&lt;\infty.\]</span>
+Luego, se tiene que si <span class="math inline">\(f+g\in L^{p}\)</span>, entonces <span class="math inline">\(|f+g|^{p-1}\in L^{q}\)</span>. Por la desigualdad de Hölder, se tiene que
+<span class="math display">\[\|f+g\|^{p}_{p}\leq (\|f\|_{p}+\|g\|_{p})\|(f+g)^{p-1}\|_{q}.\]</span>
+Como se tiene que
+<span class="math display">\[  \begin{array}{rl}
     \|(f+g)^{p-1}\|_{q}=&amp;(\int ((f+g)^{p-1})^{q})^{\frac{1}{q}} \mbox{ y } (p-1)q=p\\
     =&amp;(\int (f+g)^{p})^{\frac{1}{q}}\\
     =&amp;\|f+g\|_{p}^{\frac{p}{q}} \mbox{ pero } \frac{p}{q}=p-1\\
     =&amp;\|f+g\|_{p}^{p-1}
-\end{array}.\]</span> Por lo tanto, <span class="math display">\[  \begin{array}{ll}
+\end{array}.\]</span>
+Por lo tanto,
+<span class="math display">\[  \begin{array}{ll}
     \|(f+g)\|_{p}^{p}&amp;\leq(\|f\|_{p}+\|g\|_{p})\|f+g\|_{p}^{p-1}\Leftrightarrow\\
     \dfrac{\|(f+g)\|_{p}^{p}}{\|(f+g)\|_{p}^{p-1}}&amp;\leq\|f\|_{p}+\|g\|_{p}\Leftrightarrow\\
     \|(f+g)\|_{p}&amp;\leq \|f\|_{p}+\|g\|_{p}
 \end{array}.\]</span></p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-229" class="definition"><strong>Definición 6.5  </strong></span>Sea <span class="math inline">\((f_{n})_{n}\)</span> una sucesión de funciones en <span class="math inline">\(L^{p}\)</span>. Decimos que <span class="math inline">\((f_{n})_{n}\)</span> <em>converge en norma <span class="math inline">\(p\)</span></em> a una función <span class="math inline">\(f\in L^{p}\)</span> si y solo si <span class="math inline">\(\|f_{n}-f\|\xrightarrow[n\to\infty]{}0\)</span>. Es decir <span class="math inline">\(\int |f_{n}-f|^{p}\xrightarrow[n\to\infty]{}0\)</span>. Lo que se denota <span class="math inline">\(f_{n}\xrightarrow[\|\,\|_{p}]{} f\)</span>.</p>
+<p><span id="def:unnamed-chunk-224" class="definition"><strong>Definición 6.5  </strong></span>Sea <span class="math inline">\((f_{n})_{n}\)</span> una sucesión de funciones en <span class="math inline">\(L^{p}\)</span>. Decimos que <span class="math inline">\((f_{n})_{n}\)</span> <em>converge en norma <span class="math inline">\(p\)</span></em> a una función <span class="math inline">\(f\in L^{p}\)</span> si y solo si <span class="math inline">\(\|f_{n}-f\|\xrightarrow[n\to\infty]{}0\)</span>. Es decir <span class="math inline">\(\int |f_{n}-f|^{p}\xrightarrow[n\to\infty]{}0\)</span>. Lo que se denota <span class="math inline">\(f_{n}\xrightarrow[\|\,\|_{p}]{} f\)</span>.</p>
 </div>
-
-<p>Hasta ahora, hemos demostrado que <span class="math inline">\(L^{p}\)</span> es un espacio vectorial y que la función <span class="math inline">\(\|\cdot\|_{p}\)</span> es una pseudonorma. Para ser una norma, le faltaría la propiedad: <span class="math display">\[f=0\Leftrightarrow \|f\|_{p}=0\]</span> en cambio se tiene que <span class="math display">\[f=0\Leftrightarrow \|f\|_{p}=0\mbox{ c.s.}\]</span></p>
-<p>Si definimos la siguiente relación de equivalencia en <span class="math inline">\(L^{p}\)</span>: <span class="math display">\[f\sim g\Leftrightarrow f=g\]</span> c.s. y definimos las operaciones de suma y multiplicación por un escalar inducidas, en el espacio cociente <span class="math inline">\(L^{p}/_{\sim}\)</span>, <span class="math display">\[\widetilde{f}+\widetilde{g}=\widetilde{f+g}\mbox{ y } k\widetilde{f}=\widetilde{kf}\mbox{ para cualquier } k\in\mathbb{R}\]</span> entonces <span class="math inline">\(\|\cdot \|_{p}\)</span> sería una norma en el espacio vectorial <span class="math inline">\(\mathcal{L}_{p}=L_{p}/_{\sim}\)</span>. Además, la convergencia en norma <span class="math inline">\(p\)</span> es exactamente la convergencia a la métrica asociada a la norma <span class="math inline">\(p\)</span>.</p>
-
+<p>Hasta ahora, hemos demostrado que <span class="math inline">\(L^{p}\)</span> es un espacio vectorial y que la función <span class="math inline">\(\|\cdot\|_{p}\)</span> es una pseudonorma. Para ser una norma, le faltaría la propiedad:
+<span class="math display">\[f=0\Leftrightarrow \|f\|_{p}=0\]</span>
+en cambio se tiene que
+<span class="math display">\[f=0\Leftrightarrow \|f\|_{p}=0\mbox{ c.s.}\]</span></p>
+<p>Si definimos la siguiente relación de equivalencia en <span class="math inline">\(L^{p}\)</span>:
+<span class="math display">\[f\sim g\Leftrightarrow f=g\]</span> c.s.
+y definimos las operaciones de suma y multiplicación por un escalar inducidas, en el espacio cociente <span class="math inline">\(L^{p}/_{\sim}\)</span>,
+<span class="math display">\[\widetilde{f}+\widetilde{g}=\widetilde{f+g}\mbox{ y } k\widetilde{f}=\widetilde{kf}\mbox{ para cualquier } k\in\mathbb{R}\]</span>
+entonces <span class="math inline">\(\|\cdot \|_{p}\)</span> sería una norma en el espacio vectorial <span class="math inline">\(\mathcal{L}_{p}=L_{p}/_{\sim}\)</span>. Además, la convergencia en norma <span class="math inline">\(p\)</span> es exactamente la convergencia a la métrica asociada a la norma <span class="math inline">\(p\)</span>.</p>
 <div class="example">
 <p><span id="exm:ejemplo522" class="example"><strong>Ejemplo 6.4  </strong></span>Considere la sucesión <span class="math inline">\(f_{n}=n\chi_{(0,\frac{1}{n})}\)</span>. Se tiene que para todo <span class="math inline">\(\epsilon&gt;0\)</span>, <span class="math inline">\(m(\{x\in\mathbb{R}:|f_{n}(x)|\geq\epsilon \})=\frac{1}{n}\xrightarrow[n\to\infty]{}0\)</span> pero <span class="math inline">\(\int|f|^{p}=n^{p-1}\xrightarrow[n\to\infty]{}\infty\)</span>, por lo tanto <span class="math inline">\(f_{n}\)</span> no converge a <span class="math inline">\(0\)</span> en norma <span class="math inline">\(p\)</span>.</p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> La relación entre los tipos de convergencia:</p>
-<p>( )1. La convergencia en c.t.p no implica, en general, la convergencia en norma <span class="math inline">\(p\)</span>. Un ejemplo es la sucesión <span class="math inline">\(f_{n}=\frac{1}{n}\)</span>, que converge uniformemente a <span class="math inline">\(0\)</span>, por lo tanto en c.t.p. pero no converge en norma <span class="math inline">\(p\)</span>.</p>
+<p><span id="unlabeled-div-79" class="remark"><em>Nota</em>. </span>La relación entre los tipos de convergencia:</p>
+(
+<p>)1. La convergencia en c.t.p no implica, en general, la convergencia en norma <span class="math inline">\(p\)</span>. Un ejemplo es la sucesión <span class="math inline">\(f_{n}=\frac{1}{n}\)</span>, que converge uniformemente a <span class="math inline">\(0\)</span>, por lo tanto en c.t.p. pero no converge en norma <span class="math inline">\(p\)</span>.</p>
 <p>(2.) El recíproco tampoco es cierto, un ejemplo es <em>la sucesión que camina</em>.</p>
 <p>(3.) La convergencia en medida no implica la convergencia en norma <span class="math inline">\(p\)</span> (ver ejemplo anterior <a href="#exm:exemplo522"><strong>??</strong></a>.</p>
 <p>(4.) Como consecuencia de la desigualdad de Chebychov, se tiene que la convergencia en norma <span class="math inline">\(p\)</span>, implica la convergencia en medida.</p>
 </div>
-
-<p>Note que la desigualdad de Chebychov se traduciría en <span class="math inline">\(L^{p}\)</span>, como sigue: <span class="math display">\[m\{x\in\mathbb{R}: |f(x)|\geq\epsilon \}\leq\frac{1}{\epsilon^{p}}\|f\|_{p}^{p}\mbox{ para } f\in\L^{p}\mbox{ y }\epsilon&gt;0.\]</span> El siguiente teorema es una generalización del teorema de convergencia dominada y es consecuencia de la desigualdad de Chevychov.</p>
-
+<p>Note que la desigualdad de Chebychov se traduciría en <span class="math inline">\(L^{p}\)</span>, como sigue:
+<span class="math display">\[m\{x\in\mathbb{R}: |f(x)|\geq\epsilon \}\leq\frac{1}{\epsilon^{p}}\|f\|_{p}^{p}\mbox{ para } f\in\L^{p}\mbox{ y }\epsilon&gt;0.\]</span>
+El siguiente teorema es una generalización del teorema de convergencia dominada y es consecuencia de la desigualdad de Chevychov.</p>
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-231" class="theorem"><strong>Teorema 6.4  </strong></span>Sea <span class="math inline">\(p\geq 1\)</span> y sea <span class="math inline">\((f_{n})_{n}\)</span> una sucesión de funciones medibles Lebesgue tal que existe una función <span class="math inline">\(h\)</span> tal que <span class="math inline">\(|f_{n}|^{p}\leq h\)</span> c.s. Si se cumplen alguna de las siguientes:</p>
+<p><span id="thm:unnamed-chunk-226" class="theorem"><strong>Teorema 6.4  </strong></span>Sea <span class="math inline">\(p\geq 1\)</span> y sea <span class="math inline">\((f_{n})_{n}\)</span> una sucesión de funciones medibles Lebesgue tal que existe una función <span class="math inline">\(h\)</span> tal que <span class="math inline">\(|f_{n}|^{p}\leq h\)</span> c.s. Si se cumplen alguna de las siguientes:</p>
 <p>(1.) si existe una función <span class="math inline">\(f\)</span> tal que <span class="math inline">\(f_{n}\to f\)</span> c.s. o</p>
 <p>(2.) si existe una función <span class="math inline">\(f\)</span> tal que <span class="math inline">\(f_{n}\xrightarrow[]{m} f\)</span>.</p>
 <p>Entonces, <span class="math inline">\(f_{n}\xrightarrow[\|\,\|_{p}]{} f\)</span>. Además <span class="math inline">\(\liminf_{n\to\infty} |f_{n}-f|^{p}=0\)</span>.</p>
 </div>
-
 <p>Otra consecuencia de la desigualdad de Chebychov es que si una <em>sucesión es de Cauchy en norma <span class="math inline">\(p\)</span></em>, esto es que para todo <span class="math inline">\(\epsilon&gt;0\)</span> existe <span class="math inline">\(N_{\epsilon}\in\mathbb{N}\)</span> tal que <span class="math inline">\(n,m&gt;N_{\epsilon}\Leftrightarrow \|f_{n}-f_{m}\|&lt;\epsilon\)</span>. Entonces es de Cauchy en medida.</p>
 <p>Ahora veamos que el espacio <span class="math inline">\(L^{p}\)</span> es completo, es decir, que toda sucesión de Cauchy converge a un vector del espacio.</p>
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-232" class="theorem"><strong>Teorema 6.5  (Riesz-Fischer)  </strong></span>Sea <span class="math inline">\(1\leq p&lt;\infty\)</span>. Si <span class="math inline">\((f_{n})_{n\geq 1}\)</span> es de Cauchy en <span class="math inline">\(L^{p}\)</span>, entonces existe <span class="math inline">\(f\)</span> en <span class="math inline">\(L^{p}\)</span> tal que <span class="math inline">\(\|f_{n}-f\|_{p}\xrightarrow[n\to\infty]{}0\)</span>.</p>
+<p><span id="thm:unnamed-chunk-227" class="theorem"><strong>Teorema 6.5  (Riesz-Fischer) </strong></span>Sea <span class="math inline">\(1\leq p&lt;\infty\)</span>. Si <span class="math inline">\((f_{n})_{n\geq 1}\)</span> es de Cauchy en <span class="math inline">\(L^{p}\)</span>, entonces existe <span class="math inline">\(f\)</span> en <span class="math inline">\(L^{p}\)</span> tal que <span class="math inline">\(\|f_{n}-f\|_{p}\xrightarrow[n\to\infty]{}0\)</span>.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Como <span class="math inline">\((f_{n})_{n}\)</span> es una sucesión de Cauchy en <span class="math inline">\(L^{p}\)</span>, entonces es de Cauchy en medida. Por lo tanto existe una función medible Lebesgue <span class="math inline">\(f\)</span> tal que <span class="math inline">\(f_{n}\xrightarrow{m} f\)</span>. Luego, existe una subsucesión <span class="math inline">\((f_{n_{k}})_{k}\)</span> que converge a <span class="math inline">\(f\)</span> c.s. lo que implica, por el lema de Fatou, que <span class="math display">\[\int |f|^{p}|=\int \lim_{k\to\infty} |f_{n_{k}}|^{p}\leq \liminf_{k\to\infty} \int| f_{n_{k}}|^{p}=\liminf_{k\to\infty} \| f_{n_{k}}\|^{p}_{p}&lt;\infty\]</span> por lo que <span class="math inline">\(f\in L^{p}\)</span>. Ahora bien, como la sucesión <span class="math inline">\((f_{n})_{n}\)</span> es de Cauchy en <span class="math inline">\(L^{p}\)</span>, dado <span class="math inline">\(\epsilon&gt;0\)</span>, para <span class="math inline">\(n\)</span> y <span class="math inline">\(n_{k}\)</span> suficientemente grandes, se tiene que <span class="math display">\[\int |f_{n}-f|^{p}=\int \lim_{k\to\infty} |f_{n}-f_{n_{k}}|^{p}\leq \liminf_{k\to\infty}\int |f_{n}-f_{n_{k}}|^{p}&lt;\epsilon\]</span> por lo que <span class="math inline">\(\|f_{n}-f\|_{p}\xrightarrow[n\to\infty]{}0\)</span>.</p>
+<p><span id="unlabeled-div-80" class="proof"><em>Demostración</em>. </span>Como <span class="math inline">\((f_{n})_{n}\)</span> es una sucesión de Cauchy en <span class="math inline">\(L^{p}\)</span>, entonces es de Cauchy en medida. Por lo tanto existe una función medible Lebesgue <span class="math inline">\(f\)</span> tal que <span class="math inline">\(f_{n}\xrightarrow{m} f\)</span>. Luego, existe una subsucesión <span class="math inline">\((f_{n_{k}})_{k}\)</span> que converge a <span class="math inline">\(f\)</span> c.s. lo que implica, por el lema de Fatou, que
+<span class="math display">\[\int |f|^{p}|=\int \lim_{k\to\infty} |f_{n_{k}}|^{p}\leq \liminf_{k\to\infty} \int| f_{n_{k}}|^{p}=\liminf_{k\to\infty} \| f_{n_{k}}\|^{p}_{p}&lt;\infty\]</span>
+por lo que <span class="math inline">\(f\in L^{p}\)</span>. Ahora bien, como la sucesión <span class="math inline">\((f_{n})_{n}\)</span> es de Cauchy en <span class="math inline">\(L^{p}\)</span>, dado <span class="math inline">\(\epsilon&gt;0\)</span>, para <span class="math inline">\(n\)</span> y <span class="math inline">\(n_{k}\)</span> suficientemente grandes, se tiene que
+<span class="math display">\[\int |f_{n}-f|^{p}=\int \lim_{k\to\infty} |f_{n}-f_{n_{k}}|^{p}\leq \liminf_{k\to\infty}\int |f_{n}-f_{n_{k}}|^{p}&lt;\epsilon\]</span>
+por lo que <span class="math inline">\(\|f_{n}-f\|_{p}\xrightarrow[n\to\infty]{}0\)</span>.</p>
 </div>
-
 <p>Recuerde que un <em>espacio de Banach</em> es un espacio métrico completo. Ya demostramos que <span class="math inline">\(\mathcal{L}^{p}\)</span> es un espacio vectorial normado, considerando la métrica inducida por la norma <span class="math inline">\(p\)</span>, <span class="math inline">\(\mathcal{L}^{p}\)</span> es un espacio métrico. Y por el resultado anterior, se tiene que es un espacio completo.</p>
-
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-234" class="corollary"><strong>Corolario 6.1  </strong></span><span class="math inline">\(\mathcal{L}^{p}\)</span> es un espacio de Banach.</p>
+<p><span id="cor:unnamed-chunk-229" class="corollary"><strong>Corolario 6.1  </strong></span><span class="math inline">\(\mathcal{L}^{p}\)</span> es un espacio de Banach.</p>
 </div>
-
 </div>
-<div id="espacios-linfty" class="section level2">
-<h2><span class="header-section-number">6.3</span> Espacios <span class="math inline">\(L^{\infty}\)</span></h2>
-
+<div id="espacios-linfty" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Espacios <span class="math inline">\(L^{\infty}\)</span><a href="convergencia.html#espacios-linfty" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unnamed-chunk-235" class="definition"><strong>Definición 6.6  </strong></span>Diremos que una función <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> es <em>esencialmente acotada</em> si existe <span class="math inline">\(a\in\mathbb{R}\)</span>, <span class="math inline">\(0&lt;a\)</span> tal que <span class="math inline">\(m\{x\in\mathbb{R}: |f(x)|&gt;a \}=0\)</span>. En este caso, decimos que <span class="math inline">\(a\)</span> es <em>una cota esencial de <span class="math inline">\(f\)</span></em>. Y definimos el <em>supremo esencial de <span class="math inline">\(f\)</span></em>, denotado por <span class="math inline">\(sup.es.|f|\)</span> como el ínfimo del conjunto de cotas esenciales, es decir, <span class="math display">\[sup.es.|f|=\inf\{a\in\mathbb{R}:m\{x\in\mathbb{R}: |f(x)|&gt;a \}=0\}.\]</span></p>
+<p><span id="def:unnamed-chunk-230" class="definition"><strong>Definición 6.6  </strong></span>Diremos que una función <span class="math inline">\(f:\mathbb{R}\longrightarrow\overline{\mathbb{R}}\)</span> es <em>esencialmente acotada</em> si existe <span class="math inline">\(a\in\mathbb{R}\)</span>, <span class="math inline">\(0&lt;a\)</span> tal que <span class="math inline">\(m\{x\in\mathbb{R}: |f(x)|&gt;a \}=0\)</span>. En este caso, decimos que <span class="math inline">\(a\)</span> es <em>una cota esencial de <span class="math inline">\(f\)</span></em>. Y definimos el <em>supremo esencial de <span class="math inline">\(f\)</span></em>, denotado por <span class="math inline">\(sup.es.|f|\)</span> como el ínfimo del conjunto de cotas esenciales, es decir,
+<span class="math display">\[sup.es.|f|=\inf\{a\in\mathbb{R}:m\{x\in\mathbb{R}: |f(x)|&gt;a \}=0\}.\]</span></p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Note que <span class="math inline">\(sup.es.|f|\)</span> es una cota esencial de <span class="math inline">\(f\)</span>. Además, si <span class="math inline">\(C=sup.es.|f|\)</span>, entonces <span class="math inline">\(m\{x\in\mathbb{R}:|f(x)|&gt;C \}=0\)</span> por lo que <span class="math inline">\(|f(x)|&lt;C\)</span> en c.s.</p>
+<p><span id="unlabeled-div-81" class="remark"><em>Nota</em>. </span>Note que <span class="math inline">\(sup.es.|f|\)</span> es una cota esencial de <span class="math inline">\(f\)</span>. Además, si <span class="math inline">\(C=sup.es.|f|\)</span>, entonces <span class="math inline">\(m\{x\in\mathbb{R}:|f(x)|&gt;C \}=0\)</span> por lo que <span class="math inline">\(|f(x)|&lt;C\)</span> en c.s.</p>
 </div>
-
-<p>Denotaremos <span class="math inline">\(L^{\infty}\)</span> al espacio de funciones esencialmente acotadas (es fácil demostrar que el conjunto de las funciones esencialmente acotadas, es un espacio vectorial) y definimos <em>la norma infinito</em> en este espacio como <span class="math display">\[\|f\|_{\infty}=sup.es.|f| \mbox{para toda función} f\in L^{\infty}.\]</span> Al igual que la norma <span class="math inline">\(p\)</span>, la norma infinito no es una norma en <span class="math inline">\(L^{\infty}\)</span> pero si en el espacio cociente <span class="math inline">\(\mathcal{L}^{\infty}=L^{\infty}/_{\sim}\)</span>, con la relación de equivalencia <span class="math display">\[f\sim g \Leftrightarrow f=g \mbox{ c.s.}\]</span></p>
+<p>Denotaremos <span class="math inline">\(L^{\infty}\)</span> al espacio de funciones esencialmente acotadas (es fácil demostrar que el conjunto de las funciones esencialmente acotadas, es un espacio vectorial) y definimos <em>la norma infinito</em> en este espacio como <span class="math display">\[\|f\|_{\infty}=sup.es.|f| \mbox{para toda función} f\in L^{\infty}.\]</span>
+Al igual que la norma <span class="math inline">\(p\)</span>, la norma infinito no es una norma en <span class="math inline">\(L^{\infty}\)</span> pero si en el espacio cociente <span class="math inline">\(\mathcal{L}^{\infty}=L^{\infty}/_{\sim}\)</span>, con la relación de equivalencia
+<span class="math display">\[f\sim g \Leftrightarrow f=g \mbox{ c.s.}\]</span></p>
 <p>Es decir, si <span class="math inline">\(f,g\in L^{\infty}\)</span>, entonces:</p>
 <p>(1.) <span class="math inline">\(\|f\|_{\infty}\geq 0\)</span>,</p>
 <p>(2.) <span class="math inline">\(\|f\|_{\infty}=0\)</span> si y solo si <span class="math inline">\(f=0\)</span> c.s.,</p>
 <p>(3.) <span class="math inline">\(\|kf\|_{\infty}=k\|f\|_{\infty}\)</span> para todo <span class="math inline">\(k\in\mathbb{R}\)</span> y</p>
 <p>(4.) <span class="math inline">\(\|f+g\|_{\infty}\leq \|f\|_{\infty}+\|g\|_{\infty}\)</span>.</p>
-<p>Dada <span class="math inline">\(g\in L^{\infty}\)</span>, entonces para toda <span class="math inline">\(f\in L^{1}\)</span>, se tiene que <span class="math inline">\(|fg|\)</span> es integrable. En efecto, sea <span class="math inline">\(C=sup.es.|g|\)</span>, entonces <span class="math display">\[\int |fg|=\int |f||g|\leq C\int |f|.\]</span></p>
+<p>Dada <span class="math inline">\(g\in L^{\infty}\)</span>, entonces para toda <span class="math inline">\(f\in L^{1}\)</span>, se tiene que <span class="math inline">\(|fg|\)</span> es integrable. En efecto, sea <span class="math inline">\(C=sup.es.|g|\)</span>, entonces
+<span class="math display">\[\int |fg|=\int |f||g|\leq C\int |f|.\]</span></p>
 <p>Esto es la demostración de la siguiente</p>
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-237" class="proposition"><strong>Proposición 6.6  </strong></span>Si <span class="math inline">\(f\in L^{1}\)</span>, <span class="math inline">\(g\in L^{\infty}\)</span>; entonces <span class="math inline">\(|fg|\in L^{1}\)</span> y <span class="math display">\[\int |fg|=\|f\|_{1}\|g\|_{\infty}.\]</span></p>
+<p><span id="prp:unnamed-chunk-232" class="proposition"><strong>Proposición 6.6  </strong></span>Si <span class="math inline">\(f\in L^{1}\)</span>, <span class="math inline">\(g\in L^{\infty}\)</span>; entonces <span class="math inline">\(|fg|\in L^{1}\)</span> y <span class="math display">\[\int |fg|=\|f\|_{1}\|g\|_{\infty}.\]</span></p>
 </div>
-
-<p>La noción de convergencia en <span class="math inline">\(L^{\infty}\)</span> es la natural. Una sucesión <span class="math inline">\((f_{n})_{n}\subseteq L^{\infty}\)</span> <em>converge a <span class="math inline">\(f\in L^{\infty}\)</span> en norma infinito</em> si y solo si <span class="math display">\[\|f_{n}-f\|_{\infty}\xrightarrow[n\to\infty]{}0.\]</span></p>
+<p>La noción de convergencia en <span class="math inline">\(L^{\infty}\)</span> es la natural. Una sucesión <span class="math inline">\((f_{n})_{n}\subseteq L^{\infty}\)</span> <em>converge a <span class="math inline">\(f\in L^{\infty}\)</span> en norma infinito</em> si y solo si
+<span class="math display">\[\|f_{n}-f\|_{\infty}\xrightarrow[n\to\infty]{}0.\]</span></p>
 <p>Se puede demostar que <span class="math display">\[\|f_{n}-f\|_{\infty}\xrightarrow[n\to\infty]{}0\Leftrightarrow f_{n}\xrightarrow[n\to\infty]{}f \mbox{c.s.}\]</span> por lo tanto, <span class="math inline">\(\mathcal{L}^{\infty}\)</span> es un espacio de Banach.</p>
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Para culminar esta sección, haremos las siguientes precisiones:</p>
+<p><span id="unlabeled-div-82" class="remark"><em>Nota</em>. </span>Para culminar esta sección, haremos las siguientes precisiones:</p>
 <p>(1.) Si <span class="math inline">\(m(A)&lt;\infty\)</span>, <span class="math inline">\(L^{p}(A)\supseteq L^{q}(A)\)</span> siempre que <span class="math inline">\(p&lt;q\)</span>.</p>
 <p>(2.) No ocurre en general que <span class="math inline">\(L^{\infty}=\bigcap_{p=1}^{\infty} L^{p}\)</span>. La función <span class="math inline">\(f(x)=|\log(x)|\chi_{(0,1]}(x)\)</span> en <span class="math inline">\(L^{p}\)</span>, para todo <span class="math inline">\(1\leq p&lt;\infty\)</span> pero no esencialmente acotada, por lo tanto <span class="math inline">\(f\notin L^{\infty}\)</span>.</p>
 </div>
-
 </div>
-<div id="espacios-de-hilbert" class="section level2">
-<h2><span class="header-section-number">6.4</span> Espacios de Hilbert</h2>
+<div id="espacios-de-hilbert" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Espacios de Hilbert<a href="convergencia.html#espacios-de-hilbert" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Le dedicaremos unas lineas al espacio <span class="math inline">\(L^{2}\)</span> por tener unas características especiales que lo diferencian de los espacios <span class="math inline">\(L^{p}\)</span> cuando <span class="math inline">\(p\neq 2\)</span>. Este espacio es un tipo de espacio especial llamado Espacio de Hilbert, que se diferencia de los espacios de Banach.</p>
 <p>Comencemos recordando que es un producto interno.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-239" class="definition"><strong>Definición 6.7  </strong></span>Sea <span class="math inline">\(X\)</span> un espacio vectorial (sobre <span class="math inline">\(\mathbb{R}\)</span>). Un <em>producto interno</em> en <span class="math inline">\(X\)</span> es una función <span class="math inline">\((\cdot,\cdot):X\times X\longrightarrow\mathbb{R}\)</span> que cumple:</p>
+<p><span id="def:unnamed-chunk-234" class="definition"><strong>Definición 6.7  </strong></span>Sea <span class="math inline">\(X\)</span> un espacio vectorial (sobre <span class="math inline">\(\mathbb{R}\)</span>). Un <em>producto interno</em> en <span class="math inline">\(X\)</span> es una función <span class="math inline">\((\cdot,\cdot):X\times X\longrightarrow\mathbb{R}\)</span> que cumple:</p>
 <p>(i.) <span class="math inline">\((x,y)=(y,x)\)</span> para todo <span class="math inline">\(x,y\in X\)</span>,</p>
 <p>(ii.) <span class="math inline">\((k_{1}x_{1}+k_{2}x_{2},y)=k_{1}(x_{1},y)+k_{2}(x_{2},y)\)</span> para todo <span class="math inline">\(k_{1}, k_{2}\in\mathbb{R}\)</span> y <span class="math inline">\(x_{1}, x_{2}, y\in X\)</span> y</p>
 <p>(iii.) <span class="math inline">\((x,x)\geq 0\)</span> para todo <span class="math inline">\(x\in X\)</span> y <span class="math inline">\((x,x)=0\)</span> si y solo si <span class="math inline">\(x=0\)</span>.</p>
 </div>
-
-
 <div class="example">
 <p><span id="exm:ejemplo532" class="example"><strong>Ejemplo 6.5  </strong></span>La función <span class="math inline">\((f,g)\mapsto \int_{a}^{b}f(t)g(t)dt\)</span> es un producto interno en <span class="math inline">\(\mathcal{L}^{2}\)</span>.</p>
 </div>
-
-<p>Siempre que se tiene un producto interno definido en un espacio vectorial, se puede definir una norma a partir del producto interno: <span class="math display">\[\|x\|=\sqrt{(x,x)}.\]</span></p>
-
+<p>Siempre que se tiene un producto interno definido en un espacio vectorial, se puede definir una norma a partir del producto interno:
+<span class="math display">\[\|x\|=\sqrt{(x,x)}.\]</span></p>
 <div class="definition">
-<p><span id="def:unnamed-chunk-240" class="definition"><strong>Definición 6.8  </strong></span>Dado un espacio vectorial <span class="math inline">\(X\)</span> con producto interno, decimos que <span class="math inline">\(X\)</span> es un <em>espacio de Hilbert</em> si <span class="math inline">\(X\)</span> es completo respecto a la norma inducida por el producto interno.</p>
+<p><span id="def:unnamed-chunk-235" class="definition"><strong>Definición 6.8  </strong></span>Dado un espacio vectorial <span class="math inline">\(X\)</span> con producto interno, decimos que <span class="math inline">\(X\)</span> es un <em>espacio de Hilbert</em> si <span class="math inline">\(X\)</span> es completo respecto a la norma inducida por el producto interno.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-241" class="example"><strong>Ejemplo 6.6  </strong></span><span class="math inline">\(\mathbb{R}^{n}\)</span> es un espacio de Hilbert con el producto interno <span class="math display">\[(x,y)=\sum_{i=1}^{n} x_{i}y_{i}\]</span> donde <span class="math inline">\(x=(x_{1},\cdots,x_{n})\)</span> y <span class="math inline">\(y=(y_{1},\cdots,y_{n})\)</span>.</p>
+<p><span id="exm:unnamed-chunk-236" class="example"><strong>Ejemplo 6.6  </strong></span><span class="math inline">\(\mathbb{R}^{n}\)</span> es un espacio de Hilbert con el producto interno <span class="math display">\[(x,y)=\sum_{i=1}^{n} x_{i}y_{i}\]</span>
+donde <span class="math inline">\(x=(x_{1},\cdots,x_{n})\)</span> y <span class="math inline">\(y=(y_{1},\cdots,y_{n})\)</span>.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-242" class="example"><strong>Ejemplo 6.7  </strong></span><span class="math inline">\(\mathcal{L}^{2}\)</span> es un espacio de Hilbert, con el producto interno definido en el ejemplo @ref{exm:ejemplo532}.</p>
+<p><span id="exm:unnamed-chunk-237" class="example"><strong>Ejemplo 6.7  </strong></span><span class="math inline">\(\mathcal{L}^{2}\)</span> es un espacio de Hilbert, con el producto interno definido en el ejemplo @ref{exm:ejemplo532}.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-243" class="example"><strong>Ejemplo 6.8  </strong></span>Sea <span class="math inline">\(l^{2}\)</span> el conjunto de sucesiones de numeros reales de cuadrados convergentes, es decir, <span class="math inline">\(\sum_{i\in\mathbb{N}} |x_{i}|^{2}&lt;\infty\)</span>. La función <span class="math inline">\((x,y)=\sum_{i=1}^{n}x_{i}y_{i}\)</span>, con <span class="math inline">\(x=(x_{n})_{n}, y=(y_{n})_{n}\in l^{2}\)</span> es un producto interno. Se puede demostrar que <span class="math inline">\(l^{2}\)</span> junto a esta función es un espacio de Hilbert.</p>
+<p><span id="exm:unnamed-chunk-238" class="example"><strong>Ejemplo 6.8  </strong></span>Sea <span class="math inline">\(l^{2}\)</span> el conjunto de sucesiones de numeros reales de cuadrados convergentes, es decir, <span class="math inline">\(\sum_{i\in\mathbb{N}} |x_{i}|^{2}&lt;\infty\)</span>. La función <span class="math inline">\((x,y)=\sum_{i=1}^{n}x_{i}y_{i}\)</span>, con <span class="math inline">\(x=(x_{n})_{n}, y=(y_{n})_{n}\in l^{2}\)</span> es un producto interno. Se puede demostrar que <span class="math inline">\(l^{2}\)</span> junto a esta función es un espacio de Hilbert.</p>
 </div>
-
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-244" class="proposition"><strong>Proposición 6.7  </strong></span>Sea <span class="math inline">\(X\)</span> un espacio con producto interno. Dados <span class="math inline">\(x,y\in X\)</span>, se cumple que <span class="math display">\[|(x,y)|^{2}\leq (x,x)(y,y)\]</span></p>
+<p><span id="prp:unnamed-chunk-239" class="proposition"><strong>Proposición 6.7  </strong></span>Sea <span class="math inline">\(X\)</span> un espacio con producto interno. Dados <span class="math inline">\(x,y\in X\)</span>, se cumple que <span class="math display">\[|(x,y)|^{2}\leq (x,x)(y,y)\]</span></p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Por definición de producto interno, <span class="math display">\[(x+\lambda y, x+ \lambda y)\geq 0\]</span> para cualquier escalar <span class="math inline">\(\lambda\in\mathbb{R}\)</span>, en particular para <span class="math inline">\(\lambda=-\frac{(x,y)}{y,y}\)</span> Desarrollando en producto interno y usando la linealidad, se tiene que <span class="math display">\[\begin{array}{ll}
+<p><span id="unlabeled-div-83" class="proof"><em>Demostración</em>. </span>Por definición de producto interno,
+<span class="math display">\[(x+\lambda y, x+ \lambda y)\geq 0\]</span>
+para cualquier escalar <span class="math inline">\(\lambda\in\mathbb{R}\)</span>, en particular para <span class="math inline">\(\lambda=-\frac{(x,y)}{y,y}\)</span>
+Desarrollando en producto interno y usando la linealidad, se tiene que
+<span class="math display">\[\begin{array}{ll}
     0&amp;\leq(x+\lambda y, x+\lambda y)\\
     &amp;=(x,x)+2\lambda(x,y)+\lambda^{2}(y,y)\\
     &amp;=(x,x)-2\frac{(x,y)^{2}}{(y,y)}+\frac{(x,y)^{2}}{(y,y)^{2}}(y,y)
-\end{array}\]</span> de donde se sigue el resultado.</p>
+\end{array}\]</span>
+de donde se sigue el resultado.</p>
 </div>
-
 <p>Note que si <span class="math inline">\(\mathcal{H}\)</span> es un espacio de Hilbert, se cumplen las siguientes propiedades, que son una generalización de propiedades conocidas de <span class="math inline">\(\mathbb{R}^{n}\)</span>:</p>
 <p>(1.) <strong>Ley del paralelogramo</strong>: Si <span class="math inline">\(x,y\in \mathcal{H}\)</span>, entonces <span class="math display">\[\|x+y\|^{2}+\|x-y\|^{2}=2(\|x\|^{2}+\|y\|^{2}).\]</span></p>
-<p>(2.) <strong>Ley de los cosenos</strong>: Dados <span class="math inline">\(x,y\in \mathcal{H}\)</span>, definimos el ángulo entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, <span class="math inline">\(\theta\)</span>, de la igualdad siguiente <span class="math display">\[\cos\theta=\frac{(x,y)}{\|x\|\|y\|}.\]</span> Luego, se tiene la propiedad: <span class="math display">\[\|x+y\|^{2}=\|x\|^{2}-2\|x\|\|y\|\cos\theta+\|y\|^{2}.\]</span></p>
-<p>(3.) <strong>Teorema de Pitágoras</strong>: se dice que <span class="math inline">\(x, y\in \mathcal{H}\)</span> son <em>ortogonales</em> si <span class="math inline">\((x,y)=0\)</span>. Luego se sigue la propiedad: <span class="math display">\[\|x+y\|^{2}=\|x\|^{2}-2\|x\|\|y\|\cos\theta+\|y\|^{2}.\]</span> Más aún, sean <span class="math inline">\(x_{1}, \cdots, x_{k}\in \mathcal{H}\)</span>, si <span class="math inline">\((x_{i},x_{j})=0\)</span> siempre que <span class="math inline">\(i\neq j\)</span>, entonces <span class="math display">\[\left\|  \sum_{i=1}^{k}x_{i}\right\|  =\sum_{i=1}^{k}\|x_{i}\|.\]</span></p>
+<p>(2.) <strong>Ley de los cosenos</strong>: Dados <span class="math inline">\(x,y\in \mathcal{H}\)</span>, definimos el ángulo entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, <span class="math inline">\(\theta\)</span>, de la igualdad siguiente
+<span class="math display">\[\cos\theta=\frac{(x,y)}{\|x\|\|y\|}.\]</span>
+Luego, se tiene la propiedad:
+<span class="math display">\[\|x+y\|^{2}=\|x\|^{2}-2\|x\|\|y\|\cos\theta+\|y\|^{2}.\]</span></p>
+<p>(3.) <strong>Teorema de Pitágoras</strong>: se dice que <span class="math inline">\(x, y\in \mathcal{H}\)</span> son <em>ortogonales</em> si <span class="math inline">\((x,y)=0\)</span>. Luego se sigue la propiedad:
+<span class="math display">\[\|x+y\|^{2}=\|x\|^{2}-2\|x\|\|y\|\cos\theta+\|y\|^{2}.\]</span>
+Más aún, sean <span class="math inline">\(x_{1}, \cdots, x_{k}\in \mathcal{H}\)</span>, si <span class="math inline">\((x_{i},x_{j})=0\)</span> siempre que <span class="math inline">\(i\neq j\)</span>, entonces
+<span class="math display">\[\left\|  \sum_{i=1}^{k}x_{i}\right\|  =\sum_{i=1}^{k}\|x_{i}\|.\]</span></p>
 <p>También se pueden generalizar conceptos de base y de base ortogonal.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-246" class="definition"><strong>Definición 6.9  </strong></span>Sea <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert. Un conjunto <span class="math inline">\(E\subseteq \mathcal{H}\)</span> es <em>linealmente independiente</em> si todos sus subconjuntos finitos lo son.</p>
+<p><span id="def:unnamed-chunk-241" class="definition"><strong>Definición 6.9  </strong></span>Sea <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert. Un conjunto <span class="math inline">\(E\subseteq \mathcal{H}\)</span> es <em>linealmente independiente</em> si todos sus subconjuntos finitos lo son.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-247" class="definition"><strong>Definición 6.10  </strong></span>Sea <span class="math inline">\(C\subseteq \mathcal{H}\)</span> se llama <em>sistema ortogonal</em> si <span class="math inline">\((x,y)=0\)</span> para todo <span class="math inline">\(x,y\in A\)</span>. Si además se cumple que <span class="math inline">\(\|x\|=1\)</span> para todo <span class="math inline">\(x\in C\)</span>, se dice que el sistema <span class="math inline">\(C\)</span> es <em>ortonormal</em>.</p>
+<p><span id="def:unnamed-chunk-242" class="definition"><strong>Definición 6.10  </strong></span>Sea <span class="math inline">\(C\subseteq \mathcal{H}\)</span> se llama <em>sistema ortogonal</em> si <span class="math inline">\((x,y)=0\)</span> para todo <span class="math inline">\(x,y\in A\)</span>. Si además se cumple que <span class="math inline">\(\|x\|=1\)</span> para todo <span class="math inline">\(x\in C\)</span>, se dice que el sistema <span class="math inline">\(C\)</span> es <em>ortonormal</em>.</p>
 </div>
-
 <p>Es obvio que todo sistema ortogonal es linealmente independiente.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-248" class="definition"><strong>Definición 6.11  </strong></span>Dado un conjunto <span class="math inline">\(C\subseteq\mathcal{H}\)</span>, el conjunto de todas las <em>combinaciones lineales finitas</em> de <span class="math inline">\(C\)</span> lo denotamos por <span class="math display">\[S(C)=\left\lbrace \sum_{i=1}^{n} c_{i}x_{i}: n\in\mathbb{N}, c_{i}\in\mathbb{R}\mbox{ y } x_{i}\in C \right\rbrace .\]</span> Decimos que <span class="math inline">\(C\)</span> es un <em>sistema completo</em> si <span class="math inline">\(S(C)\)</span> es denso en <span class="math inline">\(\mathcal{H}\)</span>.</p>
+<p><span id="def:unnamed-chunk-243" class="definition"><strong>Definición 6.11  </strong></span>Dado un conjunto <span class="math inline">\(C\subseteq\mathcal{H}\)</span>, el conjunto de todas las <em>combinaciones lineales finitas</em> de <span class="math inline">\(C\)</span> lo denotamos por <span class="math display">\[S(C)=\left\lbrace \sum_{i=1}^{n} c_{i}x_{i}: n\in\mathbb{N}, c_{i}\in\mathbb{R}\mbox{ y } x_{i}\in C \right\rbrace .\]</span>
+Decimos que <span class="math inline">\(C\)</span> es un <em>sistema completo</em> si <span class="math inline">\(S(C)\)</span> es denso en <span class="math inline">\(\mathcal{H}\)</span>.</p>
 </div>
-
 <p>El proceso de ortogonalización de Gram-Schmidt consiste en construír, a partir de una familia linealmente independiente de un espacio vectorial con producto interno, un sistema ortogonal, que además generan los mismos subespacios. Recordemos esto a detalle.</p>
-<p>Sea <span class="math inline">\(X\)</span> un espacio vectorial con producto interno <span class="math inline">\((\cdot,\cdot)\)</span>. Sea <span class="math inline">\(\{x_{1},x_{2},\cdots \}\)</span> un conjunto linealmente independiente. Hallaremos <span class="math inline">\(\{\phi_{1},\phi_{2},\cdots \}\)</span> un sistema ortogonal con la propiedad siguiente: <span class="math inline">\(\phi_{n}\)</span> es combinación lineal de <span class="math inline">\(x_{1},\cdots, x_{n}\)</span> y $x_{1},, x_{n}=<em>{1},,</em>{n}$, es decir, el subespacio generado por <span class="math inline">\(\{x_{1},\cdots, x_{n}\}\)</span> coincide con el subespacio generado por <span class="math inline">\(\{\phi_{1},\cdots,\phi_{n}\}\)</span>. El sistema ortogonal es construído así <span class="math inline">\(\phi_{1}=x_{1}\)</span> y para <span class="math inline">\(n&gt;1\)</span> se pone <span class="math inline">\(\phi_{n}=x_{n}+\sum_{k=1}^{n-1}\frac{(x_{n},\phi_{k})}{\|\phi_{k}\|^{2}}\phi_{k}.\)</span></p>
-
+<p>Sea <span class="math inline">\(X\)</span> un espacio vectorial con producto interno <span class="math inline">\((\cdot,\cdot)\)</span>. Sea <span class="math inline">\(\{x_{1},x_{2},\cdots \}\)</span> un conjunto linealmente independiente. Hallaremos <span class="math inline">\(\{\phi_{1},\phi_{2},\cdots \}\)</span> un sistema ortogonal con la propiedad siguiente: <span class="math inline">\(\phi_{n}\)</span> es combinación lineal de <span class="math inline">\(x_{1},\cdots, x_{n}\)</span> y $x_{1},, x_{n}=<em>{1},,</em>{n}$, es decir, el subespacio generado por <span class="math inline">\(\{x_{1},\cdots, x_{n}\}\)</span> coincide con el subespacio generado por <span class="math inline">\(\{\phi_{1},\cdots,\phi_{n}\}\)</span>.
+El sistema ortogonal es construído así
+<span class="math inline">\(\phi_{1}=x_{1}\)</span> y para <span class="math inline">\(n&gt;1\)</span> se pone <span class="math inline">\(\phi_{n}=x_{n}+\sum_{k=1}^{n-1}\frac{(x_{n},\phi_{k})}{\|\phi_{k}\|^{2}}\phi_{k}.\)</span></p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-249" class="example"><strong>Ejemplo 6.9  </strong></span>Definamos las siguientes funciones en <span class="math inline">\(L^{2}[0,1]\)</span>, para cada <span class="math inline">\(n\in\mathbb{N}\)</span> <span class="math display">\[R_{n}(t)=(-1)^{k} \mbox{ si } t\in\frac{k}{2^{n}},\frac{k+1}{2^{n}} k=0,\cdots,2^{n}-1\]</span> A <span class="math inline">\(R_{n}\)</span> se le llama la <span class="math inline">\(n\)</span>-ésima <em>función de Rademacher</em>. Las funciones de Rademacher forman un sistema ortonormal en <span class="math inline">\(L^{2}[0,1]\)</span>.</p>
+<p><span id="exm:unnamed-chunk-244" class="example"><strong>Ejemplo 6.9  </strong></span>Definamos las siguientes funciones en <span class="math inline">\(L^{2}[0,1]\)</span>, para cada <span class="math inline">\(n\in\mathbb{N}\)</span>
+<span class="math display">\[R_{n}(t)=(-1)^{k} \mbox{ si } t\in\frac{k}{2^{n}},\frac{k+1}{2^{n}} k=0,\cdots,2^{n}-1\]</span>
+A <span class="math inline">\(R_{n}\)</span> se le llama la <span class="math inline">\(n\)</span>-ésima <em>función de Rademacher</em>. Las funciones de Rademacher forman un sistema ortonormal en <span class="math inline">\(L^{2}[0,1]\)</span>.</p>
 </div>
-
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-250" class="theorem"><strong>Teorema 6.6  </strong></span>Sea <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert. Si <span class="math inline">\(\mathcal{H}\)</span> es separable, es decir, contiene un subconjunto denso numerable; entonces todo sistema ortogonal en <span class="math inline">\(\mathcal{H}\)</span> es numerable.</p>
+<p><span id="thm:unnamed-chunk-245" class="theorem"><strong>Teorema 6.6  </strong></span>Sea <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert. Si <span class="math inline">\(\mathcal{H}\)</span> es separable, es decir, contiene un subconjunto denso numerable; entonces todo sistema ortogonal en <span class="math inline">\(\mathcal{H}\)</span> es numerable.</p>
 </div>
-
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-251" class="theorem"><strong>Teorema 6.7  </strong></span>Sea <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert separable. Entonces <span class="math inline">\(\mathcal{H}\)</span> posee un sistema ortonormal completo.</p>
+<p><span id="thm:unnamed-chunk-246" class="theorem"><strong>Teorema 6.7  </strong></span>Sea <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert separable. Entonces <span class="math inline">\(\mathcal{H}\)</span> posee un sistema ortonormal completo.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\((x_{n})_{n}\)</span> un subconjunto denso numerable de <span class="math inline">\(\mathcal{H}\)</span>. Consideremos el subconjunto <span class="math inline">\((y_{n})_{n}\subseteq (x_{n})_{n}\)</span> linealmente independiente maximal. Es claro que <span class="math inline">\((y_{n})_{n}\)</span> es un sistema completo. Aplicando el proceso de ortogonalización de Gram-Schmidt y normalizando, se obtiene en sistema ortonormal completo.</p>
+<p><span id="unlabeled-div-84" class="proof"><em>Demostración</em>. </span>Sea <span class="math inline">\((x_{n})_{n}\)</span> un subconjunto denso numerable de <span class="math inline">\(\mathcal{H}\)</span>. Consideremos el subconjunto <span class="math inline">\((y_{n})_{n}\subseteq (x_{n})_{n}\)</span> linealmente independiente maximal. Es claro que <span class="math inline">\((y_{n})_{n}\)</span> es un sistema completo. Aplicando el proceso de ortogonalización de Gram-Schmidt y normalizando, se obtiene en sistema ortonormal completo.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-253" class="example"><strong>Ejemplo 6.10  </strong></span>La familia <span class="math inline">\(1, \cos x, \sen x,\cdots, \cos nx, \sen nx,\cdots\)</span> es un sistema ortogonal completo. Y <span class="math inline">\(\frac{1}{\sqrt{2\pi}},\frac{1}{\sqrt{\pi}}\cos x,\frac{1}{\sqrt{\pi}}\sen x, \cdots,\frac{1}{\sqrt{\pi}}\cos nx,\frac{1}{\sqrt{\pi}}\sen nx, \cdots\)</span> es un sistema ortonormal completo.</p>
+<p><span id="exm:unnamed-chunk-248" class="example"><strong>Ejemplo 6.10  </strong></span>La familia <span class="math inline">\(1, \cos x, \sen x,\cdots, \cos nx, \sen nx,\cdots\)</span> es un sistema ortogonal completo. Y <span class="math inline">\(\frac{1}{\sqrt{2\pi}},\frac{1}{\sqrt{\pi}}\cos x,\frac{1}{\sqrt{\pi}}\sen x, \cdots,\frac{1}{\sqrt{\pi}}\cos nx,\frac{1}{\sqrt{\pi}}\sen nx, \cdots\)</span> es un sistema ortonormal completo.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-254" class="example"><strong>Ejemplo 6.11  </strong></span>Los <strong>polinomios de Legendre</strong> <span class="math inline">\(P_{n}(x)=\frac{1}{2^{n}n!}\frac{d^{n}}{dx^{n}}[(x^{2}-1)^{n}]\)</span> con <span class="math inline">\(n=0,1,2,\cdots\)</span> son ortogonales en <span class="math inline">\(L^{2}[-1,1]\)</span>. La familia <span class="math inline">\(\sqrt{\frac{1}{2}(2n+1)}P_{n}(x)\)</span> es una familia ortonormal.</p>
+<p><span id="exm:unnamed-chunk-249" class="example"><strong>Ejemplo 6.11  </strong></span>Los <strong>polinomios de Legendre</strong> <span class="math inline">\(P_{n}(x)=\frac{1}{2^{n}n!}\frac{d^{n}}{dx^{n}}[(x^{2}-1)^{n}]\)</span> con <span class="math inline">\(n=0,1,2,\cdots\)</span> son ortogonales en <span class="math inline">\(L^{2}[-1,1]\)</span>. La familia <span class="math inline">\(\sqrt{\frac{1}{2}(2n+1)}P_{n}(x)\)</span> es una familia ortonormal.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-255" class="definition"><strong>Definición 6.12  </strong></span>Sea <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert separable y sea <span class="math inline">\((\phi_{n})_{n\in\mathbb{N}}\)</span> un sistema ortonormal en <span class="math inline">\(\mathcal{H}\)</span>. Sea <span class="math inline">\(x\in\mathcal{H}\)</span>, los <em>coeficientes de Fourier</em> de <span class="math inline">\(x\)</span> respecto del sistema <span class="math inline">\((\phi_{n})_{n\in\mathbb{N}}\)</span> se definen como sigue: <span class="math display">\[\widehat{x}_{n}=(x,\phi_{n})\]</span> a cada <span class="math inline">\(x_{n}\)</span> se le llama el <em><span class="math inline">\(n\)</span>-ésimo coeficiente de Fourier</em> de <span class="math inline">\(x\)</span>.</p>
+<p><span id="def:unnamed-chunk-250" class="definition"><strong>Definición 6.12  </strong></span>Sea <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert separable y sea <span class="math inline">\((\phi_{n})_{n\in\mathbb{N}}\)</span> un sistema ortonormal en <span class="math inline">\(\mathcal{H}\)</span>. Sea <span class="math inline">\(x\in\mathcal{H}\)</span>, los <em>coeficientes de Fourier</em> de <span class="math inline">\(x\)</span> respecto del sistema <span class="math inline">\((\phi_{n})_{n\in\mathbb{N}}\)</span> se definen como sigue:
+<span class="math display">\[\widehat{x}_{n}=(x,\phi_{n})\]</span>
+a cada <span class="math inline">\(x_{n}\)</span> se le llama el <em><span class="math inline">\(n\)</span>-ésimo coeficiente de Fourier</em> de <span class="math inline">\(x\)</span>.</p>
 </div>
-
 <p>En <span class="math inline">\(\mathbb{R}^{n}\)</span>, la distancia de un punto a un plano es la longitud del segmento de recta perpendicular del punto al plano. Esta noción se puede generalizar en los espacios de Hilbert, como sigue.</p>
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-256" class="proposition"><strong>Proposición 6.8  </strong></span>Sea <span class="math inline">\((\phi_{n})_{n}\)</span> un sistema ortonormal en <span class="math inline">\(H\)</span>. Sean <span class="math inline">\(x\in H\)</span> y <span class="math inline">\(\lambda_{1},\cdots, \lambda_{2}\)</span> números reales cualesquiera. Entonces se tiene que <span class="math display">\[\left\|x-\sum_{i=1}^{n}\widehat{x_{i}}\phi_{i} \right\|\leq \left\|x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right\|.\]</span></p>
+<p><span id="prp:unnamed-chunk-251" class="proposition"><strong>Proposición 6.8  </strong></span>Sea <span class="math inline">\((\phi_{n})_{n}\)</span> un sistema ortonormal en <span class="math inline">\(H\)</span>. Sean <span class="math inline">\(x\in H\)</span> y <span class="math inline">\(\lambda_{1},\cdots, \lambda_{2}\)</span> números reales cualesquiera. Entonces se tiene que
+<span class="math display">\[\left\|x-\sum_{i=1}^{n}\widehat{x_{i}}\phi_{i} \right\|\leq \left\|x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right\|.\]</span></p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> <span class="math display">\[\begin{array}{ll}
+<p><span id="unlabeled-div-85" class="proof"><em>Demostración</em>. </span><span class="math display">\[\begin{array}{ll}
     \left\|x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right\|^{2}&amp;=\left(x-\sum_{i=1}^{n}\lambda_{i}\phi_{i},x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right)\\
     &amp;=\|x\|^{2}-2\sum_{i=1}^{n}(x,\lambda_{i}\phi_{i})+\sum_{i=1}^{n}\sum_{j=1}^{n} (\lambda_{i}\phi_{i},\lambda_{j}\phi_{j})\\
     &amp;=\|x\|^{2}-2\sum_{i=1}^{n}\lambda_{i}\hat{x_{i}}+\sum_{i=1}^{n} \lambda_{i}^{2}.
-    \end{array}\]</span> Es decir, <span class="math display">\[\left\|x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right\|^{2}=\|x\|^{2}-\sum_{i=1}^{n} \widehat{x_{i}}^{2}+\sum_{i=1}^{n} (\lambda_{i}-\widehat{x_{i}})^{2},\]</span> por lo tanto, <span class="math inline">\(\left\|x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right\|^{2}\)</span> toma su valor mínimo cuando <span class="math inline">\(\sum_{i=1}^{n} (\lambda_{i}-\widehat{x_{i}})^{2}=0\)</span> esto es cuando <span class="math inline">\(\lambda_{i}=\widehat{x_{i}}\)</span> para todo <span class="math inline">\(i\)</span>.</p>
+    \end{array}\]</span>
+Es decir,
+<span class="math display">\[\left\|x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right\|^{2}=\|x\|^{2}-\sum_{i=1}^{n} \widehat{x_{i}}^{2}+\sum_{i=1}^{n} (\lambda_{i}-\widehat{x_{i}})^{2},\]</span>
+por lo tanto, <span class="math inline">\(\left\|x-\sum_{i=1}^{n}\lambda_{i}\phi_{i} \right\|^{2}\)</span> toma su valor mínimo cuando <span class="math inline">\(\sum_{i=1}^{n} (\lambda_{i}-\widehat{x_{i}})^{2}=0\)</span>
+esto es cuando <span class="math inline">\(\lambda_{i}=\widehat{x_{i}}\)</span> para todo <span class="math inline">\(i\)</span>.</p>
 </div>
-
 <p>Esta proposición nos dice que la mejor aproximación en norma a <span class="math inline">\(x\)</span> es la combinación lineal <span class="math inline">\(\sum_{i=1}^{n} \widehat{x_{i}}\phi_{i}\)</span>, es decir, con los coeficientes de Fourier.</p>
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-258" class="proposition"><strong>Proposición 6.9  (Desigualdad de Bessel)  </strong></span>Sean <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert separable y <span class="math inline">\((\phi_{n})_{n}\)</span> un sistema ortonormal en <span class="math inline">\(\mathcal{H}\)</span>. Dado <span class="math inline">\(x\in\mathcal{H}\)</span>, se tiene que <span class="math display">\[\sum_{k\in\mathbb{N}} (\widehat{x_{k}})^{2}\leq \|x\|^{2}.\]</span></p>
+<p><span id="prp:unnamed-chunk-253" class="proposition"><strong>Proposición 6.9  (Desigualdad de Bessel) </strong></span>Sean <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert separable y <span class="math inline">\((\phi_{n})_{n}\)</span> un sistema ortonormal en <span class="math inline">\(\mathcal{H}\)</span>. Dado <span class="math inline">\(x\in\mathcal{H}\)</span>, se tiene que
+<span class="math display">\[\sum_{k\in\mathbb{N}} (\widehat{x_{k}})^{2}\leq \|x\|^{2}.\]</span></p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Tal como en la prueba de la proposición anterior, se tiene que <span class="math display">\[\left\|x-\sum_{k=1}^{N}\widehat{x_{k}}\phi_{k} \right\|^{2}=\|x\|^{2}-\sum_{k=1}^{N} \widehat{x_{k}}^{2}\mbox{ para todo } N\]</span> de donde se sigue el resultado.</p>
+<p><span id="unlabeled-div-86" class="proof"><em>Demostración</em>. </span>Tal como en la prueba de la proposición anterior, se tiene que
+<span class="math display">\[\left\|x-\sum_{k=1}^{N}\widehat{x_{k}}\phi_{k} \right\|^{2}=\|x\|^{2}-\sum_{k=1}^{N} \widehat{x_{k}}^{2}\mbox{ para todo } N\]</span>
+de donde se sigue el resultado.</p>
 </div>
-
 <p>Veamos una carcaterización de un sistema ortogonal completo.</p>
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-260" class="theorem"><strong>Teorema 6.8  </strong></span>Sea <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert y <span class="math inline">\((\phi_{n})_{n}\)</span> un sistema ortonormal en <span class="math inline">\(\mathcal{H}\)</span>. Las siguientes condiciones son equivalentes:</p>
+<p><span id="thm:unnamed-chunk-255" class="theorem"><strong>Teorema 6.8  </strong></span>Sea <span class="math inline">\(\mathcal{H}\)</span> un espacio de Hilbert y <span class="math inline">\((\phi_{n})_{n}\)</span> un sistema ortonormal en <span class="math inline">\(\mathcal{H}\)</span>. Las siguientes condiciones son equivalentes:</p>
 <p>(i.) <span class="math inline">\((\phi_{n})\)</span> es un sistema completo.</p>
-<p>(ii.) Para todo <span class="math inline">\(x\in\mathcal{H}\)</span>, las sumas parciales <span class="math inline">\(\sum_{i=1}^{N} \widehat{x_{i}}\phi_{i}\)</span> convergen a <span class="math inline">\(x\)</span> en norma, es decir, <span class="math display">\[x=\sum_{i\in\mathbb{N}} (x,\phi_{i})\phi_{i}.\]</span></p>
+<p>(ii.) Para todo <span class="math inline">\(x\in\mathcal{H}\)</span>, las sumas parciales <span class="math inline">\(\sum_{i=1}^{N} \widehat{x_{i}}\phi_{i}\)</span> convergen a <span class="math inline">\(x\)</span> en norma, es decir,
+<span class="math display">\[x=\sum_{i\in\mathbb{N}} (x,\phi_{i})\phi_{i}.\]</span></p>
 <p>(iii.) Se tiene que <span class="math display">\[\sum_{i\in\mathbb{N}} |(x,\phi_{i})|^{2}=\|x\|^{2} \mbox{ (Igualdad de Parseval)}.\]</span></p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Es claro que <span class="math inline">\(ii\)</span> implica <span class="math inline">\(i\)</span>. Ahora, supongamos que <span class="math inline">\((\phi_{n})\)</span> es un sistema completo. Sea <span class="math inline">\(x\in\mathcal{H}\)</span>. Dado <span class="math inline">\(\epsilon&gt;0\)</span>, existen <span class="math inline">\(N\in\mathbb{N}\)</span> y <span class="math inline">\(c_{1}, \cdots, c_{N}\)</span> tales que <span class="math inline">\(\sum_{i=1}^{N} c_{i}\phi_{i}\)</span> tal que <span class="math display">\[\left\|x-\sum_{i=1}^{N} c_{i}\phi_{i} \right\| &lt;\epsilon,\]</span> si <span class="math inline">\(\sum_{i=1}^{N} (x,\phi_{i})\phi_{i}\)</span> es la correspondiente suma parcial de Fourier de <span class="math inline">\(x\)</span>, entonces <span class="math display">\[\left\| \sum_{i=1}^{N} (x,\phi_{i})\phi_{i} -x\right\| \leq \left\| x--\sum_{i=1}^{N} c_{i}\phi_{i} \right\|\]</span> de donde se obtiene <span class="math inline">\(ii.\)</span> Ahora, veamos que <span class="math inline">\(ii\)</span> es equivalente a <span class="math inline">\(iii\)</span>; sea <span class="math inline">\(S_{n}=\sum_{i=1}^{n} (x,\phi_{i})\phi_{i}\)</span>, entonces <span class="math display">\[\|S_{n}-x\|^{2}=\|x\|^{2}-\sum_{i=1}^{n} |(x,\phi_{i})|^{2}\]</span> esto es <span class="math display">\[\|S_{n}-x\|^{2}\xrightarrow[n\to\infty]{} 0 \Leftrightarrow \sum_{i=1}^{n}|(x,\phi_{i})|^{2}\xrightarrow[n\to\infty]{}\|x\|^{2}.\]</span></p>
+<p><span id="unlabeled-div-87" class="proof"><em>Demostración</em>. </span>Es claro que <span class="math inline">\(ii\)</span> implica <span class="math inline">\(i\)</span>. Ahora, supongamos que <span class="math inline">\((\phi_{n})\)</span> es un sistema completo. Sea <span class="math inline">\(x\in\mathcal{H}\)</span>. Dado <span class="math inline">\(\epsilon&gt;0\)</span>, existen <span class="math inline">\(N\in\mathbb{N}\)</span> y <span class="math inline">\(c_{1}, \cdots, c_{N}\)</span> tales que <span class="math inline">\(\sum_{i=1}^{N} c_{i}\phi_{i}\)</span> tal que
+<span class="math display">\[\left\|x-\sum_{i=1}^{N} c_{i}\phi_{i} \right\| &lt;\epsilon,\]</span>
+si <span class="math inline">\(\sum_{i=1}^{N} (x,\phi_{i})\phi_{i}\)</span> es la correspondiente suma parcial de Fourier de <span class="math inline">\(x\)</span>, entonces
+<span class="math display">\[\left\| \sum_{i=1}^{N} (x,\phi_{i})\phi_{i} -x\right\| \leq \left\| x--\sum_{i=1}^{N} c_{i}\phi_{i} \right\|\]</span>
+de donde se obtiene <span class="math inline">\(ii.\)</span>
+Ahora, veamos que <span class="math inline">\(ii\)</span> es equivalente a <span class="math inline">\(iii\)</span>; sea <span class="math inline">\(S_{n}=\sum_{i=1}^{n} (x,\phi_{i})\phi_{i}\)</span>, entonces
+<span class="math display">\[\|S_{n}-x\|^{2}=\|x\|^{2}-\sum_{i=1}^{n} |(x,\phi_{i})|^{2}\]</span>
+esto es
+<span class="math display">\[\|S_{n}-x\|^{2}\xrightarrow[n\to\infty]{} 0 \Leftrightarrow \sum_{i=1}^{n}|(x,\phi_{i})|^{2}\xrightarrow[n\to\infty]{}\|x\|^{2}.\]</span></p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> La serie <span class="math inline">\(\sum_{i\in\mathbb{N}} (x,\phi_{i})\phi_{i}\)</span> es llamada la serie de Fourier de <span class="math inline">\(x\)</span> respecto del sistema <span class="math inline">\((\phi_{n})_{n}\)</span>. Se puede demostrar que las afirmaciones del teorema también son equivalentes a las siguientes dos proposiciones:</p>
+<p><span id="unlabeled-div-88" class="remark"><em>Nota</em>. </span>La serie <span class="math inline">\(\sum_{i\in\mathbb{N}} (x,\phi_{i})\phi_{i}\)</span> es llamada la serie de Fourier de <span class="math inline">\(x\)</span> respecto del sistema <span class="math inline">\((\phi_{n})_{n}\)</span>.
+Se puede demostrar que las afirmaciones del teorema también son equivalentes a las siguientes dos proposiciones:</p>
 <p>(iv.) Si <span class="math inline">\(x,y\in\mathcal{H}\)</span>, entonces <span class="math inline">\((x,y)=\sum_{n} (x,\phi_{n})(y,\phi_{n})\)</span>.</p>
 <p>(v.) Si <span class="math inline">\(x\in\mathcal{H}\)</span> es ortogonal a <span class="math inline">\(\phi_{n}\)</span> para todo <span class="math inline">\(n\)</span>, entonces <span class="math inline">\(x=0\)</span>.</p>
 <p>Las condiciones <span class="math inline">\(i\)</span> y <span class="math inline">\(v\)</span> generalizan la noción de bases ortonormales de espacios de dimensión finita a espacios de Hilbert, razón por la cual se llaman <em>bases ortonormales</em> a los sistemas ortonormales completos.</p>
 </div>
-
 <p>Para que una colección <span class="math inline">\((\beta_{n})_{n}\)</span> de números reales sean los coeficientes de Fourier de un vector <span class="math inline">\(x\)</span> de un espacio de Hilbert <span class="math inline">\(\mathcal{H}\)</span>, es necesario por la desigualdad de Bessel, que <span class="math inline">\(\sum_{n\in\mathbb{N}} \beta^{2}&lt;\infty\)</span>. El siguiente teorema nos indica que también es una condición suficiente. Por lo que existe una correspondecia biunívoca entre las sucesiones cuya serie de cuadrados es convergente y las bases ortonormales de un espacio de Hilbert.</p>
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-263" class="theorem"><strong>Teorema 6.9  (Riesz-Fischer)  </strong></span>Sea <span class="math inline">\((\phi_{n})_{n\in\mathbb{N}}\)</span> un sistema ortonormal en un espacio de Hilbert <span class="math inline">\(\mathcal{H}\)</span>. Sea <span class="math inline">\((\beta_{n})_{n\in\mathbb{N}}\)</span> una sucesión de números reales, tal que <span class="math inline">\(\sum_{n\in\mathbb{N}} \beta^{2}&lt;\infty\)</span>. Entonces existe <span class="math inline">\(x\in\mathcal{H}\)</span> cuyos coeficientes de Fourier son <span class="math inline">\(\beta_{n}=(x,\phi_{n})\)</span> y además las sumas parciales <span class="math inline">\(\sum_{i=1}^{n}\beta_{i}\phi_{i}\)</span> convergen a <span class="math inline">\(x\)</span> en norma.</p>
+<p><span id="thm:unnamed-chunk-258" class="theorem"><strong>Teorema 6.9  (Riesz-Fischer) </strong></span>Sea <span class="math inline">\((\phi_{n})_{n\in\mathbb{N}}\)</span> un sistema ortonormal en un espacio de Hilbert <span class="math inline">\(\mathcal{H}\)</span>. Sea <span class="math inline">\((\beta_{n})_{n\in\mathbb{N}}\)</span> una sucesión de números reales, tal que <span class="math inline">\(\sum_{n\in\mathbb{N}} \beta^{2}&lt;\infty\)</span>. Entonces existe <span class="math inline">\(x\in\mathcal{H}\)</span> cuyos coeficientes de Fourier son <span class="math inline">\(\beta_{n}=(x,\phi_{n})\)</span> y además las sumas parciales <span class="math inline">\(\sum_{i=1}^{n}\beta_{i}\phi_{i}\)</span> convergen a <span class="math inline">\(x\)</span> en norma.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(S_{n}=\sum_{i=1}^{n}\beta_{i}\phi_{i}\)</span>, entonces <span class="math inline">\(\|S_{n+p}-S_{n}\|^{2}=\sum_{i=n+1}^{n+p}\beta_{i}^{2}\)</span>, por lo tanto <span class="math inline">\((S_{n})_{n\in\mathbb{N}}\)</span> es de Cauchy en norma. Como <span class="math inline">\(\mathcal{H}\)</span> es completo, existe <span class="math inline">\(x\in\mathcal{H}\)</span> tal que <span class="math inline">\(S_{n}\xrightarrow[\|.\|]{} x\)</span>. Ahora bien, <span class="math display">\[(x_{i},\phi_{i})=(S_{n},\phi_{i})+(x-S_{n},\phi_{i})=\beta_{i}+(x-S_{n},\phi_{i})\mbox{ si } n\geq i.\]</span> Como <span class="math display">\[|(x-S_{n},\phi_{i})\leq \|x-S_{n}\|\|\phi_{i}\|=\|x-S_{n}\|\xrightarrow[n\to\infty]{}0,\]</span> entonces <span class="math display">\[(x_{i},\phi_{i})=\beta_{i}+\lim\limits_{n\to\infty} (x-S_{n},\phi_{i})=\beta_{i}\mbox{ para todo } i.\]</span></p>
+<p><span id="unlabeled-div-89" class="proof"><em>Demostración</em>. </span>Sea <span class="math inline">\(S_{n}=\sum_{i=1}^{n}\beta_{i}\phi_{i}\)</span>, entonces <span class="math inline">\(\|S_{n+p}-S_{n}\|^{2}=\sum_{i=n+1}^{n+p}\beta_{i}^{2}\)</span>, por lo tanto <span class="math inline">\((S_{n})_{n\in\mathbb{N}}\)</span> es de Cauchy en norma. Como <span class="math inline">\(\mathcal{H}\)</span> es completo, existe <span class="math inline">\(x\in\mathcal{H}\)</span> tal que <span class="math inline">\(S_{n}\xrightarrow[\|.\|]{} x\)</span>. Ahora bien,
+<span class="math display">\[(x_{i},\phi_{i})=(S_{n},\phi_{i})+(x-S_{n},\phi_{i})=\beta_{i}+(x-S_{n},\phi_{i})\mbox{ si } n\geq i.\]</span>
+Como
+<span class="math display">\[|(x-S_{n},\phi_{i})\leq \|x-S_{n}\|\|\phi_{i}\|=\|x-S_{n}\|\xrightarrow[n\to\infty]{}0,\]</span>
+entonces
+<span class="math display">\[(x_{i},\phi_{i})=\beta_{i}+\lim\limits_{n\to\infty} (x-S_{n},\phi_{i})=\beta_{i}\mbox{ para todo } i.\]</span></p>
 </div>
-
-
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-265" class="corollary"><strong>Corolario 6.2  </strong></span>Todo espacio de Hilbert <span class="math inline">\(n\)</span>-dimensional es isomorfo a <span class="math inline">\(\mathbb{R}^{n}\)</span>. Todo espacio de Hilbert separable, infinito dimensional es isomorfo a <span class="math inline">\(l^{2}\)</span>.</p>
+<p><span id="cor:unnamed-chunk-260" class="corollary"><strong>Corolario 6.2  </strong></span>Todo espacio de Hilbert <span class="math inline">\(n\)</span>-dimensional es isomorfo a <span class="math inline">\(\mathbb{R}^{n}\)</span>. Todo espacio de Hilbert separable, infinito dimensional es isomorfo a <span class="math inline">\(l^{2}\)</span>.</p>
 </div>
-
 <p>Demos una mirada a los funcionales lineales en los espacios de Hilbert.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-266" class="definition"><strong>Definición 6.13  </strong></span>Sea <span class="math inline">\(X\)</span> un espacio vectorial normado sobre <span class="math inline">\(\mathbb{R}\)</span>. Una función <span class="math inline">\(T:X\longrightarrow\mathbb{R}\)</span> es un <em>funcional lineal</em> si para todo <span class="math inline">\(x,y\in X\)</span> y para todo <span class="math inline">\(\alpha,\beta\in\mathbb{R}\)</span>, <span class="math inline">\(T(\alpha x+\beta y)=\alpha T(x)+\beta T(y)\)</span>. Decimos que <span class="math inline">\(T\)</span> <em>es continua en <span class="math inline">\(x_{0}\in X\)</span></em> si para todo <span class="math inline">\(\epsilon&gt;0\)</span>, existe <span class="math inline">\(\delta&gt;0\)</span> tal que, si <span class="math inline">\(\|x-x_{0}\|&lt;\delta\)</span>, entonces <span class="math inline">\(|T(x)-T(x_{0})|&lt;\epsilon\)</span>. LLamamos a <span class="math inline">\(T\)</span> un <em>funcional acotado</em> si existe una constante <span class="math inline">\(C\)</span> tal que <span class="math inline">\(|T(x)|&lt;C\|x\|\)</span> para todo <span class="math inline">\(x\in X\)</span></p>
+<p><span id="def:unnamed-chunk-261" class="definition"><strong>Definición 6.13  </strong></span>Sea <span class="math inline">\(X\)</span> un espacio vectorial normado sobre <span class="math inline">\(\mathbb{R}\)</span>. Una función <span class="math inline">\(T:X\longrightarrow\mathbb{R}\)</span> es un <em>funcional lineal</em> si para todo <span class="math inline">\(x,y\in X\)</span> y para todo <span class="math inline">\(\alpha,\beta\in\mathbb{R}\)</span>, <span class="math inline">\(T(\alpha x+\beta y)=\alpha T(x)+\beta T(y)\)</span>. Decimos que <span class="math inline">\(T\)</span> <em>es continua en <span class="math inline">\(x_{0}\in X\)</span></em> si para todo <span class="math inline">\(\epsilon&gt;0\)</span>, existe <span class="math inline">\(\delta&gt;0\)</span> tal que, si <span class="math inline">\(\|x-x_{0}\|&lt;\delta\)</span>, entonces <span class="math inline">\(|T(x)-T(x_{0})|&lt;\epsilon\)</span>. LLamamos a <span class="math inline">\(T\)</span> un <em>funcional acotado</em> si existe una constante <span class="math inline">\(C\)</span> tal que <span class="math inline">\(|T(x)|&lt;C\|x\|\)</span> para todo <span class="math inline">\(x\in X\)</span></p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Note que si <span class="math inline">\(T\)</span> es un funcional lineal continuo en un punto <span class="math inline">\(x_{0}\)</span>, entonces lo es en todo punto del espacio vectorial.</p>
+<p><span id="unlabeled-div-90" class="remark"><em>Nota</em>. </span>Note que si <span class="math inline">\(T\)</span> es un funcional lineal continuo en un punto <span class="math inline">\(x_{0}\)</span>, entonces lo es en todo punto del espacio vectorial.</p>
 </div>
-
 <p>Veamos la relación entre la continuidad y la acotación:</p>
-
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-268" class="lemma"><strong>Lema 6.2  </strong></span>Sea <span class="math inline">\(T\)</span> un funcional lineal en un espacio vectorial normado <span class="math inline">\(X\)</span>. <span class="math inline">\(T\)</span> es continuo si y solo si <span class="math inline">\(T\)</span> es acotado.</p>
+<p><span id="lem:unnamed-chunk-263" class="lemma"><strong>Lema 6.2  </strong></span>Sea <span class="math inline">\(T\)</span> un funcional lineal en un espacio vectorial normado <span class="math inline">\(X\)</span>. <span class="math inline">\(T\)</span> es continuo si y solo si <span class="math inline">\(T\)</span> es acotado.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Supongamos que <span class="math inline">\(T\)</span> es continua en todo <span class="math inline">\(x\in X\)</span>, en particular en <span class="math inline">\(x_{0}=0\)</span>. Luego, existe <span class="math inline">\(K&gt;0\)</span> tal que si <span class="math inline">\(\|x\|\leq B\)</span>, entonces <span class="math inline">\(|T(x)|\leq 1\)</span>. Como, para todo <span class="math inline">\(x\in X\)</span>, <span class="math display">\[\left\|\frac{K}{\|x\|}x \right\| = K\]</span> por lo que <span class="math display">\[|T(x)|=\frac{\|x\|}{K}T\left( \frac{B}{\|x\|}x\right) \leq \frac{1}{K}\|x\|\]</span> luego, <span class="math inline">\(T\)</span> es acotada. Ahora, supongamos que <span class="math inline">\(T\)</span> es acotada. Sea <span class="math inline">\(x_{0}\in X\)</span> cualquiera, entonces <span class="math display">\[|T(x)-T(x_{0})|=|T(x-x_{0})|\leq K\|x-x_{0}\|.\]</span> Luego, dado <span class="math inline">\(\epsilon&gt;0\)</span>, tomando <span class="math inline">\(\delta=\frac{\epsilon}{K}\)</span>, se obtiene que <span class="math display">\[\|x-x_{0}\|&lt;\delta\Rightarrow |T(x)-T(x_{0})|\leq K\|x-x_{0}\|\leq K\frac{\epsilon}{K}=\epsilon.\]</span></p>
+<p><span id="unlabeled-div-91" class="proof"><em>Demostración</em>. </span>Supongamos que <span class="math inline">\(T\)</span> es continua en todo <span class="math inline">\(x\in X\)</span>, en particular en <span class="math inline">\(x_{0}=0\)</span>. Luego, existe <span class="math inline">\(K&gt;0\)</span> tal que si <span class="math inline">\(\|x\|\leq B\)</span>, entonces <span class="math inline">\(|T(x)|\leq 1\)</span>. Como, para todo <span class="math inline">\(x\in X\)</span>,
+<span class="math display">\[\left\|\frac{K}{\|x\|}x \right\| = K\]</span>
+por lo que
+<span class="math display">\[|T(x)|=\frac{\|x\|}{K}T\left( \frac{B}{\|x\|}x\right) \leq \frac{1}{K}\|x\|\]</span>
+luego, <span class="math inline">\(T\)</span> es acotada.
+Ahora, supongamos que <span class="math inline">\(T\)</span> es acotada. Sea <span class="math inline">\(x_{0}\in X\)</span> cualquiera, entonces
+<span class="math display">\[|T(x)-T(x_{0})|=|T(x-x_{0})|\leq K\|x-x_{0}\|.\]</span>
+Luego, dado <span class="math inline">\(\epsilon&gt;0\)</span>, tomando <span class="math inline">\(\delta=\frac{\epsilon}{K}\)</span>, se obtiene que
+<span class="math display">\[\|x-x_{0}\|&lt;\delta\Rightarrow |T(x)-T(x_{0})|\leq K\|x-x_{0}\|\leq K\frac{\epsilon}{K}=\epsilon.\]</span></p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-270" class="definition"><strong>Definición 6.14  </strong></span>Sea <span class="math inline">\(T\)</span> un funcional lineal acotado en un espacio vectorial normado <span class="math inline">\(X\)</span>. Llamamos norma del funcional <span class="math inline">\(T\)</span> a la menor cota <span class="math inline">\(K\)</span>, y se denota por <span class="math inline">\(\|T\|\)</span>. Es claro que: <span class="math display">\[\|T\|=\sup_{\substack{x\neq 0}}\frac{|T(x)|}{\|x\|}=\sup_{\substack{\|x\|=1}}{|T(x)|}.\]</span></p>
+<p><span id="def:unnamed-chunk-265" class="definition"><strong>Definición 6.14  </strong></span>Sea <span class="math inline">\(T\)</span> un funcional lineal acotado en un espacio vectorial normado <span class="math inline">\(X\)</span>. Llamamos norma del funcional <span class="math inline">\(T\)</span> a la menor cota <span class="math inline">\(K\)</span>, y se denota por <span class="math inline">\(\|T\|\)</span>. Es claro que:
+<span class="math display">\[\|T\|=\sup_{\substack{x\neq 0}}\frac{|T(x)|}{\|x\|}=\sup_{\substack{\|x\|=1}}{|T(x)|}.\]</span></p>
 </div>
- 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-271" class="theorem"><strong>Teorema 6.10  (Riesz)  </strong></span>Sea <span class="math inline">\(H\)</span> un espacio de Hilbert separable y <span class="math inline">\(T\)</span> un funcional lineal acotado en <span class="math inline">\(\mathcal{H}\)</span>. Entonces, existe <span class="math inline">\(y\in\mathcal{H}\)</span> tal que para todo <span class="math inline">\(x\in\mathcal{H}\)</span>, <span class="math inline">\(T(x)=(x,y)\)</span>. Además, se tiene que <span class="math inline">\(\|T\|=\|y\|\)</span>.</p>
+<p><span id="thm:unnamed-chunk-266" class="theorem"><strong>Teorema 6.10  (Riesz) </strong></span>Sea <span class="math inline">\(H\)</span> un espacio de Hilbert separable y <span class="math inline">\(T\)</span> un funcional lineal acotado en <span class="math inline">\(\mathcal{H}\)</span>. Entonces, existe <span class="math inline">\(y\in\mathcal{H}\)</span> tal que para todo <span class="math inline">\(x\in\mathcal{H}\)</span>, <span class="math inline">\(T(x)=(x,y)\)</span>. Además, se tiene que <span class="math inline">\(\|T\|=\|y\|\)</span>.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\((\phi_{n})_{n}\)</span> un sistema ortonormal completo en <span class="math inline">\(\mathcal{H}\)</span>. Construímos la siguiente sucesión <span class="math inline">\(b_{n}=T(\phi_{n})\)</span> para cada <span class="math inline">\(n\in\mathbb{N}\)</span>. Entonces, para cada <span class="math inline">\(n\)</span>, se tiene <span class="math display">\[\begin{array}{ll}
+<p><span id="unlabeled-div-92" class="proof"><em>Demostración</em>. </span>Sea <span class="math inline">\((\phi_{n})_{n}\)</span> un sistema ortonormal completo en <span class="math inline">\(\mathcal{H}\)</span>. Construímos la siguiente sucesión
+<span class="math inline">\(b_{n}=T(\phi_{n})\)</span> para cada <span class="math inline">\(n\in\mathbb{N}\)</span>. Entonces, para cada <span class="math inline">\(n\)</span>, se tiene
+<span class="math display">\[\begin{array}{ll}
     \sum_{k=1}^{n}b_{k}^{2}&amp;=T(\sum_{k=1}^{n}b_{k}\phi_{k})\\
     &amp;\leq \|T\|\left\|\sum_{k=1}^{n}b_{k}\phi_{k} \right\| \\
     &amp;\leq \|T\|\left( \sum_{k=1}^{n}b_{k}^{2} \right) ^{\frac{1}{2}}
-\end{array}.\]</span> Luego, para todo <span class="math inline">\(n\)</span>, <span class="math inline">\(\sum_{k=1}^{n}b_{k}^{2}\leq \|T\|^{2}\)</span> y así <span class="math inline">\(\sum_{k=1}^{n}b_{k}^{2}&lt;\infty\)</span>. Por lo tanto, existe <span class="math inline">\(y\in \mathcal{H}\)</span> tal que <span class="math display">\[y=\sum_{k=1}^{\infty}b_{k}\phi_{k}\mbox{ y que }\|y\|\leq\|T\|.\]</span> Sea <span class="math inline">\(x\in\mathcal{H}\)</span>, entonces <span class="math display">\[x=\sum_{k\in\mathbb{N}}(x,\phi_{n})\phi_{n}\]</span> luego, <span class="math display">\[\begin{array}{ll}
+\end{array}.\]</span>
+Luego, para todo <span class="math inline">\(n\)</span>, <span class="math inline">\(\sum_{k=1}^{n}b_{k}^{2}\leq \|T\|^{2}\)</span> y así <span class="math inline">\(\sum_{k=1}^{n}b_{k}^{2}&lt;\infty\)</span>. Por lo tanto, existe <span class="math inline">\(y\in \mathcal{H}\)</span> tal que
+<span class="math display">\[y=\sum_{k=1}^{\infty}b_{k}\phi_{k}\mbox{ y que }\|y\|\leq\|T\|.\]</span>
+Sea <span class="math inline">\(x\in\mathcal{H}\)</span>, entonces
+<span class="math display">\[x=\sum_{k\in\mathbb{N}}(x,\phi_{n})\phi_{n}\]</span>
+luego,
+<span class="math display">\[\begin{array}{ll}
     T(x)&amp;=\lim\limits_{n\to\infty} T\left(\sum_{k=1}^{n}(x,\phi_{k})\phi_{k} \right) \\
     &amp;=\lim\limits_{n\to\infty} \sum_{k=1}^{n}(x,\phi_{k})b_{k}  \\
     &amp;=\lim\limits_{n\to\infty} \sum_{k=1}^{n}(x,\phi_{k})(y,\phi_{k}) \\
     &amp;=(x,y)
-\end{array}.\]</span> Ahora, por la desigualdad de Cauchy-Schwarz <span class="math display">\[T(x)=|(x,y)|\leq \|x\|\|y\|\]</span> por lo tanto <span class="math inline">\(\|T\|\leq \|y\|\)</span> y así se concluye que <span class="math inline">\(\|T\|=\|y\|\)</span>.</p>
+\end{array}.\]</span>
+Ahora, por la desigualdad de Cauchy-Schwarz
+<span class="math display">\[T(x)=|(x,y)|\leq \|x\|\|y\|\]</span>
+por lo tanto <span class="math inline">\(\|T\|\leq \|y\|\)</span> y así se concluye que <span class="math inline">\(\|T\|=\|y\|\)</span>.</p>
 </div>
-
 
 </div>
 </div>
@@ -669,7 +694,6 @@ ga('send', 'pageview');
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -688,6 +712,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -708,6 +733,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Medida.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "none"
 }
@@ -720,8 +749,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

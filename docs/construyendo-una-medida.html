@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 2 CONSTRUYENDO UNA MEDIDA | Medida</title>
   <meta name="description" content="Capítulo 2 CONSTRUYENDO UNA MEDIDA | Medida" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 2 CONSTRUYENDO UNA MEDIDA | Medida" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="http://synergy.vision/Medida/" />
-  <meta property="og:image" content="http://synergy.vision/Medida/images/cover.png" />
+  <meta property="og:image" content="http://synergy.vision/Medida//images/cover.png" />
   
   <meta name="github-repo" content="synergyvision/Medida/" />
 
@@ -19,12 +18,12 @@
   <meta name="twitter:title" content="Capítulo 2 CONSTRUYENDO UNA MEDIDA | Medida" />
   
   
-  <meta name="twitter:image" content="http://synergy.vision/Medida/images/cover.png" />
+  <meta name="twitter:image" content="http://synergy.vision/Medida//images/cover.png" />
 
 <meta name="author" content="Synergy Vision" />
 
 
-<meta name="date" content="2020-07-29" />
+<meta name="date" content="2022-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,8 @@
   
 <link rel="prev" href="introducción.html"/>
 <link rel="next" href="la-medida-de-lebesgue.html"/>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,47 +49,77 @@
 
 
 
-
+<link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections/anchor-sections.js"></script>
 <script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -107,56 +137,64 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./"><img src="images/logovision-black.png" width="160"></img></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-qué-leer-este-libro"><i class="fa fa-check"></i>¿Por qué leer este libro?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-sobre-los-programas-y-convenciones"><i class="fa fa-check"></i>Información sobre los programas y convenciones</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prácticas-interactivas-con-r"><i class="fa fa-check"></i>Prácticas interactivas con R</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="acerca-del-autor.html"><a href="acerca-del-autor.html"><i class="fa fa-check"></i>Acerca del Autor</a></li>
 <li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
-<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a><ul>
+<li class="chapter" data-level="2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html"><i class="fa fa-check"></i><b>2</b> CONSTRUYENDO UNA MEDIDA</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a></li>
 <li class="chapter" data-level="2.2" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#colecciones-de-conjuntos"><i class="fa fa-check"></i><b>2.2</b> Colecciones de Conjuntos</a></li>
 <li class="chapter" data-level="2.3" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#el-conjunto-de-cantor"><i class="fa fa-check"></i><b>2.3</b> El conjunto de Cantor</a></li>
 <li class="chapter" data-level="2.4" data-path="construyendo-una-medida.html"><a href="construyendo-una-medida.html#medida"><i class="fa fa-check"></i><b>2.4</b> Medida</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html"><i class="fa fa-check"></i><b>3</b> LA MEDIDA DE LEBESGUE</a><ul>
+<li class="chapter" data-level="3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html"><i class="fa fa-check"></i><b>3</b> LA MEDIDA DE LEBESGUE</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#construyendo-la-medida-de-lebesgue"><i class="fa fa-check"></i><b>3.1</b> Construyendo la Medida de Lebesgue</a></li>
 <li class="chapter" data-level="3.2" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#unicidad-de-la-medida-de-lebesgue-y-otras-propiedades"><i class="fa fa-check"></i><b>3.2</b> Unicidad de la medida de Lebesgue y otras propiedades</a></li>
 <li class="chapter" data-level="3.3" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#consideraciones"><i class="fa fa-check"></i><b>3.3</b> Consideraciones</a></li>
 <li class="chapter" data-level="3.4" data-path="la-medida-de-lebesgue.html"><a href="la-medida-de-lebesgue.html#la-medida-de-stieltjes"><i class="fa fa-check"></i><b>3.4</b> La Medida de Stieltjes</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="funciones-medibles.html"><a href="funciones-medibles.html"><i class="fa fa-check"></i><b>4</b> FUNCIONES MEDIBLES</a><ul>
+<li class="chapter" data-level="4" data-path="funciones-medibles.html"><a href="funciones-medibles.html"><i class="fa fa-check"></i><b>4</b> FUNCIONES MEDIBLES</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="funciones-medibles.html"><a href="funciones-medibles.html#conceptos-básicos"><i class="fa fa-check"></i><b>4.1</b> Conceptos básicos</a></li>
 <li class="chapter" data-level="4.2" data-path="funciones-medibles.html"><a href="funciones-medibles.html#aproximaciones-de-funciones-medibles"><i class="fa fa-check"></i><b>4.2</b> Aproximaciones de funciones medibles</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html"><i class="fa fa-check"></i><b>5</b> LA INTEGRAL DE LEBESGUE</a><ul>
+<li class="chapter" data-level="5" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html"><i class="fa fa-check"></i><b>5</b> LA INTEGRAL DE LEBESGUE</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#conceptos-básicos-1"><i class="fa fa-check"></i><b>5.1</b> Conceptos básicos</a></li>
 <li class="chapter" data-level="5.2" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#intercambio-de-límites-con-la-integral"><i class="fa fa-check"></i><b>5.2</b> Intercambio de límites con la integral</a></li>
 <li class="chapter" data-level="5.3" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#teoremas-de-aproximación"><i class="fa fa-check"></i><b>5.3</b> Teoremas de Aproximación</a></li>
 <li class="chapter" data-level="5.4" data-path="la-integral-de-lebesgue.html"><a href="la-integral-de-lebesgue.html#más-sobre-la-integral-de-lebesgue"><i class="fa fa-check"></i><b>5.4</b> Más sobre la Integral de Lebesgue</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="convergencia.html"><a href="convergencia.html"><i class="fa fa-check"></i><b>6</b> CONVERGENCIA</a><ul>
+<li class="chapter" data-level="6" data-path="convergencia.html"><a href="convergencia.html"><i class="fa fa-check"></i><b>6</b> CONVERGENCIA</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="convergencia.html"><a href="convergencia.html#tipos-de-convergencia"><i class="fa fa-check"></i><b>6.1</b> Tipos de convergencia</a></li>
 <li class="chapter" data-level="6.2" data-path="convergencia.html"><a href="convergencia.html#espacios-lp"><i class="fa fa-check"></i><b>6.2</b> Espacios <span class="math inline">\(L^{p}\)</span></a></li>
 <li class="chapter" data-level="6.3" data-path="convergencia.html"><a href="convergencia.html#espacios-linfty"><i class="fa fa-check"></i><b>6.3</b> Espacios <span class="math inline">\(L^{\infty}\)</span></a></li>
 <li class="chapter" data-level="6.4" data-path="convergencia.html"><a href="convergencia.html#espacios-de-hilbert"><i class="fa fa-check"></i><b>6.4</b> Espacios de Hilbert</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html"><i class="fa fa-check"></i><b>7</b> DIFERENCIACION E INTEGRACIÓN</a><ul>
+<li class="chapter" data-level="7" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html"><i class="fa fa-check"></i><b>7</b> DIFERENCIACION E INTEGRACIÓN</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-monótonas"><i class="fa fa-check"></i><b>7.1</b> Funciones monótonas</a></li>
 <li class="chapter" data-level="7.2" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#funciones-de-variación-acotada"><i class="fa fa-check"></i><b>7.2</b> Funciones de variación acotada</a></li>
 <li class="chapter" data-level="7.3" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#de-la-integral-indefinida.-continuidad-absoluta"><i class="fa fa-check"></i><b>7.3</b> De la Integral indefinida. Continuidad Absoluta</a></li>
 <li class="chapter" data-level="7.4" data-path="diferenciacion-e-integración.html"><a href="diferenciacion-e-integración.html#cambio-de-variables"><i class="fa fa-check"></i><b>7.4</b> Cambio de variables</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html"><i class="fa fa-check"></i><b>8</b> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></a><ul>
+<li class="chapter" data-level="8" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html"><i class="fa fa-check"></i><b>8</b> INTEGRACIÓN EN <span class="math inline">\(\mathbb{R}^{n}\)</span></a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#espacio-producto"><i class="fa fa-check"></i><b>8.1</b> Espacio Producto</a></li>
 <li class="chapter" data-level="8.2" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#medida-de-lebesgue-en-mathbbrn"><i class="fa fa-check"></i><b>8.2</b> Medida de Lebesgue en <span class="math inline">\(\mathbb{R}^{n}\)</span></a></li>
 <li class="chapter" data-level="8.3" data-path="integración-en-mathbbrn.html"><a href="integración-en-mathbbrn.html#teorema-de-fibini.-teorema-de-tonelli"><i class="fa fa-check"></i><b>8.3</b> Teorema de Fibini. Teorema de Tonelli</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apéndice</b></span></li>
-<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a>
+<ul>
 <li class="chapter" data-level="A.1" data-path="software-tools.html"><a href="software-tools.html#r-and-r-packages"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
 <li class="chapter" data-level="A.2" data-path="software-tools.html"><a href="software-tools.html#pandoc"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
 <li class="chapter" data-level="A.3" data-path="software-tools.html"><a href="software-tools.html#latex"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
@@ -182,412 +220,328 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="construyendo-una-medida" class="section level1">
-<h1><span class="header-section-number">Capítulo 2</span> CONSTRUYENDO UNA MEDIDA</h1>
-<p>En este capÍtulo abordaremos algunas nociones básicas necesarias para abordar los temas propios de la materia. En una primera parte haremos un somero repaso de sucesiones de números reales y sucesiones de conjuntos. Estudiaremos los conceptos de límites superior e inferior de una sucesión (de conjuntos o de números reales) y sus propiedades. Mostraremos algunos resultados útiles sobre este tema. En la segunda parte definiremos algunas familias de conjuntos importantes para construír medidas, en especial la medida de Lebesgue.</p>
-<div id="preliminares" class="section level2">
-<h2><span class="header-section-number">2.1</span> Preliminares</h2>
-
+<div id="construyendo-una-medida" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> CONSTRUYENDO UNA MEDIDA<a href="construyendo-una-medida.html#construyendo-una-medida" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>En este capÍtulo abordaremos algunas nociones básicas necesarias para abordar los temas propios de la materia.
+En una primera parte haremos un somero repaso de sucesiones de números reales y sucesiones de conjuntos. Estudiaremos los conceptos de límites superior e inferior de una sucesión (de conjuntos o de números reales) y sus propiedades. Mostraremos algunos resultados útiles sobre este tema. En la segunda parte definiremos algunas familias de conjuntos importantes para construír medidas, en especial la medida de Lebesgue.</p>
+<div id="preliminares" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Preliminares<a href="construyendo-una-medida.html#preliminares" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<span id="def:unnamed-chunk-8" class="definition"><strong>Definición 2.1  </strong></span>Sea <span class="math inline">\((x_{n})_{n\geq 1}\)</span> una sucesiÓn de nÚmeros reales. El <em>límite superior</em> de <span class="math inline">\((x_{n})_{n\geq 1}\)</span> es <span class="math display">\[\limsup_{n\to\infty} x_{n}=\inf_{n\geq 1}\sup_{k\geq n} x_{k}\]</span> y el <em>límite inferior</em> de <span class="math inline">\((x_{n})_{n\geq 1}\)</span> es <span class="math display">\[\liminf_{n\to\infty} x_{n}=\sup_{n\geq 1}\inf_{k\geq n} x_{k}.\]</span>
+<p><span id="def:unnamed-chunk-3" class="definition"><strong>Definición 2.1  </strong></span>Sea <span class="math inline">\((x_{n})_{n\geq 1}\)</span> una sucesiÓn de nÚmeros reales. El <em>límite superior</em> de <span class="math inline">\((x_{n})_{n\geq 1}\)</span> es <span class="math display">\[\limsup_{n\to\infty} x_{n}=\inf_{n\geq 1}\sup_{k\geq n} x_{k}\]</span> y el <em>límite inferior</em> de <span class="math inline">\((x_{n})_{n\geq 1}\)</span> es <span class="math display">\[\liminf_{n\to\infty} x_{n}=\sup_{n\geq 1}\inf_{k\geq n} x_{k}.\]</span></p>
 </div>
-
 <p>También se pueden denotar <span class="math inline">\(\overline{\lim_{n} x_{n}}\)</span> al límite superior y <span class="math inline">\(\underline{\lim_{n} x_{n}}\)</span> al límite inferior.</p>
 <p>Note que <span class="math inline">\(\sup_{k\geq n} x_{k}\)</span> y <span class="math inline">\(\inf_{k\geq n}\)</span> son sucesiones monótonas, luego toda sucesión de números reales tiene límite superior e inferior aunque pueden no ser finitos, es decir, valer <span class="math inline">\(\pm\infty\)</span>.</p>
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Recuerde que: (a) Sea <span class="math inline">\(l\neq\mp\infty\)</span>, entonces <span class="math inline">\(l=\limsup_{n\to\infty} x_{n}\)</span> si y solo si: i. para todo <span class="math inline">\(\epsilon&gt;0\)</span>, existe <span class="math inline">\(N\in\mathbb{N}\)</span> tal que si <span class="math inline">\(n&gt;N\)</span> entonces <span class="math inline">\(x_{n}&lt;l+\epsilon\)</span>. ii. para todo <span class="math inline">\(\epsilon&gt;0\)</span> y para todo <span class="math inline">\(m\in\mathbb{N}\)</span>, existe <span class="math inline">\(n&gt;m\)</span> tal que <span class="math inline">\(x_{n}&gt;l+\epsilon\)</span>. (b) Sea <span class="math inline">\(l=+\infty\)</span>, entonces <span class="math inline">\(l=\limsup_{n\to\infty} x_{n}\)</span> si y solo si para todo <span class="math inline">\(\lambda\in\mathbb{R}^{+}\)</span> y para todo <span class="math inline">\(N\in\mathbb{N}\)</span>, existe <span class="math inline">\(n\in\mathbb{N}\)</span> tal que <span class="math inline">\(x_{n}&gt;\lambda\)</span>. (c) Sea <span class="math inline">\(l=-\infty\)</span>, entonces <span class="math inline">\(l=\limsup_{n\to\infty} x_{n}\)</span> si y solo si <span class="math inline">\(\lim_{n\to\infty}x_{n}=-\infty\)</span>. De forma análoga, para límite inferior. Además, recordemos que: (a) <span class="math inline">\(\liminf_{n\to\infty} x_{n}\leq \limsup_{n\to\infty} x_{n}\)</span>. (b) La sucesión <span class="math inline">\((x_{n})_{n}\)</span> converge a <span class="math inline">\(l\neq\mp\infty\)</span> si y solo si <span class="math inline">\(\liminf_{n\to\infty} x_{n}= \limsup_{n\to\infty} x_{n}=\lim_{n\to\infty} x_{n}\)</span>. (c) La sucesión converge a <span class="math inline">\(\mp\infty\)</span> si y solo si <span class="math inline">\(\liminf_{n\to\infty} x_{n}= \limsup_{n\to\infty} x_{n}=\mp\infty\)</span>.</p>
+<p><span id="unlabeled-div-1" class="remark"><em>Nota</em>. </span>Recuerde que:
+(a) Sea <span class="math inline">\(l\neq\mp\infty\)</span>, entonces <span class="math inline">\(l=\limsup_{n\to\infty} x_{n}\)</span> si y solo si:
+i. para todo <span class="math inline">\(\epsilon&gt;0\)</span>, existe <span class="math inline">\(N\in\mathbb{N}\)</span> tal que si <span class="math inline">\(n&gt;N\)</span> entonces <span class="math inline">\(x_{n}&lt;l+\epsilon\)</span>.
+ii. para todo <span class="math inline">\(\epsilon&gt;0\)</span> y para todo <span class="math inline">\(m\in\mathbb{N}\)</span>, existe <span class="math inline">\(n&gt;m\)</span> tal que <span class="math inline">\(x_{n}&gt;l+\epsilon\)</span>.
+(b) Sea <span class="math inline">\(l=+\infty\)</span>, entonces <span class="math inline">\(l=\limsup_{n\to\infty} x_{n}\)</span> si y solo si para todo <span class="math inline">\(\lambda\in\mathbb{R}^{+}\)</span> y para todo <span class="math inline">\(N\in\mathbb{N}\)</span>, existe <span class="math inline">\(n\in\mathbb{N}\)</span> tal que <span class="math inline">\(x_{n}&gt;\lambda\)</span>.
+(c) Sea <span class="math inline">\(l=-\infty\)</span>, entonces <span class="math inline">\(l=\limsup_{n\to\infty} x_{n}\)</span> si y solo si <span class="math inline">\(\lim_{n\to\infty}x_{n}=-\infty\)</span>.
+De forma análoga, para límite inferior.
+Además, recordemos que:
+(a) <span class="math inline">\(\liminf_{n\to\infty} x_{n}\leq \limsup_{n\to\infty} x_{n}\)</span>.
+(b) La sucesión <span class="math inline">\((x_{n})_{n}\)</span> converge a <span class="math inline">\(l\neq\mp\infty\)</span> si y solo si <span class="math inline">\(\liminf_{n\to\infty} x_{n}= \limsup_{n\to\infty} x_{n}=\lim_{n\to\infty} x_{n}\)</span>.
+(c) La sucesión converge a <span class="math inline">\(\mp\infty\)</span> si y solo si <span class="math inline">\(\liminf_{n\to\infty} x_{n}= \limsup_{n\to\infty} x_{n}=\mp\infty\)</span>.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-10" class="example"><strong>Ejemplo 2.1  </strong></span>La sucesión <span class="math inline">\(x_{n}=(-1)^{n}\)</span>, no tiene límite. Note que <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=1\)</span>, por lo tanto <span class="math inline">\(\limsup_{n\to\infty} x_{n}=\inf_{n\geq 1} a_{n}=1\)</span>; y <span class="math inline">\(b_{n}=\inf_{k\geq n} x_{k}=-1\)</span>, por lo tanto <span class="math inline">\(\liminf_{n\to\infty} x_{n}=\inf_{n\geq 1} b_{n}=-1\)</span>.</p>
+<p><span id="exm:unnamed-chunk-5" class="example"><strong>Ejemplo 2.1  </strong></span>La sucesión <span class="math inline">\(x_{n}=(-1)^{n}\)</span>, no tiene límite. Note que <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=1\)</span>, por lo tanto <span class="math inline">\(\limsup_{n\to\infty} x_{n}=\inf_{n\geq 1} a_{n}=1\)</span>; y <span class="math inline">\(b_{n}=\inf_{k\geq n} x_{k}=-1\)</span>, por lo tanto <span class="math inline">\(\liminf_{n\to\infty} x_{n}=\inf_{n\geq 1} b_{n}=-1\)</span>.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-11" class="example"><strong>Ejemplo 2.2  </strong></span>Definamos <span class="math inline">\(x_{n}=n\)</span> si <span class="math inline">\(n\)</span> es par y <span class="math inline">\(x_{n}=0\)</span> si <span class="math inline">\(n\)</span> es impar. Luego <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=\infty\)</span> y <span class="math inline">\(b_{n}=\inf_{k\geq n}x_{k}=0\)</span>. Por lo tanto, <span class="math inline">\(\limsup_{n\to\infty} x_{n}=\infty\)</span> y <span class="math inline">\(\liminf_{n\to\infty} x_{n}=0\)</span>. De donde concluímos que el límite de <span class="math inline">\((x_{n})_{n}\)</span> no existe.</p>
+<p><span id="exm:unnamed-chunk-6" class="example"><strong>Ejemplo 2.2  </strong></span>Definamos <span class="math inline">\(x_{n}=n\)</span> si <span class="math inline">\(n\)</span> es par y <span class="math inline">\(x_{n}=0\)</span> si <span class="math inline">\(n\)</span> es impar. Luego <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=\infty\)</span> y <span class="math inline">\(b_{n}=\inf_{k\geq n}x_{k}=0\)</span>. Por lo tanto, <span class="math inline">\(\limsup_{n\to\infty} x_{n}=\infty\)</span> y <span class="math inline">\(\liminf_{n\to\infty} x_{n}=0\)</span>. De donde concluímos que el límite de <span class="math inline">\((x_{n})_{n}\)</span> no existe.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-12" class="example"><strong>Ejemplo 2.3  </strong></span>Sea <span class="math inline">\((x_{n})_{n}\)</span> definida por <span class="math inline">\(x_{n}=\tan^{2}(n(\pi/4))\)</span>. Sean <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=\infty\)</span> y <span class="math inline">\(b_{n}=\inf_{k\geq n} x_{k}=0\)</span>. Entonces, <span class="math inline">\(\limsup_{n\to\infty} x_{n}=\infty\)</span> y <span class="math inline">\(\liminf_{n\to\infty} x_{n}=0\)</span>.</p>
+<p><span id="exm:unnamed-chunk-7" class="example"><strong>Ejemplo 2.3  </strong></span>Sea <span class="math inline">\((x_{n})_{n}\)</span> definida por <span class="math inline">\(x_{n}=\tan^{2}(n(\pi/4))\)</span>. Sean <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=\infty\)</span> y <span class="math inline">\(b_{n}=\inf_{k\geq n} x_{k}=0\)</span>. Entonces, <span class="math inline">\(\limsup_{n\to\infty} x_{n}=\infty\)</span> y <span class="math inline">\(\liminf_{n\to\infty} x_{n}=0\)</span>.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-13" class="example"><strong>Ejemplo 2.4  </strong></span>Sea <span class="math inline">\(x_{n}=\sec(n(\pi/2))\)</span>. Sean <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=\infty\)</span> y <span class="math inline">\(b_{n}=\inf_{k\geq n} x_{k}=-\infty\)</span>, de donde <span class="math inline">\(\overline{\lim_{n} x_{n}}=\infty\)</span> y <span class="math inline">\(\underline{\lim_{n} x_{n}}=-\infty\)</span>.</p>
+<p><span id="exm:unnamed-chunk-8" class="example"><strong>Ejemplo 2.4  </strong></span>Sea <span class="math inline">\(x_{n}=\sec(n(\pi/2))\)</span>. Sean <span class="math inline">\(a_{n}=\sup_{k\geq n} x_{k}=\infty\)</span> y <span class="math inline">\(b_{n}=\inf_{k\geq n} x_{k}=-\infty\)</span>, de donde <span class="math inline">\(\overline{\lim_{n} x_{n}}=\infty\)</span> y <span class="math inline">\(\underline{\lim_{n} x_{n}}=-\infty\)</span>.</p>
 </div>
-
-<p>También podemos definir suseciones de conjuntos y considerar sus límites, como veremos a continación. Recordemaos que dado un conjunto cualquiera <span class="math inline">\(\omega\)</span>, el <em>conjunto de partes</em> de <span class="math inline">\(\Omega\)</span>, es el conjunto formado por todos los subconjuntos de <span class="math inline">\(\Omega\)</span> y se denota por <span class="math inline">\(\wp(\Omega)\)</span>. Esto es <span class="math inline">\(\wp(\Omega)=\{A| A\subseteq \Omega\}\)</span>. Diremos que un subconjunto <span class="math inline">\(\mathcal{C}\)</span> de <span class="math inline">\(\wp(\omega)\)</span>, es una <em>familia de subconjuntos</em> de <span class="math inline">\(\Omega\)</span>, es decir, <span class="math inline">\(\mathcal{C}\subseteq\wp(\Omega)\)</span>. En esta parte, supondremos que <span class="math inline">\(\mathcal{C}\neq\emptyset\)</span>, salvo se indique lo contrario. Denotaremos por <span class="math inline">\(\bigcap\mathcal{C}\)</span> al conjunto de la intersección de todos los elementos de <span class="math inline">\(\mathcal{C}\)</span>, es decir, <span class="math inline">\(\bigcap\mathcal{C}=\bigcap_{A\in\mathcal{C}} A\)</span>. Análogamente, <span class="math inline">\(\bigcup\mathcal{C}\)</span> al conjunto de la unión de todos los elementos de <span class="math inline">\(\mathcal{C}\)</span>, es decir, <span class="math inline">\(\bigcap\mathcal{C}=\bigcap_{A\in\mathcal{C}} A\)</span>. Usaremos la notación <span class="math inline">\((A_{n})_{n\in\mathbb{N}}\)</span> (o <span class="math inline">\((A_{n})_{n=1}^{\infty}\)</span> o <span class="math inline">\((A_{n})_{n\geq 1}\)</span> o simplemente <span class="math inline">\((A_{n})\)</span>) para denotar la <em>sucesión de conjuntos</em> <span class="math inline">\(A_{1}, A_{2},\cdots\)</span> También se podrá usar la notación <span class="math inline">\((A_{n})_{n\geq 1}\subseteq\wp(\Omega)\)</span> para expresar que la sucesión está formada por subconjuntos de <span class="math inline">\(\Omega\)</span>.</p>
-
+<p>También podemos definir suseciones de conjuntos y considerar sus límites, como veremos a continación.
+Recordemaos que dado un conjunto cualquiera <span class="math inline">\(\omega\)</span>, el <em>conjunto de partes</em> de <span class="math inline">\(\Omega\)</span>, es el conjunto formado por todos los subconjuntos de <span class="math inline">\(\Omega\)</span> y se denota por <span class="math inline">\(\wp(\Omega)\)</span>. Esto es <span class="math inline">\(\wp(\Omega)=\{A| A\subseteq \Omega\}\)</span>. Diremos que un subconjunto <span class="math inline">\(\mathcal{C}\)</span> de <span class="math inline">\(\wp(\omega)\)</span>, es una <em>familia de subconjuntos</em> de <span class="math inline">\(\Omega\)</span>, es decir, <span class="math inline">\(\mathcal{C}\subseteq\wp(\Omega)\)</span>. En esta parte, supondremos que <span class="math inline">\(\mathcal{C}\neq\emptyset\)</span>, salvo se indique lo contrario. Denotaremos por <span class="math inline">\(\bigcap\mathcal{C}\)</span> al conjunto de la intersección de todos los elementos de <span class="math inline">\(\mathcal{C}\)</span>, es decir, <span class="math inline">\(\bigcap\mathcal{C}=\bigcap_{A\in\mathcal{C}} A\)</span>. Análogamente, <span class="math inline">\(\bigcup\mathcal{C}\)</span> al conjunto de la unión de todos los elementos de <span class="math inline">\(\mathcal{C}\)</span>, es decir, <span class="math inline">\(\bigcap\mathcal{C}=\bigcap_{A\in\mathcal{C}} A\)</span>. Usaremos la notación <span class="math inline">\((A_{n})_{n\in\mathbb{N}}\)</span> (o <span class="math inline">\((A_{n})_{n=1}^{\infty}\)</span> o <span class="math inline">\((A_{n})_{n\geq 1}\)</span> o simplemente <span class="math inline">\((A_{n})\)</span>) para denotar la <em>sucesión de conjuntos</em> <span class="math inline">\(A_{1}, A_{2},\cdots\)</span> También se podrá usar la notación <span class="math inline">\((A_{n})_{n\geq 1}\subseteq\wp(\Omega)\)</span> para expresar que la sucesión está formada por subconjuntos de <span class="math inline">\(\Omega\)</span>.</p>
 <div class="example">
 <p><span id="exm:ejemplo17" class="example"><strong>Ejemplo 2.5  </strong></span>Consideremos los intervalos <span class="math inline">\(A_{n}=[-n,n]\)</span> para cada <span class="math inline">\(n\in\mathbb{N}\)</span>. Estos definen la sucesión <span class="math inline">\(\{[-1,1], [-2,2],\cdots, [-n,n],\cdots\}\)</span>.</p>
 </div>
-
-
 <div class="example">
 <p><span id="exm:ejemplo18" class="example"><strong>Ejemplo 2.6  </strong></span>Definimos los siguientes subconjuntos de números reales: $A_{n}=( -1,1/n) $ para todo <span class="math inline">\(n\in\mathbb{N}\)</span>. Esta es la sucesión <span class="math inline">\(\{(-1,1), ( -1,1/2) ,\cdots, ( -1,1/n) ,\cdots\}\)</span>.</p>
 </div>
-
-
 <div class="example">
-<span id="exm:ejemplo19" class="example"><strong>Ejemplo 2.7  </strong></span>Sea <span class="math inline">\(A_{n}=\{r\in\mathbb{Z}:r \mbox{ es múltiplo de } n\}\)</span> para cada <span class="math inline">\(n\geq 1\)</span>. Estos subconjuntos forman la sucesión de conjuntos <span class="math display">\[\begin{array}{rl}
+<p><span id="exm:ejemplo19" class="example"><strong>Ejemplo 2.7  </strong></span>Sea <span class="math inline">\(A_{n}=\{r\in\mathbb{Z}:r \mbox{ es múltiplo de } n\}\)</span> para cada <span class="math inline">\(n\geq 1\)</span>. Estos subconjuntos forman la sucesión de conjuntos
+<span class="math display">\[\begin{array}{rl}
 A_{1}&amp;=\{\cdots, -2,-1,0,1,2,\cdots\}\\
 A_{2}&amp;=\{\cdots,-4,-2,0,2,4,\cdots\}\\
 \vdots&amp;\\
 A_{n}&amp;=\{\cdots,-3n,-2n,-n,0,n,2n,3n,\cdots\}\\
 \vdots&amp;
-\end{array}\]</span>
+\end{array}\]</span></p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-14" class="definition"><strong>Definición 2.2  </strong></span>Una sucesión <span class="math inline">\((A_{n})_{n\geq 1}\)</span> es una sucesión <em>monótona creciente (</em>monótona decreciente<em>) si para todo <span class="math inline">\(n\geq 1\)</span>, se tiene que <span class="math inline">\(A_{n}\subseteq A_{n+1}\)</span> (<span class="math inline">\(A_{n}\supseteq A_{n+1}\)</span>) y se denota <span class="math inline">\(A_{n}\downarrow\)</span>. Diremos que una sucesión es </em>monótona* si es monótona creciente o monótona decreciente.</p>
+<p><span id="def:unnamed-chunk-9" class="definition"><strong>Definición 2.2  </strong></span>Una sucesión <span class="math inline">\((A_{n})_{n\geq 1}\)</span> es una sucesión <em>monótona creciente (</em>monótona decreciente<em>) si para todo <span class="math inline">\(n\geq 1\)</span>, se tiene que <span class="math inline">\(A_{n}\subseteq A_{n+1}\)</span> (<span class="math inline">\(A_{n}\supseteq A_{n+1}\)</span>) y se denota <span class="math inline">\(A_{n}\downarrow\)</span>. Diremos que una sucesión es </em>monótona* si es monótona creciente o monótona decreciente.</p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Sea <span class="math inline">\((A_{n})\)</span> una sucesión monótona.</p>
+<p><span id="unlabeled-div-2" class="remark"><em>Nota</em>. </span>Sea <span class="math inline">\((A_{n})\)</span> una sucesión monótona.</p>
 <ol style="list-style-type: decimal">
 <li><p>Si <span class="math inline">\(A_{n}\uparrow\)</span>, entonces <span class="math inline">\(A=\bigcup_{n\geq 1} A_{n}\)</span> es el límite de <span class="math inline">\((A_{n})\)</span> y se denota <span class="math inline">\(\lim_{n} A_{n}=A\)</span> o por <span class="math inline">\(A_{n}\uparrow A\)</span>, esto último también se lee <span class="math inline">\(A_{n}\)</span> crece a <span class="math inline">\(A\)</span>.</p></li>
-<li>Si <span class="math inline">\(A_{n}\downarrow\)</span>, entonces <span class="math inline">\(A=\bigcap_{n\geq 1} A_{n}\)</span> es el límite de <span class="math inline">\((A_{n})\)</span> y se denota <span class="math inline">\(\lim_{n} A_{n}=A\)</span> o por <span class="math inline">\(A_{n}\downarrow A\)</span>, esto último tambin se lee <span class="math inline">\(A_{n}\)</span> decrece a <span class="math inline">\(A\)</span>. Para una sucesión cualquiera <span class="math inline">\((A_{n})\)</span>, las sucesiones <span class="math inline">\(B_{n}=\bigcap_{k\geq n} A_{k}\)</span> y <span class="math inline">\(C_{n}=\bigcup_{k\geq n} A_{k}\)</span>, son sucesiones monótonas, creciente y decreciente respectivamente. Por lo que los límites de estas sucesiones existen. Y son <span class="math inline">\(\lim_{n} B_{n}=\bigcup_{n\geq 1} B_{n}\)</span> ya que <span class="math inline">\(B_{n}\uparrow\)</span> y <span class="math inline">\(\lim_{n} C_{n}=\bigcap_{n\geq 1} C_{n}\)</span> ya que <span class="math inline">\(B_{n}\downarrow\)</span>.</li>
+<li><p>Si <span class="math inline">\(A_{n}\downarrow\)</span>, entonces <span class="math inline">\(A=\bigcap_{n\geq 1} A_{n}\)</span> es el límite de <span class="math inline">\((A_{n})\)</span> y se denota <span class="math inline">\(\lim_{n} A_{n}=A\)</span> o por <span class="math inline">\(A_{n}\downarrow A\)</span>, esto último tambin se lee <span class="math inline">\(A_{n}\)</span> decrece a <span class="math inline">\(A\)</span>.
+Para una sucesión cualquiera <span class="math inline">\((A_{n})\)</span>, las sucesiones <span class="math inline">\(B_{n}=\bigcap_{k\geq n} A_{k}\)</span> y <span class="math inline">\(C_{n}=\bigcup_{k\geq n} A_{k}\)</span>, son sucesiones monótonas, creciente y decreciente respectivamente. Por lo que los límites de estas sucesiones existen. Y son <span class="math inline">\(\lim_{n} B_{n}=\bigcup_{n\geq 1} B_{n}\)</span> ya que <span class="math inline">\(B_{n}\uparrow\)</span> y <span class="math inline">\(\lim_{n} C_{n}=\bigcap_{n\geq 1} C_{n}\)</span> ya que <span class="math inline">\(B_{n}\downarrow\)</span>.</p></li>
 </ol>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-16" class="definition"><strong>Definición 2.3  </strong></span>Sea <span class="math inline">\((A_{n})_{n\geq 1}\)</span> una sucesión. Decimos que el <em>límite inferior</em> de <span class="math inline">\((A_{n})_{n}\)</span> es el límite de la sucesión <span class="math inline">\(B_{n}=\bigcap_{k\geq n} A_{k}\)</span>, es decir <span class="math inline">\(\liminf_{n\geq 1} A_{n}:=\lim_{n\geq 1} B_{n}=\bigcup_{n\geq 1} B_{n}=\bigcup_{n\geq 1} \bigcap_{k\geq n} A_{n}\)</span>. De forma análoga, decimos que el <em>límite superior</em> de <span class="math inline">\((A_{n})_{n}\)</span> es el límite de la sucesión <span class="math inline">\(C_{n}=\bigcup_{k\geq n} A_{k}\)</span>, es decir <span class="math inline">\(\limsup_{n\geq 1} A_{n}:=\lim_{n\geq 1} C_{n}=\bigcap_{n\geq 1} C_{n}=\bigcap_{n\geq 1} \bigcup_{k\geq n} A_{n}\)</span>. Si <span class="math inline">\(\liminf_{n\geq 1} A_{n}=\limsup_{n\geq 1} A_{n}\)</span>. Decimos que <span class="math inline">\((A_{n})\)</span> <em>tiene límite</em> y escribimos <span class="math inline">\(\lim_{n\geq 1}A_{n}=\liminf_{n\geq 1} A_{n}=\limsup_{n\geq 1} A_{n}\)</span>.</p>
+<p><span id="def:unnamed-chunk-11" class="definition"><strong>Definición 2.3  </strong></span>Sea <span class="math inline">\((A_{n})_{n\geq 1}\)</span> una sucesión. Decimos que el <em>límite inferior</em> de <span class="math inline">\((A_{n})_{n}\)</span> es el límite de la sucesión <span class="math inline">\(B_{n}=\bigcap_{k\geq n} A_{k}\)</span>, es decir <span class="math inline">\(\liminf_{n\geq 1} A_{n}:=\lim_{n\geq 1} B_{n}=\bigcup_{n\geq 1} B_{n}=\bigcup_{n\geq 1} \bigcap_{k\geq n} A_{n}\)</span>. De forma análoga, decimos que el <em>límite superior</em> de <span class="math inline">\((A_{n})_{n}\)</span> es el límite de la sucesión <span class="math inline">\(C_{n}=\bigcup_{k\geq n} A_{k}\)</span>, es decir <span class="math inline">\(\limsup_{n\geq 1} A_{n}:=\lim_{n\geq 1} C_{n}=\bigcap_{n\geq 1} C_{n}=\bigcap_{n\geq 1} \bigcup_{k\geq n} A_{n}\)</span>. Si <span class="math inline">\(\liminf_{n\geq 1} A_{n}=\limsup_{n\geq 1} A_{n}\)</span>. Decimos que <span class="math inline">\((A_{n})\)</span> <em>tiene límite</em> y escribimos <span class="math inline">\(\lim_{n\geq 1}A_{n}=\liminf_{n\geq 1} A_{n}=\limsup_{n\geq 1} A_{n}\)</span>.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-17" class="example"><strong>Ejemplo 2.8  </strong></span>La sucesión del ejemplo <a href="construyendo-una-medida.html#exm:ejemplo17">2.5</a> es una sucesión creciente y su límite es <span class="math inline">\(\lim A_{n}=\mathbb{R}\)</span>. La sucesión del ejemplo <a href="construyendo-una-medida.html#exm:ejemplo18">2.6</a> es una sucesión decreciente y su límite es <span class="math inline">\(\lim_{n\geq 1} A_{n}=(-1,0]\)</span>.</p>
+<p><span id="exm:unnamed-chunk-12" class="example"><strong>Ejemplo 2.8  </strong></span>La sucesión del ejemplo <a href="construyendo-una-medida.html#exm:ejemplo17">2.5</a> es una sucesión creciente y su límite es <span class="math inline">\(\lim A_{n}=\mathbb{R}\)</span>.
+La sucesión del ejemplo <a href="construyendo-una-medida.html#exm:ejemplo18">2.6</a> es una sucesión decreciente y su límite es <span class="math inline">\(\lim_{n\geq 1} A_{n}=(-1,0]\)</span>.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-18" class="example"><strong>Ejemplo 2.9  </strong></span>La sucesión del ejemplo <a href="construyendo-una-medida.html#exm:ejemplo19">2.7</a> no es creciente ni decreciente. Entonces <span class="math inline">\(\liminf_{n\geq 1} A_{n}=\bigcup_{n\geq 1}\bigcap_{k\geq n} A_{n}=\{0\}\)</span> y <span class="math inline">\(\limsup_{n\geq 1} A_{n}=\bigcap_{n\geq 1}\bigcup_{k\geq n} A_{n}=\{0\}\)</span>. Luego la sucesión tiene límite y es <span class="math inline">\(\lim_{n\geq 1} A_{n}=\{0\}\)</span>.</p>
+<p><span id="exm:unnamed-chunk-13" class="example"><strong>Ejemplo 2.9  </strong></span>La sucesión del ejemplo <a href="construyendo-una-medida.html#exm:ejemplo19">2.7</a> no es creciente ni decreciente. Entonces <span class="math inline">\(\liminf_{n\geq 1} A_{n}=\bigcup_{n\geq 1}\bigcap_{k\geq n} A_{n}=\{0\}\)</span> y <span class="math inline">\(\limsup_{n\geq 1} A_{n}=\bigcap_{n\geq 1}\bigcup_{k\geq n} A_{n}=\{0\}\)</span>. Luego la sucesión tiene límite y es <span class="math inline">\(\lim_{n\geq 1} A_{n}=\{0\}\)</span>.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-19" class="example"><strong>Ejemplo 2.10  </strong></span>Sea $A_{n}=[0-(1/n),n] $, para cada <span class="math inline">\(n\geq 1\)</span>. Sea <span class="math inline">\(B_{n}=\bigcap_{k\geq n} [0-1/k,k]=(0,n]\)</span> y <span class="math inline">\(C_{n}=\bigcup_{k\geq n} [0-1/n,n]=[-1/k,\infty)\)</span>. Con lo que se tiene que <span class="math inline">\(\liminf_{n\geq 1} A_{n}=\bigcup_{n\geq 1} B_{n}=(0,\infty)\)</span> y <span class="math inline">\(\limsup_{n\geq 1} A_{n}=\bigcap_{n\geq 1} C_{n}=(0,\infty)\)</span>.</p>
+<p><span id="exm:unnamed-chunk-14" class="example"><strong>Ejemplo 2.10  </strong></span>Sea $A_{n}=[0-(1/n),n] $, para cada <span class="math inline">\(n\geq 1\)</span>. Sea <span class="math inline">\(B_{n}=\bigcap_{k\geq n} [0-1/k,k]=(0,n]\)</span> y <span class="math inline">\(C_{n}=\bigcup_{k\geq n} [0-1/n,n]=[-1/k,\infty)\)</span>. Con lo que se tiene que <span class="math inline">\(\liminf_{n\geq 1} A_{n}=\bigcup_{n\geq 1} B_{n}=(0,\infty)\)</span> y <span class="math inline">\(\limsup_{n\geq 1} A_{n}=\bigcap_{n\geq 1} C_{n}=(0,\infty)\)</span>.</p>
 </div>
-
-
 <div class="example">
-<span id="exm:unnamed-chunk-20" class="example"><strong>Ejemplo 2.11  </strong></span>Sea <span class="math inline">\(A_{n}=(r+ 1/n, s+ 1/r)\)</span> para cada <span class="math inline">\(n\geq 1\)</span> y <span class="math inline">\(r\)</span> y <span class="math inline">\(s\)</span> números reales cualesquiera. Entonces <span class="math display">\[\liminf_{n\geq 1} A_{n}=\bigcup_{n\geq 1}\bigcap_{k\geq n} A_{n}=\bigcup_{n\geq 1} (r+ 1/n, s]=(r,s]\]</span> y <span class="math display">\[\limsup_{n\geq 1} A_{n}=\bigcap_{n\geq 1}\bigcup_{k\geq n} A_{n}=\bigcap_{n\geq 1} (r, s+ 1/n)=(r,s].\]</span>
+<p><span id="exm:unnamed-chunk-15" class="example"><strong>Ejemplo 2.11  </strong></span>Sea <span class="math inline">\(A_{n}=(r+ 1/n, s+ 1/r)\)</span> para cada <span class="math inline">\(n\geq 1\)</span> y <span class="math inline">\(r\)</span> y <span class="math inline">\(s\)</span> números reales cualesquiera. Entonces <span class="math display">\[\liminf_{n\geq 1} A_{n}=\bigcup_{n\geq 1}\bigcap_{k\geq n} A_{n}=\bigcup_{n\geq 1} (r+ 1/n, s]=(r,s]\]</span> y <span class="math display">\[\limsup_{n\geq 1} A_{n}=\bigcap_{n\geq 1}\bigcup_{k\geq n} A_{n}=\bigcap_{n\geq 1} (r, s+ 1/n)=(r,s].\]</span></p>
 </div>
-
-
 <div class="definition">
-<span id="def:unnamed-chunk-21" class="definition"><strong>Definición 2.4  </strong></span>Sea <span class="math inline">\(A\)</span> un subconjunto de <span class="math inline">\(\Omega\)</span>. La <em>función característica</em> (o <em>función indicatriz</em> o <em>indicadora</em>) de <span class="math inline">\(A\)</span> es la función <span class="math inline">\(\chi_{A}:\Omega\longrightarrow \{0,1\}\)</span>, definida por: <span class="math display">\[\chi_{A}=\left\lbrace \begin{array}{cc}
+<p><span id="def:unnamed-chunk-16" class="definition"><strong>Definición 2.4  </strong></span>Sea <span class="math inline">\(A\)</span> un subconjunto de <span class="math inline">\(\Omega\)</span>. La <em>función característica</em> (o <em>función indicatriz</em> o <em>indicadora</em>) de <span class="math inline">\(A\)</span> es la función <span class="math inline">\(\chi_{A}:\Omega\longrightarrow \{0,1\}\)</span>, definida por:
+<span class="math display">\[\chi_{A}=\left\lbrace \begin{array}{cc}
     1&amp;\mbox{ si } x\in A\\
     0&amp;\mbox{ si } x\notin A
-    \end{array}\right.\]</span>
+    \end{array}\right.\]</span></p>
 </div>
-
 <p>También se suele denotar con <span class="math inline">\(\mathbb{I}_{A}\)</span>.</p>
 <p>Veamos algunas propiedades de la función característica:</p>
-
 <div class="proposition">
-<span id="prp:unnamed-chunk-22" class="proposition"><strong>Proposición 2.1  </strong></span><span class="math inline">\(\chi_{A}\)</span> es sobreyectiva si y solo si <span class="math inline">\(A\)</span> es un subconjunto propio de <span class="math inline">\(\Omega\)</span>.
+<p><span id="prp:unnamed-chunk-17" class="proposition"><strong>Proposición 2.1  </strong></span><span class="math inline">\(\chi_{A}\)</span> es sobreyectiva si y solo si <span class="math inline">\(A\)</span> es un subconjunto propio de <span class="math inline">\(\Omega\)</span>.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> <span class="math inline">\(\chi_{A}\)</span> es sobreyectiva si y solo si existen <span class="math inline">\(x, y\in \Omega\)</span> tales que <span class="math inline">\(\chi_{A}(x)=0\)</span> y <span class="math inline">\(\chi_{A}(y)=1\)</span> si y solo si <span class="math inline">\(x\notin A\)</span> y <span class="math inline">\(y\in A\)</span>, equivalentemente <span class="math inline">\(A\subseteq \Omega\)</span> y <span class="math inline">\(A\neq \Omega\)</span>.</p>
+<p><span id="unlabeled-div-3" class="proof"><em>Demostración</em>. </span><span class="math inline">\(\chi_{A}\)</span> es sobreyectiva si y solo si existen <span class="math inline">\(x, y\in \Omega\)</span> tales que <span class="math inline">\(\chi_{A}(x)=0\)</span> y <span class="math inline">\(\chi_{A}(y)=1\)</span> si y solo si <span class="math inline">\(x\notin A\)</span> y <span class="math inline">\(y\in A\)</span>, equivalentemente <span class="math inline">\(A\subseteq \Omega\)</span> y <span class="math inline">\(A\neq \Omega\)</span>.</p>
 </div>
-
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-24" class="proposition"><strong>Proposición 2.2  </strong></span>Sean <span class="math inline">\(A, B\subseteq \Omega\)</span>, entonces:</p>
+<p><span id="prp:unnamed-chunk-19" class="proposition"><strong>Proposición 2.2  </strong></span>Sean <span class="math inline">\(A, B\subseteq \Omega\)</span>, entonces:</p>
 <p>[i.] <span class="math inline">\(\chi_{A\cap B}=\min\{\chi_{A},\chi_{B}\}=\chi_{A}\chi_{B}\)</span>,</p>
 <p>[ii.] <span class="math inline">\(\chi_{A^{c}}=1-\chi_{A}\)</span>,</p>
 <p>[iii.] <span class="math inline">\(\chi_{A\cup B}=\max\{\chi_{A},\chi_{B}\}=\chi_{A}+\chi_{B}-\chi_{A}\chi_{B}\)</span>,</p>
 <p>[iv.] <span class="math inline">\(\chi_{A-B}=\chi_{A}-\chi_{A}\chi_{B}\)</span>,</p>
 <p>[v.] <span class="math inline">\(\chi_{A\bigtriangleup B}=\chi_{A}+\chi_{B}-2\chi_{A}\chi_{B}\)</span>.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Sean <span class="math inline">\(A, B\subseteq \Omega\)</span> conjuntos cualesquiera. Para demostrar <span class="math inline">\(i.\)</span> basta notar que <span class="math inline">\(x\in A\cap B\)</span> si y solo si <span class="math inline">\(x\in A\)</span> y <span class="math inline">\(x\in B\)</span> y que <span class="math inline">\(x\notin A\cap B\)</span> si y solo si <span class="math inline">\(x\notin A\)</span> o <span class="math inline">\(x\notin B\)</span>. De donde se tiene fácilmente las igualdades. Como <span class="math inline">\(x\in A^{c}\)</span> si y solo si <span class="math inline">\(x\notin A\)</span>, es fácil ver que <span class="math inline">\(\chi_{A^{c}}=1-\chi_{A}\)</span>. Si <span class="math inline">\(x\in A\cup B\)</span>, entonces <span class="math inline">\(x\in A\)</span> o <span class="math inline">\(x\in B\)</span>. En el caso que <span class="math inline">\(x\notin A\cap B\)</span>, se tiene que <span class="math inline">\(\max\{\chi_{A},\chi_{B} \}=1\)</span> y <span class="math inline">\(\chi_{A} + \chi_{B} -\chi_{A}\chi_{B}=1\)</span>. El caso <span class="math inline">\(x\in A\cap B\)</span>, se tiene que <span class="math inline">\(\max\{\chi_{A},\chi_{B} \}=1\)</span> y <span class="math inline">\(\chi_{A} + \chi_{B} -\chi_{A}\chi_{B}=2-1=1\)</span>. Además, si <span class="math inline">\(x\notin A\cup B\)</span> entonces <span class="math inline">\(\chi_{A}=0\)</span> y <span class="math inline">\(\chi_{B}\)</span>, de donde se sigue el resultado. Escribiendo <span class="math inline">\(A\backslash B=A\cap B^{c}\)</span> y <span class="math inline">\(A\bigtriangleup B=(A\cup B)\backslash(A\cup B)\)</span> se siguen los resultados <span class="math inline">\(iv\)</span> y <span class="math inline">\(v\)</span>.</p>
+<p><span id="unlabeled-div-4" class="proof"><em>Demostración</em>. </span>Sean <span class="math inline">\(A, B\subseteq \Omega\)</span> conjuntos cualesquiera.
+Para demostrar <span class="math inline">\(i.\)</span> basta notar que <span class="math inline">\(x\in A\cap B\)</span> si y solo si <span class="math inline">\(x\in A\)</span> y <span class="math inline">\(x\in B\)</span> y que <span class="math inline">\(x\notin A\cap B\)</span> si y solo si <span class="math inline">\(x\notin A\)</span> o <span class="math inline">\(x\notin B\)</span>. De donde se tiene fácilmente las igualdades.
+Como <span class="math inline">\(x\in A^{c}\)</span> si y solo si <span class="math inline">\(x\notin A\)</span>, es fácil ver que <span class="math inline">\(\chi_{A^{c}}=1-\chi_{A}\)</span>.
+Si <span class="math inline">\(x\in A\cup B\)</span>, entonces <span class="math inline">\(x\in A\)</span> o <span class="math inline">\(x\in B\)</span>. En el caso que <span class="math inline">\(x\notin A\cap B\)</span>, se tiene que <span class="math inline">\(\max\{\chi_{A},\chi_{B} \}=1\)</span> y <span class="math inline">\(\chi_{A} + \chi_{B} -\chi_{A}\chi_{B}=1\)</span>. El caso <span class="math inline">\(x\in A\cap B\)</span>, se tiene que <span class="math inline">\(\max\{\chi_{A},\chi_{B} \}=1\)</span> y <span class="math inline">\(\chi_{A} + \chi_{B} -\chi_{A}\chi_{B}=2-1=1\)</span>. Además, si <span class="math inline">\(x\notin A\cup B\)</span> entonces <span class="math inline">\(\chi_{A}=0\)</span> y <span class="math inline">\(\chi_{B}\)</span>, de donde se sigue el resultado.
+Escribiendo <span class="math inline">\(A\backslash B=A\cap B^{c}\)</span> y <span class="math inline">\(A\bigtriangleup B=(A\cup B)\backslash(A\cup B)\)</span> se siguen los resultados <span class="math inline">\(iv\)</span> y <span class="math inline">\(v\)</span>.</p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Si consideramos las operaciones de suma y multiplicación en <span class="math inline">\(\mathbb{Z}_{2}\)</span> (en el anillo formado por la congruencia módulo <span class="math inline">\(2\)</span> en <span class="math inline">\(\mathbb{Z}\)</span>) entonces se tiene que <span class="math inline">\(\chi_{A\bigtriangleup B}=\chi_{A}+\chi_{B}\)</span>.</p>
+<p><span id="unlabeled-div-5" class="remark"><em>Nota</em>. </span>Si consideramos las operaciones de suma y multiplicación en <span class="math inline">\(\mathbb{Z}_{2}\)</span> (en el anillo formado por la congruencia módulo <span class="math inline">\(2\)</span> en <span class="math inline">\(\mathbb{Z}\)</span>) entonces se tiene que <span class="math inline">\(\chi_{A\bigtriangleup B}=\chi_{A}+\chi_{B}\)</span>.</p>
 </div>
-
 </div>
-<div id="colecciones-de-conjuntos" class="section level2">
-<h2><span class="header-section-number">2.2</span> Colecciones de Conjuntos</h2>
-
+<div id="colecciones-de-conjuntos" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Colecciones de Conjuntos<a href="construyendo-una-medida.html#colecciones-de-conjuntos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unnamed-chunk-27" class="definition"><strong>Definición 2.5  </strong></span>Dado un espacio topológico <span class="math inline">\((X,\tau)\)</span>, decimos que <span class="math inline">\(A\subseteq X\)</span> es un conjunto <span class="math inline">\(G_{\delta}\)</span> si <span class="math inline">\(A\)</span> es intersección numerable de abiertos, esto es, <span class="math inline">\(A=\bigcap_{n\in\mathbb{N}} G_{n}\)</span> con <span class="math inline">\(G_{n}\in\tau\)</span>. Decimos que <span class="math inline">\(A\)</span> es un conjunto <span class="math inline">\(F_{\sigma}\)</span> si es unión numerable de conjuntos cerrados, esto es, <span class="math inline">\(A=\bigcup_{n\in\mathbb{N}} F_{n}\)</span> con <span class="math inline">\(F_{n}^{c}\in\tau\)</span>.</p>
+<p><span id="def:unnamed-chunk-22" class="definition"><strong>Definición 2.5  </strong></span>Dado un espacio topológico <span class="math inline">\((X,\tau)\)</span>, decimos que <span class="math inline">\(A\subseteq X\)</span> es un conjunto <span class="math inline">\(G_{\delta}\)</span> si <span class="math inline">\(A\)</span> es intersección numerable de abiertos, esto es, <span class="math inline">\(A=\bigcap_{n\in\mathbb{N}} G_{n}\)</span> con <span class="math inline">\(G_{n}\in\tau\)</span>. Decimos que <span class="math inline">\(A\)</span> es un conjunto <span class="math inline">\(F_{\sigma}\)</span> si es unión numerable de conjuntos cerrados, esto es, <span class="math inline">\(A=\bigcup_{n\in\mathbb{N}} F_{n}\)</span> con <span class="math inline">\(F_{n}^{c}\in\tau\)</span>.</p>
 </div>
-
-<p>Se pueden definir de forma análoga conjuntos <span class="math inline">\(F_{\sigma\delta}\)</span>, <span class="math inline">\(G_{\delta\sigma}\)</span>, <span class="math inline">\(F_{\sigma\delta\sigma}\)</span>, etc. Por ejemplo, <span class="math inline">\(A\)</span> es un conjunto <span class="math inline">\(F_{\sigma\delta}\)</span> si es intersecci'on numerable de conjuntos <span class="math inline">\(F_{\sigma}\)</span>.</p>
-
+<p>Se pueden definir de forma análoga conjuntos <span class="math inline">\(F_{\sigma\delta}\)</span>, <span class="math inline">\(G_{\delta\sigma}\)</span>, <span class="math inline">\(F_{\sigma\delta\sigma}\)</span>, etc.
+Por ejemplo, <span class="math inline">\(A\)</span> es un conjunto <span class="math inline">\(F_{\sigma\delta}\)</span> si es intersecci'on numerable de conjuntos <span class="math inline">\(F_{\sigma}\)</span>.</p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-28" class="example"><strong>Ejemplo 2.12  </strong></span>El conjunto de los puntos de continuidad de una función cualquiera, es un conjunto <span class="math inline">\(G_{\delta}\)</span>. Y el conjunto de puntos de discontinuidad es una función dada, es un conjunto <span class="math inline">\(F_{\sigma}\)</span>.</p>
+<p><span id="exm:unnamed-chunk-23" class="example"><strong>Ejemplo 2.12  </strong></span>El conjunto de los puntos de continuidad de una función cualquiera, es un conjunto <span class="math inline">\(G_{\delta}\)</span>.
+Y el conjunto de puntos de discontinuidad es una función dada, es un conjunto <span class="math inline">\(F_{\sigma}\)</span>.</p>
 </div>
-
-Para las siguientes definiciones, sea <span class="math inline">\(\Omega\)</span> un conjunto no vacío. Sea <span class="math inline">\(\mathcal{C}\)</span> una familia de subconjuntos de <span class="math inline">\(\Omega\)</span>. Entonces: 
-<div class="definition">
-<p><span id="def:unnamed-chunk-29" class="definition"><strong>Definición 2.6  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es un <em>semianillo</em> si</p>
+<p>Para las siguientes definiciones, sea <span class="math inline">\(\Omega\)</span> un conjunto no vacío. Sea <span class="math inline">\(\mathcal{C}\)</span> una familia de subconjuntos de <span class="math inline">\(\Omega\)</span>. Entonces:
+::: {.definition #unnamed-chunk-24}
+<span class="math inline">\(\mathcal{C}\)</span> es un <em>semianillo</em> si</p>
 <p>(i.) <span class="math inline">\(\emptyset\in\mathcal{C}\)</span>.</p>
 <p>(ii.) <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo intersecciones, es decir, <span class="math inline">\(\forall A,B\in\mathcal{C}\)</span>, <span class="math inline">\(A\cap B\in\mathcal{C}\)</span>.</p>
 <p>(iii.) <span class="math inline">\(\forall B,C\in\mathcal{C}\)</span> <span class="math inline">\(\exists (A_{k})_{1}^{n}\subseteq \mathcal{C}\)</span> disjuntos dos a dos tales que <span class="math inline">\(B-C=\bigcup_{k=1}^{n} A_{k}\)</span>.</p>
-</div>
-
-
+<p>:::</p>
 <div class="definition">
-<p><span id="def:unnamed-chunk-30" class="definition"><strong>Definición 2.7  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es un <em>semiálgebra</em> si</p>
+<p><span id="def:unnamed-chunk-25" class="definition"><strong>Definición 2.6  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es un <em>semiálgebra</em> si</p>
 <p>(i.) <span class="math inline">\(\emptyset\in\mathcal{C}\)</span>.</p>
 <p>(ii.) <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo intersecciones, es decir, <span class="math inline">\(\forall A,B\in\mathcal{C}\)</span>, <span class="math inline">\(A\cap B\in\mathcal{C}\)</span>.</p>
 <p>(iii.) <span class="math inline">\(\forall B\in\mathcal{C}\)</span> <span class="math inline">\(\exists (A_{k})_{1}^{n}\subseteq \mathcal{C}\)</span> disjuntos dos a dos tales que <span class="math inline">\(B^{c}=\bigcup_{k=1}^{n} A_{k}\)</span>.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-31" class="definition"><strong>Definición 2.8  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es un <em>anillo</em> si</p>
+<p><span id="def:unnamed-chunk-26" class="definition"><strong>Definición 2.7  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es un <em>anillo</em> si</p>
 <p>(i.) <span class="math inline">\(\emptyset\in\mathcal{C}\)</span>.</p>
 <p>(ii.) <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo intersecciones, es decir, <span class="math inline">\(\forall A,B\in\mathcal{C}\)</span>, <span class="math inline">\(A\cap B\in\mathcal{C}\)</span>.</p>
 <p>(iii.) <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo uniones, es decir, <span class="math inline">\(\forall A,B\in\mathcal{C}\)</span>, <span class="math inline">\(A\cup B\in\mathcal{C}\)</span>.</p>
 <p>(iv.) <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo diferencia de conjuntos, es decir, <span class="math inline">\(\forall A,B\in\mathcal{C}\)</span>, <span class="math inline">\(A-B\in\mathcal{C}\)</span>.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-32" class="definition"><strong>Definición 2.9  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es un <em><span class="math inline">\(\sigma\)</span>-anillo</em> si</p>
+<p><span id="def:unnamed-chunk-27" class="definition"><strong>Definición 2.8  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es un <em><span class="math inline">\(\sigma\)</span>-anillo</em> si</p>
 <p>(i.) <span class="math inline">\(\mathcal{C}\)</span> es un anillo.</p>
 <p>(ii.) <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo uniones numerables, es decir, <span class="math inline">\(\forall (A_{k})_{k=1}^{n}\subseteq\mathcal{C}\)</span>, <span class="math inline">\(\bigcup_{k=1\geq n}A_{k}\in\mathcal{C}\)</span>.</p>
 <p>(iii.) <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo intersecciones numerables, es decir, <span class="math inline">\(\forall (A_{k})_{k=1}^{n}\subseteq\mathcal{C}\)</span>, <span class="math inline">\(\bigcap_{k=1\geq n}A_{k}\in\mathcal{C}\)</span>.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-33" class="definition"><strong>Definición 2.10  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es un <em>álgebra</em> si</p>
+<p><span id="def:unnamed-chunk-28" class="definition"><strong>Definición 2.9  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es un <em>álgebra</em> si</p>
 <p>(i.) <span class="math inline">\(\mathcal{C}\)</span> es un anillo.</p>
 <p>(ii.) <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo complementación, <span class="math inline">\(\forall A\in\mathcal{C}\)</span>, <span class="math inline">\(A^{c}\in\mathcal{C}\)</span>.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-34" class="definition"><strong>Definición 2.11  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es una <em><span class="math inline">\(\sigma\)</span>-álgebra</em> si</p>
-<p>(i.) <span class="math inline">\(\mathcal{C}\)</span> es un álgera. (ii.) <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo uniones numerebles y bajo interseccines numerables.</p>
+<p><span id="def:unnamed-chunk-29" class="definition"><strong>Definición 2.10  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es una <em><span class="math inline">\(\sigma\)</span>-álgebra</em> si</p>
+<p>(i.) <span class="math inline">\(\mathcal{C}\)</span> es un álgera.
+(ii.) <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo uniones numerebles y bajo interseccines numerables.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-35" class="definition"><strong>Definición 2.12  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es una <em>clase monótona</em> si es cerrado bajo límites monótonos, es decir</p>
+<p><span id="def:unnamed-chunk-30" class="definition"><strong>Definición 2.11  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es una <em>clase monótona</em> si es cerrado bajo límites monótonos, es decir</p>
 <p>(i.) toda sucesión creciente <span class="math inline">\((A_{n})_{n\in\mathbb{N}}\subseteq \mathcal{C}\)</span>, se tiene que <span class="math inline">\(\bigcup_{n\geq 1}A_{n}\in\mathcal{C}\)</span> y</p>
 <p>(ii.) toda sucesión decreciente <span class="math inline">\((A_{n})_{n\in\mathbb{N}}\subseteq \mathcal{C}\)</span>, se tiene que <span class="math inline">\(\bigcap_{n\geq 1}A_{n}\in\mathcal{C}\)</span>.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-36" class="definition"><strong>Definición 2.13  </strong></span> <span class="math inline">\(\mathcal{C}\)</span> es un <em>sistema <span class="math inline">\(\pi\)</span></em> si es cerrado bajo intersecciones.</p>
+<p><span id="def:unnamed-chunk-31" class="definition"><strong>Definición 2.12  </strong></span></p>
+<pre><code>$\mathcal{C}$ es un *sistema $\pi$* si es cerrado bajo intersecciones.</code></pre>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-37" class="definition"><strong>Definición 2.14  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es un <em>sistema <span class="math inline">\(\lambda\)</span></em> (<em>clase-<span class="math inline">\(\sigma\)</span> aditiva</em> o <em>sistema de Dynkin</em>) si</p>
+<p><span id="def:unnamed-chunk-32" class="definition"><strong>Definición 2.13  </strong></span><span class="math inline">\(\mathcal{C}\)</span> es un <em>sistema <span class="math inline">\(\lambda\)</span></em> (<em>clase-<span class="math inline">\(\sigma\)</span> aditiva</em> o <em>sistema de Dynkin</em>) si</p>
 <p>(i.) <span class="math inline">\(\emptyset\in\mathcal{C}\)</span>.</p>
 <p>(ii.) para todo <span class="math inline">\(A,B\in\mathcal{C}\)</span>, si <span class="math inline">\(A\subseteq B\)</span>, entonces <span class="math inline">\(B\backslash A\in\mathcal{C}\)</span>.</p>
 <p>(iii.) <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo límites crecientes, es decir, para toda sucesión creciente <span class="math inline">\((A_{n})_{n\in\mathbb{N}}\subseteq \mathcal{C}\)</span>, se tiene que <span class="math inline">\(\bigcup_{n\geq 1}A_{n}\in\mathcal{C}\)</span>.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-38" class="example"><strong>Ejemplo 2.13  </strong></span>Sea <span class="math inline">\(\Omega\neq \emptyset\)</span>, <span class="math inline">\(\mathcal{C}=\{A\subseteq\Omega: A \mbox{ es finito o }A^{c} \mbox{ es finito} \}\)</span> es un álgebra. Si <span class="math inline">\(\Omega\)</span> es finito, <span class="math inline">\(\mathcal{C}\)</span> es una <span class="math inline">\(\sigma\)</span>-álgebra.</p>
+<p><span id="exm:unnamed-chunk-33" class="example"><strong>Ejemplo 2.13  </strong></span>Sea <span class="math inline">\(\Omega\neq \emptyset\)</span>, <span class="math inline">\(\mathcal{C}=\{A\subseteq\Omega: A \mbox{ es finito o }A^{c} \mbox{ es finito} \}\)</span> es un álgebra. Si <span class="math inline">\(\Omega\)</span> es finito, <span class="math inline">\(\mathcal{C}\)</span> es una <span class="math inline">\(\sigma\)</span>-álgebra.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-39" class="example"><strong>Ejemplo 2.14  </strong></span>Sea <span class="math inline">\(\Omega\neq \emptyset\)</span>. Sea <span class="math inline">\(\mathcal{C}=\{A\subseteq :A \mbox{ es numerable o } A^{c} \mbox{ numerable } \}\)</span> es una <span class="math inline">\(\sigma\)</span>-álgebra.</p>
+<p><span id="exm:unnamed-chunk-34" class="example"><strong>Ejemplo 2.14  </strong></span>Sea <span class="math inline">\(\Omega\neq \emptyset\)</span>. Sea <span class="math inline">\(\mathcal{C}=\{A\subseteq :A \mbox{ es numerable o } A^{c} \mbox{ numerable } \}\)</span> es una <span class="math inline">\(\sigma\)</span>-álgebra.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-40" class="example"><strong>Ejemplo 2.15  </strong></span>Sea <span class="math inline">\(\mathcal{I}=\{(a,b]\subseteq\mathbb{R}: a\geq b \}\)</span>. Sea <span class="math inline">\(\mathcal{C}=\left\lbrace \bigcup_{i\geq n} I_{i}:I_{i}\in \mathcal{I} \mbox{ y } n\in\mathbb{N} \right\rbrace\)</span> es un anillo pero no es un álgebra. Ahora, dado <span class="math inline">\(\tilde{\mathcal{I}}=\{(a,\infty):a\in\mathbb{R}\}\)</span>; la colección $=<em>{in} I</em>{i}:I_{i}  n$ es un álgebra pero no es una <span class="math inline">\(\sigma\)</span>-álgebra.</p>
+<p><span id="exm:unnamed-chunk-35" class="example"><strong>Ejemplo 2.15  </strong></span>Sea <span class="math inline">\(\mathcal{I}=\{(a,b]\subseteq\mathbb{R}: a\geq b \}\)</span>. Sea <span class="math inline">\(\mathcal{C}=\left\lbrace \bigcup_{i\geq n} I_{i}:I_{i}\in \mathcal{I} \mbox{ y } n\in\mathbb{N} \right\rbrace\)</span> es un anillo pero no es un álgebra.
+Ahora, dado <span class="math inline">\(\tilde{\mathcal{I}}=\{(a,\infty):a\in\mathbb{R}\}\)</span>; la colección $=<em>{in} I</em>{i}:I_{i} n$ es un álgebra pero no es una <span class="math inline">\(\sigma\)</span>-álgebra.</p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Dada una colección arbitraria de conjunto <span class="math inline">\(\mathcal{F}\)</span>, la intersección de los conjuntos de <span class="math inline">\(\mathcal{F}\)</span>, se denota <span class="math inline">\(\bigcap\mathcal{F}\)</span>.</p>
+<p><span id="unlabeled-div-6" class="remark"><em>Nota</em>. </span>Dada una colección arbitraria de conjunto <span class="math inline">\(\mathcal{F}\)</span>, la intersección de los conjuntos de <span class="math inline">\(\mathcal{F}\)</span>, se denota <span class="math inline">\(\bigcap\mathcal{F}\)</span>.</p>
 </div>
-
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-42" class="proposition"><strong>Proposición 2.3  </strong></span>La intersección arbitraria de anillos, es un anillo.</p>
+<p><span id="prp:unnamed-chunk-37" class="proposition"><strong>Proposición 2.3  </strong></span>La intersección arbitraria de anillos, es un anillo.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(I\)</span> un conjunto arbitrario de índices, sea <span class="math inline">\(\mathcal{F}=\{\mathcal{C}_{\alpha}: \alpha\in I\}\)</span> una familia de anillos. Como <span class="math inline">\(\emptyset\in\mathcal{C}_{\alpha}\)</span> para todo <span class="math inline">\(\alpha\in I\)</span>, entonces <span class="math inline">\(\emptyset\in\bigcap_{\alpha\in I} \mathcal{C}_{\alpha}\)</span>. Sean <span class="math inline">\(A, B\in \bigcup\mathcal{F}\)</span>, entonces <span class="math inline">\(A, B\in\mathcal{C}_{\alpha}\)</span> para todo <span class="math inline">\(\alpha\in I\)</span>. Como cada <span class="math inline">\(\mathcal{C}_{\alpha}\)</span> es un anillo se sigue el resultado.</p>
+<p><span id="unlabeled-div-7" class="proof"><em>Demostración</em>. </span>Sea <span class="math inline">\(I\)</span> un conjunto arbitrario de índices, sea <span class="math inline">\(\mathcal{F}=\{\mathcal{C}_{\alpha}: \alpha\in I\}\)</span> una familia de anillos. Como <span class="math inline">\(\emptyset\in\mathcal{C}_{\alpha}\)</span> para todo <span class="math inline">\(\alpha\in I\)</span>, entonces <span class="math inline">\(\emptyset\in\bigcap_{\alpha\in I} \mathcal{C}_{\alpha}\)</span>. Sean <span class="math inline">\(A, B\in \bigcup\mathcal{F}\)</span>, entonces <span class="math inline">\(A, B\in\mathcal{C}_{\alpha}\)</span> para todo <span class="math inline">\(\alpha\in I\)</span>. Como cada <span class="math inline">\(\mathcal{C}_{\alpha}\)</span> es un anillo se sigue el resultado.</p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> La proposición anterior es cierta para intersecció arbitraria de álgebras, de <span class="math inline">\(\sigma\)</span>-anillos, <span class="math inline">\(\sigma\)</span>-álgebras, clases monótonas y sistemas <span class="math inline">\(\pi\)</span>.</p>
+<p><span id="unlabeled-div-8" class="remark"><em>Nota</em>. </span>La proposición anterior es cierta para intersecció arbitraria de álgebras, de <span class="math inline">\(\sigma\)</span>-anillos, <span class="math inline">\(\sigma\)</span>-álgebras, clases monótonas y sistemas <span class="math inline">\(\pi\)</span>.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-45" class="definition"><strong>Definición 2.15  </strong></span>Dada una familia <span class="math inline">\(\mathcal{D}\)</span> de subconjuntos de <span class="math inline">\(\Omega\)</span>. La colección <span class="math inline">\(\mathcal{R}(\mathcal{D})=\bigcap\{R\subseteq\wp(\Omega): R\mbox{ es un anillo y }\mathcal{D}\subseteq R\}\)</span> es un anillo y diremos que es el .</p>
+<p><span id="def:unnamed-chunk-40" class="definition"><strong>Definición 2.14  </strong></span>Dada una familia <span class="math inline">\(\mathcal{D}\)</span> de subconjuntos de <span class="math inline">\(\Omega\)</span>. La colección <span class="math inline">\(\mathcal{R}(\mathcal{D})=\bigcap\{R\subseteq\wp(\Omega): R\mbox{ es un anillo y }\mathcal{D}\subseteq R\}\)</span> es un anillo y diremos que es el .</p>
 </div>
-
 <p>De forma análoga se define el <span class="math inline">\(\sigma\)</span>-anillo generado, el álgebra generada, el <span class="math inline">\(\sigma\)</span>-anillo generado y la clase monótona generada por una familia cualquiera <span class="math inline">\(\mathcal{D}\subseteq\wp(\Omega)\)</span>.</p>
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-46" class="example"><strong>Ejemplo 2.16  </strong></span>Sea <span class="math inline">\((\Omega,\tau)\)</span> un espacio topológico. <span class="math inline">\(\sigma(\tau)\)</span> es la sigma álgebra generada por la colección de conjuntos abiertos <span class="math inline">\(\tau\)</span>, llamada <em><span class="math inline">\(\sigma\)</span>-álgebra de Borel</em>. Suele denotarse por <span class="math inline">\(\mathcal{B}(\Omega)\)</span>. A los conjuntos que la conforman, se les llama <em>conjuntos Borelianos</em> del espacio <span class="math inline">\(\Omega\)</span>.</p>
+<p><span id="exm:unnamed-chunk-41" class="example"><strong>Ejemplo 2.16  </strong></span>Sea <span class="math inline">\((\Omega,\tau)\)</span> un espacio topológico. <span class="math inline">\(\sigma(\tau)\)</span> es la sigma álgebra generada por la colección de conjuntos abiertos <span class="math inline">\(\tau\)</span>, llamada <em><span class="math inline">\(\sigma\)</span>-álgebra de Borel</em>. Suele denotarse por <span class="math inline">\(\mathcal{B}(\Omega)\)</span>. A los conjuntos que la conforman, se les llama <em>conjuntos Borelianos</em> del espacio <span class="math inline">\(\Omega\)</span>.</p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Note que los conjuntos <span class="math inline">\(F_{\sigma}\)</span>, <span class="math inline">\(G_{\delta}\)</span>, <span class="math inline">\(F_{\sigma\delta}\)</span>, etc. son conjuntos Borelianos. Podemos considerar el espacio topológico <span class="math inline">\(\overline{\mathbb{R}}=\mathbb{R}\cup\{-\infty,\infty\}\)</span> y en este espacio definir la <span class="math inline">\(\sigma\)</span>-álgebra de Borel.</p>
+<p><span id="unlabeled-div-9" class="remark"><em>Nota</em>. </span>Note que los conjuntos <span class="math inline">\(F_{\sigma}\)</span>, <span class="math inline">\(G_{\delta}\)</span>, <span class="math inline">\(F_{\sigma\delta}\)</span>, etc. son conjuntos Borelianos.
+Podemos considerar el espacio topológico <span class="math inline">\(\overline{\mathbb{R}}=\mathbb{R}\cup\{-\infty,\infty\}\)</span> y en este espacio definir la <span class="math inline">\(\sigma\)</span>-álgebra de Borel.</p>
 </div>
-
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-48" class="proposition"><strong>Proposición 2.4  </strong></span>Sea <span class="math inline">\((\Omega, \tau)\)</span> un espacio toplológico. Sea <span class="math inline">\(\mathcal{C}\)</span> la colección de cerrados de <span class="math inline">\(\Omega\)</span>. Entonces <span class="math inline">\(\sigma(\mathcal{C})=\mathcal{B}(\Omega)\)</span>.</p>
+<p><span id="prp:unnamed-chunk-43" class="proposition"><strong>Proposición 2.4  </strong></span>Sea <span class="math inline">\((\Omega, \tau)\)</span> un espacio toplológico. Sea <span class="math inline">\(\mathcal{C}\)</span> la colección de cerrados de <span class="math inline">\(\Omega\)</span>. Entonces <span class="math inline">\(\sigma(\mathcal{C})=\mathcal{B}(\Omega)\)</span>.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Veamos que <span class="math inline">\(\tau\subseteq\sigma(\mathcal{C})\)</span>. Cada conjunto abierto <span class="math inline">\(A=(A^{c})^{c}\in\sigma(\mathcal{C})\)</span>, ya que <span class="math inline">\(A^{c}\)</span> es un cerrado. Por lo tanto <span class="math inline">\(\mathcal{B}(\Omega)\subseteq \sigma(\mathcal{C})\)</span>. Análogamente, se demuestra que <span class="math inline">\(\sigma(\mathcal{C})\subseteq\mathcal{B}(\Omega)\)</span>.</p>
+<p><span id="unlabeled-div-10" class="proof"><em>Demostración</em>. </span>Veamos que <span class="math inline">\(\tau\subseteq\sigma(\mathcal{C})\)</span>. Cada conjunto abierto <span class="math inline">\(A=(A^{c})^{c}\in\sigma(\mathcal{C})\)</span>, ya que <span class="math inline">\(A^{c}\)</span> es un cerrado. Por lo tanto <span class="math inline">\(\mathcal{B}(\Omega)\subseteq \sigma(\mathcal{C})\)</span>. Análogamente, se demuestra que <span class="math inline">\(\sigma(\mathcal{C})\subseteq\mathcal{B}(\Omega)\)</span>.</p>
 </div>
-
 <p>Recuerdemos que un espacio topológico es segundo numerable si tiene una base numerable.</p>
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-50" class="proposition"><strong>Proposición 2.5  </strong></span>Sea <span class="math inline">\((\Omega, \tau)\)</span> un espacio toplológico segundo numerable. Sea <span class="math inline">\(\mathcal{G}\)</span> una base numerable de <span class="math inline">\(\tau\)</span>. Entonces <span class="math inline">\(\sigma(\mathcal{G})=\mathcal{B}(\Omega)\)</span>.</p>
+<p><span id="prp:unnamed-chunk-45" class="proposition"><strong>Proposición 2.5  </strong></span>Sea <span class="math inline">\((\Omega, \tau)\)</span> un espacio toplológico segundo numerable. Sea <span class="math inline">\(\mathcal{G}\)</span> una base numerable de <span class="math inline">\(\tau\)</span>. Entonces <span class="math inline">\(\sigma(\mathcal{G})=\mathcal{B}(\Omega)\)</span>.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Claramente <span class="math inline">\(G\subseteq\tau\)</span>, por lo tanto <span class="math inline">\(\sigma(\mathcal{G})\subseteq\mathcal{B}(\Omega)\)</span>. Sea <span class="math inline">\(A\in\tau\)</span>, entonces <span class="math inline">\(A=\bigcup_{i\in\mathbb{N}}G_{i}\)</span>, con <span class="math inline">\(G_{i}\in\mathcal{G}\)</span>. Luego, <span class="math inline">\(A\in\sigma(\mathcal{G})\)</span>, entonces <span class="math inline">\(\tau\subseteq\sigma(\mathcal{G})\)</span>. Por lo tanto, <span class="math inline">\(\sigma(\tau)\subseteq\sigma(\mathcal{G})\)</span>.</p>
+<p><span id="unlabeled-div-11" class="proof"><em>Demostración</em>. </span>Claramente <span class="math inline">\(G\subseteq\tau\)</span>, por lo tanto <span class="math inline">\(\sigma(\mathcal{G})\subseteq\mathcal{B}(\Omega)\)</span>. Sea <span class="math inline">\(A\in\tau\)</span>, entonces <span class="math inline">\(A=\bigcup_{i\in\mathbb{N}}G_{i}\)</span>, con <span class="math inline">\(G_{i}\in\mathcal{G}\)</span>. Luego, <span class="math inline">\(A\in\sigma(\mathcal{G})\)</span>, entonces <span class="math inline">\(\tau\subseteq\sigma(\mathcal{G})\)</span>. Por lo tanto, <span class="math inline">\(\sigma(\tau)\subseteq\sigma(\mathcal{G})\)</span>.</p>
 </div>
-
 </div>
-<div id="el-conjunto-de-cantor" class="section level2">
-<h2><span class="header-section-number">2.3</span> El conjunto de Cantor</h2>
+<div id="el-conjunto-de-cantor" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> El conjunto de Cantor<a href="construyendo-una-medida.html#el-conjunto-de-cantor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Considermos el intervalo <span class="math inline">\([0,1]\)</span>, lo dividimos en tres subintervalos de longitud <span class="math inline">\(\frac{1}{3}\)</span>, a saber, <span class="math inline">\(J_{1,1}=\left[0,\frac{1}{3}\right]\)</span>, <span class="math inline">\(I_{1,1}=\left(\frac{1}{3},\frac{2}{3}\right)\)</span> y $J_{1,2}=$. LLamamos <span class="math inline">\(C_{1}=J_{1,1}\cup J_{1,2}\)</span>, que es unión de conjuntos disjuntos. Además <span class="math inline">\(C_{1}=[0,1]\backslash I_{1,1}\)</span>.</p>
 <p>Luego, los dos intervalos cerrados <span class="math inline">\(J_{1,1}\)</span> y <span class="math inline">\(J_{1,2}\)</span> se dividen nuevamente en tres subintervalos de longitud <span class="math inline">\(\frac{1}{3^{2}}\)</span>; estos son, <span class="math inline">\(J_{21}=\left[0,\frac{1}{3^{2}}\right]\)</span>, <span class="math inline">\(I_{2,1}=\left(\frac{1}{3^{2}},\frac{2}{3^{2}}\right)\)</span>, <span class="math inline">\(J_{2,2}=\left[\frac{2}{3^{2}},\frac{3}{3^{2}}\right]\)</span>, al dividir <span class="math inline">\(J_{1,1}\)</span> y <span class="math inline">\(J_{2,3}=\left[\frac{6}{3^{2}},\frac{7}{3^{2}}\right]\)</span>, <span class="math inline">\(I_{2,2}=\left(\frac{7}{3^{2}},\frac{8}{3^{2}}\right)\)</span> y <span class="math inline">\(J_{2,4}=\left[\frac{8}{3^{2}},1\right]\)</span>, que resultan de dividir <span class="math inline">\(J_{1,2}\)</span>. Al igual que en el primer paso, descartamos los dos intervalos abiertos <span class="math inline">\(I_{2,1}\)</span> e <span class="math inline">\(I_{2,2}\)</span>. LLamamos <span class="math inline">\(C_{2}=J_{2,1}\cup J_{2,2}\cup J_{2,3}\cup J_{2,4}\)</span>. Además <span class="math inline">\(C_{2}=[0,1]\backslash (E_{1}\cup E_{2})\)</span> donde <span class="math inline">\(E_{k}=\bigcup\limits_{i=1}^{2^{k-1}} I_{k,i}\)</span>.</p>
 <p>Note que <span class="math inline">\(C_{1}\supseteq C_{2}\)</span>.</p>
 <p>En el siguiente paso, dividimos cada uno de los cuatro intervalos cerrados <span class="math inline">\(J_{2,1}\)</span>, <span class="math inline">\(J_{2,2}\)</span>, <span class="math inline">\(J_{2,3}\)</span> y <span class="math inline">\(J_{2,4}\)</span> en tres intervalos de longitud <span class="math inline">\(\frac{1}{3^{3}}\)</span>.</p>
 <p>En el <span class="math inline">\(n\)</span>-ésimo paso se tienen <span class="math inline">\(2^{n}\)</span> intervalos cerrados <span class="math inline">\(J_{n,i}\)</span>, <span class="math inline">\(i=1,\cdots,2^{n}\)</span> y se han descartado <span class="math inline">\(2^{n-1}\)</span> intervalos abiertos <span class="math inline">\(I_{n,i}\)</span> <span class="math inline">\(i=1,\cdots,2^{n-1}\)</span>. Hemos construído el conjunto <span class="math inline">\(C_{n}=\bigcup\limits_{k=1}^{2^{n}} J_{n,k}\)</span>, de forma que <span class="math inline">\(C_{1}\supseteq C_{2}\supseteq \cdots \supseteq C_{n}\)</span>. Además, <span class="math inline">\(C_{n}=[0,1]\backslash\bigcup\limits_{k=1}^{n} E_{k}\)</span> donde <span class="math inline">\(E_{k}=\bigcup\limits_{i=1}^{2^{k-1}} I_{k,i}\)</span>.</p>
 <p>Este proceso se repite infinitamente. Con los conjuntos <span class="math inline">\(\{C_{n}\}_{n}\)</span> construímos el conjunto de Cantor <span class="math inline">\(C=\bigcap\limits_{n=1}^{\infty} C_{n}\)</span>. Note que <span class="math inline">\(C=[0,1]\backslash \bigcup\limits_{n=1}^{\infty} E_{n}\)</span>. Claramente, <span class="math inline">\(C\)</span> es un conjunto cerrado, más aún, es un conjunto perfecto. Recuerde que un conjunto cerrado es perfecto cuando todos sus puntos son de acumulación.</p>
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-52" class="proposition"><strong>Proposición 2.6  </strong></span> El conjunto de Cantor es cerrado.</p>
+<p><span id="prp:unnamed-chunk-47" class="proposition"><strong>Proposición 2.6  </strong></span></p>
+<pre><code>El conjunto de Cantor es cerrado.</code></pre>
 </div>
-
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-53" class="proposition"><strong>Proposición 2.7  </strong></span>El conjunto de Cantor es perfecto.</p>
+<p><span id="prp:unnamed-chunk-48" class="proposition"><strong>Proposición 2.7  </strong></span>El conjunto de Cantor es perfecto.</p>
 </div>
-
 <p>Por lo tanto</p>
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-54" class="proposition"><strong>Proposición 2.8  </strong></span>El conjunto de Cantor tiene interior vacío.</p>
+<p><span id="prp:unnamed-chunk-49" class="proposition"><strong>Proposición 2.8  </strong></span>El conjunto de Cantor tiene interior vacío.</p>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Se puede demostrar que el conjunto de Cantor es un conjunto no numerable. Para esto es útil notar que si <span class="math inline">\(x\in C\)</span>, entonces <span class="math inline">\(x\)</span> es un número real tal que <span class="math inline">\(0\leq x\leq 1\)</span> y <span class="math inline">\(x=\sum\limits_{n=0}^{\infty} \frac{a_{n}}{3^{n}}\)</span> donde <span class="math inline">\(a_{n}=0\)</span> o <span class="math inline">\(a_{n}=2\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>.</p>
+<p><span id="unlabeled-div-12" class="remark"><em>Nota</em>. </span>Se puede demostrar que el conjunto de Cantor es un conjunto no numerable. Para esto es útil notar que si <span class="math inline">\(x\in C\)</span>, entonces <span class="math inline">\(x\)</span> es un número real tal que <span class="math inline">\(0\leq x\leq 1\)</span> y <span class="math inline">\(x=\sum\limits_{n=0}^{\infty} \frac{a_{n}}{3^{n}}\)</span> donde <span class="math inline">\(a_{n}=0\)</span> o <span class="math inline">\(a_{n}=2\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>.</p>
 </div>
-
 <p>Definimos la función <span class="math inline">\(\Phi_{C}:C\longrightarrow [0,1]\)</span> como: <span class="math inline">\(\Phi_{C}(x)=\sum_{n=1}^{\infty} \frac{\frac{a_{n}}{2}}{2^{n}}\)</span>, cuando <span class="math inline">\(x\)</span> tiene la representación <span class="math inline">\(x=\sum\limits_{n=0}^{\infty} \frac{a_{n}}{3^{n}}\)</span> con <span class="math inline">\(a_{n}\in\{0,2\}\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span> (como observamos antes).</p>
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> Claramente la función de Cantor es sobreyectiva. Si un número <span class="math inline">\(y\in[0,1]\)</span> tiene el desarrollo binario <span class="math inline">\(y=\sum_{n=1}^{\infty} 2^{-n}b_{n}\)</span> donde <span class="math inline">\(b_{n}\in\{0,1\}\)</span>, el número <span class="math inline">\(x=\sum_{n=1}^{\infty} 3^{-n}2b_{n}\in C\)</span> y <span class="math inline">\(\Phi_{C}(x)=y\)</span>. Pero <span class="math inline">\(\Phi_{C}\)</span> no es inyectiva, se puede ver que los extremos de los intervalos <span class="math inline">\(I_{n,i}\)</span> tienen la misma imagen por <span class="math inline">\(\Phi_{C}\)</span>. Se tiene también que <span class="math inline">\(\Phi_{C}\)</span> es creciente. Y estrictamente creciente si excluímos los extremos de los intervalos <span class="math inline">\(I_{n,i}\)</span>.</p>
+<p><span id="unlabeled-div-13" class="remark"><em>Nota</em>. </span>Claramente la función de Cantor es sobreyectiva. Si un número <span class="math inline">\(y\in[0,1]\)</span> tiene el desarrollo binario <span class="math inline">\(y=\sum_{n=1}^{\infty} 2^{-n}b_{n}\)</span> donde <span class="math inline">\(b_{n}\in\{0,1\}\)</span>, el número <span class="math inline">\(x=\sum_{n=1}^{\infty} 3^{-n}2b_{n}\in C\)</span> y <span class="math inline">\(\Phi_{C}(x)=y\)</span>. Pero <span class="math inline">\(\Phi_{C}\)</span> no es inyectiva, se puede ver que los extremos de los intervalos <span class="math inline">\(I_{n,i}\)</span> tienen la misma imagen por <span class="math inline">\(\Phi_{C}\)</span>.
+Se tiene también que <span class="math inline">\(\Phi_{C}\)</span> es creciente. Y estrictamente creciente si excluímos los extremos de los intervalos <span class="math inline">\(I_{n,i}\)</span>.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-57" class="definition"><strong>Definición 2.16  </strong></span>Ahora extendemos la función <span class="math inline">\(\Phi_{C}\)</span> al intervalo <span class="math inline">\([0,1]\)</span>, de la siguiente forma: <span class="math display">\[\Phi(x)=\left\lbrace \begin{array}{ll}
+<p><span id="def:unnamed-chunk-52" class="definition"><strong>Definición 2.15  </strong></span>Ahora extendemos la función <span class="math inline">\(\Phi_{C}\)</span> al intervalo <span class="math inline">\([0,1]\)</span>, de la siguiente forma:
+<span class="math display">\[\Phi(x)=\left\lbrace \begin{array}{ll}
     \Phi_{C}(x)&amp;\mbox{ si } x\in C\\
     \Phi_{C}(a)=\Phi_{C}(b)&amp;\mbox{ si } x\in I_{n,i}=(a,b) \mbox{ para algunos } n,i.
-\end{array}\right. \]</span> La función <span class="math inline">\(\Phi\)</span> es <em>la función de Cantor</em>.</p>
+\end{array}\right. \]</span>
+La función <span class="math inline">\(\Phi\)</span> es <em>la función de Cantor</em>.</p>
 </div>
-
 <p>Construída así, <span class="math inline">\(\Phi\)</span> resulta ser creciente. Y constante en un entorno de cada <span class="math inline">\(x\in[0,1]\backslash C\)</span>. De lo que se deduce, junto con la sobreyectividad, que <span class="math inline">\(\Phi\)</span> es continua.</p>
 </div>
-<div id="medida" class="section level2">
-<h2><span class="header-section-number">2.4</span> Medida</h2>
+<div id="medida" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Medida<a href="construyendo-una-medida.html#medida" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Podemos definir funciones de una clase en cualquier conjunto <span class="math inline">\(X\)</span>, de la siguiente forma: <span class="math inline">\(f:\mathcal{C}\longrightarrow X:D\mapsto x_{D}\)</span> donde <span class="math inline">\(\mathcal{C}\)</span> es una clase cualquiera (es decir, <span class="math inline">\(\mathcal{C}\subseteq\wp(C)\)</span> donde <span class="math inline">\(C\)</span> es un conjunto cualquiera) <span class="math inline">\(D\in\mathcal{C}\)</span> y <span class="math inline">\(x_{D}\in X\)</span>. Es otras palabras, <em><span class="math inline">\(f\)</span> es una regla que a cada conjunto de la clase <span class="math inline">\(\mathcal{C}\)</span>, le asigna un elemento del conjunto <span class="math inline">\(X\)</span></em>.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-58" class="definition"><strong>Definición 2.17  </strong></span>Sea <span class="math inline">\(\mathcal{C}\subseteq\wp(\Omega)\)</span>, una función <span class="math inline">\(\mu:\mathcal{C}\longrightarrow \overline{\mathbb{R}}\)</span> es <em>finitamente aditiva</em> si:</p>
-<p>(i.) <span class="math inline">\(\mu(\emptyset)=0\)</span>, (ii.) Para todo <span class="math inline">\(A,B\in\mathcal{C}\)</span>, tales que <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son disjuntos, <span class="math inline">\(A\cup B\in\mathcal{C}\)</span> y <span class="math inline">\(\mu(A)\)</span> y <span class="math inline">\(\mu(B)\)</span> están definidos. Se tiene que <span class="math inline">\(\mu(A\cup B)=\mu(A)+\mu(B)\)</span>.</p>
+<p><span id="def:unnamed-chunk-53" class="definition"><strong>Definición 2.16  </strong></span>Sea <span class="math inline">\(\mathcal{C}\subseteq\wp(\Omega)\)</span>, una función <span class="math inline">\(\mu:\mathcal{C}\longrightarrow \overline{\mathbb{R}}\)</span> es <em>finitamente aditiva</em> si:</p>
+<p>(i.) <span class="math inline">\(\mu(\emptyset)=0\)</span>,
+(ii.) Para todo <span class="math inline">\(A,B\in\mathcal{C}\)</span>, tales que <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son disjuntos, <span class="math inline">\(A\cup B\in\mathcal{C}\)</span> y <span class="math inline">\(\mu(A)\)</span> y <span class="math inline">\(\mu(B)\)</span> están definidos. Se tiene que <span class="math inline">\(\mu(A\cup B)=\mu(A)+\mu(B)\)</span>.</p>
 <p>es <em><span class="math inline">\(\sigma\)</span>-aditiva</em> si:</p>
 <p>(i.) <span class="math inline">\(\mu(\emptyset)=0\)</span>,</p>
 <p>(ii.) Para todo <span class="math inline">\((A_{i})_{i\in\mathbb{N}}\in\mathcal{C}\)</span> colección disjunta, tal que <span class="math inline">\(\bigcup_{i\in\mathbb{N}}A_{i}\)</span> se tiene que <span class="math inline">\(\mu\left( \bigcup_{i\in\mathbb{N}}A_{i}\right) =\sum_{i\in\mathbb{N}}\mu(A_{i})\)</span>.</p>
 </div>
-
 <p>Es natural definir funciones en colecciones con al menos estructura de anillo, para que la función tenga la propiedad de aditividad.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-59" class="definition"><strong>Definición 2.18  </strong></span> Sea <span class="math inline">\(\mathcal{A}\in\wp(\Omega)\)</span> una <span class="math inline">\(\sigma\)</span>-álgebra. Al par (<span class="math inline">\(\Omega\)</span>,<span class="math inline">\(\mathcal{A}\)</span>) se le llama <em>espacio medible</em>. Además, una función <span class="math inline">\(\mu:\mathcal{A}\longrightarrow \overline{\mathbb{R}^{+}}\)</span> es una <em>medida sobre</em> (<span class="math inline">\(\Omega\)</span>,<span class="math inline">\(\mathcal{A}\)</span>) si y solo si:</p>
+<p><span id="def:unnamed-chunk-54" class="definition"><strong>Definición 2.17  </strong></span></p>
+<pre><code>Sea $\mathcal{A}\in\wp(\Omega)$ una $\sigma$-álgebra. Al par ($\Omega$,$\mathcal{A}$) se le llama *espacio medible*. Además, una función $\mu:\mathcal{A}\longrightarrow \overline{\mathbb{R}^{+}}$ es una *medida sobre* ($\Omega$,$\mathcal{A}$) si y solo si:</code></pre>
 <p>(i.) Para todo <span class="math inline">\(A\in\mathcal{A}\)</span>, <span class="math inline">\(\mu(A)\geq 0\)</span>.</p>
 <p>(ii.) <span class="math inline">\(\mu(\emptyset)=0\)</span>,</p>
 <p>(iii.) <span class="math inline">\(\mu\)</span> es <span class="math inline">\(\sigma\)</span>-aditiva.</p>
 <p>El trío <span class="math inline">\((\Omega,\mathcal{A},\mu)\)</span> se llama <em>espacios de medida</em> y a <span class="math inline">\(\mu(A)\)</span> <em>medida de <span class="math inline">\(A\)</span></em>.</p>
 </div>
-
 <p>Las medidas suelen definirse en clases que tienen estructura de <span class="math inline">\(\sigma\)</span>-álgebras o al menos de <span class="math inline">\(\sigma\)</span>-anillo. Note que como una medida está definida en <span class="math inline">\(\overline{\mathbb{R}}\)</span>, la suma <span class="math inline">\(\sum_{i\in\mathbb{N}}\mu(A_{i})\)</span> siempre está definida.</p>
 <p>Decimos que una medida tiene la propiedad de monotonía cuando para todo <span class="math inline">\(A, B\in \mathcal{A}\)</span> se tiene que si <span class="math inline">\(A\subseteq B\)</span>, entonces <span class="math inline">\(\mu(A)\leq\mu(B)\)</span>.</p>
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-60" class="proposition"><strong>Proposición 2.9  </strong></span>Toda medida <span class="math inline">\(\mu\)</span> tiene la propiedad de monotonía.</p>
+<p><span id="prp:unnamed-chunk-55" class="proposition"><strong>Proposición 2.9  </strong></span>Toda medida <span class="math inline">\(\mu\)</span> tiene la propiedad de monotonía.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Sea <span class="math inline">\(\mathcal{A}\)</span> una <span class="math inline">\(\sigma\)</span>-álgebra y sea <span class="math inline">\(\mu\)</span> una medida en <span class="math inline">\((\Omega,\mathcal{A})\)</span>. Sean <span class="math inline">\(A,B\in\mathcal{A}\)</span> tales <span class="math inline">\(A\subseteq B\)</span>. Podemos escribir <span class="math inline">\(B=A\cup B\)</span> como una unión disjunta, esto es, <span class="math inline">\(B=A\cup (B\backslash A)\)</span>, por <span class="math inline">\(\sigma\)</span>-aditividad ( basta aditividad finita) se tiene que <span class="math display">\[\mu(B)=\mu(A\cup B)=\mu(A\cup (B\backslash A))=\mu(A)+\mu(B\backslash A)\]</span> como <span class="math inline">\(\mu\)</span> es una función no negativa, se tiene el resultado.</p>
+<p><span id="unlabeled-div-14" class="proof"><em>Demostración</em>. </span>Sea <span class="math inline">\(\mathcal{A}\)</span> una <span class="math inline">\(\sigma\)</span>-álgebra y sea <span class="math inline">\(\mu\)</span> una medida en <span class="math inline">\((\Omega,\mathcal{A})\)</span>. Sean <span class="math inline">\(A,B\in\mathcal{A}\)</span> tales <span class="math inline">\(A\subseteq B\)</span>. Podemos escribir <span class="math inline">\(B=A\cup B\)</span> como una unión disjunta, esto es, <span class="math inline">\(B=A\cup (B\backslash A)\)</span>, por <span class="math inline">\(\sigma\)</span>-aditividad ( basta aditividad finita) se tiene que <span class="math display">\[\mu(B)=\mu(A\cup B)=\mu(A\cup (B\backslash A))=\mu(A)+\mu(B\backslash A)\]</span> como <span class="math inline">\(\mu\)</span> es una función no negativa, se tiene el resultado.</p>
 </div>
-
 <p>Del resultado anterior y bajo las mismas hipótesis, se sigue que si <span class="math inline">\(\mu(B)&lt;\infty\)</span>, entonces <span class="math inline">\(\mu(B-A)=\mu(B)-\mu(A)\)</span>.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-62" class="definition"><strong>Definición 2.19  </strong></span>Una medida <span class="math inline">\(\mu\)</span> sobre <span class="math inline">\((\Omega,\mathcal{A})\)</span> se dice <em>finita</em> si <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>. Si <span class="math inline">\(\mu(\Omega)=1\)</span> se dice que <span class="math inline">\(\mu\)</span> es una <em>medida de probabilidad</em>; la medida suele denotarse <span class="math inline">\(P\)</span> en lugar de <span class="math inline">\(\mu\)</span> . En este caso, decimos que <span class="math inline">\((\Omega,\mathcal{A},P)\)</span> es un <em>espacio de probabilidad</em> y <span class="math inline">\(P(A)\)</span> es <em>la probabilidad de <span class="math inline">\(A\)</span></em>, para cualquier <span class="math inline">\(A\in\mathcal{A}\)</span>.</p>
+<p><span id="def:unnamed-chunk-57" class="definition"><strong>Definición 2.18  </strong></span>Una medida <span class="math inline">\(\mu\)</span> sobre <span class="math inline">\((\Omega,\mathcal{A})\)</span> se dice <em>finita</em> si <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>. Si <span class="math inline">\(\mu(\Omega)=1\)</span> se dice que <span class="math inline">\(\mu\)</span> es una <em>medida de probabilidad</em>; la medida suele denotarse <span class="math inline">\(P\)</span> en lugar de <span class="math inline">\(\mu\)</span> . En este caso, decimos que <span class="math inline">\((\Omega,\mathcal{A},P)\)</span> es un <em>espacio de probabilidad</em> y <span class="math inline">\(P(A)\)</span> es <em>la probabilidad de <span class="math inline">\(A\)</span></em>, para cualquier <span class="math inline">\(A\in\mathcal{A}\)</span>.</p>
 </div>
-
 <p>Note que una medida es finita si y solo si es acotada. Si <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>, por monotonía se tiene que <span class="math inline">\(\forall A\subseteq\Omega\)</span>, <span class="math inline">\(\mu(A)\leq\mu(\Omega)\)</span>. Recíprocamente, si <span class="math inline">\(\forall A\subseteq\Omega\)</span> <span class="math inline">\(\mu(A)\leq C\leq\infty\)</span> para alg'un <span class="math inline">\(C\in\mathbb{R}\)</span>, en particular <span class="math inline">\(\mu(\Omega)\leq C\leq \infty\)</span>.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-63" class="definition"><strong>Definición 2.20  </strong></span>Una medida <span class="math inline">\(\mu\)</span> sobre <span class="math inline">\((\Omega,\mathcal{A})\)</span>, es <span class="math inline">\(\sigma\)</span>-finita si existe una colección disjunta numerable <span class="math inline">\((A_{n})_{n\in\mathbb{N}}\subseteq\mathcal{A}\)</span>, tal que <span class="math inline">\(\Omega=\bigcup_{n\in\mathbb{N}} A_{n}\)</span> y <span class="math inline">\(\mu(A_{n})\leq \infty\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>.</p>
+<p><span id="def:unnamed-chunk-58" class="definition"><strong>Definición 2.19  </strong></span>Una medida <span class="math inline">\(\mu\)</span> sobre <span class="math inline">\((\Omega,\mathcal{A})\)</span>, es <span class="math inline">\(\sigma\)</span>-finita si existe una colección disjunta numerable <span class="math inline">\((A_{n})_{n\in\mathbb{N}}\subseteq\mathcal{A}\)</span>, tal que <span class="math inline">\(\Omega=\bigcup_{n\in\mathbb{N}} A_{n}\)</span> y <span class="math inline">\(\mu(A_{n})\leq \infty\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-64" class="example"><strong>Ejemplo 2.17  </strong></span><em>La medida de contar</em>. La función <span class="math inline">\(\mu:\wp(\Omega)\longrightarrow \overline{\mathbb{R}^{+}}\)</span>, definida por <span class="math display">\[\mu(A)=\left\lbrace \begin{array}{cc}
+<p><span id="exm:unnamed-chunk-59" class="example"><strong>Ejemplo 2.17  </strong></span><em>La medida de contar</em>. La función <span class="math inline">\(\mu:\wp(\Omega)\longrightarrow \overline{\mathbb{R}^{+}}\)</span>, definida por <span class="math display">\[\mu(A)=\left\lbrace \begin{array}{cc}
     |A|&amp; \mbox{ si } A \mbox{ es un conjunto finito}\\
     \infty&amp; \mbox{ en otro caso}
-    \end{array}\right.\]</span> <span class="math inline">\(\mu\)</span> es una medida sobre <span class="math inline">\((\Omega,\wp(\Omega))\)</span>. Si <span class="math inline">\(\Omega\)</span> es un conjunto finito, <span class="math inline">\(\mu\)</span> es una medida finita. Si <span class="math inline">\(\Omega\)</span> es numerable, <span class="math inline">\(\mu\)</span> es <span class="math inline">\(\sigma\)</span>-finita.</p>
+    \end{array}\right.\]</span>
+<span class="math inline">\(\mu\)</span> es una medida sobre <span class="math inline">\((\Omega,\wp(\Omega))\)</span>. Si <span class="math inline">\(\Omega\)</span> es un conjunto finito, <span class="math inline">\(\mu\)</span> es una medida finita. Si <span class="math inline">\(\Omega\)</span> es numerable, <span class="math inline">\(\mu\)</span> es <span class="math inline">\(\sigma\)</span>-finita.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-65" class="example"><strong>Ejemplo 2.18  </strong></span>Sea <span class="math inline">\(P=\{(a,b]: a\leq b\in\mathbb{R}\}\)</span>. La función <em>longitud</em> es la dada por <span class="math inline">\(l:P\longrightarrow \mathbb{R}\)</span> donde <span class="math inline">\(l((a,b])=b-a\)</span>. Esta función es una medida finita. Si extendemos <span class="math inline">\(l\)</span> al anillo generado <span class="math inline">\(\mathcal{R}(P)\)</span>, de forma natural, obtenemos una función finitamente aditiva.</p>
+<p><span id="exm:unnamed-chunk-60" class="example"><strong>Ejemplo 2.18  </strong></span>Sea <span class="math inline">\(P=\{(a,b]: a\leq b\in\mathbb{R}\}\)</span>. La función <em>longitud</em> es la dada por <span class="math inline">\(l:P\longrightarrow \mathbb{R}\)</span> donde <span class="math inline">\(l((a,b])=b-a\)</span>. Esta función es una medida finita. Si extendemos <span class="math inline">\(l\)</span> al anillo generado <span class="math inline">\(\mathcal{R}(P)\)</span>, de forma natural, obtenemos una función finitamente aditiva.</p>
 </div>
-
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-66" class="example"><strong>Ejemplo 2.19  </strong></span>Sea <span class="math inline">\(\Omega\)</span> un conjunto infinito y <span class="math inline">\(E=\{x_{1},x_{2},\cdots\}\subseteq\Omega\)</span> un subconjunto numerable de <span class="math inline">\(\Omega\)</span>. Sea <span class="math inline">\((\lambda_{i})_{i\mathbb{N}}\)</span> una sucesión numerable de números reales positivos. Sea <span class="math inline">\(\mu:\wp(\Omega)\)</span><span class="math inline">\(\longrightarrow\mathbb{R}\)</span> definida por <span class="math inline">\(\mu(A)=\sum_{x_{i}\in A}\lambda_{i}\)</span>, <span class="math inline">\(\mu\)</span> es una medida, es finita si la serie <span class="math inline">\(\sum_{i\geq 1}\lambda_{i}\)</span> converge. Este tipo de medidas se les llama medidas discretas.</p>
+<p><span id="exm:unnamed-chunk-61" class="example"><strong>Ejemplo 2.19  </strong></span>Sea <span class="math inline">\(\Omega\)</span> un conjunto infinito y <span class="math inline">\(E=\{x_{1},x_{2},\cdots\}\subseteq\Omega\)</span> un subconjunto numerable de <span class="math inline">\(\Omega\)</span>. Sea <span class="math inline">\((\lambda_{i})_{i\mathbb{N}}\)</span> una sucesión numerable de números reales positivos. Sea <span class="math inline">\(\mu:\wp(\Omega)\)</span><span class="math inline">\(\longrightarrow\mathbb{R}\)</span> definida por <span class="math inline">\(\mu(A)=\sum_{x_{i}\in A}\lambda_{i}\)</span>, <span class="math inline">\(\mu\)</span> es una medida, es finita si la serie <span class="math inline">\(\sum_{i\geq 1}\lambda_{i}\)</span> converge. Este tipo de medidas se les llama medidas discretas.</p>
 </div>
-
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-67" class="proposition"><strong>Proposición 2.10  </strong></span>Sea <span class="math inline">\((\Omega,\mathcal{A})\)</span> es un espacio medible y <span class="math inline">\(\mu:\mathcal{A}\longrightarrow\mathbb{R}^{+}\)</span>. Supongamos que <span class="math inline">\(\mu\)</span> es finitamente aditiva. Entonces <span class="math inline">\(\mu\)</span> es <span class="math inline">\(\sigma\)</span>-aditiva si y solo si para todo <span class="math inline">\((E_{n})_{n}\subseteq\wp(\mathcal{A})\)</span> creciente, se tiene que <span class="math inline">\(\mu\left( \bigcup_{n\geq 1} E_{n}\right) =\lim_{n}\uparrow \mu(E_{n})\)</span>. La notación <span class="math inline">\(\lim_{n}\uparrow \mu(E_{n})\)</span> denota límite creciente, es decir, el límite de una sucesión creciente.</p>
+<p><span id="prp:unnamed-chunk-62" class="proposition"><strong>Proposición 2.10  </strong></span>Sea <span class="math inline">\((\Omega,\mathcal{A})\)</span> es un espacio medible y <span class="math inline">\(\mu:\mathcal{A}\longrightarrow\mathbb{R}^{+}\)</span>. Supongamos que <span class="math inline">\(\mu\)</span> es finitamente aditiva. Entonces <span class="math inline">\(\mu\)</span> es <span class="math inline">\(\sigma\)</span>-aditiva si y solo si para todo <span class="math inline">\((E_{n})_{n}\subseteq\wp(\mathcal{A})\)</span> creciente, se tiene que <span class="math inline">\(\mu\left( \bigcup_{n\geq 1} E_{n}\right) =\lim_{n}\uparrow \mu(E_{n})\)</span>. La notación <span class="math inline">\(\lim_{n}\uparrow \mu(E_{n})\)</span> denota límite creciente, es decir, el límite de una sucesión creciente.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Supongamos que <span class="math inline">\(\mu\)</span> es <span class="math inline">\(\sigma\)</span>-aditiva. Sea <span class="math inline">\((E_{n})_{n\in\mathbb{N}}\)</span> una sucesión creciente. Note que si existe <span class="math inline">\(n\)</span> para el cual <span class="math inline">\(\mu(E_{n})=\infty\)</span>, se tiene el resultado. Entonces supongamos que <span class="math inline">\(\mu(E_{n})&lt;\infty\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>. Definamos la siguiente sucesión <span class="math inline">\(A_{1}=E_{1}\)</span> y para cada <span class="math inline">\(n\geq 2\)</span>, <span class="math inline">\(A_{n}=E_{n}\backslash E_{n-1}\)</span>. Tenemos que la sucesión <span class="math inline">\((A_{n})_{n\geq 1}\)</span> es disjunta, además <span class="math inline">\(\bigcup_{i\geq n} A_{i}=\bigcup_{i\geq n} E_{i}\)</span>. Luego, <span class="math display">\[\mu\left( \bigcup_{i\geq n}E_{i}\right) =\mu\left( \bigcup_{i\geq n} A_{i}\right) =\mu\left( \bigcup_{i\geq n} E_{i}-E_{i-1}\right) \]</span> por <span class="math inline">\(\sigma\)</span>-aditividad, se tiene que <span class="math display">\[\mu\left( \bigcup_{i\geq n}E_{i}\right) =\mu\left( \bigcup_{i\geq n} E_{i}-E_{i-1}\right) =\sum_{i\geq 1} \mu(E_{i}-E_{i-1})\]</span> si suponemos que <span class="math inline">\(E_{0}=\emptyset\)</span>, tenemos que <span class="math display">\[\begin{array}{rl}
+<p><span id="unlabeled-div-15" class="proof"><em>Demostración</em>. </span>Supongamos que <span class="math inline">\(\mu\)</span> es <span class="math inline">\(\sigma\)</span>-aditiva. Sea <span class="math inline">\((E_{n})_{n\in\mathbb{N}}\)</span> una sucesión creciente. Note que si existe <span class="math inline">\(n\)</span> para el cual <span class="math inline">\(\mu(E_{n})=\infty\)</span>, se tiene el resultado. Entonces supongamos que <span class="math inline">\(\mu(E_{n})&lt;\infty\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>. Definamos la siguiente sucesión <span class="math inline">\(A_{1}=E_{1}\)</span> y para cada <span class="math inline">\(n\geq 2\)</span>, <span class="math inline">\(A_{n}=E_{n}\backslash E_{n-1}\)</span>. Tenemos que la sucesión <span class="math inline">\((A_{n})_{n\geq 1}\)</span> es disjunta, además <span class="math inline">\(\bigcup_{i\geq n} A_{i}=\bigcup_{i\geq n} E_{i}\)</span>. Luego, <span class="math display">\[\mu\left( \bigcup_{i\geq n}E_{i}\right) =\mu\left( \bigcup_{i\geq n} A_{i}\right) =\mu\left( \bigcup_{i\geq n} E_{i}-E_{i-1}\right) \]</span> por <span class="math inline">\(\sigma\)</span>-aditividad, se tiene que <span class="math display">\[\mu\left( \bigcup_{i\geq n}E_{i}\right) =\mu\left( \bigcup_{i\geq n} E_{i}-E_{i-1}\right) =\sum_{i\geq 1} \mu(E_{i}-E_{i-1})\]</span> si suponemos que <span class="math inline">\(E_{0}=\emptyset\)</span>, tenemos que
+<span class="math display">\[\begin{array}{rl}
     \mu\left( \bigcup_{i\geq n}E_{i}\right) =&amp;\sum_{i\geq 1} \mu(E_{i}-E_{i-1})\\
     =&amp;\lim_{n}\sum_{i=1}^{n} \mu(E_{i})-\mu(E_{i-1})\\
     =&amp;\lim_{n} \mu(E_{n})-\mu(E_{0})\\
     =&amp;\lim_{n} \mu(E_{n})
-    \end{array}\]</span> Recíprocamente, sea <span class="math inline">\((A_{n})_{n\geq 1}\)</span> una sucesión de conjuntos disjuntos. Definimos <span class="math inline">\(E_{n}=\bigcup_{i=1}^{n} A_{i}\)</span>; entonces <span class="math inline">\((E_{})_{n\geq 1}\)</span> es una sucesión creciente, además <span class="math inline">\(\bigcup_{i\geq n} A_{i}=\bigcup_{i\geq n} E_{i}\)</span>. De donde se sigue que <span class="math display">\[\begin{array}{rl}
+    \end{array}\]</span>
+Recíprocamente, sea <span class="math inline">\((A_{n})_{n\geq 1}\)</span> una sucesión de conjuntos disjuntos. Definimos <span class="math inline">\(E_{n}=\bigcup_{i=1}^{n} A_{i}\)</span>; entonces <span class="math inline">\((E_{})_{n\geq 1}\)</span> es una sucesión creciente, además <span class="math inline">\(\bigcup_{i\geq n} A_{i}=\bigcup_{i\geq n} E_{i}\)</span>. De donde se sigue que <span class="math display">\[\begin{array}{rl}
     \mu\left( \bigcup_{i\geq n} A_{i}\right) =&amp;\mu\left( \bigcup_{i\geq n} E_{i}\right) \\
     =&amp;\lim_{n}\uparrow \mu(E_{n})\\
     =&amp;\lim_{n\to\infty}\mu\left( \bigcup_{i=1}^{n} A_{i}\right) \\
@@ -595,75 +549,57 @@ Para las siguientes definiciones, sea <span class="math inline">\(\Omega\)</span
     =&amp;\sum_{n\geq 1}\mu(A_{n})
     \end{array}\]</span></p>
 </div>
-
 <p>Puede caracterizarse la <span class="math inline">\(\sigma\)</span>-aditividad de <span class="math inline">\(\mu\)</span> en términos de sucesiones decrecientes, de forma análoga a la proposición anterior.</p>
-
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-69" class="proposition"><strong>Proposición 2.11  </strong></span>Sea <span class="math inline">\((\Omega,\mathcal{A})\)</span> es un espacio medible y <span class="math inline">\(\mu:\mathcal{A}\longrightarrow\mathbb{R}^{+}\)</span> una medida finita, finitamente aditiva. Entonces <span class="math inline">\(\mu\)</span> es <span class="math inline">\(\sigma\)</span>-aditiva si y solo si para todo <span class="math inline">\((E_{n})_{n}\subseteq\wp(\mathcal{A})\)</span> decreciente, se tiene que <span class="math inline">\(\mu\left( \bigcap_{n\geq 1} F_{n}\right) =\lim_{n}\downarrow \mu(F_{n})\)</span>. La notación <span class="math inline">\(\lim_{n}\downarrow \mu(F_{n})\)</span> denota límite decreciente, es decir, el límite de una sucesión decreciente.</p>
+<p><span id="prp:unnamed-chunk-64" class="proposition"><strong>Proposición 2.11  </strong></span>Sea <span class="math inline">\((\Omega,\mathcal{A})\)</span> es un espacio medible y <span class="math inline">\(\mu:\mathcal{A}\longrightarrow\mathbb{R}^{+}\)</span> una medida finita, finitamente aditiva. Entonces <span class="math inline">\(\mu\)</span> es <span class="math inline">\(\sigma\)</span>-aditiva si y solo si para todo <span class="math inline">\((E_{n})_{n}\subseteq\wp(\mathcal{A})\)</span> decreciente, se tiene que <span class="math inline">\(\mu\left( \bigcap_{n\geq 1} F_{n}\right) =\lim_{n}\downarrow \mu(F_{n})\)</span>. La notación <span class="math inline">\(\lim_{n}\downarrow \mu(F_{n})\)</span> denota límite decreciente, es decir, el límite de una sucesión decreciente.</p>
 </div>
-
 <p>La demostración de esta proposición es análoga a la anterior.</p>
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span> En la proposición para sucesiones decrecientes, se pueden remplazar las hipótesis por <em>si toda sucesión decreciente <span class="math inline">\((F_{n})_{n\geq 1}\)</span> tal que <span class="math inline">\(\bigcap_{n\geq 1} F_{n}=\emptyset\)</span>, entonces <span class="math inline">\(\lim_{n} \mu(F_{n})=0\)</span></em>. Si <span class="math inline">\(\mu\)</span> no es una medida finita, la proposición no es cierta. Aunque si se pide que <span class="math inline">\(\mu\left( \bigcap_{n\geq 1}F_{n}\right) =\lim_{n} \mu(F_{n})\)</span> para toda sucesión <span class="math inline">\((F_{n})\)</span> decreciente tal que <span class="math inline">\(\mu(F_{n})&lt;\infty\)</span> para algún <span class="math inline">\(n\)</span>.</p>
+<p><span id="unlabeled-div-16" class="remark"><em>Nota</em>. </span>En la proposición para sucesiones decrecientes, se pueden remplazar las hipótesis por <em>si toda sucesión decreciente <span class="math inline">\((F_{n})_{n\geq 1}\)</span> tal que <span class="math inline">\(\bigcap_{n\geq 1} F_{n}=\emptyset\)</span>, entonces <span class="math inline">\(\lim_{n} \mu(F_{n})=0\)</span></em>.
+Si <span class="math inline">\(\mu\)</span> no es una medida finita, la proposición no es cierta. Aunque si se pide que <span class="math inline">\(\mu\left( \bigcap_{n\geq 1}F_{n}\right) =\lim_{n} \mu(F_{n})\)</span> para toda sucesión <span class="math inline">\((F_{n})\)</span> decreciente tal que <span class="math inline">\(\mu(F_{n})&lt;\infty\)</span> para algún <span class="math inline">\(n\)</span>.</p>
 </div>
-
 <p>A continuación veremos algunos <em>teoremas de clases monótonas</em>, que aunque son varios, llevan el mismo nombre porque son similares. Pero antes presentamos un lema útil para la demostración de estos teoremas.</p>
-
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-71" class="lemma"><strong>Lema 2.1  </strong></span>Si una clase de conjuntos <span class="math inline">\(\mathcal{A}\)</span> es a la vez un anillo y una clase monótona entonces <span class="math inline">\(\mathcal{C}\)</span> es un <span class="math inline">\(\sigma\)</span>-anillo.</p>
+<p><span id="lem:unnamed-chunk-66" class="lemma"><strong>Lema 2.1  </strong></span>Si una clase de conjuntos <span class="math inline">\(\mathcal{A}\)</span> es a la vez un anillo y una clase monótona entonces <span class="math inline">\(\mathcal{C}\)</span> es un <span class="math inline">\(\sigma\)</span>-anillo.</p>
 </div>
-
-
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Como <span class="math inline">\(\mathcal{C}\)</span> es un anillo, basta ver que es cerrado bajo uniones e intersecciones numerables. Sea <span class="math inline">\((A_{n})_{n\geq 1} \subseteq \mathcal{C}\)</span>. Definamos la siguiente clase monótona creciente a partir de la sucesión <span class="math inline">\((A_{n})_{n\geq 1}\)</span>: <span class="math inline">\(C_{n}=\bigcup_{i=1}^{n} A_{i}\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>. Como <span class="math inline">\(\mathcal{C}\)</span> es un anillo, cada <span class="math inline">\(C_{n}\in\mathcal{C}\)</span>. Por construcción, <span class="math inline">\((C-{n})_{n\geq 1}\)</span> es una sucesión creciente, y como <span class="math inline">\(\mathcal{C}\)</span> es una clase monótona, <span class="math inline">\(\bigcup_{n\geq 1} A_{n}=\bigcup_{n\geq 1} C_{n}\in\mathcal{C}\)</span>. De forma análoga se demuestra que <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo intersecciones numerables.</p>
+<p><span id="unlabeled-div-17" class="proof"><em>Demostración</em>. </span>Como <span class="math inline">\(\mathcal{C}\)</span> es un anillo, basta ver que es cerrado bajo uniones e intersecciones numerables. Sea <span class="math inline">\((A_{n})_{n\geq 1} \subseteq \mathcal{C}\)</span>. Definamos la siguiente clase monótona creciente a partir de la sucesión <span class="math inline">\((A_{n})_{n\geq 1}\)</span>: <span class="math inline">\(C_{n}=\bigcup_{i=1}^{n} A_{i}\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>. Como <span class="math inline">\(\mathcal{C}\)</span> es un anillo, cada <span class="math inline">\(C_{n}\in\mathcal{C}\)</span>. Por construcción, <span class="math inline">\((C-{n})_{n\geq 1}\)</span> es una sucesión creciente, y como <span class="math inline">\(\mathcal{C}\)</span> es una clase monótona, <span class="math inline">\(\bigcup_{n\geq 1} A_{n}=\bigcup_{n\geq 1} C_{n}\in\mathcal{C}\)</span>. De forma análoga se demuestra que <span class="math inline">\(\mathcal{C}\)</span> es cerrado bajo intersecciones numerables.</p>
 </div>
-
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-73" class="theorem"><strong>Teorema 2.1  </strong></span>Sea <span class="math inline">\(\mathcal{R}\)</span> un anillo. Entonces el <span class="math inline">\(\sigma\)</span>-anillo generado por <span class="math inline">\(\mathcal{R}\)</span> coincide con la clase monótona generada por <span class="math inline">\(\mathcal{R}\)</span>. Es decir, <span class="math inline">\(\sigma_{\mathcal{R}}(\mathcal{R})=\mathcal{M}(\mathcal{R})\)</span>.</p>
+<p><span id="thm:unnamed-chunk-68" class="theorem"><strong>Teorema 2.1  </strong></span>Sea <span class="math inline">\(\mathcal{R}\)</span> un anillo. Entonces el <span class="math inline">\(\sigma\)</span>-anillo generado por <span class="math inline">\(\mathcal{R}\)</span> coincide con la clase monótona generada por <span class="math inline">\(\mathcal{R}\)</span>. Es decir, <span class="math inline">\(\sigma_{\mathcal{R}}(\mathcal{R})=\mathcal{M}(\mathcal{R})\)</span>.</p>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> (i.) Es obvio que <span class="math inline">\(\mathcal{M}(\mathcal{R})\subseteq\sigma_{\mathcal{R}}(\mathcal{R})\)</span>.</p>
-<p>(ii.) Ahora veamos que <span class="math inline">\(\sigma_{\mathcal{R}}(\mathcal{R})=\mathcal{M}(\mathcal{R})\)</span>. Primero probemos que <span class="math inline">\(\mathcal{M}(\mathcal{R})\)</span> es un anillo y del lema anterior obtendremos el resultado. Sea <span class="math inline">\(F\in\mathcal{R}\)</span> y definamos <span class="math inline">\(L(F)=\{E\in\mathcal{M}(\mathcal{R}): E\backslash F, F\backslash E, E\cup F, E\cap F\in\mathcal{M}(\mathcal{R}) \}\)</span>. <span class="math inline">\(L(F)\)</span> es una clase monótona. En efecto, sea <span class="math inline">\((E_{n})_{n\geq 1}\subseteq L(F)\)</span> una sucesión creciente. Como <span class="math inline">\((E_{n}-F)_{n\geq 1}\)</span> es una sucesión creciente en <span class="math inline">\(\mathcal{M}(\mathcal{R})\)</span> y <span class="math inline">\(\left( \bigcup_{n\geq 1} E_{n} \right) -F= \bigcup_{n\geq 1}(E_{n}-F)\)</span>, entonces <span class="math inline">\(\left( \bigcup_{n\geq 1} E_{n}\right)-F\in\mathcal{M}(\mathcal{R})\)</span>. Demostrar que <span class="math inline">\(F\backslash (E_{n})_{n\geq 1}, (E_{n})_{n\geq 1}\cup F, (E_{n})_{n\geq 1}\cap F\)</span> pertenecen a <span class="math inline">\(\mathcal{M}(\mathcal{R})\)</span>, es análogo. Para sucesiones decrecientes, es análogo. Con lo que se demuestra que <span class="math inline">\(\mathcal{M}(\mathcal{R})\)</span> es una clase monótona. Además, <span class="math inline">\(\mathcal{R}\subseteq L(F)\)</span>. Sea <span class="math inline">\(L=\{F\in\mathcal{M}(\mathcal{R}): E\backslash F, F\backslash E, E\cup F, E\cap F\in\mathcal{M}(\mathcal{R})\}\)</span>. Es claro que <span class="math inline">\(L(F)\subseteq L\)</span>, por lo tanto, <span class="math inline">\(\mathcal{R}\subseteq L\)</span>. Es claro que <span class="math inline">\(L\)</span> es una clase monótona; por el lema anterior, se tiene que <span class="math inline">\(L=\mathcal{M}(\mathcal{R})=\sigma_{\mathcal{R}}(\mathcal{R})\)</span>.</p>
+<p><span id="unlabeled-div-18" class="proof"><em>Demostración</em>. </span>(i.) Es obvio que <span class="math inline">\(\mathcal{M}(\mathcal{R})\subseteq\sigma_{\mathcal{R}}(\mathcal{R})\)</span>.</p>
+<p>(ii.) Ahora veamos que <span class="math inline">\(\sigma_{\mathcal{R}}(\mathcal{R})=\mathcal{M}(\mathcal{R})\)</span>. Primero probemos que <span class="math inline">\(\mathcal{M}(\mathcal{R})\)</span> es un anillo y del lema anterior obtendremos el resultado. Sea <span class="math inline">\(F\in\mathcal{R}\)</span> y definamos <span class="math inline">\(L(F)=\{E\in\mathcal{M}(\mathcal{R}): E\backslash F, F\backslash E, E\cup F, E\cap F\in\mathcal{M}(\mathcal{R}) \}\)</span>. <span class="math inline">\(L(F)\)</span> es una clase monótona. En efecto, sea <span class="math inline">\((E_{n})_{n\geq 1}\subseteq L(F)\)</span> una sucesión creciente. Como <span class="math inline">\((E_{n}-F)_{n\geq 1}\)</span> es una sucesión creciente en <span class="math inline">\(\mathcal{M}(\mathcal{R})\)</span> y <span class="math inline">\(\left( \bigcup_{n\geq 1} E_{n} \right) -F= \bigcup_{n\geq 1}(E_{n}-F)\)</span>, entonces <span class="math inline">\(\left( \bigcup_{n\geq 1} E_{n}\right)-F\in\mathcal{M}(\mathcal{R})\)</span>. Demostrar que <span class="math inline">\(F\backslash (E_{n})_{n\geq 1}, (E_{n})_{n\geq 1}\cup F, (E_{n})_{n\geq 1}\cap F\)</span> pertenecen a <span class="math inline">\(\mathcal{M}(\mathcal{R})\)</span>, es análogo. Para sucesiones decrecientes, es análogo. Con lo que se demuestra que <span class="math inline">\(\mathcal{M}(\mathcal{R})\)</span> es una clase monótona. Además, <span class="math inline">\(\mathcal{R}\subseteq L(F)\)</span>.
+Sea <span class="math inline">\(L=\{F\in\mathcal{M}(\mathcal{R}): E\backslash F, F\backslash E, E\cup F, E\cap F\in\mathcal{M}(\mathcal{R})\}\)</span>. Es claro que <span class="math inline">\(L(F)\subseteq L\)</span>, por lo tanto, <span class="math inline">\(\mathcal{R}\subseteq L\)</span>. Es claro que <span class="math inline">\(L\)</span> es una clase monótona; por el lema anterior, se tiene que <span class="math inline">\(L=\mathcal{M}(\mathcal{R})=\sigma_{\mathcal{R}}(\mathcal{R})\)</span>.</p>
 </div>
-
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-75" class="theorem"><strong>Teorema 2.2  </strong></span> Sea <span class="math inline">\(\mathcal{A}\)</span> un álgebra y <span class="math inline">\(\mathcal{M}\)</span> una clase monótona tal que <span class="math inline">\(\mathcal{A}\subseteq\mathcal{M}\)</span>, entonces <span class="math inline">\(\sigma(\mathcal{A})\subseteq\mathcal{M}\)</span>.</p>
+<p><span id="thm:unnamed-chunk-70" class="theorem"><strong>Teorema 2.2  </strong></span></p>
+<pre><code>Sea $\mathcal{A}$ un álgebra y $\mathcal{M}$ una clase monótona tal que $\mathcal{A}\subseteq\mathcal{M}$, entonces $\sigma(\mathcal{A})\subseteq\mathcal{M}$.</code></pre>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span>  Veamos que <span class="math inline">\(\sigma(\mathcal{A})=\mathcal{M}(\mathcal{A})\subseteq\mathcal{M}\)</span>. Es claro que <span class="math inline">\(\sigma(\mathcal{A})\)</span> es una clase monótona, por lo tanto, <span class="math inline">\(\sigma(\mathcal{A})\subseteq\mathcal{M}(\mathcal{A})\)</span>. Ahora, dado <span class="math inline">\(A\in\mathcal{M}(\mathcal{A})\)</span>, entonces <span class="math inline">\(A\in\mathcal{A}\)</span> o es límite de una sucesión monótona de <span class="math inline">\(\mathcal{A}\)</span>. Por lo tanto <span class="math inline">\(A\in\sigma(\mathcal{A})\)</span>.</p>
+<p><span id="unlabeled-div-19" class="proof"><em>Demostración</em>. </span></p>
+<pre><code>Veamos que $\sigma(\mathcal{A})=\mathcal{M}(\mathcal{A})\subseteq\mathcal{M}$. Es claro que $\sigma(\mathcal{A})$ es una clase monótona, por lo tanto, $\sigma(\mathcal{A})\subseteq\mathcal{M}(\mathcal{A})$. Ahora, dado $A\in\mathcal{M}(\mathcal{A})$, entonces $A\in\mathcal{A}$ o es límite de una sucesión monótona de $\mathcal{A}$. Por lo tanto $A\in\sigma(\mathcal{A})$.</code></pre>
 </div>
-
 <p>Otro teorema de este tipo es el siguiente:</p>
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-77" class="theorem"><strong>Teorema 2.3  </strong></span>Sea <span class="math inline">\(\mathcal{P}\)</span> un sistema <span class="math inline">\(\pi\)</span>. El sistema <span class="math inline">\(\lambda\)</span> generado por <span class="math inline">\(\mathcal{P}\)</span> coincide con la <span class="math inline">\(\sigma\)</span>-álgebra generada por <span class="math inline">\(\mathcal{P}\)</span>.</p>
+<p><span id="thm:unnamed-chunk-72" class="theorem"><strong>Teorema 2.3  </strong></span>Sea <span class="math inline">\(\mathcal{P}\)</span> un sistema <span class="math inline">\(\pi\)</span>. El sistema <span class="math inline">\(\lambda\)</span> generado por <span class="math inline">\(\mathcal{P}\)</span> coincide con la <span class="math inline">\(\sigma\)</span>-álgebra generada por <span class="math inline">\(\mathcal{P}\)</span>.</p>
 </div>
-
 <p>Los siguientes resultados son aplicaciones de las distintas versiones del teorema de clase monótona.</p>
-
 <div class="theorem">
-<p><span id="thm:teorema158" class="theorem"><strong>Teorema 2.4  </strong></span> Si <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\nu\)</span> son medidas finitas en <span class="math inline">\((\mathbb{R},\mathcal{B}(\mathbb{R}))\)</span> que coinciden en los intervalos del tipo <span class="math inline">\((a,b]\)</span>, entonces <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\nu\)</span> coinciden en todo <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>.</p>
+<p><span id="thm:teorema158" class="theorem"><strong>Teorema 2.4  </strong></span></p>
+<pre><code>Si $\mu$ y $\nu$ son medidas finitas en $(\mathbb{R},\mathcal{B}(\mathbb{R}))$ que coinciden en los intervalos del tipo $(a,b]$, entonces $\mu$ y $\nu$ coinciden en todo $\mathcal{B}(\mathbb{R})$.</code></pre>
 </div>
- 
 <div class="proof">
-<p> <span class="proof"><em>Demostración. </em></span> Considerando la clase <span class="math inline">\(\mathcal{H}=\{B\in\mathcal{B}(\mathbb{R}): \mu(B)=\nu(B)\}\)</span>. Es claro que los intervalos del tipo <span class="math inline">\((a,b]\)</span> pertenecen a la clase <span class="math inline">\(\mathcal{H}\)</span>. Basta ver que el sistema <span class="math inline">\(\lambda\)</span> generado por los intervalos coincide con el sitema <span class="math inline">\(\lambda\)</span> generado por <span class="math inline">\(\mathcal{H}\)</span>. Luego, por el teorema de clases monótonas, se tiene el resultado.</p>
+<p><span id="unlabeled-div-20" class="proof"><em>Demostración</em>. </span>Considerando la clase <span class="math inline">\(\mathcal{H}=\{B\in\mathcal{B}(\mathbb{R}): \mu(B)=\nu(B)\}\)</span>. Es claro que los intervalos del tipo <span class="math inline">\((a,b]\)</span> pertenecen a la clase <span class="math inline">\(\mathcal{H}\)</span>. Basta ver que el sistema <span class="math inline">\(\lambda\)</span> generado por los intervalos coincide con el sitema <span class="math inline">\(\lambda\)</span> generado por <span class="math inline">\(\mathcal{H}\)</span>. Luego, por el teorema de clases monótonas, se tiene el resultado.</p>
 </div>
-
-
 <div class="theorem">
-<p><span id="thm:teorema159" class="theorem"><strong>Teorema 2.5  </strong></span> Si <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\nu\)</span> son dos medidas en <span class="math inline">\((\mathbb{R},\mathcal{B}(\mathbb{R}))\)</span> que coinciden y son finitas en los intervalos del tipo <span class="math inline">\((a,b]\)</span>, entonces <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\nu\)</span> coinciden en todo <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>.</p>
+<p><span id="thm:teorema159" class="theorem"><strong>Teorema 2.5  </strong></span></p>
+<pre><code>Si $\mu$ y $\nu$ son dos medidas en $(\mathbb{R},\mathcal{B}(\mathbb{R}))$ que coinciden y son finitas en los intervalos del tipo $(a,b]$, entonces $\mu$ y $\nu$ coinciden en todo $\mathcal{B}(\mathbb{R})$.</code></pre>
 </div>
-
-
 <div class="remark">
-<p> <span class="remark"><em>Nota. </em></span>  Pueden usarse <span class="math inline">\(\sigma\)</span>-álgebras generadas por anillos, así como generadas por álgebras o sistemas <span class="math inline">\(\pi\)</span>.</p>
+<p><span id="unlabeled-div-21" class="remark"><em>Nota</em>. </span>Pueden usarse <span class="math inline">\(\sigma\)</span>-álgebras generadas por anillos, así como generadas por álgebras o sistemas <span class="math inline">\(\pi\)</span>.</p>
 </div>
-
 
 </div>
 </div>
@@ -683,7 +619,6 @@ ga('send', 'pageview');
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -702,6 +637,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -722,6 +658,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Medida.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "none"
 }
@@ -734,8 +674,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
